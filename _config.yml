@@ -1,0 +1,68 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: 259201 Computer Programming for Engineers
+author: Department of Computer Engineering, Chiang Mai University
+logo: logo.png
+only_build_toc_files: true
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", ".venv/*"]
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force   # auto
+  timeout: 10000
+
+
+
+sphinx:
+  recursive_update: true
+  config:
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js  # for Plotly
+    suppress_warnings: ["mystnb.unknown_mime_type"]
+    html_theme_options: # https://sphinx-book-theme.readthedocs.io/en/latest/customize/index.html
+      search_bar_text: "ค้นหาคำในเล่ม..." # https://github.com/executablebooks/jupyter-book/issues/770
+      toc_title: "สารบัญ"
+      show_toc_level: 2
+      use_sidenotes: true  # footnote as margin note      
+
+#######################################################################################
+# Parse and render settings
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    # - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    # - html_admonition
+    # - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+
+html:
+  use_issues_button: true
+  use_repository_button: true
+  announcement: "Drafted version"
+
+# Launch button settings
+launch_buttons:
+  notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
+  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  thebe                     : true  # Add a thebe button to pages (requires the repository to run on Binder)
+  colab_url                 : https://colab.research.google.com # The URL of Google Colab (https://colab.research.google.com)
+
+# Information about where the book exists on the web
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+repository:
+  url                       : https://github.com/kasemsit/259201  # The URL to book's repository
+  path_to_book              : ""  # A path to your book's folder, relative to the repository root.
+  branch                    : master  # Which branch of the repository should be used when creating links
+
+
+
+
+

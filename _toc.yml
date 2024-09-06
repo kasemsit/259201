@@ -1,0 +1,14 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: เนื้อหา
+    numbered: True  # Only applies to chapters in Part 1.
+    chapters:
+    - file: notebook/259201_Module02.ipynb
+    - file: notebook/module02.md
+
+    
+
