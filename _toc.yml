@@ -2,13 +2,13 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: index
 parts:
-  - caption: เนื้อหา
+  - caption: Contents
     numbered: True  # Only applies to chapters in Part 1.
     chapters:
-    - file: notebook/259201_Module02.ipynb
-    - file: notebook/module02.md
+    - file: modules/module02.md
+
 
     
 
