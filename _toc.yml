@@ -7,7 +7,7 @@ parts:
   - caption: Contents
     numbered: True  # Only applies to chapters in Part 1.
     chapters:
-    - file: modules/module02.md
+    - file: modules/module02.ipynb
 
 
     
