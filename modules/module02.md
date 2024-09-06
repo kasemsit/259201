@@ -203,44 +203,31 @@ type(ข้อมูล)
 
 **ตัวอย่าง**
 
+```{code-cell} python
+:tags: ["hide-output"]
 
-`````{tab-set}
-````{tab-item} Ex 1
-```{code-block} python
 type('Hello')
 ```
-**Output:**
-```console
-str
-```
-````
-````{tab-item} Ex 2
-```{code-block} python
+
+```{code-cell} python
+:tags: ["hide-output"]
+
 type(1)
 ```
-````
-````{tab-item} Ex 3
-```{code-block} python
+
+```{code-cell} python
+:tags: ["hide-output"]
 
 type(1.234)
 ```
-```console
 
-```
-````
-````{tab-item} Ex 4
-```{code-block} python
+```{code-cell} python
+:tags: ["hide-output"]
 
 type(1.23e11)
 ```
-```console
-str
-```
-````
-`````
 
-
-```{code-cell}
+```{code-cell} python
 :tags: ["hide-output"]
 
 s2 = 2500+1000            # int
@@ -248,7 +235,7 @@ print(s2)
 print( type(s2) )
 ```
 
-```{code-cell}
+```{code-cell} python
 :tags: ["hide-output"]
 
 s2 = s2/2                 # float
@@ -256,7 +243,7 @@ print(s2)
 print( type(s2) )
 ```
 
-```{code-cell}
+```{code-cell} python
 :tags: ["hide-output"]
 
 s2 = 'hello ' + 'there'   # string concatenation
@@ -395,7 +382,7 @@ print(s)
 type(s)
 ```
 
----
+
 ## Operators
 
 - `Operator` คือสัญลักษณ์หรือเครื่องหมายที่แทนการคำนวณต่าง ๆ ทางคณิตศาสตร์
@@ -413,7 +400,7 @@ type(s)
 - ตัวเลข 2 และ 3 คือ operand และ 5 คือผลลัพธ์
 
 
----
+
 ### Arithematic Operators
 
 ตัวดำเนินการทางคณิตศาสตร์
