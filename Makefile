@@ -1,5 +1,6 @@
 buildall:
 	jupytext --to notebook modules/module02.md modules/module02.ipynb
+	jupytext --to notebook modules/module03.md modules/module03.ipynb
 	jupyter-book build --all ./
 build:
 	jupyter-book build ./	

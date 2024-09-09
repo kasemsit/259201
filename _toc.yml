@@ -8,6 +8,7 @@ parts:
     numbered: True  # Only applies to chapters in Part 1.
     chapters:
     - file: modules/module02.ipynb
+    - file: modules/module03.ipynb
 
 
     
