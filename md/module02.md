@@ -1,15 +1,19 @@
 ---
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.4
-kernelspec:
-  display_name: Python 3
-  name: python3
+jupyter:
+  jupytext:
+    formats: notebook//ipynb,md//md
+    main_language: python
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.4
+  kernelspec:
+    display_name: Python 3
+    name: python3
 ---
 
+<!-- #region -->
 # Variables and Types, Operators, Input/Output
 
 
@@ -60,15 +64,14 @@ print("Congratulations on your first Python program.")
 
 
 ### Python Keywords
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 import keyword
 print(keyword.kwlist)
 ```
 
-
+<!-- #region -->
 ## Data Types
 
 การเลือก**ชนิดของข้อมูล**ที่จัดเก็บในตัวแปรให้เหมาะสมกับการใช้งาน ถือเป็นเรื่องสำคัญของการเขียนโปรแกรมคอมพิวเตอร์
@@ -93,31 +96,24 @@ var2 = 10/2    # จำนวนจริง (float)
 var3 = 1.23e9  # จำนวนจริง (float)
 var4 = False   # ค่าความจริง (boolean)
 ```
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 var1 = 100*2
 print(var1)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 var2 = 1_000_000+1
 print(var2)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 var3 = 10/2
 print(var3)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 s1 = "this is a string"
 print(s1)
 ```
@@ -128,30 +124,22 @@ print(s1)
 - เครื่องหมาย `quote` ได้แก่ **`'...'`** (single), **`"..."`** (double), **`'''...'''`** (triple)
 - บางกรณีอาจต้องเลือกใช้ชนิดของ `quote` ให้เหมาะสมกับข้อความที่จัดเก็บ
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # simple string
 print('this is a simple string.')
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # string with single quote inside
 print("this isn't a simple string.")
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # string with double quote inside
 print('this is how to print "double quote" in sentence.')
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # string that spans multiple lines
 s2 = '''this is another string
 this is 2nd line
@@ -160,6 +148,7 @@ this is 3rd line'''
 print(s2)
 ```
 
+<!-- #region -->
 ### อักขระพิเศษ (Escape Code)
 
  - ในภาษาคอมพิวเตอร์ มักมีการใช้งานอักขระพิเศษร่วมกับข้อความ (string) เพื่อให้เกิดการแสดงผลแบบต่าง ๆ เช่น การขึ้นบรรทัดใหม่ การแท็บ การลบอักขระ
@@ -179,16 +168,16 @@ Escape Code | Description
 `\'` | single quote (\')
 `\"` | double quote (\")
 `\\` | backslash (\\)
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print('This is 1st line')
 print('This is 2nd line \nThis is 3rd line')
 print()
 print('This is 4th line \t\tand this is separated by 2 tabs')
 ```
 
+<!-- #region -->
 ### ตัวแปรในภาษา Python อาจมีชนิดข้อมูลไม่ตายตัว
 
 - ตัวแปรในภาษา Python แต่ละตัวไม่จำเป็นต้องมีชนิดตายตัว (เหมือนกับในภาษา C/C++, Java, C#)
@@ -202,50 +191,37 @@ type(ข้อมูล)
 ```
 
 **ตัวอย่าง**
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 type('Hello')
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 type(1)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 type(1.234)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 type(1.23e11)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 s2 = 2500+1000            # int
 print(s2)
 print( type(s2) )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 s2 = s2/2                 # float
 print(s2)
 print( type(s2) )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 s2 = 'hello ' + 'there'   # string concatenation
 print(s2)
 print( type(s2) )
@@ -257,13 +233,11 @@ print( type(s2) )
 - `string` (ข้อความ) `+` `string` (ข้อความ) ได้ แต่มักหมายถึงการนำข้อความมาเรียงต่อกัน (concatenation)
 - **`string` (ข้อความ) `+` `number` (ตัวเลข) ไม่ได้ จะเกิด `Type error`**
 
-```{code-cell} python
-:tags: ["raises-exception"]
-
+```python tags=["raises-exception"]
 s2 + 1
 ```
 
-
+<!-- #region -->
 ## Type Conversions
 
 - **การเปลี่ยนชนิดของข้อมูล**ให้เหมาะสมก่อนใช้งานเป็นเรื่องที่เกิดขึ้นได้
@@ -276,30 +250,25 @@ s2 + 1
 
 - `int()` : แปลงให้ข้อมูลเป็น**จำนวนเต็ม**
 - `float()` : แปลงให้ข้อมูลเป็น**จำนวนทศนิยม**
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print(99+1.23)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 i = int(42+3.5)
 print(i)
 print( type(i) )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 f = float(i)
 print(f)
 print( type(f) )
 ```
 
-
+<!-- #region -->
 ### String Conversions
 
 - เราสามารถใช้ `int()` และ `float()` เพื่อแปลง**ข้อความ (string) ที่มีรูปแบบตัวเลข** ให้มีค่าเป็นตัวเลข (number) ได้เช่นกัน
@@ -311,54 +280,41 @@ d = int('100')    # d=100
 - หาก**ข้อความไม่อยู่ในรูปของตัวเลขที่เหมาะสม**จะเกิด `value error`
 
 - เราสามารถแปลงข้อมูลตัวเลขให้เป็นข้อความได้ด้วยคำสั่ง `str()`
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # convert string in int format to int >> ok!
 print(int('1234'))
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 str1 = '123.456'
 print(str1)
 print( type(str1) )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # convert string in float format to float >> ok!
 print( float(str1)+1000 )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # convert string in float format to float >> ok!
 f = float('987.654')
 print(f)
 print( type(f) )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print( f+1000 )
 ```
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 # convert string in float format to int >> Value error!
 print( int('123.456') )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # convert "string in float format" to float,
 # then convert from float to int >> ok!
 value = int( float('123.456') )
@@ -366,22 +322,17 @@ print(value)
 print( type(value) )
 ```
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 # covert string to int >> Value error
 print(int('Hello'))
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # convert float to string >> ok!
 s = str(f)
 print(s)
 type(s)
 ```
-
 
 ## Operators
 
@@ -390,12 +341,11 @@ type(s)
 
 **ตัวอย่าง**
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 2 + 3
 ```
 
+<!-- #region -->
 - เครื่องหมาย + คือ operator สำหรับการบวก
 - ตัวเลข 2 และ 3 คือ operand และ 5 คือผลลัพธ์
 
@@ -404,10 +354,9 @@ type(s)
 ### Arithematic Operators
 
 ตัวดำเนินการทางคณิตศาสตร์
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = 16
 y = 4
 
@@ -419,22 +368,15 @@ print('x / y =', x / y)   # การหาร (ได้ผลลัพธ์�
 
 **`%` : การหารที่ได้เศษของการหารเป็นผลลัพธ์ (modulus)**
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = 17
 y = 4
 print('x % y =', x % y)
 ```
 
-
-
-
 **`//` : การหารที่ปัดเศษของการหารทิ้ง**
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = 17
 y = 4
 print('x // y =', x // y)
@@ -442,21 +384,15 @@ print('x // y =', x // y)
 
 `**` : การคำนวณหาค่ายกกำลัง (exponent) **bold text**
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = 2
 y = 4
 print('x ** y =', x ** y)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 16**0.5
 ```
-
-
 
 ### Comparison Operators
 
@@ -464,57 +400,40 @@ print('x ** y =', x ** y)
 
 ผลลัพธ์ที่ได้จากการเปรียบเทียบมักถูกนำไปใช้ในการ**สร้างเงื่อนไข (condition)** ในการทำงานของโปรแกรมต่อไป
 
-
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = 10
 y = 12
 
 print('x > y is', x > y)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print('x < y is', x < y)
 ```
 
-
 **x เท่ากับ y หรือไม่?** (สังเกตุว่าไม่ได้ใช้เครื่องหมาย **=** ในการเปรียบเทียบ)
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print('x == y is', x == y)
 ```
 
 **x ไม่เท่ากับ y หรือไม่?**
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print('x != y is', x != y)
 ```
 
-
 **x มากกว่าหรือเท่ากับ y หรือไม่?**
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print('x >= y is', x >= y)
 ```
 
-
 **x น้อยกว่าหรือเท่ากับ y หรือไม่?**
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print('x <= y is', x <= y)
 ```
-
 
 ### Logical Operators
 
@@ -522,10 +441,7 @@ print('x <= y is', x <= y)
 
 มีตัวดำเนินการพื้นฐานได้แก่ `and`, `or`, `not`
 
-
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = True
 y = False
 
@@ -534,40 +450,31 @@ print('x or y is', x or y)
 print('not x is', not x)
 ```
 
-
-
 ### Assignment Operators
 
 ตัวดำเนินการสำหรับ**การกำหนดค่า** จะใช้**เครื่องหมายเท่ากับ (`=`)** เป็นพื้นฐาน และสามารถประยุกต์ใช้ร่วมกับ**ตัวดำเนินการทางคณิตศาสตร์**อื่น ๆ ได้
 
 เช่น `+=`, `-=`, `*=`, `/=`, `**=`
 
-
-
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = 10
 y = x+100
 print(x,y)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = x+1
 z = y/2
 print(x, z)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x += 10   # x = x+10
 z /= 5    # z = z/5
 print(x,z)
 ```
 
+<!-- #region -->
 ## Operators Precedence
 
 ลำดับการประมวลผลของตัวดำเนินการ เมื่อมีการนำเอาตัวดำเนินการหลายประเภทมาใช่ร่วมกันในการประมวลผล โปรแกรมจะมี**ลำดับในการประมวลผล operand คู่ก่อนหลัง จากบนลงล่าง** ดังที่แสดงในตารางต่อไปนี้
@@ -589,10 +496,9 @@ print(x,z)
 | `is`, `is not`            | Identity operators                    |
 | `in`, `not in`            | Membership operators                  |
 | `not`, `or`, `and`          | Logical operators                     |
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a = 20
 b = 10
 c = 15
@@ -601,24 +507,17 @@ d = 5
 print(a + b * c / d)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print((a + b) * c / d)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print(a + b * (c / d))
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print((a + (b * c)) / d)
 ```
-
 
 ### Example
 
@@ -626,14 +525,13 @@ $$
 y = -3x - \frac{2}{10^2}
 $$
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = 5
 y = -3*x-2/10**2
 print(y)
 ```
 
+<!-- #region -->
 ## Python `math` module
 
 - การคำนวณทางคณิตศาสตร์ที่ซับซ้อนทำได้ยากด้วย `operator` พื้นฐาน
@@ -651,61 +549,47 @@ import math
  - Rounding – `ceil, floor`
  - Others – `abs`, …
  - ค่าคงที่ - `pi, e`
+<!-- #endregion -->
 
-```{code-cell} python
-
+```python
 # import built-in math module
 import math
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # using square root (sqrt) function in math module
 print(math.sqrt(25))
 print(25**0.5)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # pi and e value
 print(math.pi, math.e)
 # area of circle with radius of 10
 print(math.pi * 10**2)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # 2 radians = 114.59 degrees
 print(math.degrees(2))
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # 60 degrees = 1.04 radians
 print(math.radians(60))
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # Sine of 2 radians
 print(math.sin(2))
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # Cosine of 0.5 radians
 print(math.cos(0.5))
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # Sine of 30 radians
 print(math.sin(30))
 
@@ -724,23 +608,19 @@ print(math.sin(rad))
 print(math.degrees(rad))
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # 4! = 1 * 2 * 3 * 4 = 24
 print(math.factorial(4))
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ceil
 print(math.ceil(5.23))
 # floor
 print(math.floor(5.99))
 ```
 
-
+<!-- #region -->
 ## `input()` function
 
 - ใช้คำสั่ง input() สำหรับการรับค่าข้อมูลจากผู้ใช้ผ่านคีย์บอร์ด เช่น
@@ -756,10 +636,9 @@ a = input()
 a = int(input())     # แปลงข้อมูลที่รับมาแบบข้อความ เป็น int
 a = float(input())   # แปลงข้อมูลที่รับมาแบบข้อความ เป็น float
 ```
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["raises-exception","remove-output"]
-
+```python tags=["raises-exception", "remove-output"]
 import math
 
 # รับ input แล้วแปลงจาก string เป็น float ด้วยคำสั่งภายในบรรทัดเดียว
@@ -767,7 +646,7 @@ r = float( input() )
 print(math.pi*r*r)
 ```
 
-
+<!-- #region -->
 - หากต้องการให้มีการ**แสดงข้อความอธิบายผู้ใช้งานโปรแกรม**ในขณะรับ input สามารถทำได้ดังนี้คือ
 ```python
 name = input('Please enter your name:')
@@ -798,10 +677,9 @@ Enter your name: John Doe
 - หากผู้ใช้ป้อนข้อมูลเป็น  “John Doe” ข้อมูลจะถูกแบ่งออกเป็น 2 ส่วน
  - “John” จะถูกเก็บไว้ในตัวแปร `fname`
  - “Doe” จะถูกเก็บไว้ในตัวแปร `lname`
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["raises-exception","remove-output"]
-
+```python tags=["raises-exception", "remove-output"]
 fname, lname = input().split()
 print('My firstname is ' + fname +' and ' + lname + ' is my last name.')
 ```
@@ -809,13 +687,12 @@ print('My firstname is ' + fname +' and ' + lname + ' is my last name.')
 - แต่ถ้าใช้  `name = input('Enter your name:')` โดยไม่มี `split()` ต่อท้าย
  - “John Doe” ทั้งหมดจะถูกเก็บไว้ในตัวแปร `name`
 
-```{code-cell} python
-:tags: ["raises-exception","remove-output"]
-
+```python tags=["raises-exception", "remove-output"]
 name = input()
 print('My name is ' + name)
 ```
 
+<!-- #region -->
 ### ข้อควรระวังในการใช้ `input().split()`
 
 
@@ -836,10 +713,9 @@ print()
 ## Formatting output using *f-string*
 
 **`f-string`** คือการใช้ `f` นำหน้าข้อความเพื่อกำหนดรูปแบบพิเศษในข้อความนั้น และใช้เครื่องหมาย **`{}`** ในการ**กำหนดตำแหน่งและรูปแบบของข้อมูล**ที่จะแทรกลองไปในข้อความ ดังเช่นตัวอย่างต่อไปนี้
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 num1 = 83
 num2 = 9
 result = f"The product of {num1} and {num2} is {num1 * num2}."
@@ -848,9 +724,7 @@ print(result)
 
 `f-string` สามารถนำไปใช้กำหนดรูปแบบพิเศษในข้อความที่จะแสดงออกด้วยคำสั่ง `print` เช่น
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 city = 'Chiang Mai'
 temp = 36.1
 print(f'Temperature in {city} is {temp} degree Celsius.')
@@ -859,9 +733,7 @@ print('Temperature in ' + city + ' is ' + str(temp) + ' degree Celsius.')
 
 `f-string` สามารถใช้กำหนดรูปแบบพิเศษ เช่น จำนวนตำแหน่งทศนิยม หรือขนาดความกว้างของช่องการแสดงผลของข้อมูลที่ระบุใน `{}` ได้ เช่น
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a = 3
 print(f'We have {a:5} dogs.')
 ```
@@ -869,10 +741,7 @@ print(f'We have {a:5} dogs.')
 ความหมาย:
 - **`{a:5}`** แสดงค่า `a` : ขนาด 5 ช่อง (ถ้าเป็นข้อมูล**ตัวเลขจะชิดขวา**)
 
-
-```{code-cell}  python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a = 'CMU'
 print(f'I love {a:5}.')
 ```
@@ -880,15 +749,13 @@ print(f'I love {a:5}.')
 ความหมาย:
 - **`{a:5}`** แสดงค่า `a` : ขนาด 5 ช่อง (ถ้าเป็นข้อมูล**ข้อความจะชิดซ้าย**)
 
-
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a = 'Chiang Mai'
 b = 36.12345
 print(f'Temp in {a} is {b:.2f} degree Celsius.')
 ```
 
+<!-- #region -->
 ความหมาย:
 - **`{b:8.2f}`** แสดงค่า `b` : ขนาด 8 ช่องชิดขวา **`.2f`** = แสดงทศนิยม 2 ตำแหน่ง
 
@@ -915,3 +782,4 @@ print(f'Temp in {a} is {b:.2f} degree Celsius.')
 - ใช้ `input().split()` ในการตัดแบ่ง String ที่รับเข้ามาเพื่อแยกเป็นข้อมูลหลายตัวได้
 - Python f-string สามารถใช้สำหรับการกำหนดรูปแบบพิเศษให้กับข้อความได้
 - การแสดงผลออกจอภาพสามารถใช้ฟังก์ชัน `print()` ร่วมกับ f-string เพื่อกำหนดรูปแบบการแสดงผลที่เหมาะสมได้
+<!-- #endregion -->

@@ -1,3 +1,7 @@
 jupyter-book
 jupytext
+matplotlib
+numpy
+pandas
+openpyxl
 ghp-import

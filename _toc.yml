@@ -7,9 +7,17 @@ parts:
   - caption: Contents
     numbered: True  # Only applies to chapters in Part 1.
     chapters:
-    - file: modules/module02.ipynb
-    - file: modules/module03.ipynb
-
+    - file: notebook/module02.ipynb
+    - file: notebook/module03.ipynb
+    - file: notebook/module04.ipynb
+    - file: notebook/module05_1.ipynb
+    - file: notebook/module05_2.ipynb
+    - file: notebook/module06.ipynb
+    - file: notebook/module07.ipynb
+    - file: notebook/module08.ipynb
+    - file: notebook/module09.ipynb
+    - file: notebook/module10.ipynb
+    - file: notebook/module11.ipynb
 
     
 

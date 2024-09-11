@@ -1,15 +1,19 @@
 ---
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.4
-kernelspec:
-  display_name: Python 3
-  name: python3
+jupyter:
+  jupytext:
+    formats: notebook//ipynb,md//md
+    main_language: python
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.4
+  kernelspec:
+    display_name: Python 3
+    name: python3
 ---
 
+<!-- #region -->
 # Collection Data Types
 
 ```{admonition} Topics
@@ -64,10 +68,9 @@ kernelspec:
 
 - ใช้เครื่องหมาย `[...]` ในการสร้างลิสต์ โดยการระบุรายการชุดข้อมูลไว้ภายใน แล้วขั้นข้อมูลแต่ละตัวด้วย `,`
 - ลิสต์ใน Python **สามารถจัดเก็บข้อมูลหลายชนิดคละกันได้** ซึ่งต่างกับ array ในภาษาคอมพิวเตอร์อื่น ๆ ที่จัดเก็บข้อมูลได้เพียงชนิดเดียว
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # empty list
 lst1 = []
 print(lst1)
@@ -81,13 +84,12 @@ lst3 = [1, "Hello", 3.4]
 print(lst3)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ตรวจสอบชนิดของตัวแปร lst2
 print( type(lst2) )
 ```
 
+<!-- #region -->
 ### List กับการรับข้อมูลจากผู้ใช้ด้วย `input().split()`
 
 ในกรณีที่เรา**ใช้ตัวแปรเพียง 1 ตัว**ในการรับค่าผลลัพธ์จาก `input().split()` ตัวแปรดังกล่าวจะเก็บข้อมูลที่ถูก split แล้วในรูปแบบของ List
@@ -119,36 +121,27 @@ print(data_list_int)
 ### การนับจำนวนข้อมูลในลิสต์
 
 เราสามารถวัดความยาว หรือนับจำนวนข้อมูลภายในลิสต์ได้ด้วยคำสั่ง `len(ตัวแปรลิสต์)` ซึ่งจะให้ผลลัพธ์เป็น `int`
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # อ้างถึงตัวแปร lst1, lst2, lst3 จากตัวอย่างก่อนหน้า
 print( len(lst1) )
 print( len(lst2) )
 print( len(lst3) )
 ```
 
-
-
 ค่า `index` มีค่าระหว่าง `0` ถึง `len()-1`
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a = [16.5, 2.0, 77.5, 40.0, 0.5, 11.15, 0.0, 1.0, 1.0, 1.0, 112071.5]
 print( f'len(a): {len(a)}' )
 print( a[4] )
 print( a[ len(a)-1 ] )     # ข้อมูลสุดท้ายในลิสต์
 ```
 
-
-
 ### การเข้าถึงข้อมูลในลิสต์ (List Access)
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ดึงข้อมูลจากลิสต์ (ทีละ item)
 my_list = ['E','n','g','r'] # index = 0,1,2,3, len()=4
 print(my_list[0])
@@ -158,9 +151,7 @@ print(my_list)
 print(my_list[2]+my_list[1]+my_list[2])
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # กำหนดค่าข้อมูลให้กับลิสต์ (ทีละ item)
 my_list[1] = 8.0
 my_list[2] = 'hello'
@@ -168,9 +159,7 @@ my_list[3] = True
 print(my_list)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # การใช้ compound assignment operators
 my_list[1] = my_list[1]*2
 print(my_list)
@@ -182,34 +171,26 @@ my_list[2] += " world"
 print(my_list)
 ```
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 # เข้าถึงข้อมูลที่ไม่มีอยู่จริง (ระบุด้วยค่า index ที่ไม่มีอยู่จริง) >> IndexError
 my_list = [10,20,30,40]
 length = len(my_list)  # length = 4
 print(my_list[ length ])
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # เมื่อ index มีเป็นค่า negative หมายถึงการดึงข้อมูลจากท้ายลิสต์ 
 my_list = [10,20,30,40]
 print(my_list[-1])
 print(my_list[-4])  # ถ้าเข้าถึง index -5 ดังโค้ดต่อนี้ print(my_list[-5]) จะเกิดข้อผิดพลาด
-
 ```
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 # เมื่อค่า index เป็นค่า float จะเกิด TypeError
 print( my_list[4/2] )
 ```
 
-
-
+<!-- #region -->
 ### การเข้าถึงช่วงของข้อมูล (Slice)
 
 การเข้าถึง**ช่วงของข้อมูล**ในลิสต์ ด้วยการ **slice** โดยอาศัยการกำหนดค่า `index` เพื่อบ่งบอกช่วงของข้อมูลในรูปแบบ
@@ -224,47 +205,36 @@ range_of_data = list_variable[start:stop:step]
 - **`step`** คือ **การเพิ่มค่า** `index` ทีละ `+step`
 
 ดังนั้น **`data[1:n]`** ได้เป็นการเข้าถึงข้อมูลตั้งแต่ **`data[1]` จนถึง `data[n-1]`** (โดยไม่รวม `data[n]`)
+<!-- #endregion -->
 
-
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a = [16, 2, 77, 40,0,"000",0.0, 1,1,1,112071]
 print(a)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a1 = a[0:3]     # start=0, stop=3 >> [0,1,2]
 a2 = a[2:6]     # start=2, stop=6 >> [2,3,4,5]
 print( a1 )
 print( a2 )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print( a[0:len(a)-1])    # start=0, stop=11 >> [0,1,2,...,10]
 print( a[0:len(a)-1:2])  # start=0, stop=11, step=2 >> [0,2,4,6,8,10]
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a4 = a[:6]       # start=0, stop=6  >> [0,1,2,3,4,5]
 a5 = a[4:]       # start=4, stop=11 >> [4,5,6,7,8,9,10]
 print(a4)
 print(a5)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a[0:3] = [1,1,1]
 print(a)
 ```
-
 
 ### การเพิ่มข้อมูลลงในลิสต์
 
@@ -276,9 +246,7 @@ print(a)
 - `+` ใช้**เชื่อมต่อ** List เข้าด้วยกัน (concatenation)
 - `*` ใช้เพิ่มข้อมูลให้มีหลายชุดตาม**จำนวน**ที่ต้องการ
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 data = [1,5,7,9]
 data.append(11)       # เพิ่ม 11 ต่อท้ายลิสต์
 print(data)
@@ -287,24 +255,19 @@ data.insert(1,3)      # แทรก 3 ในตำแหน่ง index=1
 print(data)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a = [10,30,50]
 b = [20,40,60]
 c = a+b
 print(c)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 d = a*2
 print(d)
 
 print(a*2+b*2)
 ```
-
 
 ### การลบข้อมูลจากลิสต์
 
@@ -313,9 +276,7 @@ print(a*2+b*2)
 - `.pop()` ลบข้อมูลในตำแหน่ง `index` ที่ระบุออกจาก List
 - `.clear()` ลบข้อมูลทั้งหมดจาก List
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = [1,2,3,4,5,0,5,6,7,8,9]
 
 # ลบ 5 ตัวแรกที่พบใน List
@@ -323,16 +284,12 @@ x.remove(5)
 print(x)
 ```
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 # ลบข้อมูลที่ไม่มีอยู่ใน List จะเกิด error
 x.remove(100)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # หากไม่ระบุ index ข้อมูลที่ต้องการลบ จะเป็นการลบข้อมูลตัวท้ายสุดใน List
 # ข้อมูลที่ถูกลบจาก List จะถูกเก็บที่ตัวแปร y
 y = x.pop()
@@ -343,9 +300,7 @@ y = x.pop(1)
 print(y, x)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print(x)
 
 # ลบข้อมูลทั้งหมดจาก List
@@ -353,50 +308,37 @@ x.clear()
 print(x)
 ```
 
-
 ### การค้นหาข้อมูลในลิสต์
 
 ตัวแปร List มีคำสั่งติดตัวที่ใช้ในการค้นหาข้อมูล คือ
 - `.index()` ได้ค่า `index` ที่ระบุตำแหน่งของข้อมูลที่พบ
 - `.count()` ค้นหาและน้บจำนวนข้อมูลที่สนใจ
 
-
-
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = [1,5,2,3,4,5,0,5,6,7,8,9]*3
 print(x)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ค้นหาว่า 0 ตัวแรกใน List อยู่ที่ index ตำแหน่งใด
 # พบเลข 0 อยู่ในตำแหน่ง index=6
 idx = x.index(0)
 print(idx)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ค้นหา 0 ตั้งแต่ตำแหน่ง index=7 เป็นต้นไป
 idx = x.index(0,idx+1)
 print(idx)
 ```
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 # ค้นหาข้อมูลที่ไม่มีใน List จะทำให้เกิด error
 idx = x.index(100)
 print(idx)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # นับจำนวน 5 ทั้งหมดใน List
 print( x.count(5) )
 
@@ -404,17 +346,13 @@ print( x.count(5) )
 print( x.count(100) )
 ```
 
-
-
 ### การเรียงลำดับข้อมูลในลิสต์
 
 ตัวแปร List มีคำสั่งติดตัวที่ใช้ในการเรียงลำดับข้อมูล คือ
 - `.sort()` สำหรับการเรียงลำดับข้อมูลจาก **น้อยไปหามาก (ascending order)**
 - `.reverse()` สำหรับการเรียงลำดับข้อมูลจาก **item สุดท้ายกลับมายัง item แรก**
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 c = [10, 30, 50, 20, 40, 60]*2
 print(c)
 
@@ -429,9 +367,7 @@ c.reverse()
 print(c)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 names = ["Ann", "Kenneth", "Chad", "Aaron", "Bill", "Conan"]
 print(names)
 names.sort()
@@ -439,8 +375,6 @@ print(names)
 names.reverse()
 print(names)
 ```
-
-
 
 ### การคำนวณทางสถิติ (Simple Statistics)
 
@@ -451,9 +385,7 @@ print(names)
 
 **หมายเหตุ:** `min()`, `max()`, `sum()` ไม่ใช่คำสั่งที่เป็นความสามารถติดตัวมากับ List
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x = [3,5,5,3,4,5,0,9,5,6,7,8,4,8,3]
 
 print( len(x) )
@@ -465,9 +397,7 @@ print( sum(x) )
 print( sum(x)/len(x) )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # หาค่า maximum
 mx = max(x)
 # หาว่าค่า maximum อยู่ในตำแหน่ง index ใด
@@ -477,10 +407,7 @@ print(idx_mx)
 print(x[idx_mx])
 ```
 
-
-
-
-
+<!-- #region -->
 ## Tuple
 
 - มีการเก็บข้อมูลในลักษณะเดียวกันกับลิสต์ แต่**ไม่สามารถเปลี่ยนแปลงค่าข้อมูลสมาชิกในภายหลังได้ (immutable)**
@@ -490,18 +417,15 @@ tuple_variable = (item1, item2, item3, ...)
 ```
 
 - การอ้างอิงข้อมูลแต่ละ `item` จะใช้ค่า `index` ซึ่งเป็นค่า `int` เหมือนกันกับลิสต์
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # สร้าง tuple ที่ไม่มีข้อมูลภายใน (empty tuple)
 emp_tup = ()
 print( emp_tup )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 tup1 = (100,200,300,400,500,2.5,3.5,4.5,'hello')
 print(tup1)
 print( tup1[4] )
@@ -509,49 +433,33 @@ print( tup1[0]+tup1[4] )
 print( tup1[-1] )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ตรวจสอบชนิดของตัวแปร tup1
 print( type(tup1) )
 ```
-
-
 
 ### การนับจำนวนข้อมูลใน Tuple
 
 สามารถใช้คำสั่ง **`len(tuple_variable)`** ใน การนับจำนวนข้อมูลในทูเพิลได้เช่นกัน
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print( len(tup1) )
 ```
 
-
-
 **Tuple รองรับการ slice เช่นกัน**
 
-```{code-cell}
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print(tup1)
 print( tup1[0:4] )
 print( tup1[0:10:3] )
 ```
 
-
-
 **Tuple ไม่รองรับการแก้ไข**
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 # โค้ดนี้ควรจะแสดงค่า error
 tup1[0] = 1000
 ```
-
-
 
 ### การแปลงค่าระหว่าง Tuple และ List
 
@@ -559,9 +467,7 @@ tup1[0] = 1000
 - `list(ตัวแปร tuple)` ได้ผลลัพธ์เป็น `List`
 - `tuple(ตัวแปร list)` ได้ผลลัพธ์เป็น `Tuple`
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 x_tuple = ("apple", "banana", "cherry")
 print( type(x_tuple), x_tuple )
 print()
@@ -580,8 +486,6 @@ x_tuple = tuple(x_list)
 print( type(x_tuple), x_tuple )
 ```
 
-
-
 ---
 ## Set
 
@@ -591,13 +495,11 @@ print( type(x_tuple), x_tuple )
 - ไม่รองรับการอ้างอิงข้อมูลด้วยค่า `index` เนื่องจากการเก็บข้อมูลไม่มีลำดับ (unordered)
 - รองรับตัวดำเนินการแบบ `Union`, `intersection`, `-`
 
-+++ {"id": "DlXeP5DWKAjh"}
-
+<!-- #region id="DlXeP5DWKAjh" -->
 ### การสร้าง Set
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # Set
 a = {1,2,2,3,3,5,8}
 b = {1,2,'hello','hello','Hello',3.78}
@@ -605,40 +507,29 @@ print(a)
 print(b)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ตรวจสอบชนิดของตัวแปร a
 print( type(a) )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # empty set
 emp_set = set()
 print(emp_set)
 print( type(emp_set) )
 ```
 
-
-
 ### การนับจำนวนข้อมูลใน Set
 
 สามารถใช้คำสั่ง **len(set_variable)** ในการนับจำนวนข้อมูลใน set ได้เช่นกัน
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print( len(b) )
 ```
 
-
 ### Union และ Intersection
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print(a)
 print(b)
 print()
@@ -658,26 +549,18 @@ print(f'd = a & b            : {d}')
 print()
 ```
 
-
-
 ### การหาผลต่างของ Set
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print(f'a-b: {a-b}')
 print(f'b-a: {b-a}')
 ```
-
-
 
 ### การตรวจสอบคุณบัติ ความเป็น subset
 
 ใช้คำสั่งที่ติดตัวมากับตัวแปร set คือ `.issubset()`
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a = {1,2,2,3,3,5,8}
 z = {3,5}
 
@@ -685,28 +568,18 @@ print(z.issubset(a))  # z เป็น subset ของ a? True
 print(a.issubset(z))  # a เป็น subset ของ z? False
 ```
 
-
-
 หากพยายามเข้าถึงข้อมูลใน set ด้วย `index` จะทำให้เกิด error เนื่องจาก set ไม่รองรับการอ้างอิงด้วย `index`
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 print(a[3])
 ```
 
-
-
 นอกจากนี้ set ยังไม่รองรับการแก้ไขค่าโดยตรงเช่นกัน
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 a[3] = 100
 print(a)
 ```
-
-
 
 ### การเพิ่มข้อมูลและลบข้อมูลใน Set
 
@@ -717,9 +590,7 @@ print(a)
 - `.discard()`
 - `.clear()`
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 a = {1,2,2,3,3,5,8}
 
 # เพิ่มข้อมูลทีละตัว
@@ -727,49 +598,38 @@ a.add(10)
 print(a)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # เพิ่มข้อมูลจาก set อื่น
 a.update({100,200,300})
 print(a)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ลบค่า 100 จาก Set
 a.remove(100)
 print(a)
 ```
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 # remove ค่าที่ไม่มีใน Set ทำให้เกิด error
 a.remove(1000)
 print(a)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # แต่ discard ค่าที่ไม่มีใน Set ไม่ทำให้เกิด error
 a.discard(1000)
 print(a)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ลบค่าทั้งหมดจาก Set
 print(a)
 a.clear()
 print(a)
 ```
 
-
-
+<!-- #region -->
 ## Dictionary
 
 - เก็บข้อมูลเป็น item คล้ายกับลิสต์ แต่ใช้ค่า **key** ในการอ้างอิงข้อมูลแทน index แบบตัวเลข
@@ -778,20 +638,16 @@ print(a)
 
 
 ### การสร้าง Dictionary
+<!-- #endregion -->
 
-
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # สร้าง empty dictionary
 person1 = {}
 print(person1)
 print( type(person1) )
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # กำหนด key เป็นข้อมูลแบบ string ได้แก่
 # "name", "isMale", "midterm" และ "final"
 
@@ -800,13 +656,9 @@ print(person2)
 print( type(person2) )
 ```
 
-
-
 ### การเข้าถึงข้อมูลภายใน Dict ด้วย key
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # การดึงข้อมูล item จากใน Dict, ดึงข้อมูลโดยใช้ key
 std_name = person2["name"]
 std_score = person2["midterm"] + person2["final"]
@@ -814,30 +666,22 @@ std_score = person2["midterm"] + person2["final"]
 print(f'{std_name} got {std_score}/100 in Python programming.')
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # การกำหนดค่าให้ item ใน Dict, กำหนดค่าให้กับ key
 person2["name"] = "Rionel Messi"
 print(person2)
 ```
 
-```{code-cell} python
-:tags: ["raises-exception","hide-output"]
-
+```python tags=["raises-exception", "hide-output"]
 # ดึงข้อมูลด้วย key ที่ไม่มีอยู่ใน Dict
 print( person2["address"] )
 ```
-
-
 
 ### การเพิ่มข้อมูลให้กับ Dict
 
 เราสามารถเพิ่มข้อมูล item ใหม่ใน Dict ได้ด้วยการ**กำหนดค่าให้กับ `key` ที่ไม่เคยมีมาก่อนใน Dict**
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print(person2)
 
 # เพิ่มข้อมูล 2 รายการ โดยใช้ key คือ "weight" และ "height"
@@ -846,8 +690,6 @@ person2["height"] = 180.0
 print(person2)
 ```
 
-
-
 ### การลบข้อมูลจาก Dict
 
 ตัวแปร Dict มีคำสั่งติดตัวสำหรับการลบข้อมูล เช่น
@@ -855,16 +697,12 @@ print(person2)
 - `.popitem()` ลบข้อมูลรายการสุดท้ายใน Dict
 - `.clear()`ลบข้อมูลทั้งหมดใน Dict
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 d1 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
 print(d1)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ดึงข้อมูลที่ใช้ key มีค่าเท่ากับ height ออกจาก Dict
 # ข้อมูลที่ดึงออกมาสามารถเอาไปใช้งานต่อได้
 height = d1.pop('height')
@@ -872,27 +710,21 @@ print(d1)
 print(height)
 ```
 
-```{code-cell} python
-:tags: ["raises-exception","remove-output"]
-
+```python tags=["raises-exception", "remove-output"]
 # pop ข้อมูลโดยระบุ key ที่ไม่มีอยู่ ทำให้เกิด error
 team = d1.pop('team')
 print(d1)
 print(team)
 ```
 
-```{code-cell} python
-:tags: ["raises-exception","remove-output"]
-
+```python tags=["raises-exception", "remove-output"]
 # pop ข้อมูลโดยไม่ระบุ key ทำให้เกิด error
 thing = d1.pop()
 print(d1)
 print(thing)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print(d1)
 
 # popitem จะดึงข้อมูลตัวสุดท้ายออกจาก Dict
@@ -902,33 +734,23 @@ print(d1)
 print(thing)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 d1.clear()
 print(d1)
 ```
 
-
-
 ### การนับจำนวนข้อมูลใน Dict
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print(person2)
 print(f'len(person2): {len(person2)}')
 ```
-
-
 
 ### การดูรายการ key ทั้งหมดใน Dict
 
 สามารถใช้คำสั่ง `.keys()` ในการแสดงรายการ `key` ทั้งหมดได้
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 print(person2)
 
 # ดึงค่า key ทั้งหมดใน person2
@@ -937,9 +759,6 @@ person2_keys = person2.keys()
 print(person2_keys)
 print( list(person2_keys) )
 ```
-
-
-
 
 ### การดูรายการข้อมูลทั้งหมดใน Dict
 
@@ -951,18 +770,13 @@ print( list(person2_keys) )
 [(key1, value1),(key2, value2),(key3, value3),...,(keyN,valueN)]
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 person2_items = person2.items()
 print(person2_items)
 print( list(person2_items) )
 ```
 
-
-
-
-
+<!-- #region -->
 ## Collection of Collections
 
 ในกรณีที่ข้อมูลมีความซับซ้อน เราสามารถจัดเก็บข้อมูลในรูปแบบของ Collection ซ้อน Collection ได้ เช่น
@@ -979,10 +793,9 @@ print( list(person2_items) )
 ### List of List
 
 เป็นรูปแบบนึงของการจัดเก็บข้อมูลที่พบได้บ่อย
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # List of List
 items = [ ["John","male",180.5,80], ["Jane","female",176,60.5], ["Steve","male",187.5,82] ]
 
@@ -992,17 +805,13 @@ print(items[1])
 print(items[2])
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # List of List: how to access data
 average_height = ( items[0][2] + items[1][2] + items[2][2] ) / len(items)
 print(f'Average height: {average_height}')
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # List of List: add/remove item
 items.append( ["Lisa","female",168,48] )
 print(items)
@@ -1012,15 +821,11 @@ print(data)
 print(items)
 ```
 
-
-
 ### List of Dict
 
 เป็นรูปแบบนึงของการจัดเก็บข้อมูลที่พบได้บ่อย
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # List of Dict
 items2 = [
     {"name":"John","gender":"male","height":180.5,"weight":80},
@@ -1034,17 +839,13 @@ print(items2[1])
 print(items2[2])
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # List of Dict: how to access data
 average_height = ( items2[0]["height"] + items2[1]["height"] + items2[2]["height"] ) / len(items2)
 print(f'Average height: {average_height}')
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # List of Dict: add/remove item
 items2.append( {'name': 'Lisa', 'gender': 'female', 'height': 168, 'weight': 48} )
 print(items2)
@@ -1054,15 +855,9 @@ print(data)
 print(items2)
 ```
 
-
-
-
 ### Dict of List
 
-
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # Dict of List
 items3 = {
     "John":  ["male",180.5,80],
@@ -1076,17 +871,13 @@ print(items3["Jane"])
 print(items3["Steve"])
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # Dict of List: how to access data
 average_height = ( items3["John"][1] + items3["Jane"][1] + items3["Steve"][1] ) / len(items3)
 print(f'Average height: {average_height}')
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # List of List: add/remove item
 items3["Lisa"] = ["female",168,48]
 print(items3)
@@ -1096,9 +887,7 @@ print(data)
 print(items3)
 ```
 
-
-
-
+<!-- #region -->
 ### Other possibility
 
 เราสามารถประยุกต์ใช้ collection ในการจัดเก็บข้อมูลที่ซับซ้อน (มีความลึกได้หลายชั้น มีความเป็นไปได้หลายแบบ)
@@ -1108,10 +897,9 @@ print(items3)
 **ตัวอย่าง**
 
 จัดเก็บข้อมูลนักเรียน (student) แต่ละคนด้วย Dict โดยข้อมูลบางอย่างของนักเรียนสามารถมีได้หลายความเป็นไปได้
+<!-- #endregion -->
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # A dictionary of student
 student1 = {
     'id': 650610123,                                           # integer
@@ -1132,38 +920,27 @@ student2 = {
 }
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # นำข้อมูลนักเรียนแต่ละคนมาเก็บรวมกันภายใน list
 students = [student1, student2]
 print(students)
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # คำนวณ GPAX เฉลี่ยของนักเรียน 2 คน
 average_gpa = ( students[0]['gpax'] + students[1]['gpax'] ) / len(students)
 print(f'average GPA: {average_gpa}')
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # เพิ่ม hobby ให้กับ student2
 students[1]['hobbies'].append('novel')
 print(students[1])
 ```
 
-```{code-cell} python
-:tags: ["hide-output"]
-
+```python tags=["hide-output"]
 # ดูเกรดวิชา 259201 ของ student1
 print( students[0]['grades']['259201'] )
 ```
-
-
-
 
 <img width="400" src="">

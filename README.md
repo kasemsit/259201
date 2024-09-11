@@ -1,5 +1,10 @@
 # 259201
 
+Convert ipynb to myst 
+```console
+ jupytext <file.ipynb> --to myst
+```
+
 Build the book
 ```
 jupyter-book build --all .

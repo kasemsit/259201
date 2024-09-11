@@ -1,11 +1,23 @@
+JUPYTERBOOK = jupyter-book
+JUPYTEXT = jupytext
+MARKDOWN_DIR = md
+NOTEBOOK_DIR = notebook
+
+all: jupytext buildall
+
+jupytext:
+	mkdir -p $(NOTEBOOK_DIR)
+	$(JUPYTEXT) --set-formats $(NOTEBOOK_DIR)//ipynb,$(MARKDOWN_DIR)//md --sync $(MARKDOWN_DIR)/*.md
+
 buildall:
-	jupytext --to notebook modules/module02.md modules/module02.ipynb
-	jupytext --to notebook modules/module03.md modules/module03.ipynb
-	jupyter-book build --all ./
+	$(JUPYTERBOOK) build --all ./
+
 build:
-	jupyter-book build ./	
+	$(JUPYTERBOOK) build ./
+
 clean:
-	rm -rf _build/
-	jupyter-book clean ./ --all
+	rm -rf _build/ notebook/
+	$(JUPYTERBOOK) clean ./ --all
+
 deploy:
 	ghp-import -n -p -f _build/html
