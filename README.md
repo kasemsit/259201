@@ -1,16 +1,8 @@
 # 259201
 
-Convert ipynb to myst 
+The book website is at https://kasemsit.github.io/259201/.
+
+To build the book run 
 ```console
- jupytext <file.ipynb> --to myst
-```
-
-Build the book
-```
-jupyter-book build --all .
-```
-
-Update the book's website
-```
-ghp-import -n -p -f _build/html
+make 
 ```
