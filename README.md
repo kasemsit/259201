@@ -19,6 +19,20 @@ Interactive lecture slides built with [Quarto](https://quarto.org/) Reveal.js an
 | 11 | Basic Data Visualization with Matplotlib |
 | 12 | N-Dimensional Arrays with Numpy |
 
+## Pyodide Limitations
+
+Slides use [Pyodide](https://pyodide.org/) to run Python in the browser. Key limitations:
+
+| Topic | Details |
+|-------|---------|
+| **Supported packages** | numpy, pandas, matplotlib, scipy, scikit-learn and other pre-compiled packages are available |
+| **I/O** | No `input()`, no real filesystem access, no network (`requests`, `urllib`) |
+| **Threading** | No multiprocessing / threading |
+| **C extensions** | Only packages pre-compiled to WebAssembly; uncommon C/Rust extensions may be unavailable |
+| **Performance** | ~3–5x slower than native Python |
+| **Memory** | Limited by the browser (~2–4 GB) |
+| **matplotlib** | Renders static images (PNG), not interactive plots |
+
 ## Setup
 
 ```bash
