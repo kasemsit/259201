@@ -24,6 +24,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Python dependencies
+        run: pip install jupyter pyyaml
+
       - uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render

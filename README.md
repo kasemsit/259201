@@ -44,6 +44,6 @@ Output is generated in `_output/`.
 
 ## Deploy to GitHub Pages
 
-```bash
-quarto publish gh-pages
-```
+Automated via GitHub Actions — push to `main` triggers a build and deploy.
+
+Ensure **Settings → Pages → Source** is set to **GitHub Actions**.
