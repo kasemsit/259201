@@ -143,3 +143,31 @@ div.callout {
   border-radius: inherit;
   font-size: inherit;
 }
+
+// Reusable "code pattern" box — แสดงรูปแบบ/โครงสร้างการเขียนโค้ด (syntax skeleton)
+// ใช้ซ้ำได้ทุกโมดูล:
+//   <pre class="code-pattern"><span class="kw">if</span> <span class="cond">condition</span>: <span class="cmt"># note</span>
+//       <span class="stmt">statement</span></pre>
+// span ช่วยทำสี: .kw=keyword(แดง) .cond=เงื่อนไข(ฟ้า) .stmt=คำสั่ง(เขียว) .cmt=คอมเมนต์(เทา)
+.reveal pre.code-pattern {
+  font-family: var(--r-code-font, "SFMono-Regular", Consolas, monospace);
+  font-size: 1em !important;
+  line-height: 1.6;
+  background: #f6f8fa;
+  border: 2px solid #b9c2cc;
+  border-radius: 10px;
+  padding: 0.7em 1.3em;
+  display: inline-block;
+  width: auto !important;
+  max-width: max-content;
+  text-align: left;
+  margin: 0.4em 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.reveal pre.code-pattern .kw   { color: #d73a49; }
+.reveal pre.code-pattern .cond { color: #1565c0; font-weight: 600; }
+.reveal pre.code-pattern .stmt { color: #2e7d32; font-weight: 600; }
+.reveal pre.code-pattern .cmt  { color: #6a737d; font-style: italic; }
+
+

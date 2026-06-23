@@ -17,7 +17,7 @@ Introduction to computers for engineers. Principles of computer hardware and sof
 | 2 | Computational Thinking | — |
 | 3 | Variables and Types, Operators, Input/Output | [Slides](slides/module03.html){target="_blank"} |
 | 4 | Collections: List, Tuple, Set and Dictionary | [Slides](slides/module04.html){target="_blank"} |
-| 5 | Conditions: Boolean, in, if-else, if-elif-else | — |
+| 5 | Conditions: Boolean, in, if-else, if-elif-else | [Slides](slides/module05.html){target="_blank"} |
 | 6 | Iterations (I): while-loop | — |
 | 7 | Iterations (II): for-loop | — |
 | 8 | Iterations and Collections | — |
