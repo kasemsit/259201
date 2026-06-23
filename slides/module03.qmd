@@ -14,7 +14,7 @@ format:
     height: 720
     margin: 0.08
     logo: ""
-    footer: "259201 — Module 3 | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    footer: "[🏠 259201](../index.html) — Module 3 | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
     code-block-height: 480px
 pyodide:
   packages: []
@@ -84,38 +84,39 @@ print("Congratulations on your first Python program.")
 
 ## ตัวแปร (Variables) คืออะไร? {#m3-variables}
 
-:::: {.columns}
-::: {.column width="55%"}
-
+::: {.incremental}
 - **ตัวแปร** = ชื่อที่ใช้อ้างอิงพื้นที่ในหน่วยความจำ
 - ใช้เก็บข้อมูลเพื่อนำไปใช้งานภายหลัง
 - ควรตั้งชื่อให้ **สอดคล้องกับข้อมูล** ที่จัดเก็บ
-
 :::
-::: {.column width="45%"}
 
+::: {.fragment}
 ```python
 age = 20
 name = "Somchai"
 gpa = 3.75
 is_student = True
 ```
-
 :::
-::::
+
 
 ## กฎการตั้งชื่อ Python Identifier {#m3-identifier}
 
 ::: {.incremental}
 
 - ใช้ตัวอักษร `a-z`, `A-Z` และ `_` (underscore)
-  `var_1` `print_this_to_screen`
+- เช่น `var_1` `print_this_to_screen`
 - **ห้ามขึ้นต้นด้วยตัวเลข** — `1variable` ใช้ไม่ได้
 - **ห้ามใช้เครื่องหมายพิเศษ** — `!`, `@`, `#`, `$`, `%`
 - **ห้ามตั้งชื่อตรงกับ Keyword** ของ Python
-- **Case-sensitive** — `var` กับ `Var` เป็นคนละตัว
+:::
+
+::: {.callout-warning .fragment}
+
+**Case-sensitive** — `var` กับ `Var` เป็นคนละตัว
 
 :::
+
 
 ## Python Keywords
 
@@ -152,17 +153,17 @@ print(keyword.kwlist)
 . . .
 
 ```python
-str1 = 'hello'       # str
-var1 = 50000         # int
-var2 = 1.23e9        # float
-var3 = False         # bool
+str1 = 'hello' # ข้อความ (string)
+str2 = "2345"  # ข้อความ (string)
+var1 = 50000   # จำนวนเต็ม (int)
+var2 = 10/2    # จำนวนจริง (float)
+var3 = 1.23e9  # จำนวนจริง (float)
+var4 = False   # ค่าความจริง (boolean)
 ```
 
 ## โจทย์ #1 {.exercise}
 
 สร้างตัวแปรชื่อ `var1` เพื่อเก็บค่า **ผลคูณ** ของ `100` กับ `2` แล้ว **แสดงผล**
-
-
 
 
 ::: {.panel-tabset}
@@ -171,8 +172,8 @@ var3 = False         # bool
 
 ```{pyodide}
 #| autorun: false
-var1 = ____
-print(____)
+100 * 2
+var1
 ```
 
 ### Solution
@@ -188,6 +189,19 @@ print(var1)
 ```
 
 :::
+
+
+::: {.callout-note}
+
+**วิธีคิด**
+
+1. สร้างตัวแปรชื่อ `var1` 
+2. assign ค่า 100*2 ให้กับ `var1`
+3. แสดงผล `var1` ด้วยคำสั่ง `print`
+
+:::
+
+
 
 
 
@@ -265,13 +279,23 @@ print(var3)
 :::
 
 
+::: {.callout-note}
+
+**วิธีคิด**
+
+1. สร้างตัวแปรชื่อ `var3`
+2. assign ค่า 10/2 ให้กับ `var3`
+3. แสดงผล `var3` ด้วยคำสั่ง `print`
+
+:::
+
+
+
+
 
 ## โจทย์ #4 {.exercise}
 
 สร้างตัวแปรชื่อ `s1` เพื่อเก็บข้อความ `"this is a string"` แล้ว **แสดงผล**
-
-
-
 
 ::: {.panel-tabset}
 
@@ -313,7 +337,7 @@ this is a string
 
 แสดงผลข้อความ `this is a simple string.`
 
-
+**คิดก่อน:** ใช้คำสั่งอะไรในการแสดงผล?
 
 
 ::: {.panel-tabset}
@@ -322,7 +346,7 @@ this is a string
 
 ```{pyodide}
 #| autorun: false
-print(____)
+this is a simple string.
 ```
 
 ### Solution
@@ -344,7 +368,7 @@ this is a simple string.
 
 แสดงผลข้อความ `this isn't a simple string.`
 
-ใช้ `'...'` ได้ไหม?
+**คิดก่อน:** ใช้ `'   '` ได้ไหม?
 
 
 
@@ -395,8 +419,6 @@ print(____)
 
 ### Solution
 
-มี `"` ในข้อความ → ใช้ `'...'` ครอบแทน
-
 ```python
 print('this is how to print "double quote" in sentence.')
 ```
@@ -405,6 +427,17 @@ print('this is how to print "double quote" in sentence.')
 ```{.python .code-output}
 this is how to print "double quote" in sentence.
 ```
+
+
+::: {.callout-note}
+**วิธีคิด**
+
+1. เขียนข้อความ this is how to print "double quote" in sentence.
+2. ครอบประโยคด้วยเครื่องหมาย '...'
+3. ใช้คำสั่ง `print` เพื่อแสดงผล
+
+:::
+
 
 :::
 
@@ -446,26 +479,64 @@ this is 3rd line''')
 
 ## Escape Code — อักขระพิเศษ {#m3-escape}
 
-| Code | ผลลัพธ์ | | Code | ผลลัพธ์ |
-|:----:|:--------|---|:----:|:--------|
-| `\n` | ขึ้นบรรทัดใหม่ | | `\'` | single quote |
-| `\t` | แท็บ | | `\"` | double quote |
-| `\\` | backslash | | | |
+ - ในภาษาคอมพิวเตอร์ มักมีการใช้งานอักขระพิเศษร่วมกับข้อความ (string) เพื่อให้เกิดการแสดงผลแบบต่าง ๆ เช่น การขึ้นบรรทัดใหม่ การแท็บ การลบอักขระ
+ - อักขระเหล่านี้ 
+   - ขึ้นต้นด้วย **Escape Character** ( **`\`** )
+   - ใช้ภายใน `"   "`, `'   '` หรือ `'''   '''`
+ - ที่ใช้งานบ่อย ๆ ได้แก่ `\n`, `\t`
+  
+:::: {.columns}
+::: {.column width="50%"}
 
-. . .
+Escape Code | Description
+------------|-------------
+`\n` | **newline (ขึ้นบรรทัดใหม่)**
+`\r` | carriage return
+`\t` | **tab (แท็บ)**
+`\v` | vertical tab
+`\b` | backspace
+
+
+:::
+::: {.column width="50%"}
+
+Escape Code | Description
+------------|-------------
+`\f` | form feed (page feed)
+`\a` | alert (beep)
+`\'` | **single quote (\')**
+`\"` | **double quote (\")**
+`\\` | **backslash (\\)**
+
+:::
+::::
+
+## ตัวอย่างการใช้ Escape Code
 
 ```python
-print('This is 1st line')
-print('This is 2nd line \nThis is 3rd line')
+print('This is the 1st line')
+print('This is the 2nd line \nThis is the 3rd line')
+print()
+print('This is the 5th line \t\tand it \'is\' separated by 2 tabs')
+print("This is the \"6th\" line ")
+print("\\\\\\\\")    # There are 8 backslash here
 ```
 
 . . .
 
 ```{.python .code-output}
-This is 1st line
-This is 2nd line
-This is 3rd line
+This is the 1st line
+This is the 2nd line 
+This is the 3rd line
+
+This is the 5th line 		and it 'is' separated by 2 tabs
+This is the "6th" line 
+\\\\
 ```
+
+::: {.callout-warning}
+ทำไมบรรทัดสุดท้ายถึงพิมพ์ backslash แค่ 4 ตัว แทนที่จะเป็น 8 ตัว
+:::
 
 ## Dynamic Typing — ชนิดข้อมูลไม่ตายตัว {#m3-dynamic-typing}
 
@@ -480,6 +551,8 @@ x = 42          # int
 x = "hello"     # เปลี่ยนเป็น str ได้!
 x = 3.14        # เปลี่ยนเป็น float ได้!
 ```
+
+. . .
 
 ตรวจสอบชนิดด้วย **`type()`**
 
@@ -527,9 +600,9 @@ print(type(1.23e11))
 
 ## โจทย์ #10 {.exercise}
 
-สร้างตัวแปร `s2` เก็บผลบวกของ `2500` กับ `1000`
+สร้างตัวแปร `s2` เก็บผลบวกของ `2500` กับ `1000` แล้วแสดงค่า `s2` และตรวจสอบ type 
 
-แสดงค่าและตรวจสอบ type — **คิดก่อน:** `s2` จะเป็นชนิดใด?
+**คิดก่อน:** `s2` จะเป็นชนิดใด?
 
 
 

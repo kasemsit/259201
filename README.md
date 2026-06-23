@@ -1,4 +1,4 @@
-# 259201 — Introduction to Computers for Engineers
+# 259201 — Computer Programming for Engineers
 
 Interactive lecture slides built with [Quarto](https://quarto.org/) Reveal.js and [quarto-live](https://github.com/r-wasm/quarto-live) (Pyodide) for in-browser Python execution.
 

@@ -1,0 +1,1127 @@
+---
+title: "Module 8"
+subtitle: "Iterations and Collections"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 8 | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### วันนี้เราจะเรียนรู้
+
+::: {.incremental}
+1. **ทบทวน** Collections — List, Tuple, Set, Dictionary
+2. การใช้ **While-loop** กับ Collections
+3. การใช้ **For-loop** กับ Collections
+4. **`range()`** และ **`enumerate()`**
+5. Collection **หลายมิติ** (List of Dict, Dict of List)
+:::
+
+:::
+::: {.column width="50%"}
+
+```python
+sc_new = [88, 91, 22, 62, 80, 68]
+
+for i, x in enumerate(sc_new):
+    print(f"{i+1}, {x}")
+```
+
+```{.python .code-output}
+1, 88
+2, 91
+3, 22
+4, 62
+5, 80
+6, 68
+```
+
+:::
+::::
+
+# Review of Python Collections {background-color="#2c3e50" .white-text}
+
+ทบทวน List, Tuple, Set, Dictionary
+
+## List {#m8-list}
+
+การใช้ตัวแปรจำนวนมาก อาจไม่เหมาะกับการทำงานกับข้อมูลจำนวนมาก เช่น
+
+- ชื่อของนักศึกษาหลายคน อาจใช้ตัวแปร `name1, name2, name3, …`
+- คะแนนของนักศึกษาในห้อง อาจใช้ตัวแปร `score1, score2, score3, …`
+
+. . .
+
+**ลิสต์ (List)** คือการเก็บชุดข้อมูลที่เกี่ยวข้องกันจำนวนหลาย ๆ ตัวให้อยู่ภายใต้ตัวแปรเดียวกัน
+
+::: {.callout-note}
+ทบทวน: [List (Module 4)](module04.html#m4-list)
+:::
+
+## List : การอ้างอิงด้วย Index {#m8-list-index}
+
+::: {.incremental}
+- พื้นที่เก็บข้อมูลแต่ละช่อง คือพื้นที่สำหรับจัดเก็บข้อมูลแต่ละตัว (**Element**)
+- แต่ละ item อ้างอิงด้วย **ชื่อลิสต์และหมายเลขระบุตำแหน่ง (Index)** : `data[index]`
+- `index` มีค่าเริ่มต้นเป็น `0` เสมอ — ตำแหน่งแรก (ช่องแรก)
+- `index` มีค่ามากที่สุดคือ `n-1` — ตำแหน่งสุดท้าย เมื่อ `n` คือจำนวนช่องทั้งหมด
+:::
+
+. . .
+
+ลิสต์ใน Python เทียบเคียงได้กับ **array** ในภาษาคอมพิวเตอร์อื่น ๆ
+
+## การเพิ่มข้อมูลลงในลิสต์ {#m8-list-add}
+
+ตัวแปร List มีความสามารถ/คำสั่งติดตัวที่ช่วยเพิ่มข้อมูลใหม่ให้ List
+
+- **`.append()`** เพิ่มข้อมูล**ต่อท้าย** List
+- **`.insert()`** **แทรกข้อมูล**ในตำแหน่ง `index` ที่ต้องการ
+
+. . .
+
+นอกจากนี้ยังมี `operator` ที่ช่วยเพิ่มข้อมูลต่อท้าย List
+
+- **`+`** ใช้**เชื่อมต่อ** List เข้าด้วยกัน (concatenation)
+- **`*`** ใช้เพิ่มข้อมูลให้มีหลายชุดตาม**จำนวน**ที่ต้องการ
+
+::: {.callout-note}
+ทบทวน: [List operators `+` `*` (Module 4)](module04.html#m4-list-ops)
+:::
+
+## โจทย์ #1a {.exercise}
+
+มีข้อมูลคะแนนสอบ midterm เก็บในตัวแปร `score = [91,22,59,62,80,68,40,36,88,56,13,3,90,18]`
+
+จงเขียนคำสั่งเรียกใช้ตัวแปร `score` (พิมพ์ค่าจากตัวแปร ไม่ใช่คัดลอกข้อความ)
+
+::: {.incremental}
+1. แสดง `Midterm score is [91, 22, …, 18]`
+2. นับจำนวนค่าใน `score` → `Number of student in section000 = 14`
+3. แสดงคะแนนคนแรกกับคนสุดท้าย → `1st score: 91, last score = 18`
+4. ผลรวมคะแนนคนที่ 2 ถึง 4 → `Sum of the 2nd to 4th score is = 143`
+:::
+
+## โจทย์ #1a (ต่อ) {.exercise}
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+score = [91,22,59,62,80,68,40,36,88,56,13,3,90,18]
+print(f'Midterm score is {score}')
+print(f"Number of student in section000 = {____(score)}")
+print(f'1st score: {score[0]}, last score = {score[____]}')
+sm = score[1] ____ score[2] ____ score[3]
+print(f'Sum of the 2nd to 4th score is = {sm}')
+```
+
+### Solution
+
+```python
+score = [91,22,59,62,80,68,40,36,88,56,13,3,90,18]
+print(f'Midterm score is {score}')
+print(f"Number of student in section000 = {len(score)}")
+print(f'1st score: {score[0]}, last score = {score[len(score)-1]}')
+sm = score[1] + score[2] + score[3]
+print(f'Sum of the 2nd to 4th score is = {sm}')
+```
+
+```{.python .code-output}
+Midterm score is [91, 22, 59, 62, 80, 68, 40, 36, 88, 56, 13, 3, 90, 18]
+Number of student in section000 = 14
+1st score: 91, last score = 18
+Sum of the 2nd to 4th score is = 143
+```
+
+:::
+
+## โจทย์ #1b {.exercise}
+
+หาผลรวมคะแนนคนที่ 2 ถึง 4 เหมือนเดิม แต่รอบนี้ให้ **slice** ช่วงข้อมูลออกมาก่อน เก็บใน `sc_temp`
+
+. . .
+
+ใช้รูปแบบ `score[start:stop:step]` (จำว่า `stop` **จะไม่รวม** item ที่ระบุ)
+
+. . .
+
+**คิดก่อน:** ต้องการ index `1,2,3` — `start`, `stop`, `step` ควรเป็นเท่าใด?
+
+::: {.callout-note}
+ทบทวน: [Slicing list (Module 4)](module04.html#m4-list-slice)
+:::
+
+## โจทย์ #1b (ต่อ) {.exercise}
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+score = [91,22,59,62,80,68,40,36,88,56,13,3,90,18]
+sc_temp = score[____:____:____]
+print(f'Sum of the 2rd- 4th score is ={sum(sc_temp)}')
+```
+
+### Solution
+
+```python
+sc_temp = score[1:4:1]
+print(f'Sum of the 2rd- 4th score is ={sum(sc_temp)}')
+```
+
+```{.python .code-output}
+Sum of the 2rd- 4th score is =143
+```
+
+:::
+
+## โจทย์ #1b: list ↔ tuple {.exercise}
+
+อยากเก็บคะแนนต้นฉบับไว้โดยแก้ไขไม่ได้ → แปลง `score` เป็น **tuple**
+
+. . .
+
+แล้วแปลงกลับเป็น **list** และ **คัดลอก** ไว้ที่ `sc_new`
+
+. . .
+
+**คิดก่อน:** การพิมพ์ tuple กับ list ต่างกันที่สัญลักษณ์ใด?
+
+::: {.callout-note}
+ทบทวน: [Tuple (Module 4)](module04.html#m4-tuple) · [Type conversion `tuple()` `list()` (Module 3)](module03.html#m3-type-conversion)
+:::
+
+## โจทย์ #1b: list ↔ tuple (ต่อ) {.exercise}
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+score = [91,22,59,62,80,68,40,36,88,56,13,3,90,18]
+print(f'Before changing to tuple: {score}')
+score = ____(score)
+print(f'After changing to tuple: {score}')
+
+score = ____(score)        # แปลงกลับเป็น list
+sc_new = score.____()      # คัดลอก
+print(sc_new)
+```
+
+### Solution
+
+```python
+print(f'Before changing to tuple: {score}')
+score = tuple(score)
+print(f'After changing to tuple: {score}')
+
+score = list(score)
+sc_new = score.copy()
+print(sc_new)
+```
+
+```{.python .code-output}
+Before changing to tuple: [91, 22, 59, 62, 80, 68, 40, 36, 88, 56, 13, 3, 90, 18]
+After changing to tuple: (91, 22, 59, 62, 80, 68, 40, 36, 88, 56, 13, 3, 90, 18)
+[91, 22, 59, 62, 80, 68, 40, 36, 88, 56, 13, 3, 90, 18]
+```
+
+:::
+
+## โจทย์ #1c {.exercise}
+
+แก้ไขข้อมูลใน `sc_new` ตามลำดับ
+
+::: {.incremental}
+- **append** คะแนน `99` ต่อท้าย
+- **insert** คะแนน `88` ไว้หน้าสุด
+- **remove** คะแนนค่า `3` ออก
+- **pop** คะแนนของ นศ.คนที่ 4 (index 3) ออก
+:::
+
+. . .
+
+**คิดก่อน:** `.remove(3)` กับ `.pop(3)` ต่างกันอย่างไร? อันไหนอ้างถึง **ค่า** อันไหนอ้างถึง **index**?
+
+## โจทย์ #1c (ต่อ) {.exercise}
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+sc_new = [91,22,59,62,80,68,40,36,88,56,13,3,90,18]
+sc_new.____(99)            # ต่อท้าย
+print(f'New score of section 000 after append new value:\n{sc_new}')
+
+sc_new.____(0, 88)         # แทรกหน้าสุด
+print(f'New score of section 000 after insert new value:\n{sc_new}')
+
+sc_new.____(3)             # ลบ "ค่า" 3
+print(f'New score of section 000 after remove value:\n {sc_new}')
+
+sc_new.____(3)             # ลบ "ตำแหน่ง" index 3
+print(f'New score of section 000 after pop out the 4th student:\n{sc_new}')
+```
+
+### Solution
+
+```python
+sc_new.append(99)
+print(f'New score of section 000 after append new value:\n{sc_new}')
+sc_new.insert(0, 88)
+print(f'New score of section 000 after insert new value:\n{sc_new}')
+sc_new.remove(3)
+print(f'New score of section 000 after remove value:\n {sc_new}')
+sc_new.pop(3)
+print(f'New score of section 000 after pop out the 4th student:\n{sc_new}')
+```
+
+```{.python .code-output}
+New score of section 000 after append new value:
+[91, 22, 59, 62, 80, 68, 40, 36, 88, 56, 13, 3, 90, 18, 99]
+New score of section 000 after insert new value:
+[88, 91, 22, 59, 62, 80, 68, 40, 36, 88, 56, 13, 3, 90, 18, 99]
+New score of section 000 after remove value:
+ [88, 91, 22, 59, 62, 80, 68, 40, 36, 88, 56, 13, 90, 18, 99]
+New score of section 000 after pop out the 4th student:
+[88, 91, 22, 62, 80, 68, 40, 36, 88, 56, 13, 90, 18, 99]
+```
+
+:::
+
+## Dictionary {#m8-dict}
+
+- เก็บข้อมูลเป็น item คล้ายลิสต์ แต่ใช้ค่า **key** ในการอ้างอิงข้อมูล (ไม่จำเป็นต้องเป็น `int`)
+- **key** เป็นได้ทั้ง `int`, `float`, `string`, `tuple`
+- **key** เมื่อกำหนดไปแล้ว **จะไม่สามารถเปลี่ยนแปลงได้**
+
+::: {.callout-note}
+ทบทวน: [Dictionary (Module 4)](module04.html#m4-dict)
+:::
+
+## โจทย์ #2a {.exercise}
+
+จงสร้างตัวแปร `Student` ชนิด **dictionary** เพื่อเก็บข้อมูลต่อไปนี้
+
+| key | value |
+|:--|:--|
+| `"name"` | `"Thanatip Chankong"` |
+| `"ID"`   | `"4206144"` |
+| `"isInter"` | `False` |
+| `"midterm"` |  `25` |
+
+## โจทย์ #2a (ต่อ) {.exercise}
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+Student = {"name":"Thanatip Chankong", "ID":"4206144", ____:False, "midterm":25}
+print(Student)
+
+# แสดงชื่อและคะแนนมิดเทอม
+print(f"Student Name: {Student[____]} has midterm score={Student[____]}")
+```
+
+### Solution
+
+```python
+Student = {"name":"Thanatip Chankong","ID":"4206144","isInter":False,"midterm":25}
+print(Student)
+
+print(f"Student Name: {Student['name']} has midterm score={Student['midterm']}")
+```
+
+```{.python .code-output}
+{'name': 'Thanatip Chankong', 'ID': '4206144', 'isInter': False, 'midterm': 25}
+Student Name: Thanatip Chankong has midterm score=25
+```
+
+:::
+
+## โจทย์ #2a: แก้ไข dictionary {.exercise}
+
+::: {.incremental}
+- เพิ่ม key `'final'` value `30`
+- **ลบ** key `'isInter'` ออก แล้วเก็บค่าที่ลบไว้ในตัวแปร `status`
+- ดู **key** ทั้งหมดด้วย `.keys()` และดู **รายการทั้งหมด** ด้วย `.items()`
+:::
+
+. . .
+
+**คิดก่อน:** `.pop('isInter')` คืนค่าอะไรกลับมา?
+
+## โจทย์ #2a: แก้ไข dictionary (ต่อ) {.exercise}
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+Student = {"name":"Thanatip Chankong","ID":"4206144","isInter":False,"midterm":25}
+Student[____] = 30            # เพิ่ม key 'final'
+print(Student)
+
+status = Student.____('isInter')   # ลบ key และเก็บค่า
+print(Student)
+print(status)
+
+print(Student.____())        # ดู key ทั้งหมด
+print(Student.____())        # ดูรายการทั้งหมด
+```
+
+### Solution
+
+```python
+Student['final'] = 30
+print(Student)
+
+status = Student.pop('isInter')
+print(Student)
+print(status)
+
+print(Student.keys())
+print(Student.items())
+```
+
+```{.python .code-output}
+{'name': 'Thanatip Chankong', 'ID': '4206144', 'isInter': False, 'midterm': 25, 'final': 30}
+{'name': 'Thanatip Chankong', 'ID': '4206144', 'midterm': 25, 'final': 30}
+False
+dict_keys(['name', 'ID', 'midterm', 'final'])
+dict_items([('name', 'Thanatip Chankong'), ('ID', '4206144'), ('midterm', 25), ('final', 30)])
+```
+
+:::
+
+# การใช้ Iteration กับ Collections {background-color="#2c3e50" .white-text}
+
+วนซ้ำเพื่อเข้าถึงข้อมูลใน collection
+
+## ปัญหา: เข้าถึงทีละ index เองไม่สะดวก {#m8-iteration}
+
+เมื่อมีข้อมูลจำนวนมากใน collection การเข้าถึงทีละ **index** เองเป็นเรื่องไม่สะดวก
+
+```python
+sc_new = [88, 91, 22, 62, 80, 68, 40, 36, 88, 56, 13, 90, 18, 99]
+
+print(sc_new[0])
+print(sc_new[1])
+print(sc_new[2])
+print(sc_new[3])
+# ... ต้องเขียนอีก 10 บรรทัด!
+```
+
+. . .
+
+เราสามารถนำ **iteration / loop** มาช่วยให้การเข้าถึงข้อมูลใน collection สะดวกขึ้นได้
+
+## ใช้ While-loop สร้าง index {#m8-while-index}
+
+ใช้ **While-loop** สร้างตัวเลขที่ใช้เป็น **index** สำหรับ collection
+
+อย่าลืม 3 ส่วนของ while: **1)** ค่าตั้งต้น **2)** condition **3)** อัพเดทค่าแต่ละรอบ
+
+```python
+# Example-1W : แสดงสมาชิกใน sc_new ทีละตัว ทีละบรรทัด
+i = 0
+n = len(sc_new) - 1            # index สุดท้าย
+
+while i <= n:                  # วิ่งตั้งแต่ index 0 ถึง n
+    print(sc_new[i])
+    i = i + 1
+```
+
+::: {.callout-note}
+ทบทวน: [While-loop (Module 6)](module06.html#m6-while)
+:::
+
+## While-loop : คั่นในบรรทัดเดียว {#m8-while-sep}
+
+```python
+# Example-2W : แสดงในบรรทัดเดียว คั่นด้วย -
+i = 0
+n = len(sc_new) - 1
+
+while i <= n:
+    print(sc_new[i], end="-")
+    i = i + 1
+```
+
+```{.python .code-output}
+88-91-22-62-80-68-40-36-88-56-13-90-18-99-
+```
+
+. . .
+
+```python
+# Example-3W : ย้อนจากตัวสุดท้ายมาตัวแรก คั่นด้วยช่องว่าง
+n = len(sc_new)
+i = n - 1
+
+while i >= 0:                  # index = n-1, n-2, ..., 1, 0
+    print(sc_new[i], end=" ")
+    i = i - 1
+```
+
+```{.python .code-output}
+99 18 90 13 56 88 36 40 68 80 62 22 91 88
+```
+
+## ใช้ For-loop + range() สร้าง index {#m8-for-index}
+
+ในทำนองเดียวกัน ใช้ **For-loop** และ **`range()`** สร้างตัวเลข index ได้เช่นกัน
+
+`range(start, stop, step)` — `stop` จะหยุดที่ค่า**ก่อนหน้า** `stop`
+
+```python
+# Example-1F : แสดงสมาชิกใน sc_new ทีละตัว ทีละบรรทัด
+n = len(sc_new)                # index = 0, 1, 2, ..., n-1
+
+for i in range(0, n, 1):       # range(0, n, 1) → 0 ถึง n-1
+    print(sc_new[i])
+```
+
+::: {.callout-note}
+ทบทวน: [For-loop และ `range()` (Module 7)](module07.html#m7-for)
+:::
+
+## For-loop + range() : คั่นและย้อน {#m8-for-sep}
+
+```python
+# Example-2F : บรรทัดเดียว คั่นด้วย -
+n = len(sc_new)
+for i in range(0, n, 1):
+    print(sc_new[i], end="-")
+```
+
+```{.python .code-output}
+88-91-22-62-80-68-40-36-88-56-13-90-18-99-
+```
+
+. . .
+
+```python
+# Example-3F : ย้อนจากตัวสุดท้ายมาตัวแรก
+# index ต้องวิ่ง n-1, ..., 2, 1, 0  →  range(n-1, -1, -1)
+for i in range(n-1, -1, -1):
+    print(sc_new[i], end=" ")
+```
+
+```{.python .code-output}
+99 18 90 13 56 88 36 40 68 80 62 22 91 88
+```
+
+## โจทย์ #3: loop + condition {.exercise}
+
+นับจำนวนคนที่ได้คะแนน **มากกว่า 60** เก็บไว้ในตัวแปร `cnt`
+
+แล้วแสดง `student with score higher than 60 = ... students.`
+
+. . .
+
+**คิดก่อน:** ลองทำทั้งแบบ **while** และแบบ **for** — โครงสร้างต่างกันอย่างไร?
+
+::: {.callout-note}
+ทบทวน: [if condition (Module 5)](module05.html#m5-if-else) · [Assignment `+=` (Module 3)](module03.html#m3-assignment)
+:::
+
+## โจทย์ #3: loop + condition (ต่อ) {.exercise}
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+sc_new = [88, 91, 22, 62, 80, 68, 40, 36, 88, 56, 13, 90, 18, 99]
+cnt = 0
+
+for i in range(0, len(sc_new), 1):
+    if sc_new[i] ____ 60:
+        cnt = cnt ____ 1
+print(f"student with score higher than 60 = {cnt} students.")
+```
+
+### Solution
+
+```python
+# Example-4F : ใช้ for-loop
+sc_new = [88, 91, 22, 62, 80, 68, 40, 36, 88, 56, 13, 90, 18, 99]
+cnt = 0
+for i in range(0, len(sc_new), 1):
+    if sc_new[i] > 60:
+        cnt = cnt + 1
+print(f"student with score higher than 60 = {cnt} students.")
+
+# Example-4W : ใช้ while-loop (ได้ผลเท่ากัน)
+i = 0; cnt = 0
+while i <= len(sc_new)-1:
+    if sc_new[i] > 60:
+        cnt = cnt + 1
+    i = i + 1
+print(f"student with score higher than 60 = {cnt} students.")
+```
+
+```{.python .code-output}
+student with score higher than 60 = 8 students.
+```
+
+:::
+
+## โจทย์ #4: ค้นหาคนที่สอบตก {.exercise}
+
+ค้นหานักศึกษาที่ได้คะแนน **น้อยกว่าหรือเท่ากับ 40** ถ้าเจอให้แสดง `Student at index=... is Fail (F)`
+
+. . .
+
+**คิดก่อน:** ต้องการแสดง **ตำแหน่ง (index)** ด้วย — ควรใช้ loop แบบสร้าง index หรือแบบเข้าถึงตรง?
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+sc_new = [88, 91, 22, 62, 80, 68, 40, 36, 88, 56, 13, 90, 18, 99]
+
+for i in range(0, len(sc_new), 1):
+    if sc_new[i] ____ 40:
+        print(f'Student at index={i} is Fail (F)')
+```
+
+### Solution
+
+```python
+# Example-5
+sc_new = [88, 91, 22, 62, 80, 68, 40, 36, 88, 56, 13, 90, 18, 99]
+for i in range(0, len(sc_new), 1):
+    if sc_new[i] <= 40:
+        print(f'Student at index={i} is Fail (F)')
+```
+
+```{.python .code-output}
+Student at index=2 is Fail (F)
+Student at index=6 is Fail (F)
+Student at index=7 is Fail (F)
+Student at index=10 is Fail (F)
+Student at index=12 is Fail (F)
+```
+
+:::
+
+# For-loop เข้าถึงข้อมูลโดยตรง {background-color="#2c3e50" .white-text}
+
+`for x in collection` — ไม่ต้องสร้าง index ก่อน
+
+## For-loop และ List {#m8-for-direct}
+
+นอกจากใช้ loop สร้าง index แล้ว Python ยังมี For-loop อีกรูปแบบที่ **เข้าถึงข้อมูลได้โดยไม่ต้องสร้าง index**
+
+:::: {.columns}
+::: {.column width="50%"}
+
+```python
+collection_variable = [1,2,3,4,5]
+
+for x in collection_variable:
+    print(x)
+```
+
+:::
+::: {.column width="50%"}
+
+ตัวแปร **`x`** ในแต่ละรอบคือ ***item*** หรือข้อมูลแต่ละรายการใน collection (เรียงจาก index = 0, 1, 2, …)
+
+:::
+::::
+
+. . .
+
+```python
+# Example-2Item : เทียบกับ Example-2F ที่ใช้ range สร้าง index
+for i in sc_new:
+    print(i, end=" ")
+```
+
+```{.python .code-output}
+88 91 22 62 80 68 40 36 88 56 13 90 18 99
+```
+
+## การใช้ Enumerate {#m8-enumerate}
+
+หากยังต้องการ **index** ของข้อมูลแต่ละตัวเพื่อประกอบการแสดงผล ใช้คำสั่ง **`enumerate()`**
+
+```python
+sc_new = [88, 91, 22, 62, 80, 68, 40, 36, 88, 56, 13, 90, 18, 99]
+
+for i, x in enumerate(sc_new):
+    print(f"{i+1},{x}")
+# i คือ index ของข้อมูลแต่ละตัว = 0, 1, 2, ...
+# x คือ ข้อมูลแต่ละตัวที่เก็บใน collection
+```
+
+```{.python .code-output}
+1,88
+2,91
+3,22
+...
+14,99
+```
+
+::: {.callout-note}
+ทบทวน: [enumerate() (Module 7)](module07.html#m7-enumerate)
+:::
+
+## enumerate() สร้าง Tuple (index, value) {#m8-enumerate-tuple}
+
+คำสั่ง **`enumerate()`** จะสร้างรายการ Tuple ของ `(index, value)` สำหรับแต่ละ item
+
+```python
+list(enumerate(sc_new))
+```
+
+```{.python .code-output}
+[(0, 88), (1, 91), (2, 22), (3, 62), (4, 80), (5, 68), (6, 40),
+ (7, 36), (8, 88), (9, 56), (10, 13), (11, 90), (12, 18), (13, 99)]
+```
+
+## For-loop กับ Tuple {#m8-for-tuple}
+
+```python
+names = ('Lisa','Jisoo','Rose','Jennie')   # ใช้ ( ) สร้าง tuple : แก้ไขไม่ได้
+
+for x in names:
+    print(x)
+```
+
+```{.python .code-output}
+Lisa
+Jisoo
+Rose
+Jennie
+```
+
+. . .
+
+```python
+for i, name in enumerate(names):
+    print(f'{i+1}.{name}')
+```
+
+```{.python .code-output}
+1.Lisa
+2.Jisoo
+3.Rose
+4.Jennie
+```
+
+## For-loop กับ Set {#m8-for-set}
+
+```python
+teams = {'Manchester United','Barcelona','Juventus','PSG','Barcelona','Liverpool'}  # ใช้ { }
+
+for team in teams:
+    print(team)
+```
+
+```{.python .code-output}
+Juventus
+Barcelona
+PSG
+Manchester United
+Liverpool
+```
+
+::: {.callout-warning}
+**Set ไม่รับประกันลำดับ** — ผลลัพธ์อาจเรียงต่างจากนี้ และค่าซ้ำ (`'Barcelona'`) จะถูกตัดเหลือตัวเดียว
+:::
+
+## For-loop กับ Set : enumerate {#m8-for-set-2}
+
+```python
+teams = {'Manchester United','Barcelona','Juventus','PSG','Barcelona','Liverpool'}
+
+for i, team in enumerate(teams):
+    print(f'{i+1}.{team}')
+```
+
+```{.python .code-output}
+1.Juventus
+2.Barcelona
+3.PSG
+4.Manchester United
+5.Liverpool
+```
+
+::: {.callout-note}
+ทบทวน: [Set (Module 4)](module04.html#m4-set)
+:::
+
+## For-loop กับ Dictionary {#m8-for-dict}
+
+สร้าง dictionary `person` แล้ววน — ตัวแปรในลูปคือ **key**
+
+```python
+person = {
+    'name': 'Lionel Messi', 'isMale': True,
+    'midterm': 25, 'final': 30,
+    'weight': 65.25, 'height': 180.0
+}
+
+for k in person:        # k คือชื่อของ key
+    print(k)
+```
+
+```{.python .code-output}
+name
+isMale
+midterm
+final
+weight
+height
+```
+
+::: {.callout-note}
+ทบทวน: [Dictionary (Module 4)](module04.html#m4-dict)
+:::
+
+## Dictionary : key, value, index {#m8-for-dict-2}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+```python
+# value ของแต่ละ key
+for k in person:
+    print(person[k])
+```
+
+```{.python .code-output}
+Lionel Messi
+True
+25
+30
+65.25
+180.0
+```
+
+:::
+::: {.column width="50%"}
+
+```python
+# key: value
+for k in person:
+    print(f'{k}: {person[k]}')
+```
+
+```{.python .code-output}
+name: Lionel Messi
+isMale: True
+midterm: 25
+final: 30
+weight: 65.25
+height: 180.0
+```
+
+:::
+::::
+
+. . .
+
+```python
+# index, key:value  →  ใช้ enumerate
+for i, k in enumerate(person):
+    print(f'{i},{k}:{person[k]}')
+```
+
+```{.python .code-output}
+0,name:Lionel Messi   1,isMale:True   2,midterm:25   3,final:30   4,weight:65.25   5,height:180.0
+```
+
+# Collection หลายมิติ {background-color="#2c3e50" .white-text}
+
+List of Dict และ Dict of List
+
+## List of Dict {#m8-list-of-dict}
+
+**List of Dict** คือ List ที่มีสมาชิกเป็น Dictionary
+
+```python
+students = [
+    {"name":"John","gender":"male","height":180.5,"weight":80},
+    {"name":"Jane","gender":"female","height":176,"weight":60.5},
+    {"name":"Steve","gender":"male","height":177.5,"weight":82}
+]
+print(students)
+```
+
+```{.python .code-output}
+[{'name': 'John', 'gender': 'male', 'height': 180.5, 'weight': 80}, {'name': 'Jane', 'gender': 'female', 'height': 176, 'weight': 60.5}, {'name': 'Steve', 'gender': 'male', 'height': 177.5, 'weight': 82}]
+```
+
+## โจทย์ #5: หาคนที่สูงที่สุด {.exercise}
+
+จาก `students` แสดงชื่อและความสูงของทุกคน แล้วบอกว่าใครสูงที่สุด
+
+::: {.incremental}
+- แต่ละคน → `(ชื่อ) is (ความสูง) cm tall.`
+- สุดท้าย → `The tallest person in the group is (ชื่อ) with the height of (ความสูง) cm.`
+:::
+
+. . .
+
+**คิดก่อน:** ต้องใช้ตัวแปร "เก็บค่าสูงสุด" และ "เก็บชื่อ" เริ่มต้นเป็นค่าใด?
+
+## โจทย์ #5: หาคนที่สูงที่สุด (ต่อ) {.exercise}
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+students = [
+    {"name":"John","gender":"male","height":180.5,"weight":80},
+    {"name":"Jane","gender":"female","height":176,"weight":60.5},
+    {"name":"Steve","gender":"male","height":177.5,"weight":82}
+]
+max_height = 0
+tallest_student = ''
+
+for s in students:
+    print(f"{s['name']} is {s[____]} cm tall.")
+    if s['height'] ____ max_height:
+        max_height = s['height']
+        tallest_student = s[____]
+
+print(f'The tallest person in the group is {tallest_student} with the height of {max_height} cm.')
+```
+
+### Solution
+
+```python
+max_height = 0
+tallest_student = ''
+
+for s in students:
+    print(f"{s['name']} is {s['height']} cm tall.")
+    if s['height'] > max_height:
+        max_height = s['height']
+        tallest_student = s['name']
+
+print(f'The tallest person in the group is {tallest_student} with the height of {max_height} cm.')
+```
+
+```{.python .code-output}
+John is 180.5 cm tall.
+Jane is 176 cm tall.
+Steve is 177.5 cm tall.
+The tallest person in the group is John with the height of 180.5 cm.
+```
+
+:::
+
+## โจทย์ #6: คำนวณ BMI {.exercise}
+
+คำนวณ **BMI** ของทุกคน แล้วเพิ่ม key `'bmi'` เข้าไปในแต่ละ dictionary
+
+$$\mathsf{BMI} = \frac{\text{น้ำหนัก (kg)}}{\left(\dfrac{\text{ส่วนสูง (cm)}}{100}\right)^2}$$
+
+. . .
+
+ปัดเป็นทศนิยม 2 ตำแหน่ง
+
+::: {.callout-note}
+ทบทวน: [Arithmetic `/` `**` (Module 3)](module03.html#m3-arithmetic)
+:::
+
+## โจทย์ #6: คำนวณ BMI (ต่อ) {.exercise}
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+students = [
+    {"name":"John","gender":"male","height":180.5,"weight":80},
+    {"name":"Jane","gender":"female","height":176,"weight":60.5},
+    {"name":"Steve","gender":"male","height":177.5,"weight":82}
+]
+for s in students:
+    s['bmi'] = round(s['weight'] / (s['height']/100)____ 2, 2)
+
+for s in students:
+    print(s)
+```
+
+### Solution
+
+```python
+for s in students:
+    s['bmi'] = round(s['weight'] / (s['height']/100)**2, 2)
+
+for s in students:
+    print(s)
+```
+
+```{.python .code-output}
+{'name': 'John', 'gender': 'male', 'height': 180.5, 'weight': 80, 'bmi': 24.55}
+{'name': 'Jane', 'gender': 'female', 'height': 176, 'weight': 60.5, 'bmi': 19.53}
+{'name': 'Steve', 'gender': 'male', 'height': 177.5, 'weight': 82, 'bmi': 26.03}
+```
+
+:::
+
+## Dict of List {#m8-dict-of-list}
+
+**Dict of List** คือ dictionary ที่มี **value เป็น list**
+
+```python
+persons = {
+    "John":  ["male",180.5,80],
+    "Jane":  ["female",176,60.5],
+    "Steve": ["male",187.5,82]
+}
+print(persons)
+```
+
+```{.python .code-output}
+{'John': ['male', 180.5, 80], 'Jane': ['female', 176, 60.5], 'Steve': ['male', 187.5, 82]}
+```
+
+## โจทย์ #7: หาคนที่หนักที่สุด {.exercise}
+
+จาก `persons` แสดงชื่อและน้ำหนักของทุกคน แล้วบอกว่าใครหนักที่สุด
+
+::: {.incremental}
+- แต่ละคน → `(ชื่อ) is (น้ำหนัก) kg.`
+- สุดท้าย → `The heaviest person in the group is (ชื่อ) with the weight of (น้ำหนัก) kg.`
+:::
+
+. . .
+
+**คิดก่อน:** น้ำหนักเก็บอยู่ที่ index ใดของ list ที่เป็น value? (`["male", 180.5, 80]`)
+
+## โจทย์ #7: หาคนที่หนักที่สุด (ต่อ) {.exercise}
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+persons = {
+    "John":  ["male",180.5,80],
+    "Jane":  ["female",176,60.5],
+    "Steve": ["male",187.5,82]
+}
+max_weight = 0
+fat_name = ''
+
+for x in persons:               # x คือ key (ชื่อ)
+    weight = persons[x][____]   # น้ำหนักอยู่ index ใด?
+    print(f'{x} is {weight} kg.')
+    if weight ____ max_weight:
+        max_weight = weight
+        fat_name = x
+
+print(f'The heaviest person in the group is {fat_name} with the weight of {max_weight} kg.')
+```
+
+### Solution
+
+```python
+max_weight = 0
+fat_name = ''
+
+for x in persons:
+    weight = persons[x][2]
+    print(f'{x} is {weight} kg.')
+    if weight > max_weight:
+        max_weight = weight
+        fat_name = x
+
+print(f'The heaviest person in the group is {fat_name} with the weight of {max_weight} kg.')
+```
+
+```{.python .code-output}
+John is 80 kg.
+Jane is 60.5 kg.
+Steve is 82 kg.
+The heaviest person in the group is Steve with the weight of 82 kg.
+```
+
+:::
+
+# Summary {background-color="#2c3e50" .white-text}
+
+## สรุป Module 8
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**ทบทวน Collections**
+
+- **List** — `.append()` `.insert()` `.remove()` `.pop()` · slice `[start:stop:step]`
+- **Tuple** — แก้ไขไม่ได้ · `tuple()` / `list()`
+- **Dictionary** — `key:value` · `.pop()` `.keys()` `.items()`
+
+**Loop สร้าง index**
+
+- **While** — ตั้งต้น / condition / อัพเดท
+- **For + `range(start,stop,step)`**
+
+:::
+::: {.column width="50%"}
+
+**For-loop เข้าถึงข้อมูลตรง**
+
+- `for x in collection` — ได้ item ทีละตัว
+- **`enumerate()`** — ได้ `(index, value)`
+- ใช้ได้กับ **List / Tuple / Set / Dict**
+
+**Collection หลายมิติ**
+
+- **List of Dict** — `s['key']`
+- **Dict of List** — `d[key][index]`
+
+::: {.callout-tip}
+loop + **condition** ช่วยกรอง/นับ/ค้นหาข้อมูลใน collection ได้สะดวก
+:::
+
+:::
+::::

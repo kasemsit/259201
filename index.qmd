@@ -1,5 +1,5 @@
 ---
-title: "259201 — Introduction to Computers for Engineers"
+title: "259201 — Computer Programming for Engineers"
 subtitle: "Lecture Slides"
 ---
 
@@ -15,19 +15,17 @@ Introduction to computers for engineers. Principles of computer hardware and sof
 |:------:|:------|:------:|
 | 1 | Course Orientation / Introduction to Programming | — |
 | 2 | Computational Thinking | — |
-| 3 | Variables and Types, Operators, Input/Output | [Slides](slides/module03.html){target="_blank"} |
-| 4 | Collections: List, Tuple, Set and Dictionary | [Slides](slides/module04.html){target="_blank"} |
+| 3 | Variables and Types, Operators, Input/Output | [Slides](slides/module03.html){target="_blank"} (ยังไม่ได้ตรวจสอบ) |
+| 4 | Collections: List, Tuple, Set and Dictionary | [Slides](slides/module04.html){target="_blank"} (ยังไม่ได้ตรวจสอบ) |
 | 5 | Conditions: Boolean, in, if-else, if-elif-else | [Slides](slides/module05.html){target="_blank"} |
-| 6 | Iterations (I): while-loop | — |
-| 7 | Iterations (II): for-loop | — |
-| 8 | Iterations and Collections | — |
+| 6 | Iterations (I): while-loop | [Slides](slides/module06.html){target="_blank"} (ยังไม่ได้ตรวจสอบ) |
+| 7 | Iterations (II): for-loop | [Slides](slides/module07.html){target="_blank"} (ยังไม่ได้ตรวจสอบ) |
+| 8 | Iterations and Collections | [Slides](slides/module08.html){target="_blank"} (ยังไม่ได้ตรวจสอบ) |
 | 9 | Functions | — |
 | 10 | List Comprehension and 2D Arrays | — |
 | 11 | Basic Data Visualization with Matplotlib | — |
 | 12 (I) | N-Dimensional Arrays with Numpy (I) | — |
 | 12 (II) | N-Dimensional Arrays with Numpy (II) | — |
-
-*Slides ที่ยังไม่มีลิงก์อยู่ระหว่างจัดทำ*
 
 ---
 

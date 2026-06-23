@@ -1,4 +1,4 @@
-# 259201 — Introduction to Computers for Engineers
+# 259201 — Computer Programming for Engineers
 
 ## Project Overview
 

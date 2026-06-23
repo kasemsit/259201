@@ -14,7 +14,7 @@ format:
     height: 720
     margin: 0.08
     logo: ""
-    footer: "259201 — Module 5 | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    footer: "[🏠 259201](../index.html) — Module 5 | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
     code-block-height: 480px
     mermaid:
       theme: neutral
