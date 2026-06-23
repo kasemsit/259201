@@ -1,0 +1,34 @@
+---
+title: "259201 — Introduction to Computers for Engineers"
+subtitle: "Lecture Slides"
+---
+
+## Course Description
+
+Introduction to computers for engineers. Principles of computer hardware and software. Engineering problem solving by using computers. Principles of high-level computer programming languages.
+
+คอมพิวเตอร์เบื้องต้นสำหรับวิศวกร หลักการระบบคอมพิวเตอร์ฮาร์ดแวร์และซอฟต์แวร์ แนวคิดและการวางขั้นตอนในการแก้ปัญหาทางวิศวกรรม หลักการภาษาการเขียนโปรแกรมคอมพิวเตอร์ระดับสูง
+
+## Lecture Slides
+
+| Module | Topic | Slides |
+|:------:|:------|:------:|
+| 1 | Course Orientation / Introduction to Programming | — |
+| 2 | Computational Thinking | — |
+| 3 | Variables and Types, Operators, Input/Output | [Slides](slides/module03.html){target="_blank"} |
+| 4 | Collections: List, Tuple, Set and Dictionary | — |
+| 5 | Conditions: Boolean, in, if-else, if-elif-else | — |
+| 6 | Iterations (I): while-loop | — |
+| 7 | Iterations (II): for-loop | — |
+| 8 | Iterations and Collections | — |
+| 9 | Functions | — |
+| 10 | List Comprehension and 2D Arrays | — |
+| 11 | Basic Data Visualization with Matplotlib | — |
+| 12 (I) | N-Dimensional Arrays with Numpy (I) | — |
+| 12 (II) | N-Dimensional Arrays with Numpy (II) | — |
+
+*Slides ที่ยังไม่มีลิงก์อยู่ระหว่างจัดทำ*
+
+---
+
+&copy; ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่

@@ -1,0 +1,145 @@
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: "Noto Sans Thai", "Noto Sans", "Segoe UI", Roboto, sans-serif;
+$presentation-font-size-root: 36px;
+$presentation-h1-font-size: 1.8em;
+$presentation-h2-font-size: 1.3em;
+$presentation-h3-font-size: 1.1em;
+$code-block-font-size: 0.7em;
+$link-color: #2980b9;
+
+/*-- scss:rules --*/
+
+// Section title slides
+section.white-text h1,
+section.white-text h2,
+section.white-text p {
+  color: #fff !important;
+}
+
+// Exercise slides
+section.exercise {
+  border-left: 8px solid #27ae60;
+}
+
+section.exercise h2::before {
+  content: "✏️ ";
+}
+
+// Think-exercise slides
+section.exercise-think {
+  border-left: 8px solid #e67e22;
+}
+
+section.exercise-think h2::before {
+  content: "🤔 ";
+}
+
+// Callout tweaks
+div.callout {
+  font-size: 0.85em;
+  margin-top: 0.5em;
+}
+
+// Code output styling
+.code-output {
+  background-color: #f0f0f0 !important;
+  border-left: 4px solid #27ae60;
+  color: #333 !important;
+}
+
+// Tabset - compact
+.reveal .panel-tabset [role="tablist"] {
+  border-bottom: 2px solid #ddd;
+  gap: 0;
+  margin-bottom: 0.3em;
+}
+
+.reveal .panel-tabset [role="tab"] {
+  font-size: 0.5em;
+  padding: 0.15em 0.8em;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  background: none;
+  color: #999;
+  cursor: pointer;
+}
+
+.reveal .panel-tabset [role="tab"][aria-selected="true"] {
+  color: #3498db;
+  border-bottom-color: #3498db;
+}
+
+// Pyodide live editor - compact layout
+.reveal .exercise-cell-wrapper,
+.reveal .cell-container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.reveal .tab-pane > .cell,
+.reveal .tab-pane > div:first-child {
+  margin-top: 0 !important;
+}
+
+// Toolbar: all buttons together on the right
+.reveal .card.exercise-editor .card-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.25rem 0.5rem;
+}
+
+.reveal .cm-editor {
+  background-color: #fafafa !important;
+}
+.reveal .cm-editor .cm-gutters {
+  background-color: #f0f0f0 !important;
+}
+
+// Tables
+.reveal table {
+  font-size: 0.82em;
+}
+
+.reveal table th {
+  background-color: #2c3e50;
+  color: #fff;
+  font-weight: 600;
+}
+
+// Slide footer
+.reveal .footer {
+  font-size: 0.45em;
+  color: #777;
+}
+
+// Incremental list spacing
+.reveal .incremental li {
+  margin-bottom: 0.3em;
+}
+
+// Column gap
+.columns {
+  gap: 1.5em;
+}
+
+// Inline code readability
+.reveal code {
+  color: #c0392b;
+  background-color: #f4f4f4;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  font-size: 0.92em;
+}
+
+// Don't override code blocks
+.reveal pre code {
+  color: inherit;
+  background-color: inherit;
+  padding: inherit;
+  border-radius: inherit;
+  font-size: inherit;
+}
