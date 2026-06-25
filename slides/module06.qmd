@@ -97,7 +97,12 @@ while i <= n:
 ## รูปแบบคำสั่ง while {#m6-while}
 
 :::: {.columns}
-::: {.column width="55%"}
+::: {.column width="55%" .fragment}
+
+![](images/m6-while-flow.png){height="500px" fig-align="center"}
+
+:::
+::: {.column width="45%" .fragment}
 
 ```python
 while condition:
@@ -113,27 +118,36 @@ next-statement
 - `next-statement` ไม่ได้ย่อหน้า จึงอยู่**นอกลูป**
 :::
 
-:::
-::: {.column width="45%"}
-
-![](images/m6-while-flow.png){height="420px" fig-align="center"}
 
 :::
 ::::
 
+
+
+
 ## ลำดับการทำงานของ while {#m6-while-flow}
+
+```python
+while condition:
+    statement1
+    statement2
+    ...
+    statementN
+next-statement
+```
 
 ::: {.incremental}
 - เริ่มต้นด้วยการตรวจสอบเงื่อนไข (`condition`)
-- หากเงื่อนไขเป็น **`True`** โปรแกรมจะเข้าลูปไปทำกลุ่มคำสั่งที่กำหนดไว้
-- เมื่อทำงานในลูปเสร็จแต่ละรอบ โปรแกรมจะวนกลับไปตรวจสอบเงื่อนไขอีกครั้ง
+- หากเงื่อนไขเป็น **`True`** โปรแกรมจะเข้าลูปไปทำ `statement1`, `statement2`, ...
+- เมื่อทำงานในลูปเสร็จแต่ละรอบ โปรแกรมจะวนกลับไปตรวจสอบ `condition` อีกครั้ง
 - โปรแกรมจะวนทำงานในลูป ตราบเท่าที่เงื่อนไขยังเป็น **`True`**
-- เมื่อใดที่ตรวจสอบเงื่อนไขแล้วได้ **`False`** โปรแกรมจะออกจากลูป แล้วจึงทำ `next-statement` ต่อไป
+- เมื่อใดที่ตรวจสอบเงื่อนไขแล้วได้ **`False`** โปรแกรมจะออกจากลูป เพื่อทำ `next-statement` ต่อไป
 :::
+
 
 ## Components of Iteration {#m6-components}
 
-เพื่อควบคุมรอบการทำงานของลูป `while` ให้ได้ตามต้องการ จำเป็นต้องออกแบบให้มี **3 ส่วนประกอบ**
+เพื่อควบคุมจำนวนรอบการทำงานของลูป `while` จำเป็นต้องออกแบบ **3 ส่วนประกอบ**
 
 ::: {.incremental}
 1. **การกำหนดค่าเริ่มต้น (Initialization)** — กำหนดค่าตั้งต้นให้ตัวแปรที่ใช้เป็นเงื่อนไข เช่น `x=0, y=100, ans="n"`
@@ -142,6 +156,9 @@ next-statement
 :::
 
 ## รูปแบบการวางส่วนประกอบทั้ง 3 {#m6-components-form}
+
+:::: {.columns}
+::: {.column width="50%"}
 
 ```python
 init                       # กำหนดค่าเริ่มต้น
@@ -153,6 +170,14 @@ while condition:           # ทดสอบเงื่อนไข
     update                 # ปรับปรุงค่า
 next-statement
 ```
+
+:::
+::: {.column width="50%"}
+
+![](images/m6-components-form.png){width="400px" fig-align="center"}
+
+:::
+::::
 
 ::: {.callout-tip}
 หากลืม **update** ตัวแปรเงื่อนไข ลูปจะวนไม่รู้จบ (infinite loop)

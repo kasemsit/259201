@@ -30,4 +30,6 @@ Introduction to computers for engineers. Principles of computer hardware and sof
 
 ---
 
+เรียบเรียงโดยคณาจารย์ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่
+
 &copy; ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่
