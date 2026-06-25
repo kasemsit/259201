@@ -30,7 +30,7 @@ execute:
 :::: {.columns}
 ::: {.column width="50%"}
 
-### วันนี้เราจะเรียนรู้
+### วันนี้เราจะเรียนรู้ 🚀
 
 ::: {.incremental}
 1. **Flowchart** ผังงานในการเขียนโปรแกรม
@@ -60,7 +60,7 @@ else:
 :::
 ::::
 
-# Flowchart {background-color="#2c3e50" .white-text}
+# Flowchart 📊 {background-color="#2c3e50" .white-text}
 
 ผังงาน — เครื่องมืออธิบายลำดับความคิดและตรรกะของโปรแกรม
 
@@ -126,7 +126,7 @@ else:
 :::
 ::::
 
-# การเลือกและการสร้างเงื่อนไข {background-color="#2c3e50" .white-text}
+# การเลือกและการสร้างเงื่อนไข 🔀 {background-color="#2c3e50" .white-text}
 
 Selection & Condition
 
@@ -172,7 +172,7 @@ Grade != 0
 ```
 
 ::: {.callout-note}
-ทบทวน: [Comparison Operators (Module 3)](module03.html#m3-comparison)
+ทบทวน: [Comparison Operators (Module 3)](module03a.html#m3-comparison)
 :::
 
 :::
@@ -317,7 +317,7 @@ True
 | **`or`**  | เป็นจริง ถ้าอย่างน้อยค่าใดค่าหนึ่งเป็นจริง |
 
 ::: {.callout-note}
-ทบทวน: [Logical Operators (Module 3)](module03.html#m3-logical)
+ทบทวน: [Logical Operators (Module 3)](module03a.html#m3-logical)
 :::
 
 ## ตารางค่าความจริง (Truth Table) {#m5-truth-table}
@@ -385,7 +385,7 @@ print('6.', False and "Python" in greeting)     # False
 
 :::
 
-# คำสั่ง if {background-color="#2c3e50" .white-text}
+# คำสั่ง if ❓ {background-color="#2c3e50" .white-text}
 
 การสร้างทางเลือกด้วยเงื่อนไข
 
@@ -536,7 +536,7 @@ Lisa is number 4 in Blackpink.
 end-of-script
 ```
 
-# คำสั่ง if-else {background-color="#2c3e50" .white-text}
+# คำสั่ง if-else ⚖️ {background-color="#2c3e50" .white-text}
 
 สองทางเลือก
 
@@ -608,7 +608,7 @@ end-of-script
 ```
 
 ::: {.callout-note}
-ทบทวน: [f-string format `{c:.2f}` (Module 3)](module03.html#m3-fstring-format)
+ทบทวน: [f-string format `{c:.2f}` (Module 3)](module03b.html#m3-fstring-format)
 :::
 
 :::
@@ -633,7 +633,7 @@ Sorry, Somchai is NOT a Blackpink member.
 end-of-script
 ```
 
-# คำสั่ง if-elif-else {background-color="#2c3e50" .white-text}
+# คำสั่ง if-elif-else 🪜 {background-color="#2c3e50" .white-text}
 
 มากกว่าสองทางเลือก
 
@@ -758,7 +758,7 @@ Junior
 ถ้าเขียน `if` แยกหลายอัน โปรแกรมจะตรวจ **ทุกเงื่อนไข**; แต่ `if-elif-else` จะ **หยุดทันที** ที่เจอเงื่อนไขจริง — สื่อความหมาย "เลือกทางเดียว" และทำงานน้อยขั้นกว่า
 :::
 
-# Nested if {background-color="#2c3e50" .white-text}
+# Nested if 🪆 {background-color="#2c3e50" .white-text}
 
 เงื่อนไขซ้อนเงื่อนไข
 
@@ -789,7 +789,7 @@ Junior
 
 
 ::: {.callout-note .fragment}
-ทบทวน: [input().split() (Module 3)](module03.html#m3-split) · [Logical operators `and` (Module 3)](module03.html#m3-logical)
+ทบทวน: [input().split() (Module 3)](module03b.html#m3-split) · [Logical operators `and` (Module 3)](module03a.html#m3-logical)
 :::
 
 
@@ -916,9 +916,9 @@ You are a 6-year student of Engineering program.
 
 :::
 
-# Summary {background-color="#2c3e50" .white-text}
+# Summary 🎯 {background-color="#2c3e50" .white-text}
 
-## สรุป Module 5
+## สรุป Module 5 🎉
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -1002,5 +1002,5 @@ print('6.', 3*i - 4%2/k < 2+m)           # False
 :::
 
 ::: {.callout-note}
-ทบทวน: [Operator precedence (Module 3)](module03.html#m3-precedence) · [Arithmetic `%` `/` (Module 3)](module03.html#m3-arithmetic)
+ทบทวน: [Operator precedence (Module 3)](module03a.html#m3-precedence) · [Arithmetic `%` `/` (Module 3)](module03a.html#m3-arithmetic)
 :::

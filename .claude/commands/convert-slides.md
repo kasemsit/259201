@@ -156,7 +156,7 @@ Read `slides/cross-references.md` for the full dependency map. When a concept or
 
 ```markdown
 ::: {.callout-note}
-ทบทวน: [Comparison Operators (Module 3)](module03.html#m3-comparison)
+ทบทวน: [Comparison Operators (Module 3)](module03a.html#m3-comparison)
 :::
 ```
 

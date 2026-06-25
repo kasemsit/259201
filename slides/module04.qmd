@@ -28,7 +28,7 @@ execute:
 :::: {.columns}
 ::: {.column width="50%"}
 
-### วันนี้เราจะเรียนรู้
+### วันนี้เราจะเรียนรู้ 🚀
 
 ::: {.incremental}
 1. **Collection Data Types** ภาพรวม
@@ -54,7 +54,7 @@ print(f"Average GPA: {avg:.2f}")
 :::
 ::::
 
-# Python Collection Data Types {background-color="#2c3e50" .white-text}
+# Python Collection Data Types 📚 {background-color="#2c3e50" .white-text}
 
 โครงสร้างสำหรับจัดเก็บชุดข้อมูล
 
@@ -76,7 +76,7 @@ print(f"Average GPA: {avg:.2f}")
 เมื่อเห็นคำสั่งในรูปแบบ **`.function_name()`** (มี `.` นำหน้า) หมายความว่าเป็น method ที่ติดตัวมากับ Object — ต้องเรียกใช้ในรูปแบบ `variable_name.function_name()`
 :::
 
-# List {background-color="#2c3e50" .white-text}
+# List 📋 {background-color="#2c3e50" .white-text}
 
 ลิสต์ — จัดเก็บชุดข้อมูลภายใต้ตัวแปรเดียว
 
@@ -125,7 +125,7 @@ print(type(lst2))
 ```
 
 ::: {.callout-note}
-ทบทวน: [Data Types และ type() (Module 3)](module03.html#m3-data-types)
+ทบทวน: [Data Types และ type() (Module 3)](module03a.html#m3-data-types)
 :::
 
 ## โจทย์ #1 {.exercise}
@@ -209,7 +209,7 @@ print(data_list)
 ::::
 
 ::: {.callout-note}
-ทบทวน: [input().split() (Module 3)](module03.html#m3-split)
+ทบทวน: [input().split() (Module 3)](module03b.html#m3-split)
 :::
 
 ## การนับจำนวนข้อมูล — `len()` {#m4-list-len}
@@ -350,7 +350,7 @@ print(my_list)
 ```
 
 ::: {.callout-note}
-ทบทวน: [Assignment Operators (Module 3)](module03.html#m3-assignment)
+ทบทวน: [Assignment Operators (Module 3)](module03a.html#m3-assignment)
 :::
 
 :::
@@ -549,7 +549,7 @@ print(a)
 | `*` | เพิ่มข้อมูลให้มีหลายชุดตาม**จำนวน**ที่ต้องการ |
 
 ::: {.callout-note}
-ทบทวน: [Arithmetic Operators `+` `*` (Module 3)](module03.html#m3-arithmetic) — สำหรับ List จะเป็น concatenation และ repetition
+ทบทวน: [Arithmetic Operators `+` `*` (Module 3)](module03a.html#m3-arithmetic) — สำหรับ List จะเป็น concatenation และ repetition
 :::
 
 ## โจทย์ #8 {.exercise}
@@ -1050,7 +1050,7 @@ print(x[idx_mx])
 
 :::
 
-# Tuple {background-color="#2c3e50" .white-text}
+# Tuple 📦 {background-color="#2c3e50" .white-text}
 
 ทูเพิล — เก็บข้อมูลเหมือน List แต่แก้ไขไม่ได้
 
@@ -1175,7 +1175,7 @@ Tuple เป็น **immutable** — ไม่สามารถแก้ไข�
 | `tuple(list_var)` | แปลง List → Tuple |
 
 ::: {.callout-note}
-ทบทวน: [Type Conversion (Module 3)](module03.html#m3-type-conversion) — `list()` และ `tuple()` ทำงานคล้าย `int()`, `float()`, `str()`
+ทบทวน: [Type Conversion (Module 3)](module03a.html#m3-type-conversion) — `list()` และ `tuple()` ทำงานคล้าย `int()`, `float()`, `str()`
 :::
 
 ## โจทย์ #23 {.exercise}
@@ -1222,7 +1222,7 @@ print(type(x_tuple), x_tuple)
 
 :::
 
-# Set {background-color="#2c3e50" .white-text}
+# Set 🎲 {background-color="#2c3e50" .white-text}
 
 เซ็ต — ชุดข้อมูลที่ไม่ซ้ำกัน ไม่มีลำดับ
 
@@ -1614,7 +1614,7 @@ set()
 
 :::
 
-# Dictionary {background-color="#2c3e50" .white-text}
+# Dictionary 📖 {background-color="#2c3e50" .white-text}
 
 ดิกชันนารี — เก็บข้อมูลด้วย key แทน index
 
@@ -1705,7 +1705,7 @@ Harry Potter got 55/100 in Python programming.
 ```
 
 ::: {.callout-note}
-ทบทวน: [f-string (Module 3)](module03.html#m3-fstring)
+ทบทวน: [f-string (Module 3)](module03b.html#m3-fstring)
 :::
 
 :::
@@ -2032,7 +2032,7 @@ dict_items([('name', 'Rionel Messi'), ('isMale', True), ('midterm', 25), ('final
 
 :::
 
-# Collection of Collections {background-color="#2c3e50" .white-text}
+# Collection of Collections 🪆 {background-color="#2c3e50" .white-text}
 
 โครงสร้างข้อมูลซ้อนกัน — nested collection
 
@@ -2446,9 +2446,9 @@ A
 
 :::
 
-# Summary {background-color="#2c3e50" .white-text}
+# Summary 🎯 {background-color="#2c3e50" .white-text}
 
-## สรุป Module 4
+## สรุป Module 4 🎉
 
 :::: {.columns}
 ::: {.column width="50%"}

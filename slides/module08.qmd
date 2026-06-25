@@ -28,7 +28,7 @@ execute:
 :::: {.columns}
 ::: {.column width="50%"}
 
-### วันนี้เราจะเรียนรู้
+### วันนี้เราจะเรียนรู้ 🚀
 
 ::: {.incremental}
 1. **ทบทวน** Collections — List, Tuple, Set, Dictionary
@@ -60,7 +60,7 @@ for i, x in enumerate(sc_new):
 :::
 ::::
 
-# Review of Python Collections {background-color="#2c3e50" .white-text}
+# Review of Python Collections 📚 {background-color="#2c3e50" .white-text}
 
 ทบทวน List, Tuple, Set, Dictionary
 
@@ -214,7 +214,7 @@ Sum of the 2rd- 4th score is =143
 **คิดก่อน:** การพิมพ์ tuple กับ list ต่างกันที่สัญลักษณ์ใด?
 
 ::: {.callout-note}
-ทบทวน: [Tuple (Module 4)](module04.html#m4-tuple) · [Type conversion `tuple()` `list()` (Module 3)](module03.html#m3-type-conversion)
+ทบทวน: [Tuple (Module 4)](module04.html#m4-tuple) · [Type conversion `tuple()` `list()` (Module 3)](module03a.html#m3-type-conversion)
 :::
 
 ## โจทย์ #1b: list ↔ tuple (ต่อ) {.exercise}
@@ -426,7 +426,7 @@ dict_items([('name', 'Thanatip Chankong'), ('ID', '4206144'), ('midterm', 25), (
 
 :::
 
-# การใช้ Iteration กับ Collections {background-color="#2c3e50" .white-text}
+# การใช้ Iteration กับ Collections 🔁 {background-color="#2c3e50" .white-text}
 
 วนซ้ำเพื่อเข้าถึงข้อมูลใน collection
 
@@ -555,7 +555,7 @@ for i in range(n-1, -1, -1):
 **คิดก่อน:** ลองทำทั้งแบบ **while** และแบบ **for** — โครงสร้างต่างกันอย่างไร?
 
 ::: {.callout-note}
-ทบทวน: [if condition (Module 5)](module05.html#m5-if-else) · [Assignment `+=` (Module 3)](module03.html#m3-assignment)
+ทบทวน: [if condition (Module 5)](module05.html#m5-if-else) · [Assignment `+=` (Module 3)](module03a.html#m3-assignment)
 :::
 
 ## โจทย์ #3: loop + condition (ต่อ) {.exercise}
@@ -642,7 +642,7 @@ Student at index=12 is Fail (F)
 
 :::
 
-# For-loop เข้าถึงข้อมูลโดยตรง {background-color="#2c3e50" .white-text}
+# For-loop เข้าถึงข้อมูลโดยตรง 🎢 {background-color="#2c3e50" .white-text}
 
 `for x in collection` — ไม่ต้องสร้าง index ก่อน
 
@@ -871,7 +871,7 @@ for i, k in enumerate(person):
 0,name:Lionel Messi   1,isMale:True   2,midterm:25   3,final:30   4,weight:65.25   5,height:180.0
 ```
 
-# Collection หลายมิติ {background-color="#2c3e50" .white-text}
+# Collection หลายมิติ 🧊 {background-color="#2c3e50" .white-text}
 
 List of Dict และ Dict of List
 
@@ -965,7 +965,7 @@ $$\mathsf{BMI} = \frac{\text{น้ำหนัก (kg)}}{\left(\dfrac{\text{ส
 ปัดเป็นทศนิยม 2 ตำแหน่ง
 
 ::: {.callout-note}
-ทบทวน: [Arithmetic `/` `**` (Module 3)](module03.html#m3-arithmetic)
+ทบทวน: [Arithmetic `/` `**` (Module 3)](module03a.html#m3-arithmetic)
 :::
 
 ## โจทย์ #6: คำนวณ BMI (ต่อ) {.exercise}
@@ -1087,9 +1087,9 @@ The heaviest person in the group is Steve with the weight of 82 kg.
 
 :::
 
-# Summary {background-color="#2c3e50" .white-text}
+# Summary 🎯 {background-color="#2c3e50" .white-text}
 
-## สรุป Module 8
+## สรุป Module 8 🎉
 
 :::: {.columns}
 ::: {.column width="50%"}

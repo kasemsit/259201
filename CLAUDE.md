@@ -16,7 +16,8 @@ Original content lives in Jupyter notebooks (`ipynb/`), converted to interactive
 ├── ipynb/                    # Source notebooks (Module 3–8)
 ├── slides/                   # Quarto slide decks (.qmd)
 │   ├── custom.scss           # Shared theme/styling
-│   └── module03.qmd          # Example completed module
+│   ├── module03a.qmd         # Example completed module (Variables, Operators, Math)
+│   └── module03b.qmd         # Example completed module (Input/Output, f-string)
 ├── _output/                  # Rendered HTML output
 │   └── slides/
 ├── _extensions/              # quarto-live extension
@@ -33,7 +34,7 @@ Original content lives in Jupyter notebooks (`ipynb/`), converted to interactive
 
 ```bash
 # Render a single module
-QUARTO_PYTHON=.venv/bin/python quarto render slides/module03.qmd
+QUARTO_PYTHON=.venv/bin/python quarto render slides/module03a.qmd
 
 # Output goes to _output/slides/moduleNN.html
 ```

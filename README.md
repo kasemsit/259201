@@ -48,7 +48,7 @@ pip install -r requirements.txt
 QUARTO_PYTHON=.venv/bin/python quarto render
 
 # Render a single module
-QUARTO_PYTHON=.venv/bin/python quarto render slides/module03.qmd
+QUARTO_PYTHON=.venv/bin/python quarto render slides/module03a.qmd
 
 # Preview locally
 QUARTO_PYTHON=.venv/bin/python quarto preview

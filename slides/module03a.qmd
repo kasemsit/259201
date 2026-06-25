@@ -1,6 +1,6 @@
 ---
-title: "Module 3"
-subtitle: "Variables and Types, Operators, Input/Output"
+title: "Module 3a"
+subtitle: "Variables and Types, Operators, Math"
 format:
   live-revealjs:
     theme: [default, custom.scss]
@@ -14,7 +14,7 @@ format:
     height: 720
     margin: 0.08
     logo: ""
-    footer: "[🏠 259201](../index.html) — Module 3 | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    footer: "[🏠 259201](../index.html) — Module 3a | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
     code-block-height: 480px
 pyodide:
   packages: []
@@ -28,31 +28,35 @@ execute:
 :::: {.columns}
 ::: {.column width="50%"}
 
-### วันนี้เราจะเรียนรู้
+### วันนี้เราจะเรียนรู้ 🚀
 
 ::: {.incremental}
 1. โครงสร้างของโปรแกรม Python
 2. **ตัวแปร** (Variables) และ **ชนิดข้อมูล** (Data Types)
 3. **ตัวดำเนินการ** (Operators)
 4. **Math Module**
-5. **Input / Output** และ **f-string**
+:::
+
+::: {.callout-note}
+**Input / Output** และ **f-string** ต่อใน [Module 3b](module03b.html) 👉
 :::
 
 :::
 ::: {.column width="50%"}
 
 ```python
-import datetime
+import math
 
-yob = input("Year of birth? ")
-age = datetime.date.today().year - int(yob)
-print(f"You are {age} years old.")
+x = 16
+y = 4
+print(x ** 2)          # operators
+print(math.sqrt(x))    # math module
 ```
 
 :::
 ::::
 
-# Example of Python Script {background-color="#2c3e50" .white-text}
+# Example of Python Script 🐍 {background-color="#2c3e50" .white-text}
 
 โครงสร้างของโปรแกรม Python
 
@@ -78,7 +82,7 @@ print("Congratulations on your first Python program.")
 ```
 
 
-# Variables {background-color="#2c3e50" .white-text}
+# Variables 📦 {background-color="#2c3e50" .white-text}
 
 ตัวแปร — การกำหนดชื่อให้พื้นที่ในหน่วยความจำ
 
@@ -137,7 +141,7 @@ print(keyword.kwlist)
  'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
 ```
 
-# Data Types {background-color="#2c3e50" .white-text}
+# Data Types 🏷️ {background-color="#2c3e50" .white-text}
 
 ชนิดข้อมูลพื้นฐาน — `str`, `int`, `float`, `bool`
 
@@ -540,9 +544,8 @@ This is the "6th" line
 
 ## Dynamic Typing — ชนิดข้อมูลไม่ตายตัว {#m3-dynamic-typing}
 
-Python **ไม่บังคับ** ชนิดข้อมูลตายตัว (ต่างจาก C/C++, Java)
-
-สามารถเปลี่ยนไปเก็บข้อมูลชนิดอื่นได้ → สะดวก แต่ **เสี่ยงต่อข้อผิดพลาด**
+Python **ไม่บังคับ** ชนิดข้อมูลตายตัว (ต่างจาก C/C++, Java) 
+ตัวแปรสามารถเปลี่ยนไปเก็บข้อมูลชนิดอื่นได้อัตโนมัติ (dynamic typing)
 
 . . .
 
@@ -560,6 +563,16 @@ x = 3.14        # เปลี่ยนเป็น float ได้!
 type('Hello')   # <class 'str'>
 type(1)         # <class 'int'>
 type(1.234)     # <class 'float'>
+```
+
+. . .
+
+ถ้าเป็นภาษาอื่น เช่น C++ เราจะต้องระบุตั้งแต่ต้นว่าจะให้ตัวแปรเก็บอะไร 😱 (static typing)
+```c++
+#include <string>
+int x = 0;
+float y = 3.14
+std::string z = "hello"
 ```
 
 ## โจทย์ #9 {.exercise}
@@ -650,8 +663,8 @@ print(s2, type(s2))
 
 ```{pyodide}
 #| autorun: false
-s2 = 3500
-s2 = s2 ____ 2
+s2 = 2500 + 1000   # จากข้อก่อนหน้า
+________
 print(s2, type(s2))
 ```
 
@@ -750,7 +763,7 @@ TypeError: can only concatenate str (not "int") to str
 
 :::
 
-# Type Conversions {background-color="#2c3e50" .white-text}
+# Type Conversions 🔄 {background-color="#2c3e50" .white-text}
 
 การเปลี่ยนชนิดข้อมูล — `int()`, `float()`, `str()`
 
@@ -764,6 +777,7 @@ TypeError: can only concatenate str (not "int") to str
 | `int()` | จำนวนเต็ม |
 | `float()` | ทศนิยม |
 | `str()` | ข้อความ |
+| `bool()` | `True`/`False` |
 
 :::
 ::: {.column width="60%"}
@@ -784,6 +798,7 @@ g = int(9.99)        # 9 (ตัดทศนิยมทิ้ง)
 ::: {.callout-note}
 **Automatic conversion**: `int` + `float` → Python แปลง `int` เป็น `float` ให้อัตโนมัติ
 :::
+
 
 ## โจทย์ #14 {.exercise}
 
@@ -819,6 +834,13 @@ print(type(99 + 1.23))
 
 :::
 
+. . .
+
+::: {.callout-note}
+
+แล้ว `4` กับ `4.00` เป็น type เดียวกันหรือไม่🤔
+
+:::
 
 
 ## โจทย์ #15 {.exercise}
@@ -834,7 +856,7 @@ print(type(99 + 1.23))
 
 ```{pyodide}
 #| autorun: false
-i = ____(42 + 3.5)
+i = 42 + 3.5
 print(i, type(i))
 ```
 
@@ -870,7 +892,7 @@ print(i, type(i))
 ```{pyodide}
 #| autorun: false
 i = 45
-f = ____(i)
+f = i
 print(f, type(f))
 ```
 
@@ -904,14 +926,16 @@ print(f, type(f))
 ```{pyodide}
 #| autorun: false
 s = '1234'
-print(____(s), type(____(s)))
+i = s
+print(i, type(i))
 ```
 
 ### Solution
 
 ```python
 s = '1234'
-print(int(s), type(int(s)))
+i = int(s)
+print(int(i), type(i))
 ```
 
 
@@ -925,9 +949,9 @@ print(int(s), type(int(s)))
 
 ## โจทย์ #18 {.exercise}
 
-กำหนด `str1 = '1234.50'` — หาผลบวกของ `str1` กับ `1000` เก็บในตัวแปร `f`
+กำหนด `str1 = '1234.50'` — หาผลบวกของ `str1` กับ `1000` เก็บในตัวแปร `x`
 
-จะแปลง `str1` เป็น `int` หรือ `float` ดี?
+**ลองคิด:** จะแปลง `str1` เป็น `int` หรือ `float` ดี?
 
 
 
@@ -939,16 +963,16 @@ print(int(s), type(int(s)))
 ```{pyodide}
 #| autorun: false
 str1 = '1234.50'
-f = ____(str1) + 1000
-print(f, type(f))
+x = ____(str1) + 1000
+print(x, type(x))
 ```
 
 ### Solution
 
 ```python
 str1 = '1234.50'
-f = float(str1) + 1000
-print(f, type(f))
+x = float(str1) + 1000
+print(x, type(x))
 ```
 
 
@@ -1002,7 +1026,7 @@ ValueError: invalid literal for int() with base 10: 'Hello'
 
 :::
 
-# Operators {background-color="#2c3e50" .white-text}
+# Operators ➕ {background-color="#2c3e50" .white-text}
 
 ตัวดำเนินการ — Arithmetic, Comparison, Logical, Assignment
 
@@ -1136,7 +1160,7 @@ The number of groups = 7
 x = 33
 y = 1.5
 expo = x ____ y
-print('x ** y =', expo)
+print('x^y =', expo)
 ```
 
 ### Solution
@@ -1145,15 +1169,30 @@ print('x ** y =', expo)
 x = 33
 y = 1.5
 expo = x ** y
-print('x ** y =', expo)
+print('x^y =', expo)
 ```
 
 
 ```{.python .code-output}
-x ** y = 189.63109108996087
+x^y = 189.63109108996087
 ```
 
 :::
+
+. . .
+
+::: {.callout-tip}
+
+ทศนิยมเยอะไปไหม ถ้าต้องการทศนิยม 2 ตำแหน่งล่ะ🤔  ทำแบบนี้เลย...
+
+```python
+print(f'x^y = {expo:.2f}')
+```
+
+อยากรู้เพิ่ม 👉 ดูที่หัวข้อ [**f-string**](#m3-fstring)
+
+:::
+
 
 
 
@@ -1188,9 +1227,20 @@ x ** y = 189.63109108996087
 :::
 ::::
 
+. . .
+
+::: {.callout-note}
+
+`True` กับ `False` เป็นข้อมูล type ไหน🤔
+
+:::
+
+
 ## โจทย์ #23 {.exercise}
 
-กำหนด `x=10`, `y=12` — ประโยค `x > y` และ `x < y` เป็นจริงหรือเท็จ?
+กำหนด `x=10`, `y=12` — ประโยค `x > y` และ `x < y` เป็นจริงหรือเท็จ? และเป็น type ไหน
+
+
 
 
 
@@ -1203,8 +1253,10 @@ x ** y = 189.63109108996087
 #| autorun: false
 x = 10
 y = 12
-print('x > y is', x ____ y)
-print('x < y is', x ____ y)
+print('x > y is', ____)
+print('x < y is', ____)
+print('x > y is of type', ______)
+print('x < y is of type', ______)
 ```
 
 ### Solution
@@ -1214,12 +1266,16 @@ x = 10
 y = 12
 print('x > y is', x > y)
 print('x < y is', x < y)
+print('x > y is of type', type(x > y))
+print('x < y is of type', type(x < y))
 ```
 
 
 ```{.python .code-output}
 x > y is False
 x < y is True
+x > y is of type <class 'bool'>
+x < y is of type <class 'bool'>
 ```
 
 :::
@@ -1228,7 +1284,10 @@ x < y is True
 
 ## โจทย์ #24 {.exercise}
 
-จากข้อก่อน — `x` เท่ากับ `y` หรือไม่? ไม่เท่ากับ `y` หรือไม่?
+จากข้อก่อน — จะตรวจสอบว่า 
+
+- `x` เท่ากับ `y` หรือไม่? 
+- `x` ไม่เท่ากับ `y` หรือไม่?
 
 
 
@@ -1263,6 +1322,17 @@ print('"x is not equal to y" is', z)
 
 :::
 
+. . .
+
+
+::: {.callout-note}
+
+ผลของ comparison operator ได้ตรรกะ `True` หรือ `False` แสดงว่าต้องมี operator ที่ใช้กระทำทางตรรกะแน่ ๆ เลย (👉 ดูหน้าต่อไป)
+
+:::
+
+
+
 
 
 ## Logical Operators {#m3-logical}
@@ -1272,6 +1342,14 @@ print('"x is not equal to y" is', z)
 - **`and`** — ทั้งคู่ต้อง `True`
 - **`or`** — แค่ตัวใดตัวหนึ่ง `True`
 - **`not`** — กลับค่า
+
+. . .
+
+::: {.callout-note}
+
+👉 **ใน Module 3 เราเจอ Logical Operators แค่นิดเดียว** — แต่จะได้ใช้งานจริงจังมากใน [**Module 5 (if)**](module05.html#m5-logical) และ [**Module 6 (while loop)**](module06.html#m6-while) ตอนสร้าง **เงื่อนไข control flow** 🔀
+
+:::
 
 ## โจทย์ #25 {.exercise}
 
@@ -1316,41 +1394,62 @@ not y is True
 
 ## Assignment Operators {#m3-assignment}
 
-:::: {.columns}
-::: {.column width="50%"}
+**แบบพื้นฐาน** — กำหนดค่า (`=`) 📌
 
 ```python
 x = 10        # assign
-x += 5        # x = x + 5  → 15
-x -= 3        # x = x - 3  → 12
 ```
 
+. . .
+
+
+**ตัวย่อ** — assign + คำนวณในตัวเดียว ⚡ 
+
+| ตัวย่อ | เทียบเท่ากับ | ผลลัพธ์ (คิดจาก `x = 10`) |
+|:------:|:------------:|:-------:|
+| `x += 5` | `x = x + 5` | `x = 15` |
+| `x -= 3` | `x = x - 3` | `x = 7` |
+| `x *= 2` | `x = x * 2` | `x = 20` |
+| `x /= 4` | `x = x / 4` | `x = 2.5` |
+| `x **= 2` | `x = x ** 2` | `x = 100` |
+| `x //= 4` | `x = x // 4` | `x = 2` |
+| `x %= 3` | `x = x % 3` | `x = 1` |
+
+. . .
+
+::: {.callout}
+
+**ตัวย่อช่วยให้เขียนสั้นลง** 👉 `x += 5` มีความหมายเหมือน `x = x + 5`
+
+อ่านว่า: *"เอาค่า `x` เดิม มาบวก 5 แล้วเก็บกลับเข้า `x`"*
+
+ดังนั้นต้องมี `x = 10` (กำหนดค่าเริ่มต้น) มาก่อนเสมอ ไม่งั้นจะไม่มีค่าเดิมให้บวกเพิ่ม
+
 :::
-::: {.column width="50%"}
-
-```python
-x *= 2        # x = x * 2  → 24
-x /= 4        # x = x / 4  → 6.0
-x **= 2       # x = x ** 2 → 36.0
-```
-
-:::
-::::
 
 
-## Operator Precedence (ลำดับความสำคัญ) {#m3-precedence}
+
+## Operator Precedence (ลำดับความสำคัญ) {#m3-precedence .smaller}
 
 ลำดับจาก **สูงสุด → ต่ำสุด**
 
-| ลำดับ | Operators | ตัวอย่าง |
-|:-----:|:----------|:---------|
-| 1 | `( )` | วงเล็บ |
-| 2 | `**` | ยกกำลัง |
-| 3 | `+x` `-x` | เครื่องหมายหน้าตัวเลข |
-| 4 | `*` `/` `//` `%` | คูณ หาร |
-| 5 | `+` `-` | บวก ลบ |
-| 6 | `>` `<` `>=` `<=` `==` `!=` | เปรียบเทียบ |
-| 7 | `not` → `and` → `or` | ตรรกะ |
+| Operators             | Description                           | Associativity (การจับคู่) |
+| :-------------------- | :------------------------------------ | :----------------------: |
+| `()`                  | Parentheses                           | —                        |
+| `**`                  | Exponentiation (raise to the power)   | **ขวา → ซ้าย** ⭐         |
+| `+x`, `-x`, `~x`      | Unary plus, Unary minus, Bitwise NOT  | ขวา → ซ้าย               |
+| `*`, `/`, `//`, `%`   | Multiplication, Division, Floor division, Modulus | ซ้าย → ขวา   |
+| `+`, `-`              | Addition, subtraction                 | ซ้าย → ขวา               |
+| `<<`, `>>`            | Bitwise **`shift`** operators         | ซ้าย → ขวา               |
+| `&`                   | Bitwise **`AND`**                     | ซ้าย → ขวา               |
+| `^`, `\|`             | Bitwise **`XOR`** and **`OR`**        | ซ้าย → ขวา               |
+| `>`, `>=`, `<`, `<=`  | Comparison operators                  | ซ้าย → ขวา               |
+| `==`, `!=`            | Equality operators                    | ซ้าย → ขวา               |
+| `=`, `+=`, `-=`, `*=`, `**=`, `/=`, `//=` | Assignment operators      | **ขวา → ซ้าย** ⭐ |
+| `is`, `is not`        | Identity operators                    | ซ้าย → ขวา               |
+| `in`, `not in`        | Membership operators                  | ซ้าย → ขวา               |
+| `not`, `or`, `and`    | Logical operators                     | ซ้าย → ขวา               |
+
 
 ## โจทย์ #26 {.exercise}
 
@@ -1386,7 +1485,7 @@ print(____)
 
 
 ::: {.callout-tip}
-ใส่ `()` ให้ชัดเจน ดีกว่าท่องลำดับ!
+ใส่ `()` ให้ชัดเจน ดีกว่าท่องลำดับ! แต่ถ้าไม่มีวงเล็บ ก็ควรจะเข้าใจได้!
 
 :::
 
@@ -1398,7 +1497,19 @@ print(____)
 
 กำหนด $y = -3x - \dfrac{2}{10^2}$ — จงหา $y$ เมื่อ $x = 5$
 
+. . .
 
+::: {.callout .smaller}
+
+**วิธีคิด**
+
+1. assign ค่าให้ตัวแปร `x`
+2. assign ค่าให้ตัวแปร `y`
+3. แสดงผลคำนวณด้วยคำสั่ง  ด้วย `print()`
+
+จากวิธีคิดข้างบน ถ้าสลับขั้นที่ 1. กับ 2. จะมีผลกับการรันโค้ดยังไง?
+
+:::
 
 
 ::: {.panel-tabset}
@@ -1436,15 +1547,33 @@ print(y)
 
 :::
 
-# Math Module {background-color="#2c3e50" .white-text}
-
+# Math Module 🧮 {background-color="#2c3e50" .white-text}
 ชุดคำสั่งคณิตศาสตร์ — `import math`
 
 ## `math` module — ภาพรวม {#m3-math}
 
+
+- การคำนวณทางคณิตศาสตร์ที่ซับซ้อนทำได้ยากด้วย `operator` พื้นฐาน
+- Python เตรียมชุดคำสั่ง (หรือฟังก์ชัน) ในการคำนวณที่จำเป็นทางคณิตศาสตร์เพิ่มเติมให้ผู้พัฒนาโปรแกรมได้เรียกใช้งาน
+- คำสั่งเหล่านี้ถูกจัดเตรียมรวมกันไว้ในโมดูล (module) ที่ชื่อว่า `math`
+- ก่อนจะใช้งานคำสั่งเหล่านี้เราต้อง `import` โมดูลเข้าสู่โปรแกรมเสียก่อน
+
 ```python
 import math
 ```
+
+
+::: {.callout-note}
+
+ในการทำงานจริง เรา `import` module เข้ามาเพียงครั้งเดียวก็สามารถใช้งานต่อได้ ไม่จำเป็นต้อง `import` ทุกครั้ง
+
+:::
+
+
+
+
+
+## `math` — ฟังก์ชันและค่าคงที่ {#m3-math-ref}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -1489,38 +1618,33 @@ import math
 #| autorun: false
 import math
 # วิธีที่ 1
-print(math.____(25))
+print(math.____)
 # วิธีที่ 2
 print(25 ____ 0.5)
+# วิธีที่ 3
+print(math.____)
 ```
 
 ### Solution
 
-**วิธีที่ 1** — ใช้ `math.sqrt()`
-
 ```python
 import math
+# วิธีที่ 1
 print(math.sqrt(25))
+# วิธีที่ 2
+print(25 ** 0.5)
+# วิธีที่ 3
+print(math.pow(25, 0.5))
 ```
 
 
 ```{.python .code-output}
 5.0
-```
-
-
-**วิธีที่ 2** — ใช้ operator `**`
-
-```python
-print(25 ** 0.5)
-```
-
-```{.python .code-output}
+5.0
 5.0
 ```
 
 :::
-
 
 
 ## โจทย์ #29 {.exercise}
@@ -1629,9 +1753,7 @@ print(math.radians(60))
 
 ## โจทย์ #32 {.exercise}
 
-คำนวณ (1) $\sin(30\ rad)$ และ (2) $\cos(60°)$
-
-
+ให้คำนวณค่าของ ① $\sin$ ของมุมขนาด 30 เรเดียน, ② $\cos$ ของมุมขนาด 60 องศา
 
 
 ::: {.panel-tabset}
@@ -1651,30 +1773,24 @@ print(math.____(math.____(60)))
 
 ```python
 print(math.sin(30))
+print(math.cos(math.radians(60)))
 ```
 
 ```{.python .code-output}
 -0.9880316240928618
+0.5000000000000001
 ```
 
 
 $\cos(60°)$ — มุมเป็นองศา ต้องแปลงเป็น radian ก่อน!
 
-```python
-print(math.cos(math.radians(60)))
-```
-
-
-```{.python .code-output}
-0.5000000000000001
-```
-
-::: {.callout-warning}
-`sin`, `cos`, `tan` รับค่าเป็น **radian** เสมอ!
 
 :::
 
+. . .
 
+::: {.callout-warning}
+`sin`, `cos`, `tan` รับค่าเป็น **radian** เสมอ!
 
 :::
 
@@ -1708,424 +1824,9 @@ print(math.floor(5.99))
 5
 ```
 
+# Summary 🎯 {background-color="#2c3e50" .white-text}
 
-# Input / Output {background-color="#2c3e50" .white-text}
-
-รับข้อมูลจาก user — แสดงผลออกจอ
-
-## `input()` — รับข้อมูลจาก user {#m3-input}
-
-:::: {.columns}
-::: {.column width="55%"}
-
-```python
-a = input()
-```
-
-- ข้อมูลจาก `input()` เป็น **`str` เสมอ**
-- ต้องแปลงชนิดเอง ถ้าต้องการ number
-
-:::
-::: {.column width="45%"}
-
-```python
-# รับ string
-name = input()
-
-# รับ int
-age = int(input())
-
-# รับ float
-gpa = float(input())
-```
-
-:::
-::::
-
-## `input()` พร้อมข้อความแจ้ง user
-
-แสดงข้อความถาม user ขณะรอรับข้อมูล
-
-. . .
-
-```python
-name = input('Please enter your name: ')
-print('My name is', name)
-```
-
-. . .
-
-```{.python .code-output}
-Please enter your name: Somchai
-My name is Somchai
-```
-
-## โจทย์ #33 {.exercise}
-
-รับค่าตัวเลขจาก user เก็บในตัวแปร `x` — ตรวจสอบ type ของ `x`
-
-จากนั้นคำนวณ $y = x^3$ โดยให้ `y` เป็น `float`
-
-
-
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-# input() ไม่ทำงานใน Pyodide — จำลองด้วยค่าตรง
-x = '5'
-print(type(x))
-x = ____(x)
-y = x ____ 3
-print(y, type(y))
-```
-
-### Solution
-
-```python
-x = input()
-print(type(x))         # ได้อะไร?
-```
-
-
-```{.python .code-output}
-<class 'str'>
-```
-
-`input()` ได้ **string เสมอ** — ต้องแปลงก่อนคำนวณ!
-
-
-```python
-x = float(x)
-y = x ** 3
-print(y, type(y))
-```
-
-:::
-
-
-
-## โจทย์ #34 {.exercise}
-
-รับชื่อเล่นจาก user แล้วแสดงผลว่า `Hello, (ชื่อเล่น). Nice to meet you!`
-
-
-
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-# จำลอง input
-nkname = 'Ploy'
-print('Hello, ' + ____ + '. Nice to meet you!')
-```
-
-### Solution
-
-```python
-nkname = input('Please enter your nickname: ')
-print('Hello, ' + nkname + '. Nice to meet you!')
-```
-
-
-```{.python .code-output}
-Please enter your nickname: Ploy
-Hello, Ploy. Nice to meet you!
-```
-
-:::
-
-
-
-## `input().split()` — รับหลายค่าพร้อมกัน {#m3-split}
-
-ถ้าต้องการรับข้อมูลหลายค่าพร้อมกัน (คั่นด้วยช่องว่าง)?
-
-. . .
-
-```python
-fname, lname = input('Enter your name: ').split()
-```
-
-- `.split()` ตัดข้อความด้วย **ช่องว่าง** (space)
-- `'John Doe'` → `'John'` กับ `'Doe'`
-
-. . .
-
-::: {.callout-warning}
-**จำนวนตัวแปรต้องพอดี** กับจำนวนคำที่ split ได้!
-
-ถ้าพิมพ์ 3 คำ แต่มีแค่ 2 ตัวแปร → `ValueError`
-:::
-
-## โจทย์ #35 {.exercise}
-
-รับ **ชื่อ** และ **นามสกุล** จาก user (คั่นด้วยช่องว่าง)
-
-แล้วแสดงผล `Hello,(name). Your Last Name is (lastname)`
-
-
-
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-# จำลอง input().split()
-name = 'Somchai'
-lastname = 'Jaidee'
-print('Hello,' + ____ + '. Your Last Name is ' + ____)
-```
-
-### Solution
-
-```python
-name, lastname = input(
-    'Enter your name and last name: '
-).split()
-print('Hello,' + name + '. Your Last Name is ' + lastname)
-```
-
-
-```{.python .code-output}
-Enter your name and last name: Somchai Jaidee
-Hello,Somchai. Your Last Name is Jaidee
-```
-
-:::
-
-
-
-## โจทย์ #36: ชวนคิด {.exercise-think}
-
-ถ้าใช้ `input()` **โดยไม่มี** `.split()` แล้วป้อน `John Doe`
-
-จะได้ผลเหมือน `input().split()` หรือไม่?
-
-
-
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-# จำลอง input
-name = 'John Doe'
-# ถ้าไม่ใช้ .split() จะได้อะไร?
-print(name)
-```
-
-### Solution
-
-**ไม่เหมือน!**
-
-- `input()` → `name = 'John Doe'` (ทั้ง string)
-- `input().split()` → `name = 'John'`, `lname = 'Doe'` (แยก 2 ตัว)
-
-:::
-
-
-
-# f-string {background-color="#2c3e50" .white-text}
-
-การจัดรูปแบบการแสดงผล — `f'...{var}...'`
-
-## f-string คืออะไร? {#m3-fstring}
-
-ใช้ `f` นำหน้า string แล้วแทรกค่าตัวแปรด้วย `{}`
-
-. . .
-
-```python
-num1 = 83
-num2 = 9
-print(f"The product of {num1} and {num2} is {num1 * num2}.")
-```
-
-. . .
-
-```{.python .code-output}
-The product of 83 and 9 is 747.
-```
-
-## f-string vs concatenation {.exercise-think}
-
-**โจทย์ #38** — สองวิธีนี้ให้ผลเหมือนหรือต่างกัน?
-
-```python
-print('Hello,' + name + '. Your last name is ' + lastname)
-```
-
-```python
-print(f'Hello,{name}. Your last name is {lastname}')
-```
-
-
-
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-# เปรียบเทียบสองวิธี
-name = 'Somchai'
-lastname = 'Jaidee'
-print('Hello,' + name + '. Your last name is ' + lastname)
-print(f'Hello,{name}. Your last name is {lastname}')
-```
-
-### Solution
-
-ได้ผล **เหมือนกัน** — แต่ f-string **อ่านง่ายกว่ามาก!**
-
-:::
-
-
-
-## f-string — Format Specifiers {#m3-fstring-format}
-
-:::: {.columns}
-::: {.column width="50%"}
-
-**ทศนิยม** `:.Nf`
-
-```python
-pi = 3.14159265
-print(f'{pi:.2f}')
-print(f'{pi:.4f}')
-```
-
-. . .
-
-```{.python .code-output}
-3.14
-3.1416
-```
-
-:::
-::: {.column width="50%"}
-
-**ความกว้าง** `:N`
-
-```python
-a = 3
-print(f'We have {a:5} dogs.')
-```
-
-. . .
-
-```{.python .code-output}
-We have     3 dogs.
-```
-
-ตัวเลข → **ชิดขวา**
-
-```python
-a = 'CMU'
-print(f'I love {a:5}.')
-```
-
-```{.python .code-output}
-I love CMU  .
-```
-
-ข้อความ → **ชิดซ้าย**
-
-:::
-::::
-
-## โจทย์ #37 {.exercise}
-
-แสดงชื่อนามสกุล `Hello,(name). Your last name is (lastname)`
-
-โดยใช้ **f-string**
-
-
-
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-name = 'Somchai'
-lastname = 'Jaidee'
-print(f'____')
-```
-
-### Solution
-
-```python
-print(f'Hello,{name}. Your last name is {lastname}')
-```
-
-
-```{.python .code-output}
-Hello,Somchai. Your last name is Jaidee
-```
-
-:::
-
-
-
-## โจทย์ #39 {.exercise}
-
-รับค่า GPA จาก user แล้วแสดงผลด้วย f-string — ทศนิยม **2 ตำแหน่ง**
-
-
-
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-# จำลอง input
-name = 'Somchai'
-gpa = 3.5
-print(f'{name}, I hope you achieve your expected {____} GPA this semester!')
-```
-
-### Solution
-
-```python
-gpa = float(input('Enter your expected GPA: '))
-print(f'{name}, I hope you achieve your expected '
-      f'{gpa:.2f} GPA this semester!')
-```
-
-
-```{.python .code-output}
-Enter your expected GPA: 3.5
-Somchai, I hope you achieve your expected 3.50 GPA this semester!
-```
-
-::: {.callout-tip}
-`{gpa:.2f}` → แสดงทศนิยม 2 ตำแหน่ง: `3.5` → `3.50`
-
-:::
-
-
-
-:::
-
-# Summary {background-color="#2c3e50" .white-text}
-
-## สรุป Module 3
+## สรุป Module 3a 🎉
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -2152,11 +1853,9 @@ Somchai, I hope you achieve your expected 3.50 GPA this semester!
 - `sqrt`, `sin`, `cos`, `pi`, ...
 - `ceil`, `floor`, `factorial`
 
-**Input / Output**
-
-- `input()` — ได้ `str` เสมอ
-- `.split()` — รับหลายค่า
-- `print()` + **f-string** — จัดรูปแบบ
-
 :::
 ::::
+
+::: {.callout-note}
+ต่อ Module 3b: [Input / Output และ f-string](module03b.html) 👉
+:::

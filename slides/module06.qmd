@@ -28,7 +28,7 @@ execute:
 :::: {.columns}
 ::: {.column width="50%"}
 
-### วันนี้เราจะเรียนรู้
+### วันนี้เราจะเรียนรู้ 🚀
 
 ::: {.incremental}
 1. **การทำซ้ำ (Iteration)**
@@ -56,7 +56,7 @@ while i <= n:
 :::
 ::::
 
-# 1. การทำซ้ำ (Iteration) {background-color="#2c3e50" .white-text}
+# 1. การทำซ้ำ (Iteration) 🔁 {background-color="#2c3e50" .white-text}
 
 การประมวลผลคำสั่งซ้ำ ๆ หลายรอบ
 
@@ -90,7 +90,7 @@ while i <= n:
 
 โดยทั้งสองแบบ ยังสามารถใช้ควบคู่กับคำสั่ง **`break`** และ **`continue`** เพื่อเสริมการกำหนดรอบการทำซ้ำได้อีกด้วย
 
-# 2. while statement {background-color="#2c3e50" .white-text}
+# 2. while statement 🔄 {background-color="#2c3e50" .white-text}
 
 วนลูปตราบเท่าที่เงื่อนไขยังเป็นจริง
 
@@ -204,7 +204,7 @@ Counting from 1 to n
 **Init:** `i=1` · **Condition:** `i<=n` · **Update:** `i+=1`
 
 ::: {.callout-note}
-ทบทวน: [Assignment `+=` (Module 3)](module03.html#m3-assignment) · [int(input()) (Module 3)](module03.html#m3-type-conversion)
+ทบทวน: [Assignment `+=` (Module 3)](module03a.html#m3-assignment) · [int(input()) (Module 3)](module03a.html#m3-type-conversion)
 :::
 
 :::
@@ -306,7 +306,7 @@ Multiplication Table
 ```
 
 ::: {.callout-note}
-ทบทวน: [f-string format `{i*n:4}` (Module 3)](module03.html#m3-fstring-format) · [if-else (Module 5)](module05.html#m5-if-else) · [Arithmetic `%` (Module 3)](module03.html#m3-arithmetic)
+ทบทวน: [f-string format `{i*n:4}` (Module 3)](module03b.html#m3-fstring-format) · [if-else (Module 5)](module05.html#m5-if-else) · [Arithmetic `%` (Module 3)](module03a.html#m3-arithmetic)
 :::
 
 :::
@@ -377,7 +377,7 @@ Summation:  455
 **Init:** `input()` · **Condition:** `n>0` · **Update:** `n-=1`
 
 ::: {.callout-note}
-ทบทวน: [Arithmetic `%` `**` (Module 3)](module03.html#m3-arithmetic) · [if (Module 5)](module05.html#m5-if-else)
+ทบทวน: [Arithmetic `%` `**` (Module 3)](module03a.html#m3-arithmetic) · [if (Module 5)](module05.html#m5-if-else)
 :::
 
 :::
@@ -484,12 +484,12 @@ Exit (y/n): y
 ```
 
 ::: {.callout-note}
-ทบทวน: [input() (Module 3)](module03.html#m3-input)
+ทบทวน: [input() (Module 3)](module03b.html#m3-input)
 :::
 
 :::
 
-# ปัญหาที่พบบ่อยจากการทำซ้ำ {background-color="#2c3e50" .white-text}
+# ปัญหาที่พบบ่อยจากการทำซ้ำ ⚠️ {background-color="#2c3e50" .white-text}
 
 ลูปที่ไม่เข้า และลูปที่ไม่จบ
 
@@ -610,7 +610,7 @@ print('exit-loop')
 - ตัวแปรสามารถมีค่าที่ทำให้เงื่อนไขเป็นได้ทั้ง `True` และ `False` หรือไม่
 :::
 
-# 3. break statement {background-color="#2c3e50" .white-text}
+# 3. break statement 🛑 {background-color="#2c3e50" .white-text}
 
 หยุดลูปทันที
 
@@ -726,7 +726,7 @@ print(k)
 
 :::
 
-# 4. continue statement {background-color="#2c3e50" .white-text}
+# 4. continue statement ⏭️ {background-color="#2c3e50" .white-text}
 
 ข้ามรอบปัจจุบัน แล้ววนต่อ
 
@@ -803,9 +803,9 @@ value of a: 20
 
 :::
 
-# Summary {background-color="#2c3e50" .white-text}
+# Summary 🎯 {background-color="#2c3e50" .white-text}
 
-## สรุป Module 6
+## สรุป Module 6 🎉
 
 :::: {.columns}
 ::: {.column width="50%"}

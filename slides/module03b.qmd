@@ -1,0 +1,571 @@
+---
+title: "Module 3b"
+subtitle: "Input / Output and f-string"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 3b | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### วันนี้เราจะเรียนรู้ 🚀
+
+::: {.incremental}
+1. **Input / Output** — `input()`, `print()`
+2. การแปลงชนิดข้อมูลจาก `input()`
+3. **`input().split()`** — รับหลายค่าพร้อมกัน
+4. **f-string** — จัดรูปแบบการแสดงผล
+:::
+
+:::
+::: {.column width="50%"}
+
+```python
+name = input("What's your name? ")
+gpa = float(input("Your GPA? "))
+print(f"Hi {name}, your GPA is {gpa:.2f}")
+```
+
+:::
+::::
+
+::: {.callout-note}
+ต่อจาก [Module 3a](module03a.html) — Variables, Operators, Math 👈
+:::
+
+# Input / Output ⌨️ {background-color="#2c3e50" .white-text}
+
+รับข้อมูลจาก user — แสดงผลออกจอ
+
+## `input()` — รับข้อมูลจาก user {#m3-input}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+```python
+a = input()
+```
+
+- ข้อมูลจาก `input()` เป็น **`str` เสมอ**
+- ต้องแปลงชนิดเอง ถ้าต้องการ number
+
+:::
+::: {.column width="45%"}
+
+```python
+# รับ string
+name = input()
+
+# รับ int
+age = int(input())
+
+# รับ float
+gpa = float(input())
+```
+
+:::
+::::
+
+. . .
+
+::: {.callout-warning}
+
+`int(input())` การเขียนแบบนี้ = assume ว่าสิ่งที่ผู้ใช้พิมพ์เข้ามา แปลงเป็น `int` ได้
+
+:::
+
+. . .
+
+::: {.callout-important style="font-size:1.5em"}
+
+⚠️ **`input()` จะไม่ทำงานบนสไลด์** — ดังนั้นในช่อง **Live Code** เราจะ**จำลองค่าด้วย string** แทนการรับจาก user จริง (เช่น `x = '5'`) ถ้านำไปรันบนเครื่องจริงให้เปลี่ยนกลับเป็น `input()` ได้เลย
+
+:::
+
+
+
+## `input()` พร้อมข้อความแจ้ง user
+
+แสดงข้อความถาม user ขณะรอรับข้อมูล
+
+. . .
+
+```python
+name = input('Please enter your name: ')
+print('My name is', name)
+```
+
+. . .
+
+```{.python .code-output}
+Please enter your name: Somchai
+My name is Somchai
+```
+
+## โจทย์ #33 {.exercise}
+
+รับค่าตัวเลขจาก user เก็บในตัวแปร `x` — ตรวจสอบ type ของ `x`
+
+จากนั้นคำนวณ $y = x^3$ โดยให้ `y` เป็น `float`
+
+
+
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# เนื่องจากข้อจำกัด input() ไม่สามารถทำงานได้ในเบราเซอร์ เราจึงกำหนดค่าตัวแปรเป็น string โดยตรง
+x = '5'
+print(type(x))
+x = ____(x)
+y = x ____ 3
+print(y, type(y))
+```
+
+### Solution
+
+```python
+x = input()
+print(type(x))         # ได้อะไร?
+```
+
+
+```{.python .code-output}
+<class 'str'>
+```
+
+`input()` ได้ **string เสมอ** — ต้องแปลงก่อนคำนวณ!
+
+
+```python
+x = float(x)
+y = x ** 3
+print(y, type(y))
+```
+
+:::
+
+
+
+## โจทย์ #34 {.exercise}
+
+รับชื่อเล่นจาก user แล้วแสดงผลว่า `Hello, (ชื่อเล่น). Nice to meet you!`
+
+**เงื่อนไข:** ใช้ operator `+` 
+
+
+
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# จำลอง input
+nkname = 'Ploy'
+print('Hello, ' '. Nice to meet you!')
+```
+
+### Solution
+
+```python
+nkname = input('Please enter your nickname: ')
+print('Hello, ' + nkname + '. Nice to meet you!')
+```
+
+
+```{.python .code-output}
+Please enter your nickname: Ploy
+Hello, Ploy. Nice to meet you!
+```
+
+:::
+
+
+
+## `input().split()` — รับหลายค่าพร้อมกัน {#m3-split}
+
+ถ้าต้องการรับข้อมูลหลายค่าพร้อมกัน (คั่นด้วยช่องว่าง)?
+
+. . .
+
+```python
+fname, lname = input('Enter your name: ').split()
+```
+
+- `.split()` ตัดข้อความด้วย **ช่องว่าง** (space)
+- `'John Doe'` → `'John'` กับ `'Doe'`
+
+. . .
+
+::: {.callout-warning}
+**จำนวนตัวแปรต้องพอดี** กับจำนวนคำที่ split ได้!
+
+ถ้าพิมพ์ 3 คำ แต่มีแค่ 2 ตัวแปร → `ValueError`
+:::
+
+. . .
+
+::: {.callout-note}
+
+คำสั่ง `.split()` ถ้าตามหลัง string จะแยก string ที่คั่นด้วย whitespace ออกจากกัน เช่น
+
+`'John    Doe'.split()` → `'John'` กับ `'Doe'` <br>
+`'Happy New\tYear'.split()` → `'Happy'` กับ `'New'` กับ `'Year'`
+
+
+:::
+
+
+## โจทย์ #35 {.exercise}
+
+รับ **ชื่อ** และ **นามสกุล** จาก user (คั่นด้วยช่องว่าง)
+
+ก่อนที่จะรับค่า ให้แสดงข้อความว่า 
+
+```
+Please enter your name and last name (separate with one space):
+```
+
+แล้วแสดงผล `Hello,(name). Your Last Name is (lastname)`
+
+
+**เงื่อนไข:** ใช้เครื่องหมาย `+` ในการเชื่อม string
+
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# name, lastname = input().split()
+name, lastname = 'Somchai', 'Jaidee' 
+print('Hello,' '. Your Last Name is ')
+```
+
+### Solution
+
+```python
+name, lastname = input(
+    'Please enter your name and last name (separate with one space): '
+).split()
+print('Hello,' + name + '. Your Last Name is ' + lastname)
+```
+
+
+```{.python .code-output}
+Enter your name and last name: Somchai Jaidee
+Hello,Somchai. Your Last Name is Jaidee
+```
+
+:::
+
+
+
+## โจทย์ #36: ชวนคิด {.exercise-think}
+
+ถ้าใช้ `input()` **โดยไม่มี** `.split()` แล้วป้อน `John Doe`
+
+จะได้ผลเหมือน `input().split()` หรือไม่?
+
+
+
+
+<details>
+<summary>👉 คลิกเพื่อดูเฉลย</summary>
+
+**ไม่เหมือน!**
+
+- `name = input()` → `name = 'John Doe'` (ทั้ง string)
+- `name, lname = input().split()` → `name = 'John'`, `lname = 'Doe'` (แยก 2 ตัว)
+
+</details>
+
+
+
+# f-string ✨ {background-color="#2c3e50" .white-text}
+
+การจัดรูปแบบการแสดงผล — `f'...{var}...'`
+
+## f-string คืออะไร? {#m3-fstring}
+
+ใช้ `f` นำหน้า string แล้วแทรกค่าตัวแปรด้วย `{}`
+
+. . .
+
+```python
+num1 = 83
+num2 = 9
+print(f"The product of {num1} and {num2} is {num1 * num2}.")
+```
+
+. . .
+
+```{.python .code-output}
+The product of 83 and 9 is 747.
+```
+
+. . . 
+
+
+::: {.callout-important}
+
+ถ้าไม่มี `f` นำหน้า string ก็จะกลายเป็น string ธรรมดา และ `{}` ก็จะไม่มีความหมายพิเศษ
+
+:::
+
+
+
+
+## f-string vs concatenation {.exercise-think}
+
+**โจทย์ #38** — สองวิธีนี้ให้ผลเหมือนหรือต่างกัน?
+
+```python
+print('Hello,' + name + '. Your last name is ' + lastname)
+```
+
+```python
+print(f'Hello,{name}. Your last name is {lastname}')
+```
+
+
+
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# เปรียบเทียบสองวิธี
+name = 'Somchai'
+lastname = 'Jaidee'
+print('Hello,' + name + '. Your last name is ' + lastname)
+print(f'Hello,{name}. Your last name is {lastname}')
+```
+
+### Solution
+
+ได้ผล **เหมือนกัน** — แต่ f-string **อ่านง่ายกว่ามาก!**
+
+:::
+
+
+
+## f-string — Format Specifiers {#m3-fstring-format}
+
+กำหนด **format specifier** ต่อท้ายตัวแปรใน `{}` ด้วยเครื่องหมาย `:` เช่น `{var:.2f}` เพื่อจัดรูปแบบการแสดงผล
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+
+::: {.fragment}
+
+**ทศนิยม** `:.Nf`
+
+```python
+pi = 3.14159265
+print(f'{pi:.2f}')
+print(f'{pi:.4f}')
+```
+
+
+```{.python .code-output}
+3.14
+3.1416
+```
+
+:::
+
+
+
+::: {.fragment}
+
+**ความกว้าง** `:N` (N = จำนวนตัวอักษร)
+
+```python
+a = 3
+print(f'We have {a:5} dogs.')
+```
+
+```{.python .code-output}
+We have     3 dogs.
+```
+
+:::
+
+
+
+
+:::
+::: {.column width="50%"}
+
+
+::: {.fragment}
+
+ข้อความ → **ชิดซ้าย** 
+
+```python
+a = 'CMU'
+print(f'I love ❤︎⁠{a:6}❤︎⁠')
+```
+
+```{.python .code-output}
+I love ❤︎⁠CMU   ❤︎⁠
+```
+
+:::
+
+
+::: {.fragment}
+
+ตัวเลข → **ชิดขวา**
+
+```python
+a = 555
+print(f'I love ❤︎⁠{a:6}❤︎⁠')
+```
+
+```{.python .code-output}
+I love ❤︎⁠   555❤︎⁠
+```
+
+:::
+
+::: {.fragment}
+
+
+ถ้าอยากบังคับให้ก็ทำได้ `{:>N}` (ชิดขวา), `{:<N}` (ชิดซ้าย), `{:^N}` (กึ่งกลาง)
+
+:::
+
+
+:::
+::::
+
+## โจทย์ #37 {.exercise}
+
+แสดงชื่อและเกรด `Hello, (name). You get GPA (grade).`
+
+โดยใช้ **f-string**
+
+
+
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+gpa = '4'            # Don't change this line
+name = 'Somchai'     # Don't change this line
+print(f'Hello, {}. You get GPA {}.')
+```
+
+### Solution
+
+```python
+gpa = '4'            # Don't change this line
+name = 'Somchai'     # Don't change this line
+print(f'Hello, {name}. You get GPA {int(gpa):.2f}.')
+```
+
+
+```{.python .code-output}
+Hello, Somchai. You get GPA 4.00.
+```
+
+:::
+
+
+
+## โจทย์ #39 {.exercise}
+
+รับค่าส่วนสูงของนักเรียน 2 คน (`a`, `b`), หาค่าเฉลี่ย แล้วแสดงผลด้วย f-string
+
+**เงื่อนไข:** แก้เฉพาะบรรทัดที่ 3 (ใน `print()`) เท่านั้น และพิมพ์ทศนิยม 4 ตำแหน่ง
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# จำลอง input
+a = 170      # Don't change this line
+b = 165      # Don't change this line
+print(f'Average height = {}.')
+```
+
+### Solution
+
+```python
+a, b = input().split()
+a = float(a)
+b = float(b)
+print(f'Average height = {(a+b)/2:.4f}.')
+```
+
+
+```{.python .code-output}
+Average height = 167.5000.
+```
+
+:::
+
+# Summary 🎯 {background-color="#2c3e50" .white-text}
+
+## สรุป Module 3b 🎉
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**Input / Output**
+
+- `input()` — ได้ `str` **เสมอ**
+- `int(input())`, `float(input())` — แปลงชนิดก่อนคำนวณ
+- `input().split()` — รับหลายค่าพร้อมกัน
+- `print()` — แสดงผลออกจอ
+
+:::
+::: {.column width="50%"}
+
+**f-string**
+
+- `f'...{var}...'` — แทรกค่าตัวแปรด้วย `{}`
+- อ่านง่ายกว่า concatenation (`+`)
+- Format specifiers
+  - `{x:.2f}` — ทศนิยม 2 ตำแหน่ง
+  - `{x:5}` — กำหนดความกว้าง
+
+:::
+::::
