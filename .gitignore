@@ -1,7 +1,7 @@
 _output/
 _freeze/
 /.quarto/
-**/*.quarto_ipynb
+**/*.quarto_ipynb*
 .venv/
 __pycache__/
 *.pyc

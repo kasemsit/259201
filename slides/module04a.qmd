@@ -341,9 +341,9 @@ print(my_list[2]+my_list[1]+my_list[2])
 
 กำหนด `my_list = ['E','n','g','r']` — แก้ไขค่าข้อมูลในลิสต์ดังนี้
 
-- `my_list[1]` เป็น `8.0`
-- `my_list[2]` เป็น `'hello'`
-- `my_list[3]` เป็น `True`
+- เปลี่ยนตัว `'n'` เป็น `8.0`
+- เปลี่ยนตัว `'g'` เป็น `'hello'`
+- เปลี่ยนตัว `'r'` เป็น `True`
 
 ::: {.panel-tabset}
 
@@ -352,9 +352,9 @@ print(my_list[2]+my_list[1]+my_list[2])
 ```{pyodide}
 #| autorun: false
 my_list = ['E','n','g','r']
-my_list[1] = ____
-my_list[2] = ____
-my_list[3] = ____
+my_list = ____
+my_list = ____
+my_list = ____
 print(my_list)
 ```
 
@@ -376,7 +376,17 @@ print(my_list)
 
 ## โจทย์ #3 {.exercise}
 
-ใช้ compound assignment operators กับข้อมูลในลิสต์
+ใช้ compound assignment operators กับข้อมูลในลิสต์ เพื่อให้โปรแกรมพิมพ์ผลลัพธ์ต่อไปนี้
+
+```{.python .code-output}
+['E', 16.0, 'hello', True]
+['E', 16.0, 'hello world', True]
+```
+
+
+::: {.callout-note}
+จำ compound assignment operators ไม่ได้? 👉 กลับไปดู [Assignment Operators (Module 3a)](module03a.html#m3-assignment)
+:::
 
 ::: {.panel-tabset}
 
@@ -385,8 +395,6 @@ print(my_list)
 ```{pyodide}
 #| autorun: false
 my_list = ['E', 8.0, 'hello', True]
-my_list[1] = my_list[1] ____ 2
-print(my_list)
 my_list[1] ____ 2
 print(my_list)
 my_list[2] ____ " world"
@@ -397,8 +405,6 @@ print(my_list)
 
 ```python
 my_list = ['E', 8.0, 'hello', True]
-my_list[1] = my_list[1]*2
-print(my_list)
 
 my_list[1] *= 2
 print(my_list)
@@ -409,8 +415,8 @@ print(my_list)
 
 ```{.python .code-output}
 ['E', 16.0, 'hello', True]
-['E', 32.0, 'hello', True]
-['E', 32.0, 'hello world', True]
+['E', 16.0, 'hello', True]
+['E', 16.0, 'hello world', True]
 ```
 
 ::: {.callout-note}
@@ -421,7 +427,7 @@ print(my_list)
 
 ## โจทย์ #4: ชวนคิด {.exercise-think}
 
-เข้าถึงข้อมูลที่ไม่มีอยู่จริง (ระบุด้วยค่า index ที่ไม่มีอยู่จริง) จะเกิดอะไรขึ้น?
+เมื่อรันโค้ดนี้ จะให้ผลลัพธ์อะไร
 
 ::: {.panel-tabset}
 
@@ -430,7 +436,7 @@ print(my_list)
 ```{pyodide}
 #| autorun: false
 my_list = [10,20,30,40]
-length = len(my_list)  # length = 4
+length = len(my_list)  
 print(my_list[length])
 ```
 
@@ -454,8 +460,41 @@ index สูงสุดคือ `len()-1` ไม่ใช่ `len()`!
 
 ## Negative Index & Float Index {#m4-negative-index}
 
+```{=html}
+<div style="display:flex; align-items:center; gap:18px; margin:18px 0 0 0;">
+  <span style="font-family:monospace; font-size:1.5em; font-weight:bold; color:#2c3e50;">data</span>
+  <table style="border-collapse:collapse; font-family:monospace; font-size:1.1em; text-align:center;">
+    <tr style="background:#b0c4de;">
+      <td style="padding:6px 14px; border:2px solid #7f8c8d; color:#2c3e50; font-weight:bold;">index</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">0</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">1</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d; background:#aed6f1;">2</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">3</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">4</td>
+    </tr>
+    <tr style="background:#fdebd0;">
+      <td style="padding:6px 14px; border:2px solid #7f8c8d; color:#2c3e50; font-weight:bold;">neg index</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">-5</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">-4</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d; background:#aed6f1;">-3</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">-2</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">-1</td>
+    </tr>    
+    <tr style="background:#f9f9f9;">
+      <td style="padding:6px 14px; border:2px solid #7f8c8d; color:#2c3e50; font-weight:bold;">value</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">16</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">2</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d; background:#d5f5e3; font-weight:bold;">77</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">40</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">12071</td>
+    </tr>
+  </table></div>
+```
+
+<br>
+
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="50%" .fragment}
 
 **Negative index** — ดึงข้อมูลจากท้ายลิสต์
 
@@ -467,7 +506,7 @@ print(my_list[-5])   # IndexError
 ```
 
 :::
-::: {.column width="50%"}
+::: {.column width="50%" .fragment}
 
 **Float index** — ใช้ไม่ได้!
 
@@ -480,30 +519,37 @@ TypeError: list indices must be
 integers or slices, not float
 ```
 
-ต้องใช้ `int` เท่านั้น: `my_list[4//2]`
+ต้องใช้ `int` เท่านั้น: 
+
+- `my_list[4//2]`
+- `my_list[int(4/2)]`
 
 :::
 ::::
 
 ## การเข้าถึงช่วงของข้อมูล (Slice) {#m4-list-slice}
 
-```python
-range_of_data = list_variable[start:stop:step]
+```{=html}
+<pre class="code-pattern" style="font-size:1.4em">range_of_data = list_variable[<span style="color:#e74c3c;font-weight:bold">start</span>:<span style="color:#2980b9;font-weight:bold">stop</span>:<span style="color:#27ae60;font-weight:bold">step</span>]</pre>
 ```
 
-- **`start`** — ค่า index จุดเริ่มต้น
-- **`stop`** — ค่า index จุดสิ้นสุด (**ไม่รวม** item นี้)
-- **`step`** — การเพิ่มค่า index ทีละ `+step`
+- [**start**]{style="color:#e74c3c"} — ค่า index จุดเริ่มต้น
+- [**stop**]{style="color:#2980b9"} — ค่า index จุดสิ้นสุด (**ไม่รวม** item นี้)
+- [**step**]{style="color:#27ae60"} — การเพิ่มค่า index ทีละ `+step`
 
 . . .
 
-`data[1:n]` → เข้าถึงข้อมูลตั้งแต่ `data[1]` จนถึง `data[n-1]`
+`data[2:n]` → เข้าถึงข้อมูลตั้งแต่ `data[2]` จนถึง `data[n-1]`
 
 ## โจทย์ #5 {.exercise}
 
 กำหนด `a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]`
 
-ใช้ slice ดึงข้อมูล `a[0:3]` และ `a[2:6]`
+จงใช้ slice ดึงข้อมูลจากลิสต์ ให้ได้ดังนี้
+
+- `[16, 2, 77]` 
+- `[77, 40, 0, "000"]` 
+
 
 ::: {.panel-tabset}
 
@@ -512,8 +558,8 @@ range_of_data = list_variable[start:stop:step]
 ```{pyodide}
 #| autorun: false
 a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]
-a1 = a[____:____]
-a2 = a[____:____]
+a1 = a
+a2 = a
 print(a1)
 print(a2)
 ```
@@ -537,7 +583,15 @@ print(a2)
 
 ## โจทย์ #6 {.exercise}
 
-ทดลอง slice ด้วย step และ shorthand
+ทดลอง slice `a` ด้วยรูปย่อ
+
+
+::: {.callout-note}
+
+ถ้าละ `start` จะเท่ากับ `start=0` และถ้าละ `stop` จะเท่ากับ `stop=len(a)`
+
+:::
+
 
 ::: {.panel-tabset}
 
@@ -546,37 +600,50 @@ print(a2)
 ```{pyodide}
 #| autorun: false
 a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]
-# ดึงข้อมูลทั้งหมด
-print(a[0:len(a)])
-# ดึงข้อมูลทีละ 2 ตำแหน่ง
-print(a[0:len(a):____])
-# shorthand: ละ start หรือ stop
-print(a[:6])
-print(a[4:])
+
+print(a[0:6])
+print(a[0:len(a)])     # ดึงข้อมูลทั้งหมด
+print(a[0:len(a):2])   # ดึงข้อมูลทีละ 2 ตำแหน่ง
+
+# จากตัวอย่างโค้ดด้านบน จงเขียนแบบย่อ: ละ start หรือ stop
+print(a[____])
+print(a[____])
+print(a[____])
 ```
 
 ### Solution
 
 ```python
 a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]
-print(a[0:len(a)])
-print(a[0:len(a):2])
+
+print(a[0:6])
+print(a[0:len(a)])     # ดึงข้อมูลทั้งหมด
+print(a[0:len(a):2])   # ดึงข้อมูลทีละ 2 ตำแหน่ง
+
+# จากตัวอย่างโค้ดด้านบน จงเขียนแบบย่อ: ละ start หรือ stop
 print(a[:6])
-print(a[4:])
+print(a[:])
+print(a[::2])
 ```
 
 ```{.python .code-output}
+[16, 2, 77, 40, 0, '000']
 [16, 2, 77, 40, 0, '000', 0.0, 1, 1, 1, 112071]
 [16, 77, 0, 0.0, 1, 112071]
 [16, 2, 77, 40, 0, '000']
-[0, '000', 0.0, 1, 1, 1, 112071]
+[16, 2, 77, 40, 0, '000', 0.0, 1, 1, 1, 112071]
+[16, 77, 0, 0.0, 1, 112071]
 ```
 
 :::
 
 ## โจทย์ #7 {.exercise}
 
-ใช้ slice assignment แก้ไขข้อมูลหลายตัวพร้อมกัน
+จาก `a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]` 
+
+จงใช้ slice assignment แก้ไขข้อมูลหลายตัวพร้อมกัน ให้ได้ผลลัพธ์เป็น
+
+`[1, 1, 1, 40, 0, '000', 0.0, 1, 1, 1, 112071]`
 
 ::: {.panel-tabset}
 
@@ -585,7 +652,7 @@ print(a[4:])
 ```{pyodide}
 #| autorun: false
 a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]
-a[0:3] = [____,____,____]
+a[___] = [____,____,____]
 print(a)
 ```
 
@@ -604,6 +671,8 @@ print(a)
 :::
 
 ## การเพิ่มข้อมูลลงในลิสต์ {#m4-list-add}
+
+ตัวแปร List มีความสามารถ/คำสั่งติดตัว ที่ช่วยในการเพิ่มข้อมูลใหม่ให้กับ List คือ
 
 | วิธี | คำอธิบาย |
 |:-----|:---------|
@@ -627,9 +696,9 @@ print(a)
 ```{pyodide}
 #| autorun: false
 data = [1,5,7,9]
-data.____(11)
+data.______     # เพิ่ม 11 ต่อท้ายลิสต์ด้วย append
 print(data)
-data.____(1, 3)
+data._____      # แทรก 3 ในตำแหน่ง index=1 ด้วย insert
 print(data)
 ```
 
@@ -663,11 +732,11 @@ print(data)
 #| autorun: false
 a = [10,30,50]
 b = [20,40,60]
-c = a ____ b
+c = a ____ b    # เอา b มาต่อท้าย a
 print(c)
-d = a ____ 2
+d = a ____ 2    # ทำซ้ำ a 2 ครั้ง
 print(d)
-print(a*2+b*2)
+print(a*2+b*2)  # บรรทัดนี้พิมพ์อะไร?
 ```
 
 ### Solution
@@ -702,7 +771,7 @@ print(a*2+b*2)
 
 ## โจทย์ #10 {.exercise}
 
-ใช้ `.remove()` ลบค่า `5` ตัวแรกที่พบใน List
+ใช้ `.remove()` ลบค่า `5` ค่าแรกที่พบใน List
 
 ::: {.panel-tabset}
 
@@ -711,8 +780,8 @@ print(a*2+b*2)
 ```{pyodide}
 #| autorun: false
 x = [1,2,3,4,5,0,5,6,7,8,9]
-x.____(5)
-print(x)
+x.____()
+print(x)  
 ```
 
 ### Solution
@@ -764,9 +833,19 @@ ValueError: list.remove(x): x not in list
 
 ใช้ `.pop()` ลบข้อมูลจากลิสต์
 
+
+
+::: {.callout-important}
+
+ไม่ใช่แค่ลบทิ้งนะ แต่ยังสามารถนำค่านั้นไปใช้ประโยชน์ต่อได้
+
+:::
+
+
 . . .
 
 **คิดก่อน:** `.pop()` ไม่ระบุ index vs ระบุ index ต่างกันอย่างไร?
+
 
 ::: {.panel-tabset}
 
@@ -775,10 +854,10 @@ ValueError: list.remove(x): x not in list
 ```{pyodide}
 #| autorun: false
 x = [1,2,3,4,0,5,6,7,8,9]
-y = x.____()
-print(y, x)
+y = x.pop()
+print(y, x)     #  บรรทัดนี้พิมพ์อะไร?   
 y = x.____(1)
-print(y, x)
+print(y, x)     #  บรรทัดนี้พิมพ์อะไร?
 ```
 
 ### Solution
@@ -813,7 +892,7 @@ print(y, x)
 #| autorun: false
 x = [1, 3, 4, 0, 5, 6, 7, 8]
 print(x)
-x.____()
+x.____()   # จงทำให้ x = []
 print(x)
 ```
 
@@ -835,6 +914,8 @@ print(x)
 
 ## การค้นหาข้อมูลในลิสต์ {#m4-list-search}
 
+ตัวแปร List มีคำสั่งติดตัวที่ใช้ในการค้นหาข้อมูล คือ
+
 | วิธี | คำอธิบาย |
 |:-----|:---------|
 | `.index(x)` | ค้นหา `x` แล้วคืนค่า index ที่พบ (ตัวแรก) |
@@ -853,9 +934,9 @@ print(x)
 #| autorun: false
 x = [1,5,2,3,4,5,0,5,6,7,8,9]*3
 print(x)
-idx = x.____(0)
+idx = x.____(_____)
 print(idx)
-idx = x.____(0, idx+1)
+idx = x.____(_____, _____)
 print(idx)
 ```
 
@@ -923,8 +1004,8 @@ ValueError: 100 is not in list
 ```{pyodide}
 #| autorun: false
 x = [1,5,2,3,4,5,0,5,6,7,8,9]*3
-print(x.____(5))
-print(x.____(100))
+print(x.count(5))     # บรรทัดนี้พิมพ์อะไร?
+print(x.count(100))   # บรรทัดนี้พิมพ์อะไร?
 ```
 
 ### Solution
@@ -1052,11 +1133,11 @@ print(names)
 ```{pyodide}
 #| autorun: false
 x = [3,5,5,3,4,5,0,9,5,6,7,8,4,8,3]
-print(len(x))
-print(____(x))
-print(____(x))
-print(____(x))
-print(sum(x)/____(____)   )
+print(len(x))     # จำนวนสมาชิกใน list
+print(____(x))    # ค่าต่ำสุด
+print(____(x))    # ค่าสูงสุด
+print(____(x))    # ผลรวม
+print(sum(x)/____(____)   )  # ค่าเฉลี่ย
 ```
 
 ### Solution
@@ -1091,8 +1172,8 @@ print(sum(x)/len(x))
 ```{pyodide}
 #| autorun: false
 x = [3,5,5,3,4,5,0,9,5,6,7,8,4,8,3]
-mx = ____(x)
-idx_mx = x.____(mx)
+mx = ____(x)            # หาค่าสูงสุด
+idx_mx = x.____(mx)     # หาว่าค่าสูงสุดอยู่ตำแหน่งไหนใน list
 print(idx_mx)
 print(x[idx_mx])
 ```
