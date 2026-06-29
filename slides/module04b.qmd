@@ -59,17 +59,66 @@ print(f"Average GPA: {avg:.2f}")
 ## ทูเพิล (Tuple) คืออะไร? {#m4-tuple}
 
 - เก็บข้อมูลในลักษณะเดียวกันกับลิสต์ แต่**ไม่สามารถเปลี่ยนแปลงค่าได้ (immutable)**
-- ใช้เครื่องหมาย `(...)` สร้าง tuple โดยคั่นข้อมูลด้วย `,`
+- ใช้เครื่องหมาย `()` สร้าง tuple โดยคั่นข้อมูลด้วย `,`
 
 ```python
 tuple_variable = (item1, item2, item3, ...)
 ```
 
-- อ้างอิงด้วย `index` เหมือน List
+. . .
+
+```python
+tup0 = ()
+print(tup0)
+```
+
+. . .
+
+```{.python .code-output}
+()
+```
+
+. . .
+
+```python
+tup1 = (555,)
+print(tup1)
+```
+
+. . .
+
+```{.python .code-output}
+(555,)
+```
+
+. . .
+
+```python
+tup2 = (100,200,2.5,3.5,'hello')
+print(tup2)
+```
+
+. . .
+
+```{.python .code-output}
+(100, 200, 2.5, 3.5, 'hello')
+```
+
+. . .
+
+```python
+print(type(tup2))
+```
+
+. . .
+
+```{.python .code-output}
+<class 'tuple'>
+```
 
 ## โจทย์ #21 {.exercise}
 
-สร้าง tuple แล้วเข้าถึงข้อมูลด้วย index
+สร้าง tuple แล้วเข้าถึงข้อมูลด้วย `index` ได้เหมือน List
 
 ::: {.panel-tabset}
 
@@ -77,37 +126,25 @@ tuple_variable = (item1, item2, item3, ...)
 
 ```{pyodide}
 #| autorun: false
-emp_tup = ()
-print(emp_tup)
-tup1 = (100,200,300,400,500,2.5,3.5,4.5,'hello')
-print(tup1)
-print(tup1[____])
-print(tup1[0]+tup1[____])
-print(tup1[-1])
-print(type(tup1))
+tup = (100,200,300,400,500,2.5,3.5,4.5,'hello')
+print(tup[____])          # พิมพ์ 500
+print(tup[0]+tup[____])  # เอา 100 + 500
+print(tup[-1])            # บรรทัดนี้พิมพ์อะไร
 ```
 
 ### Solution
 
 ```python
-emp_tup = ()
-print(emp_tup)
-
-tup1 = (100,200,300,400,500,2.5,3.5,4.5,'hello')
-print(tup1)
-print(tup1[4])
-print(tup1[0]+tup1[4])
-print(tup1[-1])
-print(type(tup1))
+tup = (100,200,300,400,500,2.5,3.5,4.5,'hello')
+print(tup[4])
+print(tup[0]+tup[4])
+print(tup[-1])
 ```
 
 ```{.python .code-output}
-()
-(100, 200, 300, 400, 500, 2.5, 3.5, 4.5, 'hello')
 500
 600
 hello
-<class 'tuple'>
 ```
 
 :::
@@ -117,7 +154,8 @@ hello
 สามารถใช้ `len()` และ **slice** ได้เหมือน List
 
 ```python
-print(len(tup1))
+tup = (100, 200, 300, 400, 500, 2.5, 3.5, 4.5, 'hello')
+print(len(tup))
 ```
 
 ```{.python .code-output}
@@ -127,20 +165,25 @@ print(len(tup1))
 . . .
 
 ```python
-print(tup1)
-print(tup1[0:4])
-print(tup1[0:10:3])
+print(tup[0:4])
 ```
 
 ```{.python .code-output}
-(100, 200, 300, 400, 500, 2.5, 3.5, 4.5, 'hello')
 (100, 200, 300, 400)
+```
+. . .
+
+```python
+print(tup[:10:3])     # start=0, stop=10, step=3
+```
+
+```{.python .code-output}
 (100, 400, 3.5)
 ```
 
 ## โจทย์ #22: ชวนคิด {.exercise-think}
 
-Tuple **ไม่รองรับการแก้ไข** — ถ้าลองเปลี่ยนค่า จะเกิดอะไรขึ้น?
+Tuple **ไม่รองรับการแก้ไข** — ถ้าลองแล้วจะเกิดอะไรขึ้น?
 
 ::: {.panel-tabset}
 
@@ -148,15 +191,15 @@ Tuple **ไม่รองรับการแก้ไข** — ถ้าล�
 
 ```{pyodide}
 #| autorun: false
-tup1 = (100,200,300,400,500,2.5,3.5,4.5,'hello')
-tup1[0] = 1000
+tup = (100,200,300,400,500,2.5,3.5,4.5,'hello')
+tup[0] = 1000
 ```
 
 ### Solution
 
 ```python
-tup1 = (100,200,300,400,500,2.5,3.5,4.5,'hello')
-tup1[0] = 1000
+tup = (100,200,300,400,500,2.5,3.5,4.5,'hello')
+tup[0] = 1000
 ```
 
 ```{.python .code-output}
@@ -190,30 +233,39 @@ Tuple เป็น **immutable** — ไม่สามารถแก้ไข�
 
 ```{pyodide}
 #| autorun: false
-x_tuple = ("apple", "banana", "cherry")
-print(type(x_tuple), x_tuple)
-x_list = ____(x_tuple)
-print(type(x_list), x_list)
-x_list[1] = "kiwi"
-x_list.append("orange")
-x_tuple = ____(x_list)
-print(type(x_tuple), x_tuple)
+x = ("apple", "banana", "cherry")
+print(type(x), x)
+
+# แปลง tuple เป็น list
+y = ____(x)
+print(type(y), y)
+
+# แก้ไข list
+y[1] = "kiwi"
+y.append("orange")
+
+# แปลง list เป็น tuple
+z = ____(y)
+print(type(z), z)
 ```
 
 ### Solution
 
 ```python
-x_tuple = ("apple", "banana", "cherry")
-print(type(x_tuple), x_tuple)
+x = ("apple", "banana", "cherry")
+print(type(x), x)
 
-x_list = list(x_tuple)
-print(type(x_list), x_list)
+# แปลง tuple เป็น list
+y = list(x)
+print(type(y), y)
 
-x_list[1] = "kiwi"
-x_list.append("orange")
+# แก้ไข list
+y[1] = "kiwi"
+y.append("orange")
 
-x_tuple = tuple(x_list)
-print(type(x_tuple), x_tuple)
+# แปลง list เป็น tuple
+z = tuple(y)
+print(type(z), z)
 ```
 
 ```{.python .code-output}
@@ -231,10 +283,63 @@ print(type(x_tuple), x_tuple)
 ## เซ็ต (Set) คืออะไร? {#m4-set}
 
 - ใช้จัดเก็บชุดข้อมูลสำหรับประมวลผลแบบ**เซ็ตในทางคณิตศาสตร์**
-- ใช้ `{...}` สร้าง set โดยคั่นข้อมูลด้วย `,`
+- ใช้ `{}` สร้าง set โดยคั่นข้อมูลด้วย `,`
 - **ไม่สามารถเก็บข้อมูลซ้ำกันได้ (unique)**
 - ไม่รองรับการอ้างอิงด้วย `index` (ไม่มีลำดับ — unordered)
 - รองรับ `union`, `intersection`, `-`
+
+. . .
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**สร้าง set** — ข้อมูลซ้ำถูกตัดออก
+
+```python
+a = {1,2,2,3,3,5,8}
+print(a)
+```
+
+```{.python .code-output}
+{1, 2, 3, 5, 8}
+```
+
+::: {.callout-important .fragment}
+
+empty set สร้างโดยใช้ `set()` ไม่ใช่ `{}`
+
+:::
+
+:::
+::: {.column width="50%" .fragment}
+
+
+**Empty set** — เซตว่าง
+```python
+x = set()   # empty set
+print(type(x))
+```
+
+```{.python .code-output}
+<class 'set'>
+```
+
+**Empty dictionary** — [ดิกชันนารีว่าง](#m4-dict) 👉
+```python
+x = {}        # นี่คือ dict!
+print(type(x))
+```
+
+```{.python .code-output}
+<class 'dict'>
+```
+
+:::
+::::
+
+
+
+
 
 ## โจทย์ #24 {.exercise}
 
@@ -242,7 +347,7 @@ print(type(x_tuple), x_tuple)
 
 . . .
 
-**คิดก่อน:** `{1,2,2,3,3,5,8}` จะเหลือสมาชิกกี่ตัว?
+**คิดก่อน:** `b` จะมีสมาชิกกี่ตัว?
 
 ::: {.panel-tabset}
 
@@ -250,54 +355,26 @@ print(type(x_tuple), x_tuple)
 
 ```{pyodide}
 #| autorun: false
-a = {1,2,2,3,3,5,8}
 b = {1,2,'hello','hello','Hello',3.78}
-print(a)
 print(b)
-print(type(a))
-# empty set ต้องใช้ set() ไม่ใช่ {}
-emp_set = ____
-print(emp_set)
-print(type(emp_set))
+print(len(b))    # ใช้ len() กับ set ก็ได้
 ```
 
 ### Solution
 
 ```python
-a = {1,2,2,3,3,5,8}
 b = {1,2,'hello','hello','Hello',3.78}
-print(a)
 print(b)
-print(type(a))
-
-emp_set = set()
-print(emp_set)
-print(type(emp_set))
+print(len(b))    # ใช้ len() กับ set ก็ได้
 ```
 
 ```{.python .code-output}
-{1, 2, 3, 5, 8}
 {1, 2, 3.78, 'Hello', 'hello'}
-<class 'set'>
-set()
-<class 'set'>
-```
-
-::: {.callout-warning}
-`{}` สร้าง **dict ว่าง** ไม่ใช่ set ว่าง! ต้องใช้ `set()`
-:::
-
-:::
-
-## Set — `len()` {#m4-set-len}
-
-```python
-print(len(b))
-```
-
-```{.python .code-output}
 5
 ```
+
+:::
+
 
 ## Union และ Intersection {#m4-set-ops}
 
@@ -378,27 +455,9 @@ d = a & b            : {1, 2}
 
 :::
 
-## โจทย์ #26 {.exercise}
+## ตัวอย่าง: ผลต่างของ Set (`-`)
 
-หาผลต่างของ set `a-b` และ `b-a`
-
-. . .
-
-**คิดก่อน:** ผลลัพธ์จะเหมือนกันไหม?
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-a = {1,2,2,3,3,5,8}
-b = {1,2,'hello','hello','Hello',3.78}
-print(f'a-b: {a____b}')
-print(f'b-a: {b____a}')
-```
-
-### Solution
+หาผลต่าง `a-b` และ `b-a` — ผลลัพธ์**ไม่เหมือนกัน**
 
 ```python
 a = {1,2,2,3,3,5,8}
@@ -412,25 +471,9 @@ a-b: {3, 5, 8}
 b-a: {3.78, 'Hello', 'hello'}
 ```
 
-:::
+## ตัวอย่าง: subset — `.issubset()`
 
-## โจทย์ #27 {.exercise}
-
-ตรวจสอบว่า set `z` เป็น subset ของ `a` หรือไม่ ด้วย `.issubset()`
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-a = {1,2,2,3,3,5,8}
-z = {3,5}
-print(z.____(a))
-print(a.____(z))
-```
-
-### Solution
+ตรวจสอบว่า set `z` เป็น subset ของ `a` หรือไม่
 
 ```python
 a = {1,2,2,3,3,5,8}
@@ -444,9 +487,7 @@ True
 False
 ```
 
-:::
-
-## โจทย์ #28: ชวนคิด {.exercise-think}
+## โจทย์ #26: ชวนคิด {.exercise-think}
 
 Set ไม่รองรับการอ้างอิงด้วย `index` และไม่รองรับการแก้ไขค่าโดยตรง — ลองแล้วจะเกิดอะไร?
 
@@ -496,7 +537,7 @@ Set **ไม่มี index** — ไม่สามารถอ้างอิ�
 | `.discard(x)` | ลบ `x` (**ไม่ error** ถ้าไม่มี) |
 | `.clear()` | ลบทั้งหมด |
 
-## โจทย์ #29 {.exercise}
+## โจทย์ #27 {.exercise}
 
 ใช้ `.add()` และ `.update()` เพิ่มข้อมูลใน set
 
@@ -531,7 +572,7 @@ print(a)
 
 :::
 
-## โจทย์ #30 {.exercise}
+## โจทย์ #28 {.exercise}
 
 ใช้ `.remove()` และ `.discard()` ลบข้อมูลจาก set
 
@@ -584,23 +625,7 @@ print(a)
 
 :::
 
-## โจทย์ #31 {.exercise}
-
-ใช้ `.clear()` ลบข้อมูลทั้งหมดจาก set
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-a = {1, 2, 3, 5, 8, 10, 200, 300}
-print(a)
-a.____()
-print(a)
-```
-
-### Solution
+## ตัวอย่าง: `.clear()` — ลบทั้งหมด
 
 ```python
 a = {1, 2, 3, 5, 8, 10, 200, 300}
@@ -613,8 +638,6 @@ print(a)
 {1, 2, 3, 5, 8, 10, 200, 300}
 set()
 ```
-
-:::
 
 # Dictionary 📖 {background-color="#2c3e50" .white-text}
 
@@ -632,7 +655,7 @@ set()
 dict_variable = {key1: value1, key2: value2, ...}
 ```
 
-## โจทย์ #32 {.exercise}
+## โจทย์ #29 {.exercise}
 
 สร้าง dictionary เก็บข้อมูลนักเรียน
 
@@ -677,7 +700,7 @@ print(type(person2))
 dict_variable[key]
 ```
 
-## โจทย์ #33 {.exercise}
+## โจทย์ #30 {.exercise}
 
 ดึงข้อมูลจาก dict ด้วย key แล้วนำมาคำนวณ
 
@@ -712,22 +735,7 @@ Harry Potter got 55/100 in Python programming.
 
 :::
 
-## โจทย์ #34 {.exercise}
-
-แก้ไขค่าข้อมูลใน dict ด้วย key
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-person2 = {"name":"Harry Potter", "isMale": True, "midterm":25, "final":30}
-person2[____] = "Rionel Messi"
-print(person2)
-```
-
-### Solution
+## ตัวอย่าง: แก้ไขค่าใน Dict ด้วย key
 
 ```python
 person2 = {"name":"Harry Potter", "isMale": True, "midterm":25, "final":30}
@@ -739,9 +747,7 @@ print(person2)
 {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30}
 ```
 
-:::
-
-## โจทย์ #35: ชวนคิด {.exercise-think}
+## โจทย์ #31: ชวนคิด {.exercise-think}
 
 ดึงข้อมูลด้วย key ที่ไม่มีอยู่ใน dict จะเกิดอะไรขึ้น?
 
@@ -780,7 +786,7 @@ KeyError: 'address'
 dict_variable[new_key] = value
 ```
 
-## โจทย์ #36 {.exercise}
+## โจทย์ #32 {.exercise}
 
 เพิ่มข้อมูล `"weight"` และ `"height"` ให้กับ dict
 
@@ -822,7 +828,7 @@ print(person2)
 | `.popitem()` | ลบข้อมูลรายการ**สุดท้าย** |
 | `.clear()` | ลบข้อมูล**ทั้งหมด** |
 
-## โจทย์ #37 {.exercise}
+## โจทย์ #33 {.exercise}
 
 ใช้ `.pop()` ดึงข้อมูลออกจาก dict
 
@@ -858,7 +864,7 @@ print(height)
 
 :::
 
-## โจทย์ #38: ชวนคิด {.exercise-think}
+## โจทย์ #34: ชวนคิด {.exercise-think}
 
 `.pop()` ด้วย key ที่ไม่มี หรือไม่ระบุ key จะเกิดอะไร?
 
@@ -897,26 +903,7 @@ Dict `.pop()` ต้องระบุ key เสมอ! (ต่างจาก 
 
 :::
 
-## โจทย์ #39 {.exercise}
-
-ใช้ `.popitem()` และ `.clear()` จัดการข้อมูลใน dict
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-d1 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25}
-print(d1)
-thing = d1.____()
-print(d1)
-print(thing)
-d1.____()
-print(d1)
-```
-
-### Solution
+## ตัวอย่าง: `.popitem()` และ `.clear()`
 
 ```python
 d1 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25}
@@ -941,8 +928,6 @@ print(d1)
 `.popitem()` คืนค่าเป็น **Tuple** `(key, value)`
 :::
 
-:::
-
 ## Dict — `len()` {#m4-dict-len}
 
 ```python
@@ -962,23 +947,7 @@ len(person2): 6
 dict_variable.keys()
 ```
 
-## โจทย์ #40 {.exercise}
-
-ดึงรายการ key ทั้งหมดจาก dict
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
-person2_keys = person2.____()
-print(person2_keys)
-print(list(person2_keys))
-```
-
-### Solution
+## ตัวอย่าง: `.keys()` — ดึง key ทั้งหมด
 
 ```python
 person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
@@ -992,8 +961,6 @@ dict_keys(['name', 'isMale', 'midterm', 'final', 'weight', 'height'])
 ['name', 'isMale', 'midterm', 'final', 'weight', 'height']
 ```
 
-:::
-
 ## การดูรายการข้อมูลทั้งหมด — `.items()` {#m4-dict-items}
 
 `.items()` แสดงรายการข้อมูลทั้งหมดใน Dict ในรูปแบบ **List ของ Tuple**
@@ -1002,23 +969,7 @@ dict_keys(['name', 'isMale', 'midterm', 'final', 'weight', 'height'])
 [(key1, value1), (key2, value2), ..., (keyN, valueN)]
 ```
 
-## โจทย์ #41 {.exercise}
-
-ดึงรายการข้อมูลทั้งหมดจาก dict
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
-person2_items = person2.____()
-print(person2_items)
-print(list(person2_items))
-```
-
-### Solution
+## ตัวอย่าง: `.items()` — ดึงข้อมูลทั้งหมด
 
 ```python
 person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
@@ -1031,8 +982,6 @@ print(list(person2_items))
 dict_items([('name', 'Rionel Messi'), ('isMale', True), ('midterm', 25), ('final', 30), ('weight', 65.25), ('height', 180.0)])
 [('name', 'Rionel Messi'), ('isMale', True), ('midterm', 25), ('final', 30), ('weight', 65.25), ('height', 180.0)]
 ```
-
-:::
 
 # Collection of Collections 🪆 {background-color="#2c3e50" .white-text}
 
@@ -1059,7 +1008,7 @@ items = [
 ]
 ```
 
-## โจทย์ #42 {.exercise}
+## โจทย์ #35 {.exercise}
 
 เข้าถึงข้อมูลใน List of List แล้วคำนวณค่าเฉลี่ยส่วนสูง
 
@@ -1098,43 +1047,22 @@ Average height: 181.33333333333334
 
 :::
 
-## โจทย์ #43 {.exercise}
+## ตัวอย่าง: เพิ่ม/ลบใน List of List
 
-เพิ่มและลบข้อมูลใน List of List
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-items = [["John","male",180.5,80], ["Jane","female",176,60.5], ["Steve","male",187.5,82]]
-items.____(["Lisa","female",168,48])
-print(items)
-data = items.____(0)
-print(data)
-print(items)
-```
-
-### Solution
+ใช้ `.append()` / `.pop()` เหมือน List ปกติ (แต่ละ item เป็น List)
 
 ```python
 items = [["John","male",180.5,80], ["Jane","female",176,60.5], ["Steve","male",187.5,82]]
 items.append(["Lisa","female",168,48])
-print(items)
-
 data = items.pop(0)
 print(data)
 print(items)
 ```
 
 ```{.python .code-output}
-[['John', 'male', 180.5, 80], ['Jane', 'female', 176, 60.5], ['Steve', 'male', 187.5, 82], ['Lisa', 'female', 168, 48]]
 ['John', 'male', 180.5, 80]
 [['Jane', 'female', 176, 60.5], ['Steve', 'male', 187.5, 82], ['Lisa', 'female', 168, 48]]
 ```
-
-:::
 
 ## List of Dict {#m4-list-of-dict}
 
@@ -1146,7 +1074,7 @@ items2 = [
 ]
 ```
 
-## โจทย์ #44 {.exercise}
+## โจทย์ #36 {.exercise}
 
 เข้าถึงข้อมูลใน List of Dict แล้วคำนวณค่าเฉลี่ยส่วนสูง
 
@@ -1193,51 +1121,25 @@ Average height: 181.33333333333334
 
 :::
 
-## โจทย์ #45 {.exercise}
+## ตัวอย่าง: เพิ่ม/ลบใน List of Dict
 
-เพิ่มและลบข้อมูลใน List of Dict
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-items2 = [
-    {"name":"John","gender":"male","height":180.5,"weight":80},
-    {"name":"Jane","gender":"female","height":176,"weight":60.5},
-    {"name":"Steve","gender":"male","height":187.5,"weight":82}
-]
-items2.____({'name': 'Lisa', 'gender': 'female', 'height': 168, 'weight': 48})
-print(items2)
-data = items2.____(0)
-print(data)
-print(items2)
-```
-
-### Solution
+วิธีเดียวกับ List of List — ต่างที่แต่ละ item เป็น Dict
 
 ```python
 items2 = [
     {"name":"John","gender":"male","height":180.5,"weight":80},
     {"name":"Jane","gender":"female","height":176,"weight":60.5},
-    {"name":"Steve","gender":"male","height":187.5,"weight":82}
 ]
 items2.append({'name': 'Lisa', 'gender': 'female', 'height': 168, 'weight': 48})
-print(items2)
-
 data = items2.pop(0)
 print(data)
 print(items2)
 ```
 
 ```{.python .code-output}
-[{'name': 'John', 'gender': 'male', 'height': 180.5, 'weight': 80}, {'name': 'Jane', 'gender': 'female', 'height': 176, 'weight': 60.5}, {'name': 'Steve', 'gender': 'male', 'height': 187.5, 'weight': 82}, {'name': 'Lisa', 'gender': 'female', 'height': 168, 'weight': 48}]
 {'name': 'John', 'gender': 'male', 'height': 180.5, 'weight': 80}
-[{'name': 'Jane', 'gender': 'female', 'height': 176, 'weight': 60.5}, {'name': 'Steve', 'gender': 'male', 'height': 187.5, 'weight': 82}, {'name': 'Lisa', 'gender': 'female', 'height': 168, 'weight': 48}]
+[{'name': 'Jane', 'gender': 'female', 'height': 176, 'weight': 60.5}, {'name': 'Lisa', 'gender': 'female', 'height': 168, 'weight': 48}]
 ```
-
-:::
 
 ## Dict of List {#m4-dict-of-list}
 
@@ -1249,29 +1151,9 @@ items3 = {
 }
 ```
 
-## โจทย์ #46 {.exercise}
+## ตัวอย่าง: เข้าถึง Dict of List
 
-เข้าถึงข้อมูลใน Dict of List แล้วคำนวณค่าเฉลี่ยส่วนสูง
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-items3 = {
-    "John":  ["male",180.5,80],
-    "Jane":  ["female",176,60.5],
-    "Steve": ["male",187.5,82]
-}
-print(items3["John"])
-print(items3["Jane"])
-print(items3["Steve"])
-average_height = (items3[____][____] + items3[____][____] + items3[____][____]) / len(items3)
-print(f'Average height: {average_height}')
-```
-
-### Solution
+เข้าถึงด้วย **key** แล้วตามด้วย **index** ของ List ข้างใน → `items3["John"][1]`
 
 ```python
 items3 = {
@@ -1279,68 +1161,33 @@ items3 = {
     "Jane":  ["female",176,60.5],
     "Steve": ["male",187.5,82]
 }
-print(items3["John"])
-print(items3["Jane"])
-print(items3["Steve"])
-
 average_height = (items3["John"][1] + items3["Jane"][1] + items3["Steve"][1]) / len(items3)
 print(f'Average height: {average_height}')
 ```
 
 ```{.python .code-output}
-['male', 180.5, 80]
-['female', 176, 60.5]
-['male', 187.5, 82]
 Average height: 181.33333333333334
 ```
 
-:::
+## ตัวอย่าง: เพิ่ม/ลบใน Dict of List
 
-## โจทย์ #47 {.exercise}
-
-เพิ่มและลบข้อมูลใน Dict of List
-
-::: {.panel-tabset}
-
-### Live Code
-
-```{pyodide}
-#| autorun: false
-items3 = {
-    "John":  ["male",180.5,80],
-    "Jane":  ["female",176,60.5],
-    "Steve": ["male",187.5,82]
-}
-items3[____] = ["female",168,48]
-print(items3)
-data = items3.____(______)
-print(data)
-print(items3)
-```
-
-### Solution
+เพิ่มด้วยการกำหนด key ใหม่ · ลบด้วย `.pop(key)`
 
 ```python
 items3 = {
     "John":  ["male",180.5,80],
     "Jane":  ["female",176,60.5],
-    "Steve": ["male",187.5,82]
 }
 items3["Lisa"] = ["female",168,48]
-print(items3)
-
 data = items3.pop("John")
 print(data)
 print(items3)
 ```
 
 ```{.python .code-output}
-{'John': ['male', 180.5, 80], 'Jane': ['female', 176, 60.5], 'Steve': ['male', 187.5, 82], 'Lisa': ['female', 168, 48]}
 ['male', 180.5, 80]
-{'Jane': ['female', 176, 60.5], 'Steve': ['male', 187.5, 82], 'Lisa': ['female', 168, 48]}
+{'Jane': ['female', 176, 60.5], 'Lisa': ['female', 168, 48]}
 ```
-
-:::
 
 ## Other Possibility — Nested Collection {#m4-nested-complex}
 
@@ -1361,7 +1208,7 @@ student1 = {
 }
 ```
 
-## โจทย์ #48 {.exercise}
+## โจทย์ #37 {.exercise}
 
 นำข้อมูลนักเรียนมาเก็บรวมกันใน list แล้วคำนวณ GPAX เฉลี่ย
 
@@ -1402,7 +1249,7 @@ average GPA: 3.525
 
 :::
 
-## โจทย์ #49 {.exercise}
+## โจทย์ #38 {.exercise}
 
 เพิ่ม hobby ให้กับ `student2` และดูเกรดวิชา `259201` ของ `student1`
 
