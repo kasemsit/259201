@@ -1,0 +1,395 @@
+---
+title: "Module 5 — ทบทวน (Review)"
+subtitle: "Conditions (Control Structure 1) — แบบฝึกทบทวน"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 5 ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวน Module 5 📝
+
+::: {.incremental}
+- **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
+- **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+:::
+
+. . .
+
+::: {.callout-note}
+ครอบคลุม: เงื่อนไข (relational, `in`, logical) · `if` · `if-else` · `if-elif-else` · nested if
+ทบทวนเนื้อหาเต็มได้ที่ [Module 5](module05.html) 👈
+:::
+
+# Multiple Choice 🔘 {background-color="#2c3e50" .white-text}
+
+เลือกคำตอบที่ถูกต้อง — เฉลยจะปรากฏเมื่อกดถัดไป
+
+## คำถาม #1 {.exercise}
+
+`5 > 3` ให้ผลเป็นชนิดใด?
+
+A. `int` &nbsp;&nbsp; B. `bool` &nbsp;&nbsp; C. `str`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — relational operator ให้ผลเป็น `bool` (`True`)
+:::
+
+## คำถาม #2: ชวนคิด {.exercise-think}
+
+`==` กับ `=` ต่างกันอย่างไร?
+
+A. เหมือนกัน &nbsp;&nbsp; B. `==` เปรียบเทียบ, `=` กำหนดค่า
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — `==` คือ **เปรียบเทียบ** (ได้ bool), `=` คือ **กำหนดค่า** (assign) — อย่าสับสน!
+:::
+
+## คำถาม #3 {.exercise}
+
+`'a' in 'cat'` ให้ผลใด?
+
+A. `True` &nbsp;&nbsp; B. `False` &nbsp;&nbsp; C. `error`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — `in` ตรวจว่ามี `'a'` อยู่ใน `'cat'` หรือไม่ → `True`
+:::
+
+## คำถาม #4 {.exercise}
+
+`True and False` ให้ผลใด?
+
+A. `True` &nbsp;&nbsp; B. `False`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `and` เป็นจริงเมื่อ **ทั้งคู่** เป็น `True`
+:::
+
+## คำถาม #5 {.exercise}
+
+`not (5 > 3)` ให้ผลใด?
+
+A. `True` &nbsp;&nbsp; B. `False`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `5 > 3` เป็น `True` แล้ว `not True` = `False`
+:::
+
+## คำถาม #6: ชวนคิด {.exercise-think}
+
+`x = 7` — `0 < x < 10` ให้ผลใด?
+
+A. `True` &nbsp;&nbsp; B. `False` &nbsp;&nbsp; C. `error`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — Python รองรับ **chained comparison** = `(0 < x) and (x < 10)` → `True`
+:::
+
+## คำถาม #7 {.exercise}
+
+โครงสร้าง `if` ที่ถูกต้องต้องมีอะไร?
+
+A. `:` ท้ายเงื่อนไข + **ย่อหน้า** ในบรรทัดถัดไป &nbsp;&nbsp; B. `;` ท้ายบรรทัด &nbsp;&nbsp; C. `{ }` ครอบ
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — Python ใช้ `:` แล้ว **ย่อหน้า (indentation)** บอกขอบเขตของบล็อก
+:::
+
+## คำถาม #8: ชวนคิด {.exercise-think}
+
+```python
+x = 5
+if x > 10:
+    print("A")
+elif x > 3:
+    print("B")
+else:
+    print("C")
+```
+พิมพ์อะไร?
+
+A. `A` &nbsp;&nbsp; B. `B` &nbsp;&nbsp; C. `C` &nbsp;&nbsp; D. ทั้งหมด
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — `if-elif-else` ทำงาน **เพียงสาขาเดียว** — `x>10` เท็จ, `x>3` จริง → `B`
+:::
+
+## คำถาม #9 {.exercise}
+
+`x = 4` — `x % 2 == 0` ใช้ตรวจสอบอะไร?
+
+A. `x` เป็นเลขคู่ &nbsp;&nbsp; B. `x` หารด้วย 2 ลงตัวกี่ครั้ง &nbsp;&nbsp; C. `x` มากกว่า 2
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — เศษการหาร 2 เท่ากับ 0 → เป็น **เลขคู่**
+:::
+
+## คำถาม #10: ชวนคิด {.exercise-think}
+
+`age = 20` — `age >= 18 and age < 60` ให้ผลใด?
+
+A. `True` &nbsp;&nbsp; B. `False`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — ทั้งสองเงื่อนไขจริง (`20>=18` และ `20<60`) → `and` ได้ `True`
+:::
+
+# เติมคำในช่องว่าง ✏️ {background-color="#2c3e50" .white-text}
+
+เติมโค้ดในช่อง `____` แล้วกด Run
+
+## เติมคำ #11 {.exercise}
+
+เติมเงื่อนไขให้ตรวจว่า `score` **ผ่าน** (≥ 50) หรือไม่
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+score = 65
+if score ____ 50:
+    print("ผ่าน")
+else:
+    print("ไม่ผ่าน")
+```
+
+### เฉลย
+
+```python
+score = 65
+if score >= 50:
+    print("ผ่าน")
+else:
+    print("ไม่ผ่าน")
+```
+
+```{.python .code-output}
+ผ่าน
+```
+
+:::
+
+## เติมคำ #12 {.exercise}
+
+ตรวจว่า `n` เป็น **เลขคู่หรือคี่**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+n = 7
+if n ____ 2 ____ 0:
+    print("even")
+else:
+    print("odd")
+```
+
+### เฉลย
+
+```python
+n = 7
+if n % 2 == 0:
+    print("even")
+else:
+    print("odd")
+```
+
+```{.python .code-output}
+odd
+```
+
+:::
+
+## เติมคำ #13 {.exercise}
+
+ใช้ `if-elif-else` ตัดเกรด: `>=80` → A, `>=50` → B, นอกนั้น → F
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+score = 72
+if score >= 80:
+    grade = "A"
+____ score >= 50:
+    grade = "B"
+____:
+    grade = "F"
+print(grade)
+```
+
+### เฉลย
+
+```python
+score = 72
+if score >= 80:
+    grade = "A"
+elif score >= 50:
+    grade = "B"
+else:
+    grade = "F"
+print(grade)
+```
+
+```{.python .code-output}
+B
+```
+
+:::
+
+## เติมคำ #14 {.exercise}
+
+ใช้ `in` ตรวจว่าผลไม้ที่พิมพ์มา **อยู่ในรายการ** หรือไม่
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+fruits = ["apple", "banana", "cherry"]
+x = "banana"
+if x ____ fruits:
+    print("มีขาย")
+else:
+    print("ไม่มี")
+```
+
+### เฉลย
+
+```python
+fruits = ["apple", "banana", "cherry"]
+x = "banana"
+if x in fruits:
+    print("มีขาย")
+else:
+    print("ไม่มี")
+```
+
+```{.python .code-output}
+มีขาย
+```
+
+:::
+
+## เติมคำ #15 {.exercise}
+
+รวมเงื่อนไขด้วย `and`: ผ่านเมื่อคะแนน **ทั้ง 2 วิชา** ≥ 50
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+math_score = 60
+eng_score = 45
+if math_score >= 50 ____ eng_score >= 50:
+    print("ผ่านทั้งคู่")
+else:
+    print("ไม่ผ่าน")
+```
+
+### เฉลย
+
+```python
+math_score = 60
+eng_score = 45
+if math_score >= 50 and eng_score >= 50:
+    print("ผ่านทั้งคู่")
+else:
+    print("ไม่ผ่าน")
+```
+
+```{.python .code-output}
+ไม่ผ่าน
+```
+
+:::
+
+## เติมคำ #16: ชวนคิด {.exercise-think}
+
+**Nested if** — ตรวจว่าตัวเลขเป็นบวก และเป็นเลขคู่หรือคี่
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+n = 8
+if n > 0:
+    if n % 2 ____ 0:
+        print("บวก-คู่")
+    else:
+        print("บวก-คี่")
+else:
+    print("ไม่เป็นบวก")
+```
+
+### เฉลย
+
+```python
+n = 8
+if n > 0:
+    if n % 2 == 0:
+        print("บวก-คู่")
+    else:
+        print("บวก-คี่")
+else:
+    print("ไม่เป็นบวก")
+```
+
+```{.python .code-output}
+บวก-คู่
+```
+
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+ทบทวนเนื้อหาเต็มได้ที่ [Module 5](module05.html)

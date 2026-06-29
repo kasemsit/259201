@@ -1,0 +1,311 @@
+---
+title: "Module 3b — ทบทวน (Review)"
+subtitle: "Input / Output and f-string — แบบฝึกทบทวน"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 3b ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวน Module 3b 📝
+
+::: {.incremental}
+- **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
+- **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+:::
+
+. . .
+
+::: {.callout-note}
+ครอบคลุม: `input()` · การแปลงชนิด · `input().split()` · `print()` · **f-string**
+ทบทวนเนื้อหาเต็มได้ที่ [Module 3b](module03b.html) 👈
+:::
+
+# Multiple Choice 🔘 {background-color="#2c3e50" .white-text}
+
+เลือกคำตอบที่ถูกต้อง — เฉลยจะปรากฏเมื่อกดถัดไป
+
+## คำถาม #1 {.exercise}
+
+`input()` คืนค่าเป็นชนิดใด **เสมอ**?
+
+A. `int` &nbsp;&nbsp; B. `str` &nbsp;&nbsp; C. `float` &nbsp;&nbsp; D. ขึ้นกับสิ่งที่พิมพ์
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `input()` ได้ **`str` เสมอ** ต้องแปลงชนิดเองถ้าต้องการตัวเลข
+:::
+
+## คำถาม #2 {.exercise}
+
+ต้องการรับ **จำนวนเต็ม** จาก user ควรเขียนอย่างไร?
+
+A. `input()` &nbsp;&nbsp; B. `int(input())` &nbsp;&nbsp; C. `str(input())` &nbsp;&nbsp; D. `input(int)`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — ครอบ `input()` ด้วย `int()` เพื่อแปลง string เป็นจำนวนเต็ม
+:::
+
+## คำถาม #3 {.exercise}
+
+`data = input().split()` ได้ผลลัพธ์เป็นชนิดใด?
+
+A. `str` &nbsp;&nbsp; B. `list` &nbsp;&nbsp; C. `tuple` &nbsp;&nbsp; D. `int`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `.split()` คืนค่าเป็น **`list` ของ string**
+:::
+
+## คำถาม #4 {.exercise}
+
+ป้อน `10 20 30` แล้วเรียก `input().split()` ได้ผลใด?
+
+A. `'102030'` &nbsp;&nbsp; B. `['10','20','30']` &nbsp;&nbsp; C. `[10,20,30]` &nbsp;&nbsp; D. `error`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `.split()` ตัดด้วยช่องว่าง ได้ list ของ **string** (ยังไม่ใช่ตัวเลข)
+:::
+
+## คำถาม #5 {.exercise}
+
+จะแทรกค่าตัวแปร `x` ลงใน string ด้วย f-string เขียนอย่างไร?
+
+A. `'{x}'` &nbsp;&nbsp; B. `f'{x}'` &nbsp;&nbsp; C. `f'(x)'` &nbsp;&nbsp; D. `'f{x}'`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — ใส่ `f` นำหน้า string แล้วแทรกตัวแปรใน `{ }`
+:::
+
+## คำถาม #6: ชวนคิด {.exercise-think}
+
+ถ้า **ลืมใส่ `f`** นำหน้า เช่น `'{x}'` (x = 5) จะได้อะไร?
+
+A. `5` &nbsp;&nbsp; B. ข้อความ `{x}` ตรง ๆ &nbsp;&nbsp; C. `error`
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — ไม่มี `f` → เป็น string ธรรมดา `{x}` ไม่ถูกแทนค่า
+:::
+
+## คำถาม #7 {.exercise}
+
+`pi = 3.14159` — `f'{pi:.2f}'` ให้ผลใด?
+
+A. `'3.14'` &nbsp;&nbsp; B. `'3.1'` &nbsp;&nbsp; C. `'3.14159'` &nbsp;&nbsp; D. `'3'`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — `:.2f` = ทศนิยม **2 ตำแหน่ง**
+:::
+
+## คำถาม #8: ชวนคิด {.exercise-think}
+
+`a = 3` (ตัวเลข) — `f'{a:5}'` จัดข้อความชิดด้านใด?
+
+A. ชิดซ้าย &nbsp;&nbsp; B. ชิดขวา
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — **ตัวเลข**ในความกว้างที่กำหนด → ชิด**ขวา** (string จะชิดซ้าย)
+:::
+
+## คำถาม #9: ชวนคิด {.exercise-think}
+
+`a, b = input().split()` แต่ผู้ใช้พิมพ์ **3 คำ** จะเกิดอะไร?
+
+A. เก็บ 2 คำแรก &nbsp;&nbsp; B. `ValueError` &nbsp;&nbsp; C. เก็บเป็น list
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — จำนวนตัวแปรซ้าย **ต้องพอดี** กับจำนวนคำที่ split ได้ ไม่งั้น **ValueError**
+:::
+
+# เติมคำในช่องว่าง ✏️ {background-color="#2c3e50" .white-text}
+
+เติมโค้ดในช่อง `____` แล้วกด Run
+
+::: {.callout-important style="font-size:1.2em"}
+⚠️ `input()` ไม่ทำงานบนสไลด์ — **จำลองค่าด้วย string** แทน (เช่น `name = 'Ploy'`)
+:::
+
+## เติมคำ #10 {.exercise}
+
+เติมโค้ดให้แสดงผล `Hello, Ploy. Nice to meet you!` ด้วย **f-string**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# จำลอง input
+nkname = 'Ploy'
+print(f'____')
+```
+
+### เฉลย
+
+```python
+nkname = 'Ploy'   # nkname = input('...')
+print(f'Hello, {nkname}. Nice to meet you!')
+```
+
+```{.python .code-output}
+Hello, Ploy. Nice to meet you!
+```
+
+:::
+
+## เติมคำ #11 {.exercise}
+
+`gpa = 3.5` — แสดงผลด้วย f-string เป็นทศนิยม **2 ตำแหน่ง**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+gpa = 3.5
+print(f'Your GPA is {____}')
+```
+
+### เฉลย
+
+```python
+gpa = 3.5
+print(f'Your GPA is {gpa:.2f}')
+```
+
+```{.python .code-output}
+Your GPA is 3.50
+```
+
+:::
+
+## เติมคำ #12 {.exercise}
+
+เติมโค้ดแปลงค่าจาก `input()` (string) ให้เป็น `int` แล้วยกกำลังสอง
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# จำลอง x = input()
+x = '6'
+x = ____(x)
+print(x ** 2, type(x ** 2))
+```
+
+### เฉลย
+
+```python
+x = '6'           # x = input()
+x = int(x)
+print(x ** 2, type(x ** 2))
+```
+
+```{.python .code-output}
+36 <class 'int'>
+```
+
+:::
+
+## เติมคำ #13 {.exercise}
+
+แยก **ชื่อ** และ **นามสกุล** จากข้อความเดียว ด้วย `.split()`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# จำลอง input()
+data = 'Somchai Jaidee'
+name, lastname = data.____()
+print(name)
+print(lastname)
+```
+
+### เฉลย
+
+```python
+data = 'Somchai Jaidee'   # input()
+name, lastname = data.split()
+print(name)
+print(lastname)
+```
+
+```{.python .code-output}
+Somchai
+Jaidee
+```
+
+:::
+
+## เติมคำ #14: ชวนคิด {.exercise-think}
+
+`a = 7` — จัดให้แสดงในความกว้าง **5 ช่อง** ด้วย f-string
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+a = 7
+print(f'[{____}]')
+```
+
+### เฉลย
+
+```python
+a = 7
+print(f'[{a:5}]')
+```
+
+```{.python .code-output}
+[    7]
+```
+
+ตัวเลขชิดขวาในความกว้าง 5 → มีช่องว่างนำหน้า 4 ช่อง
+
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+ทบทวนเนื้อหาเต็มได้ที่ [Module 3b](module03b.html) · กลับไป [Module 3a](module03a.html)

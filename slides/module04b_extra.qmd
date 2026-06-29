@@ -1,0 +1,437 @@
+---
+title: "Module 4b — ทบทวน (Review)"
+subtitle: "Collection Data Types: Tuple, Set, Dictionary — แบบฝึกทบทวน"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 4b ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวน Module 4b 📝
+
+::: {.incremental}
+- **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
+- **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+:::
+
+. . .
+
+::: {.callout-note}
+ครอบคลุม: **Tuple** · **Set** · **Dictionary** · **Collection of Collections**
+ทบทวนเนื้อหาเต็มได้ที่ [Module 4b](module04b.html) 👈
+:::
+
+# Multiple Choice 🔘 {background-color="#2c3e50" .white-text}
+
+เลือกคำตอบที่ถูกต้อง — เฉลยจะปรากฏเมื่อกดถัดไป
+
+## คำถาม #1 {.exercise}
+
+Tuple สร้างด้วยเครื่องหมายใด?
+
+A. `[ ]` &nbsp;&nbsp; B. `( )` &nbsp;&nbsp; C. `{ }`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — Tuple ใช้ `( )` ( `[ ]` = list, `{ }` = set/dict )
+:::
+
+## คำถาม #2: ชวนคิด {.exercise-think}
+
+`tup = (1, 2, 3)` แล้ว `tup[0] = 99` จะเกิดอะไร?
+
+A. `(99, 2, 3)` &nbsp;&nbsp; B. `TypeError` &nbsp;&nbsp; C. `[99, 2, 3]`
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — Tuple เป็น **immutable** แก้ไขค่าภายในไม่ได้ → TypeError
+:::
+
+## คำถาม #3 {.exercise}
+
+`{1, 2, 2, 3, 3}` มีสมาชิกกี่ตัว?
+
+A. `5` &nbsp;&nbsp; B. `3` &nbsp;&nbsp; C. `2`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — Set เก็บข้อมูล **ไม่ซ้ำ (unique)** → เหลือ `{1, 2, 3}`
+:::
+
+## คำถาม #4 {.exercise}
+
+ข้อใดสร้าง **set ว่าง** ได้ถูกต้อง?
+
+A. `{}` &nbsp;&nbsp; B. `set()` &nbsp;&nbsp; C. `[]`
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — `{}` สร้าง **dict ว่าง** ไม่ใช่ set! set ว่างต้องใช้ `set()`
+:::
+
+## คำถาม #5: ชวนคิด {.exercise-think}
+
+`s = {1, 2, 3}` — `s[0]` ให้ผลใด?
+
+A. `1` &nbsp;&nbsp; B. `TypeError` &nbsp;&nbsp; C. `None`
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — Set **ไม่มีลำดับ (unordered)** จึงไม่มี index → อ้างด้วย `[ ]` ไม่ได้
+:::
+
+## คำถาม #6 {.exercise}
+
+`{1, 2, 3} | {3, 4, 5}` (union) ให้ผลใด?
+
+A. `{3}` &nbsp;&nbsp; B. `{1, 2, 3, 4, 5}` &nbsp;&nbsp; C. `{1, 2, 4, 5}`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `|` (union) รวมสมาชิกทั้งหมด (ไม่ซ้ำ)
+:::
+
+## คำถาม #7 {.exercise}
+
+`{1, 2, 3} & {3, 4, 5}` (intersection) ให้ผลใด?
+
+A. `{3}` &nbsp;&nbsp; B. `{1, 2, 3, 4, 5}` &nbsp;&nbsp; C. `{ }`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — `&` (intersection) เอาเฉพาะสมาชิก **ร่วมกัน** → `{3}`
+:::
+
+## คำถาม #8 {.exercise}
+
+Dictionary เข้าถึงข้อมูลด้วยอะไร?
+
+A. index ตัวเลข &nbsp;&nbsp; B. **key** &nbsp;&nbsp; C. ทั้งสองอย่าง
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — Dict อ้างอิงด้วย **key** เช่น `person["name"]`
+:::
+
+## คำถาม #9: ชวนคิด {.exercise-think}
+
+ดึงค่าจาก dict ด้วย **key ที่ไม่มีอยู่** จะเกิดอะไร?
+
+A. คืน `None` &nbsp;&nbsp; B. `KeyError` &nbsp;&nbsp; C. คืน `''`
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — key ที่ไม่มี → **KeyError**
+:::
+
+## คำถาม #10: ชวนคิด {.exercise-think}
+
+ข้อใด **ใช้เป็น key ของ dict ไม่ได้**?
+
+A. `"name"` (str) &nbsp;&nbsp; B. `1` (int) &nbsp;&nbsp; C. `[1, 2]` (list)
+
+. . .
+
+::: {.callout-important}
+**ตอบ: C** — key ต้องเป็นชนิด **immutable** (`str`, `int`, `float`, `tuple`) — `list` เป็น key ไม่ได้
+:::
+
+## คำถาม #11 {.exercise}
+
+`.items()` ของ dict คืนค่าในรูปแบบใด?
+
+A. list ของ key &nbsp;&nbsp; B. list ของ `(key, value)` &nbsp;&nbsp; C. list ของ value
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `.items()` คืน list ของ **Tuple** `(key, value)` (ส่วน `.keys()` คืนเฉพาะ key)
+:::
+
+## คำถาม #12: ชวนคิด {.exercise-think}
+
+`items = [["John", 180], ["Jane", 176]]` — `items[1][1]` คือค่าใด?
+
+A. `"Jane"` &nbsp;&nbsp; B. `176` &nbsp;&nbsp; C. `180`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `items[1]` = `["Jane", 176]` แล้ว `[1]` = `176` (เข้าถึง 2 ชั้น)
+:::
+
+# เติมคำในช่องว่าง ✏️ {background-color="#2c3e50" .white-text}
+
+เติมโค้ดในช่อง `____` แล้วกด Run
+
+## เติมคำ #13 {.exercise}
+
+สร้าง tuple แล้วเข้าถึงสมาชิก **ตัวสุดท้าย**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+tup = (10, 20, 30, 40)
+print(tup[____])
+```
+
+### เฉลย
+
+```python
+tup = (10, 20, 30, 40)
+print(tup[-1])
+```
+
+```{.python .code-output}
+40
+```
+
+:::
+
+## เติมคำ #14 {.exercise}
+
+แปลง tuple เป็น **list** เพื่อแก้ไข แล้วแปลง **กลับเป็น tuple**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = ("apple", "banana")
+y = ____(x)       # tuple → list
+y.append("cherry")
+z = ____(y)       # list → tuple
+print(z)
+```
+
+### เฉลย
+
+```python
+x = ("apple", "banana")
+y = list(x)
+y.append("cherry")
+z = tuple(y)
+print(z)
+```
+
+```{.python .code-output}
+('apple', 'banana', 'cherry')
+```
+
+:::
+
+## เติมคำ #15 {.exercise}
+
+หา **union** และ **intersection** ของ 2 set
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+a = {1, 2, 3}
+b = {3, 4, 5}
+print(a ____ b)   # union
+print(a ____ b)   # intersection
+```
+
+### เฉลย
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+print(a | b)   # union
+print(a & b)   # intersection
+```
+
+```{.python .code-output}
+{1, 2, 3, 4, 5}
+{3}
+```
+
+:::
+
+## เติมคำ #16 {.exercise}
+
+เพิ่มสมาชิกด้วย `.add()` และลบแบบ **ไม่ error** ด้วย `.discard()`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+s = {1, 2, 3}
+s.____(4)       # เพิ่ม 4
+s.____(99)      # ลบ 99 (ไม่มีอยู่ — ต้องไม่ error)
+print(s)
+```
+
+### เฉลย
+
+```python
+s = {1, 2, 3}
+s.add(4)
+s.discard(99)   # discard ไม่ error แม้ไม่มีค่านั้น
+print(s)
+```
+
+```{.python .code-output}
+{1, 2, 3, 4}
+```
+
+:::
+
+## เติมคำ #17 {.exercise}
+
+สร้าง dict แล้ว **เข้าถึงค่า** ด้วย key
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+person = {"name": "Ann", "age": 20}
+print(person[____])
+```
+
+### เฉลย
+
+```python
+person = {"name": "Ann", "age": 20}
+print(person["name"])
+```
+
+```{.python .code-output}
+Ann
+```
+
+:::
+
+## เติมคำ #18 {.exercise}
+
+**เพิ่ม** key ใหม่ `"gpa"` ให้กับ dict
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+person = {"name": "Ann", "age": 20}
+person[____] = 3.5
+print(person)
+```
+
+### เฉลย
+
+```python
+person = {"name": "Ann", "age": 20}
+person["gpa"] = 3.5
+print(person)
+```
+
+```{.python .code-output}
+{'name': 'Ann', 'age': 20, 'gpa': 3.5}
+```
+
+:::
+
+## เติมคำ #19 {.exercise}
+
+ดึงรายการ **key ทั้งหมด** ออกมาเป็น list
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+person = {"name": "Ann", "age": 20, "gpa": 3.5}
+print(list(person.____()))
+```
+
+### เฉลย
+
+```python
+person = {"name": "Ann", "age": 20, "gpa": 3.5}
+print(list(person.keys()))
+```
+
+```{.python .code-output}
+['name', 'age', 'gpa']
+```
+
+:::
+
+## เติมคำ #20: ชวนคิด {.exercise-think}
+
+เข้าถึงข้อมูลใน **List of Dict** แล้วคำนวณค่าเฉลี่ยส่วนสูง
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+items = [
+    {"name": "John", "height": 180},
+    {"name": "Jane", "height": 176},
+]
+avg = (items[0][____] + items[1][____]) / len(items)
+print(avg)
+```
+
+### เฉลย
+
+```python
+items = [
+    {"name": "John", "height": 180},
+    {"name": "Jane", "height": 176},
+]
+avg = (items[0]["height"] + items[1]["height"]) / len(items)
+print(avg)
+```
+
+```{.python .code-output}
+178.0
+```
+
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+ทบทวนเนื้อหาเต็มได้ที่ [Module 4b](module04b.html) · กลับไป [Module 4a](module04a.html)

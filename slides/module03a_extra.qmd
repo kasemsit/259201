@@ -1,0 +1,445 @@
+---
+title: "Module 3a — ทบทวน (Review)"
+subtitle: "Variables and Types, Operators, Math — แบบฝึกทบทวน"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 3a ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวน Module 3a 📝
+
+::: {.incremental}
+- **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
+- **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+:::
+
+. . .
+
+::: {.callout-note}
+ครอบคลุม: ตัวแปร · ชนิดข้อมูล · การแปลงชนิด · ตัวดำเนินการ · `math`
+ทบทวนเนื้อหาเต็มได้ที่ [Module 3a](module03a.html) 👈
+:::
+
+# Multiple Choice 🔘 {background-color="#2c3e50" .white-text}
+
+เลือกคำตอบที่ถูกต้อง — เฉลยจะปรากฏเมื่อกดถัดไป
+
+## คำถาม #1 {.exercise}
+
+ข้อใด **ตั้งชื่อตัวแปรไม่ได้** ใน Python?
+
+A. `var_1` &nbsp;&nbsp; B. `_temp` &nbsp;&nbsp; C. `1value` &nbsp;&nbsp; D. `printThis`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: C** — ชื่อตัวแปร **ห้ามขึ้นต้นด้วยตัวเลข**
+:::
+
+## คำถาม #2 {.exercise}
+
+ตั้งชื่อตัวแปรว่า `my-score` ได้หรือไม่?
+
+A. ใช้ได้ปกติ &nbsp;&nbsp; B. ใช้ไม่ได้ &nbsp;&nbsp; C. ใช้ได้ถ้าค่าเป็นบวก &nbsp;&nbsp; D. ใช้ได้ใน f-string เท่านั้น
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — `-` คือเครื่องหมาย**ลบ** Python จะอ่าน `my-score` เป็น `my - score` (การลบ ไม่ใช่ชื่อตัวแปร) → ใช้ `_` แทน เช่น `my_score`
+:::
+
+## คำถาม #3 {.exercise}
+
+`type(10 / 2)` ให้ผลเป็นชนิดใด?
+
+A. `int` &nbsp;&nbsp; B. `float` &nbsp;&nbsp; C. `str` &nbsp;&nbsp; D. `error`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — การหาร `/` ให้ผลเป็น **`float` เสมอ** (`5.0`) แม้หารลงตัว
+:::
+
+## คำถาม #4 {.exercise}
+
+`17 // 5` มีค่าเท่าใด?
+
+A. `3.4` &nbsp;&nbsp; B. `3` &nbsp;&nbsp; C. `2` &nbsp;&nbsp; D. `3.0`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `//` คือ **floor division** ตัดเศษทิ้ง ได้ `int` = `3`
+:::
+
+## คำถาม #5 {.exercise}
+
+`17 % 5` มีค่าเท่าใด?
+
+A. `2` &nbsp;&nbsp; B. `3` &nbsp;&nbsp; C. `3.4` &nbsp;&nbsp; D. `0`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — `%` คือ **เศษของการหาร** (modulus): `17 = 5×3 + 2`
+:::
+
+## คำถาม #6: ชวนคิด {.exercise-think}
+
+`2 ** 3 ** 2` มีค่าเท่าใด?
+
+A. `64` &nbsp;&nbsp; B. `512` &nbsp;&nbsp; C. `256` &nbsp;&nbsp; D. `18`
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B (`512`)** — `**` จับคู่จาก **ขวา → ซ้าย** จึงเป็น `2 ** (3 ** 2)` = `2 ** 9` = `512`
+:::
+
+## คำถาม #7 {.exercise}
+
+`int('1234.5')` ให้ผลลัพธ์ใด?
+
+A. `1234` &nbsp;&nbsp; B. `1234.5` &nbsp;&nbsp; C. `ValueError` &nbsp;&nbsp; D. `1235`
+
+. . .
+
+::: {.callout-important}
+**ตอบ: C** — `int()` แปลง string ที่มีจุดทศนิยมไม่ได้ → **ValueError** (ต้องใช้ `float()` ก่อน)
+:::
+
+## คำถาม #8: ชวนคิด {.exercise-think}
+
+`True and False or True` ให้ผลใด?
+
+A. `True` &nbsp;&nbsp; B. `False`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A (`True`)** — `and` ทำก่อน `or` : `(True and False) or True` = `False or True` = `True`
+:::
+
+## คำถาม #9 {.exercise}
+
+`math.sqrt(144)` ให้ผลใด?
+
+A. `12` &nbsp;&nbsp; B. `12.0` &nbsp;&nbsp; C. `72` &nbsp;&nbsp; D. `error`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B (`12.0`)** — `math.sqrt()` คืนค่าเป็น **`float`** เสมอ
+:::
+
+## คำถาม #10 {.exercise}
+
+ข้อใด **ใช้เป็นชื่อตัวแปรไม่ได้** เพราะเป็น **keyword** ของ Python?
+
+A. `sum` &nbsp;&nbsp; B. `for` &nbsp;&nbsp; C. `data` &nbsp;&nbsp; D. `total`
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — `for` เป็น **keyword** สงวนไว้ (เช็คได้ด้วย `import keyword; keyword.kwlist`)
+:::
+
+## คำถาม #11 {.exercise}
+
+ต้องการพิมพ์ข้อความ `it's ok` ควรใช้ quote แบบใด?
+
+A. `'it's ok'` &nbsp;&nbsp; B. `"it's ok"` &nbsp;&nbsp; C. ทั้ง A และ B
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — เมื่อในข้อความมี `'` ให้ครอบด้วย `"..."` (ไม่งั้น `'` จะปิด string กลางคัน)
+:::
+
+## คำถาม #12 {.exercise}
+
+`print('A\nB')` แสดงผลอย่างไร?
+
+A. `A\nB` &nbsp;&nbsp; B. `AB` &nbsp;&nbsp; C. `A` แล้วขึ้นบรรทัดใหม่เป็น `B` &nbsp;&nbsp; D. error
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: C** — `\n` คือ escape code **ขึ้นบรรทัดใหม่ (newline)**
+:::
+
+## คำถาม #13: ชวนคิด {.exercise-think}
+
+`x = 42` แล้วเขียนบรรทัดต่อมา `x = "hello"` — ทำได้หรือไม่?
+
+A. ได้ &nbsp;&nbsp; B. ไม่ได้ ต้องเป็นชนิดเดิม
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — Python เป็น **dynamic typing** ตัวแปรเปลี่ยนไปเก็บชนิดอื่นได้
+:::
+
+## คำถาม #14: ชวนคิด {.exercise-think}
+
+`'5' + 5` ให้ผลใด?
+
+A. `10` &nbsp;&nbsp; B. `'55'` &nbsp;&nbsp; C. `TypeError` &nbsp;&nbsp; D. `55`
+
+. . .
+
+::: {.callout-important}
+**ตอบ: C** — `str + int` ทำไม่ได้ → **TypeError** (ต้องแปลงชนิดให้ตรงกันก่อน)
+:::
+
+## คำถาม #15 {.exercise}
+
+`int(9.99)` ได้ค่าใด?
+
+A. `10` &nbsp;&nbsp; B. `9` &nbsp;&nbsp; C. `9.99` &nbsp;&nbsp; D. error
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `int()` **ตัดทศนิยมทิ้ง** (ไม่ปัดเศษ)
+:::
+
+## คำถาม #16 {.exercise}
+
+`type(1.23e9)` คือชนิดใด?
+
+A. `int` &nbsp;&nbsp; B. `float` &nbsp;&nbsp; C. `str` &nbsp;&nbsp; D. error
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `1.23e9` คือ scientific notation ($1.23 \times 10^9$) เป็น **`float`**
+:::
+
+# เติมคำในช่องว่าง ✏️ {background-color="#2c3e50" .white-text}
+
+เติมโค้ดในช่อง `____` แล้วกด Run
+
+## เติมคำ #17 {.exercise}
+
+เติมโค้ดให้ `var1` เก็บ **ผลคูณ** ของ `100` กับ `2` แล้วแสดงผล
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+var1 = ____
+print(var1)
+```
+
+### เฉลย
+
+```python
+var1 = 100 * 2
+print(var1)
+```
+
+```{.python .code-output}
+200
+```
+
+:::
+
+## เติมคำ #18 {.exercise}
+
+`s = '3.14'` (string) — เติมโค้ดเพื่อแปลงเป็น **float** แล้วบวกกับ `1`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+s = '3.14'
+result = ____(s) + 1
+print(result, type(result))
+```
+
+### เฉลย
+
+```python
+s = '3.14'
+result = float(s) + 1
+print(result, type(result))
+```
+
+```{.python .code-output}
+4.140000000000001 <class 'float'>
+```
+
+:::
+
+## เติมคำ #19 {.exercise}
+
+เติมโค้ดให้คำนวณ **พื้นที่วงกลม** รัศมี `5` (ใช้ `math`)
+
+$$area = \pi r^2$$
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import math
+r = 5
+area = math.____ * r ____ 2
+print(f'{area:.2f}')
+```
+
+### เฉลย
+
+```python
+import math
+r = 5
+area = math.pi * r ** 2
+print(f'{area:.2f}')
+```
+
+```{.python .code-output}
+78.54
+```
+
+:::
+
+## เติมคำ #20: ชวนคิด {.exercise-think}
+
+`x = 7` — เติม operator ให้ตรวจว่า `x` เป็น **เลขคู่** หรือไม่ (ผลเป็น `bool`)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = 7
+is_even = (x ____ 2 ____ 0)
+print(is_even)
+```
+
+### เฉลย
+
+```python
+x = 7
+is_even = (x % 2 == 0)
+print(is_even)
+```
+
+```{.python .code-output}
+False
+```
+
+`x % 2 == 0` → เศษการหาร 2 เท่ากับ 0 ไหม
+
+:::
+
+## เติมคำ #21 {.exercise}
+
+เติมโค้ดให้ `s3` เก็บ `'hello'` ต่อกับ `'there'` โดยมี**ช่องว่างคั่น**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+s3 = 'hello' ____ ' ' ____ 'there'
+print(s3, type(s3))
+```
+
+### เฉลย
+
+```python
+s3 = 'hello' + ' ' + 'there'
+print(s3, type(s3))
+```
+
+```{.python .code-output}
+hello there <class 'str'>
+```
+
+:::
+
+## เติมคำ #22 {.exercise}
+
+เติมโค้ดคำนวณ `5!` (factorial) ด้วย `math`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import math
+print(math.____(5))
+```
+
+### เฉลย
+
+```python
+import math
+print(math.factorial(5))
+```
+
+```{.python .code-output}
+120
+```
+
+:::
+
+## เติมคำ #23: ชวนคิด {.exercise-think}
+
+เติมโค้ดแปลง **180 องศา** เป็น **radian** (ควรได้ค่าประมาณ $\pi$)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import math
+print(math.____(180))
+```
+
+### เฉลย
+
+```python
+import math
+print(math.radians(180))
+```
+
+```{.python .code-output}
+3.141592653589793
+```
+
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+ทบทวนเนื้อหาเต็มได้ที่ [Module 3a](module03a.html) · ไปต่อ [Module 3b](module03b.html)
