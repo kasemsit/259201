@@ -49,7 +49,7 @@ Link format: `[ทบทวน: topic](moduleNN.html#slide-id)`
 | `input().split()` | `module03b.html#m3-split` |
 | Arithmetic (`%` odd/even, `**`) | `module03a.html#m3-arithmetic` |
 | f-string | `module03b.html#m3-fstring` |
-| List, `in` operator | `module04.html#m4-list` |
+| List, `in` operator | `module04a.html#m4-list` |
 
 ## Module 6 Dependencies
 
@@ -89,7 +89,8 @@ Link format: `[ทบทวน: topic](moduleNN.html#slide-id)`
 | Assignment operators (`+=`) | `module03a.html#m3-assignment` |
 | Arithmetic (`/`, `**` BMI calc) | `module03a.html#m3-arithmetic` |
 | f-string | `module03b.html#m3-fstring` |
-| List, Tuple, Set, Dict | `module04.html#m4-list`, `m4-tuple`, `m4-set`, `m4-dict` |
+| List | `module04a.html#m4-list` |
+| Tuple, Set, Dict | `module04b.html#m4-tuple`, `m4-set`, `m4-dict` |
 | if conditions (filtering) | `module05.html#m5-if-else` |
 | while-loop | `module06.html#m6-while` |
 | for-loop, `range()`, `enumerate()` | `module07.html#m7-for`, `m7-range`, `m7-enumerate` |

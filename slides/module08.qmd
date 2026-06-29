@@ -76,7 +76,7 @@ for i, x in enumerate(sc_new):
 **ลิสต์ (List)** คือการเก็บชุดข้อมูลที่เกี่ยวข้องกันจำนวนหลาย ๆ ตัวให้อยู่ภายใต้ตัวแปรเดียวกัน
 
 ::: {.callout-note}
-ทบทวน: [List (Module 4)](module04.html#m4-list)
+ทบทวน: [List (Module 4)](module04a.html#m4-list)
 :::
 
 ## List : การอ้างอิงด้วย Index {#m8-list-index}
@@ -107,7 +107,7 @@ for i, x in enumerate(sc_new):
 - **`*`** ใช้เพิ่มข้อมูลให้มีหลายชุดตาม**จำนวน**ที่ต้องการ
 
 ::: {.callout-note}
-ทบทวน: [List operators `+` `*` (Module 4)](module04.html#m4-list-ops)
+ทบทวน: [List operators `+` `*` (Module 4)](module04a.html#m4-list-add)
 :::
 
 ## โจทย์ #1a {.exercise}
@@ -172,7 +172,7 @@ Sum of the 2nd to 4th score is = 143
 **คิดก่อน:** ต้องการ index `1,2,3` — `start`, `stop`, `step` ควรเป็นเท่าใด?
 
 ::: {.callout-note}
-ทบทวน: [Slicing list (Module 4)](module04.html#m4-list-slice)
+ทบทวน: [Slicing list (Module 4)](module04a.html#m4-list-slice)
 :::
 
 ## โจทย์ #1b (ต่อ) {.exercise}
@@ -214,7 +214,7 @@ Sum of the 2rd- 4th score is =143
 **คิดก่อน:** การพิมพ์ tuple กับ list ต่างกันที่สัญลักษณ์ใด?
 
 ::: {.callout-note}
-ทบทวน: [Tuple (Module 4)](module04.html#m4-tuple) · [Type conversion `tuple()` `list()` (Module 3)](module03a.html#m3-type-conversion)
+ทบทวน: [Tuple (Module 4)](module04b.html#m4-tuple) · [Type conversion `tuple()` `list()` (Module 3)](module03a.html#m3-type-conversion)
 :::
 
 ## โจทย์ #1b: list ↔ tuple (ต่อ) {.exercise}
@@ -325,7 +325,7 @@ New score of section 000 after pop out the 4th student:
 - **key** เมื่อกำหนดไปแล้ว **จะไม่สามารถเปลี่ยนแปลงได้**
 
 ::: {.callout-note}
-ทบทวน: [Dictionary (Module 4)](module04.html#m4-dict)
+ทบทวน: [Dictionary (Module 4)](module04b.html#m4-dict)
 :::
 
 ## โจทย์ #2a {.exercise}
@@ -787,7 +787,7 @@ for i, team in enumerate(teams):
 ```
 
 ::: {.callout-note}
-ทบทวน: [Set (Module 4)](module04.html#m4-set)
+ทบทวน: [Set (Module 4)](module04b.html#m4-set)
 :::
 
 ## For-loop กับ Dictionary {#m8-for-dict}
@@ -815,7 +815,7 @@ height
 ```
 
 ::: {.callout-note}
-ทบทวน: [Dictionary (Module 4)](module04.html#m4-dict)
+ทบทวน: [Dictionary (Module 4)](module04b.html#m4-dict)
 :::
 
 ## Dictionary : key, value, index {#m8-for-dict-2}

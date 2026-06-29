@@ -1,0 +1,1114 @@
+---
+title: "Module 4a"
+subtitle: "Collection Data Types — List"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 4a | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### วันนี้เราจะเรียนรู้ 🚀
+
+::: {.incremental}
+1. **Collection Data Types** ภาพรวม
+2. **ลิสต์ (List)**
+   - สร้าง, เข้าถึง, Slice
+   - เพิ่ม / ลบ / ค้นหา
+   - เรียงลำดับ / สถิติ
+:::
+
+
+::: {.callout-note}
+ดู Tuple, Set, Dictionary ต่อใน [Module 4b](module04b.html) 👉
+:::
+
+
+:::
+::: {.column width="50%"}
+
+```python
+data = [1, 5, 7, 9]
+data.append(11)
+data.sort()
+print(f"max = {max(data)}")
+print(f"avg = {sum(data)/len(data):.1f}")
+```
+
+:::
+::::
+
+# Python Collection Data Types 📚 {background-color="#2c3e50" .white-text}
+
+โครงสร้างสำหรับจัดเก็บชุดข้อมูล
+
+## Collection Data Types คืออะไร? {#m4-collection-overview}
+
+- **Collection** คือโครงสร้างสำหรับจัดเก็บชุดข้อมูลจำนวนมากภายใต้ชื่อตัวแปรเพียง 1 ตัว
+- Python มีโครงสร้าง built-in 4 แบบ: `list`, `tuple`, `set`, `dictionary`
+- แต่ละชนิดเป็น **data type** ที่แตกต่างกัน
+
+. . .
+
+- จัดเป็นตัวแปรแบบ **`Object`** ซึ่งมีคุณสมบัติสำคัญ:
+  - สามารถ**จัดเก็บข้อมูล (data)**
+  - มี**คำสั่ง (method)** ติดตัวมา เรียกใช้ด้วย **`ชื่อตัวแปร.คำสั่ง()`**
+
+. . .
+
+::: {.callout-note}
+เมื่อเห็นคำสั่งในรูปแบบ **`.function_name()`** (มี `.` นำหน้า) หมายความว่าเป็น method ที่ติดตัวมากับ Object — ต้องเรียกใช้ในรูปแบบ `variable_name.function_name()`
+:::
+
+# List 📋 {background-color="#2c3e50" .white-text}
+
+ลิสต์ — จัดเก็บชุดข้อมูลภายใต้ตัวแปรเดียว
+
+## ลิสต์ (List) คืออะไร? {#m4-list}
+
+- การใช้ตัวแปรจำนวนมาก อาจไม่เหมาะกับการทำงานกับข้อมูลจำนวนมาก
+  - ชื่อนักศึกษาหลายคน: `name1, name2, name3, …`
+  - คะแนน: `score1, score2, score3, …`
+
+. . .
+
+- **ลิสต์ (List)** คือการเก็บชุดข้อมูลที่เกี่ยวข้องกันจำนวนหลาย ๆ ตัวให้อยู่ภายใต้ตัวแปรเดียวกัน
+
+::: {.callout-tip}
+ลิสต์ใน Python เทียบเคียงได้กับ **array** ในภาษาคอมพิวเตอร์อื่น ๆ
+:::
+
+## List — Element และ Index
+
+- พื้นที่เก็บข้อมูลแต่ละช่อง = **Element** แต่ละตัว
+- อ้างอิงด้วย **ชื่อลิสต์** และ **หมายเลขตำแหน่ง (Index)**
+  - `data[index]`
+  - `index` เริ่มต้นที่ `0` เสมอ — ตำแหน่งสุดท้ายคือ `n-1`
+
+. . .
+
+```{=html}
+<div style="display:flex; align-items:center; gap:18px; margin:18px 0 0 0;">
+  <span style="font-family:monospace; font-size:1.5em; font-weight:bold; color:#2c3e50;">data</span>
+  <table style="border-collapse:collapse; font-family:monospace; font-size:1.1em; text-align:center;">
+    <tr style="background:#b0c4de;">
+      <td style="padding:6px 14px; border:2px solid #7f8c8d; color:#2c3e50; font-weight:bold;">index</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">0</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">1</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d; background:#aed6f1;">2</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">3</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">4</td>
+    </tr>
+    <tr style="background:#f9f9f9;">
+      <td style="padding:6px 14px; border:2px solid #7f8c8d; color:#2c3e50; font-weight:bold;">value</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">16</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">2</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d; background:#d5f5e3; font-weight:bold;">77</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">40</td>
+      <td style="padding:6px 22px; border:2px solid #7f8c8d;">12071</td>
+    </tr>
+  </table>
+</div>
+<div style="font-family:monospace; margin:10px 0 0 80px; font-size:1em;">
+  <span style="color:#27ae60; font-weight:bold;">data[2]</span> → element ตัวที่ <span style="color:#27ae60; font-weight:bold;">3</span> มีค่า <span style="color:#27ae60; font-weight:bold;">77</span>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <span style="color:#e74c3c; font-weight:bold;">data[5]</span> → <span style="color:#e74c3c;">ไม่มีอยู่จริง, error!</span>
+</div>
+```
+
+## การสร้างลิสต์ (List Creation) {#m4-list-creation}
+
+- ใช้เครื่องหมาย `[...]` สร้างลิสต์ โดยคั่นข้อมูลแต่ละตัวด้วย `,`
+- ลิสต์ใน Python **สามารถจัดเก็บข้อมูลหลายชนิดคละกันได้**
+
+. . .
+
+```python
+lst1 = []                     # empty list
+lst2 = [1, 2, 3, 40, 50, 60] # list of integers
+lst3 = [1, "Hello", 3.4]     # mixed datatypes
+```
+
+. . .
+
+```python
+print(type(lst2))
+```
+
+```{.python .code-output}
+<class 'list'>
+```
+
+::: {.callout-note}
+ทบทวน: [Data Types และ type() (Module 3)](module03a.html#m3-data-types)
+:::
+
+## โจทย์ #1 {.exercise}
+
+สร้างลิสต์ต่อไปนี้แล้วแสดงผล
+
+1. `lst1` — ลิสต์ว่าง
+2. `lst2` — เก็บเลข `1, 2, 3, 40, 50, 60`
+3. `lst3` — เก็บข้อมูลคละชนิด `1, "Hello", 3.4`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+lst1 = ____
+lst2 = ____
+lst3 = ____
+print(lst1)
+print(lst2)
+print(lst3)
+```
+
+### Solution
+
+```python
+lst1 = []
+lst2 = [1, 2, 3, 40, 50, 60]
+lst3 = [1, "Hello", 3.4]
+print(lst1)
+print(lst2)
+print(lst3)
+```
+
+```{.python .code-output}
+[]
+[1, 2, 3, 40, 50, 60]
+[1, 'Hello', 3.4]
+```
+
+:::
+
+## List กับ input().split() {#m4-list-split}
+
+ใช้ตัวแปรเพียง 1 ตัวรับค่าจาก `input().split()` → ได้ผลลัพธ์เป็น **List**
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**ไม่ใช้ `.split()`**
+
+```python
+data = input()
+print(data)
+```
+
+```{.python .code-output}
+10 20 30 40 50
+```
+
+ได้ **string ยาว ๆ** ตัวเดียว
+
+:::
+::: {.column width="50%"}
+
+**ใช้ `.split()`**
+
+```python
+data_list = input().split()
+print(data_list)
+```
+
+```{.python .code-output}
+['10', '20', '30', '40', '50']
+```
+
+ได้ **List ของ string สั้น ๆ**
+
+:::
+::::
+
+::: {.callout-note}
+ทบทวน: [input().split() (Module 3)](module03b.html#m3-split)
+:::
+
+## การนับจำนวนข้อมูล — `len()` {#m4-list-len}
+
+ใช้คำสั่ง `len(ตัวแปรลิสต์)` → ผลลัพธ์เป็น `int`
+
+```python
+print(len(lst1))    # 0
+print(len(lst2))    # 6
+print(len(lst3))    # 3
+```
+
+. . .
+
+ค่า `index` มีค่าระหว่าง `0` ถึง `len()-1`
+
+```python
+a = [16.5, 2.0, 77.5, 40.0, 0.5, 11.15, 0.0, 1.0, 1.0, 1.0, 112071.5]
+print(f'len(a): {len(a)}')
+print(a[4])
+print(a[len(a)-1])
+```
+
+```{.python .code-output}
+len(a): 11
+0.5
+112071.5
+```
+
+## การเข้าถึงข้อมูลในลิสต์ (List Access) {#m4-list-access}
+
+```python
+my_list = ['E','n','g','r']  # index = 0,1,2,3, len()=4
+```
+
+. . .
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**ดึงข้อมูล (ทีละ item)**
+
+```python
+print(my_list[0])    # E
+print(my_list[2])    # g
+print(my_list[3])    # r
+```
+
+:::
+::: {.column width="50%"}
+
+**นำข้อมูลไปใช้งาน**
+
+```python
+print(my_list)
+# ['E', 'n', 'g', 'r']
+print(my_list[2]+my_list[1]+my_list[2])
+# gng
+```
+
+:::
+::::
+
+## โจทย์ #2 {.exercise}
+
+กำหนด `my_list = ['E','n','g','r']` — แก้ไขค่าข้อมูลในลิสต์ดังนี้
+
+- `my_list[1]` เป็น `8.0`
+- `my_list[2]` เป็น `'hello'`
+- `my_list[3]` เป็น `True`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+my_list = ['E','n','g','r']
+my_list[1] = ____
+my_list[2] = ____
+my_list[3] = ____
+print(my_list)
+```
+
+### Solution
+
+```python
+my_list = ['E','n','g','r']
+my_list[1] = 8.0
+my_list[2] = 'hello'
+my_list[3] = True
+print(my_list)
+```
+
+```{.python .code-output}
+['E', 8.0, 'hello', True]
+```
+
+:::
+
+## โจทย์ #3 {.exercise}
+
+ใช้ compound assignment operators กับข้อมูลในลิสต์
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+my_list = ['E', 8.0, 'hello', True]
+my_list[1] = my_list[1] ____ 2
+print(my_list)
+my_list[1] ____ 2
+print(my_list)
+my_list[2] ____ " world"
+print(my_list)
+```
+
+### Solution
+
+```python
+my_list = ['E', 8.0, 'hello', True]
+my_list[1] = my_list[1]*2
+print(my_list)
+
+my_list[1] *= 2
+print(my_list)
+
+my_list[2] += " world"
+print(my_list)
+```
+
+```{.python .code-output}
+['E', 16.0, 'hello', True]
+['E', 32.0, 'hello', True]
+['E', 32.0, 'hello world', True]
+```
+
+::: {.callout-note}
+ทบทวน: [Assignment Operators (Module 3)](module03a.html#m3-assignment)
+:::
+
+:::
+
+## โจทย์ #4: ชวนคิด {.exercise-think}
+
+เข้าถึงข้อมูลที่ไม่มีอยู่จริง (ระบุด้วยค่า index ที่ไม่มีอยู่จริง) จะเกิดอะไรขึ้น?
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+my_list = [10,20,30,40]
+length = len(my_list)  # length = 4
+print(my_list[length])
+```
+
+### Solution
+
+```python
+my_list = [10,20,30,40]
+length = len(my_list)  # length = 4
+print(my_list[length])
+```
+
+```{.python .code-output}
+IndexError: list index out of range
+```
+
+::: {.callout-important}
+index สูงสุดคือ `len()-1` ไม่ใช่ `len()`!
+:::
+
+:::
+
+## Negative Index & Float Index {#m4-negative-index}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**Negative index** — ดึงข้อมูลจากท้ายลิสต์
+
+```python
+my_list = [10,20,30,40]
+print(my_list[-1])   # 40
+print(my_list[-4])   # 10
+print(my_list[-5])   # IndexError
+```
+
+:::
+::: {.column width="50%"}
+
+**Float index** — ใช้ไม่ได้!
+
+```python
+print(my_list[4/2])
+```
+
+```{.python .code-output}
+TypeError: list indices must be
+integers or slices, not float
+```
+
+ต้องใช้ `int` เท่านั้น: `my_list[4//2]`
+
+:::
+::::
+
+## การเข้าถึงช่วงของข้อมูล (Slice) {#m4-list-slice}
+
+```python
+range_of_data = list_variable[start:stop:step]
+```
+
+- **`start`** — ค่า index จุดเริ่มต้น
+- **`stop`** — ค่า index จุดสิ้นสุด (**ไม่รวม** item นี้)
+- **`step`** — การเพิ่มค่า index ทีละ `+step`
+
+. . .
+
+`data[1:n]` → เข้าถึงข้อมูลตั้งแต่ `data[1]` จนถึง `data[n-1]`
+
+## โจทย์ #5 {.exercise}
+
+กำหนด `a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]`
+
+ใช้ slice ดึงข้อมูล `a[0:3]` และ `a[2:6]`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]
+a1 = a[____:____]
+a2 = a[____:____]
+print(a1)
+print(a2)
+```
+
+### Solution
+
+```python
+a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]
+a1 = a[0:3]     # start=0, stop=3 >> [0,1,2]
+a2 = a[2:6]     # start=2, stop=6 >> [2,3,4,5]
+print(a1)
+print(a2)
+```
+
+```{.python .code-output}
+[16, 2, 77]
+[77, 40, 0, '000']
+```
+
+:::
+
+## โจทย์ #6 {.exercise}
+
+ทดลอง slice ด้วย step และ shorthand
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]
+# ดึงข้อมูลทั้งหมด
+print(a[0:len(a)])
+# ดึงข้อมูลทีละ 2 ตำแหน่ง
+print(a[0:len(a):____])
+# shorthand: ละ start หรือ stop
+print(a[:6])
+print(a[4:])
+```
+
+### Solution
+
+```python
+a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]
+print(a[0:len(a)])
+print(a[0:len(a):2])
+print(a[:6])
+print(a[4:])
+```
+
+```{.python .code-output}
+[16, 2, 77, 40, 0, '000', 0.0, 1, 1, 1, 112071]
+[16, 77, 0, 0.0, 1, 112071]
+[16, 2, 77, 40, 0, '000']
+[0, '000', 0.0, 1, 1, 1, 112071]
+```
+
+:::
+
+## โจทย์ #7 {.exercise}
+
+ใช้ slice assignment แก้ไขข้อมูลหลายตัวพร้อมกัน
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]
+a[0:3] = [____,____,____]
+print(a)
+```
+
+### Solution
+
+```python
+a = [16, 2, 77, 40, 0, "000", 0.0, 1, 1, 1, 112071]
+a[0:3] = [1,1,1]
+print(a)
+```
+
+```{.python .code-output}
+[1, 1, 1, 40, 0, '000', 0.0, 1, 1, 1, 112071]
+```
+
+:::
+
+## การเพิ่มข้อมูลลงในลิสต์ {#m4-list-add}
+
+| วิธี | คำอธิบาย |
+|:-----|:---------|
+| `.append(x)` | เพิ่มข้อมูล `x` **ต่อท้าย** List |
+| `.insert(i, x)` | **แทรก** `x` ในตำแหน่ง index `i` |
+| `+` | **เชื่อมต่อ** List เข้าด้วยกัน (concatenation) |
+| `*` | เพิ่มข้อมูลให้มีหลายชุดตาม**จำนวน**ที่ต้องการ |
+
+::: {.callout-note}
+ทบทวน: [Arithmetic Operators `+` `*` (Module 3)](module03a.html#m3-arithmetic) — สำหรับ List จะเป็น concatenation และ repetition
+:::
+
+## โจทย์ #8 {.exercise}
+
+ใช้ `.append()` และ `.insert()` เพิ่มข้อมูลลงในลิสต์
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+data = [1,5,7,9]
+data.____(11)
+print(data)
+data.____(1, 3)
+print(data)
+```
+
+### Solution
+
+```python
+data = [1,5,7,9]
+data.append(11)       # เพิ่ม 11 ต่อท้ายลิสต์
+print(data)
+
+data.insert(1,3)      # แทรก 3 ในตำแหน่ง index=1
+print(data)
+```
+
+```{.python .code-output}
+[1, 5, 7, 9, 11]
+[1, 3, 5, 7, 9, 11]
+```
+
+:::
+
+## โจทย์ #9 {.exercise}
+
+ใช้ `+` เชื่อมต่อ List และ `*` ทำซ้ำ List
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+a = [10,30,50]
+b = [20,40,60]
+c = a ____ b
+print(c)
+d = a ____ 2
+print(d)
+print(a*2+b*2)
+```
+
+### Solution
+
+```python
+a = [10,30,50]
+b = [20,40,60]
+c = a+b
+print(c)
+
+d = a*2
+print(d)
+
+print(a*2+b*2)
+```
+
+```{.python .code-output}
+[10, 30, 50, 20, 40, 60]
+[10, 30, 50, 10, 30, 50]
+[10, 30, 50, 10, 30, 50, 20, 40, 60, 20, 40, 60]
+```
+
+:::
+
+## การลบข้อมูลจากลิสต์ {#m4-list-remove}
+
+| วิธี | คำอธิบาย |
+|:-----|:---------|
+| `.remove(x)` | ลบข้อมูลที่มี**ค่า** `x` ตัวแรกที่พบ |
+| `.pop(i)` | ลบข้อมูลที่ตำแหน่ง **index** `i` (ไม่ระบุ = ตัวสุดท้าย) |
+| `.clear()` | ลบข้อมูล**ทั้งหมด** |
+
+## โจทย์ #10 {.exercise}
+
+ใช้ `.remove()` ลบค่า `5` ตัวแรกที่พบใน List
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = [1,2,3,4,5,0,5,6,7,8,9]
+x.____(5)
+print(x)
+```
+
+### Solution
+
+```python
+x = [1,2,3,4,5,0,5,6,7,8,9]
+x.remove(5)
+print(x)
+```
+
+```{.python .code-output}
+[1, 2, 3, 4, 0, 5, 6, 7, 8, 9]
+```
+
+:::
+
+## โจทย์ #11: ชวนคิด {.exercise-think}
+
+ถ้า `.remove()` ค่าที่ไม่มีอยู่ใน List จะเกิดอะไรขึ้น?
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = [1,2,3,4,0,5,6,7,8,9]
+x.remove(100)
+```
+
+### Solution
+
+```python
+x = [1,2,3,4,0,5,6,7,8,9]
+x.remove(100)
+```
+
+```{.python .code-output}
+ValueError: list.remove(x): x not in list
+```
+
+::: {.callout-important}
+`.remove()` ค่าที่ไม่มีใน List → **ValueError**
+:::
+
+:::
+
+## โจทย์ #12 {.exercise}
+
+ใช้ `.pop()` ลบข้อมูลจากลิสต์
+
+. . .
+
+**คิดก่อน:** `.pop()` ไม่ระบุ index vs ระบุ index ต่างกันอย่างไร?
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = [1,2,3,4,0,5,6,7,8,9]
+y = x.____()
+print(y, x)
+y = x.____(1)
+print(y, x)
+```
+
+### Solution
+
+```python
+x = [1,2,3,4,0,5,6,7,8,9]
+# ไม่ระบุ index → ลบตัวสุดท้าย
+y = x.pop()
+print(y, x)
+
+# ระบุ index → ลบตำแหน่งนั้น
+y = x.pop(1)
+print(y, x)
+```
+
+```{.python .code-output}
+9 [1, 2, 3, 4, 0, 5, 6, 7, 8]
+2 [1, 3, 4, 0, 5, 6, 7, 8]
+```
+
+:::
+
+## โจทย์ #13 {.exercise}
+
+ใช้ `.clear()` ลบข้อมูลทั้งหมดจากลิสต์
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = [1, 3, 4, 0, 5, 6, 7, 8]
+print(x)
+x.____()
+print(x)
+```
+
+### Solution
+
+```python
+x = [1, 3, 4, 0, 5, 6, 7, 8]
+print(x)
+x.clear()
+print(x)
+```
+
+```{.python .code-output}
+[1, 3, 4, 0, 5, 6, 7, 8]
+[]
+```
+
+:::
+
+## การค้นหาข้อมูลในลิสต์ {#m4-list-search}
+
+| วิธี | คำอธิบาย |
+|:-----|:---------|
+| `.index(x)` | ค้นหา `x` แล้วคืนค่า index ที่พบ (ตัวแรก) |
+| `.index(x, start)` | ค้นหา `x` ตั้งแต่ตำแหน่ง `start` |
+| `.count(x)` | นับจำนวน `x` ทั้งหมดใน List |
+
+## โจทย์ #14 {.exercise}
+
+ค้นหาว่า `0` ตัวแรกใน List อยู่ที่ index ใด แล้วค้นหา `0` ตัวถัดไป
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = [1,5,2,3,4,5,0,5,6,7,8,9]*3
+print(x)
+idx = x.____(0)
+print(idx)
+idx = x.____(0, idx+1)
+print(idx)
+```
+
+### Solution
+
+```python
+x = [1,5,2,3,4,5,0,5,6,7,8,9]*3
+print(x)
+
+idx = x.index(0)
+print(idx)
+
+idx = x.index(0, idx+1)
+print(idx)
+```
+
+```{.python .code-output}
+[1, 5, 2, 3, 4, 5, 0, 5, 6, 7, 8, 9, 1, 5, 2, 3, 4, 5, 0, 5, 6, 7, 8, 9, 1, 5, 2, 3, 4, 5, 0, 5, 6, 7, 8, 9]
+6
+18
+```
+
+:::
+
+## โจทย์ #15: ชวนคิด {.exercise-think}
+
+ค้นหาข้อมูลที่ไม่มีใน List ด้วย `.index()` จะเกิดอะไรขึ้น?
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = [1,5,2,3,4,5,0,5,6,7,8,9]*3
+idx = x.index(100)
+print(idx)
+```
+
+### Solution
+
+```python
+x = [1,5,2,3,4,5,0,5,6,7,8,9]*3
+idx = x.index(100)
+```
+
+```{.python .code-output}
+ValueError: 100 is not in list
+```
+
+::: {.callout-important}
+`.index()` ค่าที่ไม่มีใน List → **ValueError**
+:::
+
+:::
+
+## โจทย์ #16 {.exercise}
+
+ใช้ `.count()` นับจำนวนข้อมูลใน List
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = [1,5,2,3,4,5,0,5,6,7,8,9]*3
+print(x.____(5))
+print(x.____(100))
+```
+
+### Solution
+
+```python
+x = [1,5,2,3,4,5,0,5,6,7,8,9]*3
+print(x.count(5))
+print(x.count(100))
+```
+
+```{.python .code-output}
+9
+0
+```
+
+::: {.callout-tip}
+`.count()` ค่าที่ไม่มี → ได้ `0` (ไม่ error ต่างจาก `.index()`)
+:::
+
+:::
+
+## การเรียงลำดับข้อมูลในลิสต์ {#m4-list-sort}
+
+| วิธี | คำอธิบาย |
+|:-----|:---------|
+| `.sort()` | เรียงจาก**น้อยไปมาก** (ascending) |
+| `.reverse()` | **กลับลำดับ** item จากท้ายมาหน้า |
+
+## โจทย์ #17 {.exercise}
+
+เรียงลำดับตัวเลขจากน้อยไปมาก แล้วกลับด้านเป็นมากไปน้อย
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+c = [10, 30, 50, 20, 40, 60]*2
+print(c)
+c.____()
+print(c)
+c.____()
+print(c)
+```
+
+### Solution
+
+```python
+c = [10, 30, 50, 20, 40, 60]*2
+print(c)
+
+c.sort()
+print(c)
+
+c.reverse()
+print(c)
+```
+
+```{.python .code-output}
+[10, 30, 50, 20, 40, 60, 10, 30, 50, 20, 40, 60]
+[10, 10, 20, 20, 30, 30, 40, 40, 50, 50, 60, 60]
+[60, 60, 50, 50, 40, 40, 30, 30, 20, 20, 10, 10]
+```
+
+:::
+
+## โจทย์ #18 {.exercise}
+
+เรียงลำดับชื่อตาม A-Z แล้วกลับด้านเป็น Z-A
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+names = ["Ann", "Kenneth", "Chad", "Aaron", "Bill", "Conan"]
+print(names)
+names.____()
+print(names)
+names.____()
+print(names)
+```
+
+### Solution
+
+```python
+names = ["Ann", "Kenneth", "Chad", "Aaron", "Bill", "Conan"]
+print(names)
+names.sort()
+print(names)
+names.reverse()
+print(names)
+```
+
+```{.python .code-output}
+['Ann', 'Kenneth', 'Chad', 'Aaron', 'Bill', 'Conan']
+['Aaron', 'Ann', 'Bill', 'Chad', 'Conan', 'Kenneth']
+['Kenneth', 'Conan', 'Chad', 'Bill', 'Ann', 'Aaron']
+```
+
+:::
+
+## การคำนวณทางสถิติ (Simple Statistics) {#m4-list-stats}
+
+| ฟังก์ชัน | คำอธิบาย |
+|:---------|:---------|
+| `min(list)` | หาค่าต่ำสุด (minimum) |
+| `max(list)` | หาค่าสูงสุด (maximum) |
+| `sum(list)` | หาค่าผลรวม (summation) |
+
+::: {.callout-note}
+`min()`, `max()`, `sum()` **ไม่ใช่ method** ของ List — เป็นฟังก์ชันทั่วไปของ Python
+:::
+
+## โจทย์ #19 {.exercise}
+
+หาค่า `len`, `min`, `max`, `sum` และ**ค่าเฉลี่ย**ของข้อมูลในลิสต์
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = [3,5,5,3,4,5,0,9,5,6,7,8,4,8,3]
+print(len(x))
+print(____(x))
+print(____(x))
+print(____(x))
+print(sum(x)/____(____)   )
+```
+
+### Solution
+
+```python
+x = [3,5,5,3,4,5,0,9,5,6,7,8,4,8,3]
+print(len(x))
+print(min(x))
+print(max(x))
+print(sum(x))
+print(sum(x)/len(x))
+```
+
+```{.python .code-output}
+15
+0
+9
+75
+5.0
+```
+
+:::
+
+## โจทย์ #20 {.exercise}
+
+หาค่า maximum แล้วหาว่าอยู่ในตำแหน่ง index ใด
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+x = [3,5,5,3,4,5,0,9,5,6,7,8,4,8,3]
+mx = ____(x)
+idx_mx = x.____(mx)
+print(idx_mx)
+print(x[idx_mx])
+```
+
+### Solution
+
+```python
+x = [3,5,5,3,4,5,0,9,5,6,7,8,4,8,3]
+mx = max(x)
+idx_mx = x.index(mx)
+print(idx_mx)
+print(x[idx_mx])
+```
+
+```{.python .code-output}
+7
+9
+```
+
+:::
+
+# Summary {background-color="#2c3e50" .white-text}
+
+## สรุป Module 4a
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**List** `[...]`
+
+- Mutable, ordered, ซ้ำได้
+- สร้างด้วย `[]`, `input().split()`
+- เข้าถึงด้วย `index` (เริ่มที่ `0`)
+- **Slice**: `list[start:stop:step]`
+
+:::
+::: {.column width="50%"}
+
+**List Methods**
+
+- เพิ่ม: `.append()`, `.insert()`, `+`, `*`
+- ลบ: `.remove()`, `.pop()`, `.clear()`
+- ค้นหา: `.index()`, `.count()`
+- เรียง: `.sort()`, `.reverse()`
+- สถิติ: `min()`, `max()`, `sum()`, `len()`
+
+:::
+::::

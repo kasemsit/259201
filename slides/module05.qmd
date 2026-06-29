@@ -260,7 +260,7 @@ True
 ```
 
 ::: {.callout-note}
-ทบทวน: [List และ collection (Module 4)](module04.html#m4-list)
+ทบทวน: [List และ collection (Module 4)](module04a.html#m4-list)
 :::
 
 ## โจทย์ #2 {.exercise}
