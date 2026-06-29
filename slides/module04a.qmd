@@ -64,15 +64,44 @@ print(f"avg = {sum(data)/len(data):.1f}")
 
 ## Collection Data Types คืออะไร? {#m4-collection-overview}
 
-- **Collection** คือโครงสร้างสำหรับจัดเก็บชุดข้อมูลจำนวนมากภายใต้ชื่อตัวแปรเพียง 1 ตัว
-- Python มีโครงสร้าง built-in 4 แบบ: `list`, `tuple`, `set`, `dictionary`
-- แต่ละชนิดเป็น **data type** ที่แตกต่างกัน
+:::: {.columns}
+::: {.column width="58%"}
+
+- **Collection** = โครงสร้างเก็บชุดข้อมูลจำนวนมากไว้ภายใต้ชื่อตัวแปร **เพียง 1 ตัว** 📦
+- แต่ละชนิดเป็น **data type** ที่ต่างกัน
 
 . . .
 
+Python มี built-in ให้ **4 แบบ**:
+
+::: {.incremental}
+- 📋 `list` — มีลำดับ แก้ไขได้
+- 📦 `tuple` — มีลำดับ แก้ไขไม่ได้
+- 🎲 `set` — ไม่ซ้ำ ไม่มีลำดับ
+- 📖 `dictionary` — คู่ `key : value`
+:::
+
+:::
+::: {.column width="42%"}
+
+![](images/m4-collection-boxes.jpg){width="340px" fig-align="center"}
+
+::: {style="font-size:0.42em"}
+เปรียบเหมือนหลายสิ่งเก็บรวมในกล่องใบเดียว<br>
+ภาพ: [Box of cardboard](https://www.flickr.com/photos/142795635@N08/28166452405) by juedi120 · Public Domain (PDM 1.0)
+:::
+
+:::
+::::
+
+## Collection เป็น `Object` {#m4-collection-object}
+
 - จัดเป็นตัวแปรแบบ **`Object`** ซึ่งมีคุณสมบัติสำคัญ:
-  - สามารถ**จัดเก็บข้อมูล (data)**
-  - มี**คำสั่ง (method)** ติดตัวมา เรียกใช้ด้วย **`ชื่อตัวแปร.คำสั่ง()`**
+
+::: {.incremental}
+- 🗄️ สามารถ**จัดเก็บข้อมูล (data)**
+- 🛠️ มี**คำสั่ง (method)** ติดตัวมา เรียกใช้ด้วย **`ชื่อตัวแปร.คำสั่ง()`**
+:::
 
 . . .
 
@@ -127,18 +156,18 @@ print(f"avg = {sum(data)/len(data):.1f}")
       <td style="padding:6px 22px; border:2px solid #7f8c8d;">40</td>
       <td style="padding:6px 22px; border:2px solid #7f8c8d;">12071</td>
     </tr>
-  </table>
-</div>
-<div style="font-family:monospace; margin:10px 0 0 80px; font-size:1em;">
-  <span style="color:#27ae60; font-weight:bold;">data[2]</span> → element ตัวที่ <span style="color:#27ae60; font-weight:bold;">3</span> มีค่า <span style="color:#27ae60; font-weight:bold;">77</span>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <span style="color:#e74c3c; font-weight:bold;">data[5]</span> → <span style="color:#e74c3c;">ไม่มีอยู่จริง, error!</span>
-</div>
+  </table></div>
 ```
+
+. . .
+
+- `data[2]` → element ตัวที่ <span style="color:#27ae60; font-weight:bold;">3</span> มีค่า <span style="color:#27ae60; font-weight:bold;">77</span>
+- `data[5]` → <span style="color:#e74c3c;">ไม่มีอยู่จริง, error!</span>
+
 
 ## การสร้างลิสต์ (List Creation) {#m4-list-creation}
 
-- ใช้เครื่องหมาย `[...]` สร้างลิสต์ โดยคั่นข้อมูลแต่ละตัวด้วย `,`
+- ใช้เครื่องหมาย `[]` สร้างลิสต์ โดยคั่นข้อมูลแต่ละตัวด้วย `,`
 - ลิสต์ใน Python **สามารถจัดเก็บข้อมูลหลายชนิดคละกันได้**
 
 . . .

@@ -1006,6 +1006,16 @@ for r in range(nrow):
 :::
 ::::
 
+## พักสมอง 😄 {#m7-xkcd-automation .center}
+
+ความฝัน vs ความจริงของการ **automate** ด้วยลูป
+
+![](images/xkcd-1319-automation.png){height="440px" fig-align="center"}
+
+::: {style="font-size:0.5em"}
+ที่มา: [xkcd #1319 — "Automation"](https://xkcd.com/1319/) (CC BY-NC 2.5)
+:::
+
 # Summary 🎯 {background-color="#2c3e50" .white-text}
 
 ## สรุป Module 7 🎉

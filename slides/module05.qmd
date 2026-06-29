@@ -385,6 +385,16 @@ print('6.', False and "Python" in greeting)     # False
 
 :::
 
+## พักสมอง 😄 {#m5-fork .center}
+
+การเขียน **เงื่อนไข** ก็เหมือนเลือกทางเดินให้โปรแกรม 🛣️
+
+![](images/m5-fork-road.jpg){height="420px" fig-align="center"}
+
+::: {style="font-size:0.45em"}
+ภาพ: [Fork in the road](https://www.flickr.com/photos/148598741@N02/52343393008) · Public Domain (CC0 1.0)
+:::
+
 # คำสั่ง if ❓ {background-color="#2c3e50" .white-text}
 
 การสร้างทางเลือกด้วยเงื่อนไข

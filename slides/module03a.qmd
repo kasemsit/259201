@@ -575,6 +575,14 @@ float y = 3.14
 std::string z = "hello"
 ```
 
+## พักสมอง 😄 {#m3-xkcd .center}
+
+![](images/xkcd-353-python.png){height="520px" fig-align="center"}
+
+::: {style="font-size:0.5em"}
+ที่มา: [xkcd #353 — "Python"](https://xkcd.com/353/) (CC BY-NC 2.5)
+:::
+
 ## โจทย์ #9 {.exercise}
 
 `1.234` และ `1.23e11` เป็นข้อมูลประเภทใด?

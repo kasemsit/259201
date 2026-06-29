@@ -308,6 +308,16 @@ Hello,Somchai. Your Last Name is Jaidee
 
 
 
+## พักสมอง 😄 {#m3-xkcd-bobby .center}
+
+ข้อมูลจาก user อาจไม่เป็นอย่างที่เราคิด — **ตรวจสอบเสมอ!**
+
+![](images/xkcd-327-bobby-tables.png){width="760px" fig-align="center"}
+
+::: {style="font-size:0.5em"}
+ที่มา: [xkcd #327 — "Exploits of a Mom"](https://xkcd.com/327/) (CC BY-NC 2.5)
+:::
+
 # f-string ✨ {background-color="#2c3e50" .white-text}
 
 การจัดรูปแบบการแสดงผล — `f'...{var}...'`

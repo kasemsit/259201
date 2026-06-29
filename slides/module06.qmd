@@ -90,6 +90,16 @@ while i <= n:
 
 โดยทั้งสองแบบ ยังสามารถใช้ควบคู่กับคำสั่ง **`break`** และ **`continue`** เพื่อเสริมการกำหนดรอบการทำซ้ำได้อีกด้วย
 
+## พักสมอง 😄 {#m6-xkcd-worth .center}
+
+คุ้มไหมที่จะเขียนลูป **automate** งานซ้ำ ๆ?
+
+![](images/xkcd-1205-worth-the-time.png){height="440px" fig-align="center"}
+
+::: {style="font-size:0.5em"}
+ที่มา: [xkcd #1205 — "Is It Worth the Time?"](https://xkcd.com/1205/) (CC BY-NC 2.5)
+:::
+
 # 2. while statement 🔄 {background-color="#2c3e50" .white-text}
 
 วนลูปตราบเท่าที่เงื่อนไขยังเป็นจริง
