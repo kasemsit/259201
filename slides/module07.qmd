@@ -58,7 +58,7 @@ for i in range(1, 13):
 
 การทำซ้ำมี 3 ส่วนประกอบเสมอ
 
-## ส่วนประกอบของการทำซ้ำ {#m7-loop-parts}
+## ส่วนประกอบของการทำซ้ำ {#m7-loop-parts .smaller}
 
 ส่วนประกอบของการทำซ้ำ มี 3 ส่วน
 
@@ -123,6 +123,82 @@ range(START, STOP, STEP)
 *ตัวอย่าง:* `range(5, 20, 2)` ได้ลำดับ `5, 7, 9, 11, 13, 15, 17, 19`
 
 (`START=5, STOP=20, STEP=2`)
+
+## เห็นภาพ: `range()` ทำงานยังไง {#m7-range-viz}
+
+`range(1, 9, 2)` — เริ่มที่ **START** ก้าวทีละ **STEP** จนก่อนถึง **STOP** (ไม่รวม STOP)
+
+```{=html}
+<svg viewBox="0 0 640 160" width="100%" style="max-width:820px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="17">
+  <defs>
+    <marker id="rgd" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/></marker>
+    <marker id="rgr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e74c3c"/></marker>
+  </defs>
+  <text x="46" y="42" text-anchor="middle" fill="#27ae60" font-size="13" font-weight="bold">START</text>
+  <rect x="20" y="52" width="52" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="46" y="84" text-anchor="middle" font-weight="bold">1</text>
+  <line x1="74" y1="77" x2="146" y2="77" stroke="#2c3e50" stroke-width="2" marker-end="url(#rgd)"/><text x="110" y="68" text-anchor="middle" fill="#2980b9" font-size="13">+2</text>
+  <rect x="150" y="52" width="52" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="176" y="84" text-anchor="middle" font-weight="bold">3</text>
+  <line x1="204" y1="77" x2="276" y2="77" stroke="#2c3e50" stroke-width="2" marker-end="url(#rgd)"/><text x="240" y="68" text-anchor="middle" fill="#2980b9" font-size="13">+2</text>
+  <rect x="280" y="52" width="52" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="306" y="84" text-anchor="middle" font-weight="bold">5</text>
+  <line x1="334" y1="77" x2="406" y2="77" stroke="#2c3e50" stroke-width="2" marker-end="url(#rgd)"/><text x="370" y="68" text-anchor="middle" fill="#2980b9" font-size="13">+2</text>
+  <rect x="410" y="52" width="52" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="436" y="84" text-anchor="middle" font-weight="bold">7</text>
+  <line x1="464" y1="77" x2="536" y2="77" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#rgr)"/><text x="500" y="68" text-anchor="middle" fill="#2980b9" font-size="13">+2</text>
+  <rect x="540" y="52" width="52" height="50" rx="8" fill="#fdedec" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5 3"/><text x="566" y="84" text-anchor="middle" fill="#e74c3c" font-weight="bold">9</text>
+  <line x1="548" y1="60" x2="584" y2="94" stroke="#e74c3c" stroke-width="2"/><line x1="584" y1="60" x2="548" y2="94" stroke="#e74c3c" stroke-width="2"/>
+  <text x="566" y="122" text-anchor="middle" fill="#e74c3c" font-size="13" font-weight="bold">STOP</text>
+  <text x="566" y="138" text-anchor="middle" fill="#e74c3c" font-size="12">(ไม่รวม)</text>
+</svg>
+```
+
+ได้ลำดับ `1, 3, 5, 7` — ค่า `9` (STOP) **ถูกตัดทิ้ง** ไม่รวมในลำดับ
+
+## `range()` ↔ Slice: โครงเดียวกัน {#m7-range-vs-slice}
+
+`range()` ใช้ **`start : stop : step`** แบบเดียวกับ **slice** ที่เคยเรียนกับ List — และ **ไม่รวม STOP** เหมือนกัน!
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**Slice** — ตัดช่วงจาก list ที่มีอยู่
+
+```{=html}
+<pre class="code-pattern" style="font-size:1.1em">data[<span style="color:#e74c3c;font-weight:bold">1</span>:<span style="color:#2980b9;font-weight:bold">9</span>:<span style="color:#27ae60;font-weight:bold">2</span>]</pre>
+```
+
+```python
+data = [0,1,2,3,4,5,6,7,8,9]
+print(data[1:9:2])
+```
+
+```{.python .code-output}
+[1, 3, 5, 7]
+```
+
+:::
+::: {.column width="50%"}
+
+**range()** — สร้างลำดับเลขใหม่
+
+```{=html}
+<pre class="code-pattern" style="font-size:1.1em">range(<span style="color:#e74c3c;font-weight:bold">1</span>, <span style="color:#2980b9;font-weight:bold">9</span>, <span style="color:#27ae60;font-weight:bold">2</span>)</pre>
+```
+
+```python
+print(list(range(1, 9, 2)))
+```
+
+```{.python .code-output}
+[1, 3, 5, 7]
+```
+
+:::
+::::
+
+[**start**]{style="color:#e74c3c"} · [**stop**]{style="color:#2980b9"} (ไม่รวม) · [**step**]{style="color:#27ae60"} — เหมือนกันทั้งคู่!
+
+::: {.callout-note}
+ทบทวน: [Slice ของ List (Module 4a)](module04a.html#m4-list-slice)
+:::
 
 ## โจทย์ #1a {.exercise}
 
@@ -259,7 +335,7 @@ print(list(range(10+1)))
 
 :::
 
-## จำนวนค่าที่ได้ {#m7-range-count}
+## จำนวนค่าที่ได้ {#m7-range-count .smaller}
 
 จำนวนค่าที่ได้จากคำสั่ง `range()` คำนวณได้จากสูตร
 
@@ -310,6 +386,37 @@ next-statement
 
 - `iterable` ได้แก่ `range(10)`, `[5,6,7,8,9]`, `"Engineer"` เป็นต้น
 - ตัวแปร `i` รับค่าจาก `iterable` รอบละ 1 ค่า ตามลำดับ จนครบทุกค่า
+
+## เห็นภาพ: `for` ดึงค่าทีละตัว {#m7-for-viz}
+
+`for i in [10, 20, 30]:` — ตัวแปร `i` **รับค่าจาก iterable รอบละ 1 ค่า** ตามลำดับ
+
+```{=html}
+<svg viewBox="0 0 580 200" width="100%" style="max-width:820px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="16">
+  <defs><marker id="fw" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2980b9"/></marker></defs>
+  <text x="20" y="28" font-weight="bold">iterable = [10, 20, 30]</text>
+  <text x="105" y="62" text-anchor="middle" fill="#7f8c8d" font-size="13">รอบ 1</text>
+  <rect x="55" y="70" width="100" height="48" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/>
+  <text x="105" y="100" text-anchor="middle" font-weight="bold">i = 10</text>
+  <text x="188" y="88" text-anchor="middle" fill="#2980b9" font-size="12">ถัดไป</text>
+  <line x1="158" y1="94" x2="208" y2="94" stroke="#2980b9" stroke-width="2" marker-end="url(#fw)"/>
+  <text x="262" y="62" text-anchor="middle" fill="#7f8c8d" font-size="13">รอบ 2</text>
+  <rect x="212" y="70" width="100" height="48" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/>
+  <text x="262" y="100" text-anchor="middle" font-weight="bold">i = 20</text>
+  <text x="345" y="88" text-anchor="middle" fill="#2980b9" font-size="12">ถัดไป</text>
+  <line x1="315" y1="94" x2="365" y2="94" stroke="#2980b9" stroke-width="2" marker-end="url(#fw)"/>
+  <text x="419" y="62" text-anchor="middle" fill="#7f8c8d" font-size="13">รอบ 3</text>
+  <rect x="369" y="70" width="100" height="48" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/>
+  <text x="419" y="100" text-anchor="middle" font-weight="bold">i = 30</text>
+  <line x1="472" y1="94" x2="518" y2="94" stroke="#27ae60" stroke-width="2" marker-end="url(#fw)"/>
+  <text x="548" y="99" text-anchor="middle" fill="#27ae60" font-weight="bold">จบ</text>
+  <text x="105" y="150" text-anchor="middle" font-size="12" fill="#7f8c8d">ทำ statement</text>
+  <text x="262" y="150" text-anchor="middle" font-size="12" fill="#7f8c8d">ทำ statement</text>
+  <text x="419" y="150" text-anchor="middle" font-size="12" fill="#7f8c8d">ทำ statement</text>
+</svg>
+```
+
+ครบทุกค่าใน iterable แล้ว → ออกจากลูป (ไม่ต้องเขียน `i += 1` เอง!)
 
 ## `for` กับส่วนประกอบของลูป {#m7-for-parts}
 
@@ -635,6 +742,41 @@ next_statement2
 
 :::
 ::::
+
+## เห็นภาพ: ลูปซ้อนวิ่งยังไง {#m7-nested-viz}
+
+`for i in range(1,4):` (นอก) · `for j in range(1,4):` (ใน) → **ลูปในวิ่งครบ ก่อนลูปนอกขยับ 1 ขั้น**
+
+```{=html}
+<svg viewBox="0 0 430 330" width="100%" style="max-width:520px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="15">
+  <text x="140" y="40" text-anchor="middle" fill="#8e44ad" font-weight="bold">j=1</text>
+  <text x="236" y="40" text-anchor="middle" fill="#8e44ad" font-weight="bold">j=2</text>
+  <text x="332" y="40" text-anchor="middle" fill="#8e44ad" font-weight="bold">j=3</text>
+  <text x="45" y="112" fill="#2980b9" font-weight="bold">i=1</text>
+  <text x="45" y="197" fill="#2980b9" font-weight="bold">i=2</text>
+  <text x="45" y="282" fill="#2980b9" font-weight="bold">i=3</text>
+  <!-- row i=1 -->
+  <g>
+    <rect x="95" y="72" width="90" height="70" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="140" y="114" text-anchor="middle">(1,1)</text><circle cx="108" cy="85" r="10" fill="#e74c3c"/><text x="108" y="89" text-anchor="middle" fill="#fff" font-size="11">1</text>
+    <rect x="191" y="72" width="90" height="70" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="236" y="114" text-anchor="middle">(1,2)</text><circle cx="204" cy="85" r="10" fill="#e74c3c"/><text x="204" y="89" text-anchor="middle" fill="#fff" font-size="11">2</text>
+    <rect x="287" y="72" width="90" height="70" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="332" y="114" text-anchor="middle">(1,3)</text><circle cx="300" cy="85" r="10" fill="#e74c3c"/><text x="300" y="89" text-anchor="middle" fill="#fff" font-size="11">3</text>
+  </g>
+  <!-- row i=2 -->
+  <g>
+    <rect x="95" y="157" width="90" height="70" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="140" y="199" text-anchor="middle">(2,1)</text><circle cx="108" cy="170" r="10" fill="#e74c3c"/><text x="108" y="174" text-anchor="middle" fill="#fff" font-size="11">4</text>
+    <rect x="191" y="157" width="90" height="70" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="236" y="199" text-anchor="middle">(2,2)</text><circle cx="204" cy="170" r="10" fill="#e74c3c"/><text x="204" y="174" text-anchor="middle" fill="#fff" font-size="11">5</text>
+    <rect x="287" y="157" width="90" height="70" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="332" y="199" text-anchor="middle">(2,3)</text><circle cx="300" cy="170" r="10" fill="#e74c3c"/><text x="300" y="174" text-anchor="middle" fill="#fff" font-size="11">6</text>
+  </g>
+  <!-- row i=3 -->
+  <g>
+    <rect x="95" y="242" width="90" height="70" rx="6" fill="#fef9e7" stroke="#f39c12" stroke-width="2"/><text x="140" y="284" text-anchor="middle">(3,1)</text><circle cx="108" cy="255" r="10" fill="#e74c3c"/><text x="108" y="259" text-anchor="middle" fill="#fff" font-size="11">7</text>
+    <rect x="191" y="242" width="90" height="70" rx="6" fill="#fef9e7" stroke="#f39c12" stroke-width="2"/><text x="236" y="284" text-anchor="middle">(3,2)</text><circle cx="204" cy="255" r="10" fill="#e74c3c"/><text x="204" y="259" text-anchor="middle" fill="#fff" font-size="11">8</text>
+    <rect x="287" y="242" width="90" height="70" rx="6" fill="#fef9e7" stroke="#f39c12" stroke-width="2"/><text x="332" y="284" text-anchor="middle">(3,3)</text><circle cx="300" cy="255" r="10" fill="#e74c3c"/><text x="300" y="259" text-anchor="middle" fill="#fff" font-size="11">9</text>
+  </g>
+</svg>
+```
+
+🔴 เลขในวงกลม = **ลำดับการทำงาน** (1→9) · แต่ละแถว (สี) = ลูปใน `j` วิ่งครบก่อน ลูปนอก `i` จึงเปลี่ยนแถว
 
 ## โจทย์ #5b: ค่าเฉลี่ยหลายชุด {.exercise}
 
@@ -1018,7 +1160,7 @@ for r in range(nrow):
 
 # Summary 🎯 {background-color="#2c3e50" .white-text}
 
-## สรุป Module 7 🎉
+## สรุป Module 7 🎉 {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}

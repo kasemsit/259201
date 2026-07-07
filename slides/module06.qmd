@@ -104,6 +104,116 @@ while i <= n:
 
 วนลูปตราบเท่าที่เงื่อนไขยังเป็นจริง
 
+## `if` → `while`: ต่างกันแค่ "วนกลับ" {#m6-if-vs-while}
+
+โค้ด **หน้าตาเหมือนกันเป๊ะ** ต่างแค่ keyword — แต่ผลลัพธ์ต่างกันมาก!
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**`if` — ทำครั้งเดียวแล้วไปต่อ**
+
+```python
+i = 1
+if i <= 3:
+    print(i)
+    i += 1
+```
+
+```{.python .code-output}
+1
+```
+
+:::
+::: {.column width="50%" .fragment}
+
+**`while` — วนกลับมาทำซ้ำ** 🔁
+
+```python
+i = 1
+while i <= 3:
+    print(i)
+    i += 1
+```
+
+```{.python .code-output}
+1 2 3
+```
+
+:::
+::::
+
+. . .
+
+::: {.callout-important}
+`if` เช็คเงื่อนไข **ครั้งเดียว** · `while` พอจบบล็อกจะ **กระโดดกลับไปเช็คเงื่อนไขใหม่** — วนซ้ำจนเงื่อนไขเป็นเท็จ
+:::
+
+## เห็นภาพ: `if` ไปทางเดียว · `while` วนกลับ {#m6-if-vs-while-flow}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**`if` — ไหลลงทางเดียว** ⬇️
+
+```{=html}
+<svg viewBox="0 0 250 320" width="220" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="13">
+  <defs>
+    <marker id="ah6" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/>
+    </marker>
+  </defs>
+  <polygon points="120,12 190,45 120,78 50,45" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="49" text-anchor="middle">i &lt;= 3 ?</text>
+  <line x1="120" y1="78" x2="120" y2="107" stroke="#2c3e50" stroke-width="2" marker-end="url(#ah6)"/>
+  <text x="128" y="97" fill="#27ae60">True</text>
+  <rect x="55" y="110" width="130" height="52" rx="6" fill="#d5f5e3" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="131" text-anchor="middle">print(i)</text>
+  <text x="120" y="150" text-anchor="middle">i += 1</text>
+  <line x1="120" y1="162" x2="120" y2="255" stroke="#2c3e50" stroke-width="2" marker-end="url(#ah6)"/>
+  <rect x="55" y="258" width="130" height="44" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="285" text-anchor="middle">next-statement</text>
+  <path d="M190,45 H222 V280 H188" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#ah6)"/>
+  <text x="196" y="40" fill="#e74c3c">False</text>
+</svg>
+```
+
+:::
+::: {.column width="50%"}
+
+**`while` — มีลูกศร "วนกลับ"** 🔁
+
+```{=html}
+<svg viewBox="0 0 250 320" width="220" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="13">
+  <defs>
+    <marker id="ah6b" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/>
+    </marker>
+    <marker id="ah6r" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+  <polygon points="120,12 190,45 120,78 50,45" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="49" text-anchor="middle">i &lt;= 3 ?</text>
+  <line x1="120" y1="78" x2="120" y2="107" stroke="#2c3e50" stroke-width="2" marker-end="url(#ah6b)"/>
+  <text x="128" y="97" fill="#27ae60">True</text>
+  <rect x="55" y="110" width="130" height="52" rx="6" fill="#d5f5e3" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="131" text-anchor="middle">print(i)</text>
+  <text x="120" y="150" text-anchor="middle">i += 1</text>
+  <path d="M55,136 H20 V45 H47" fill="none" stroke="#e74c3c" stroke-width="3" marker-end="url(#ah6r)"/>
+  <text x="24" y="100" fill="#e74c3c" font-weight="bold">วนกลับ</text>
+  <rect x="55" y="258" width="130" height="44" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="285" text-anchor="middle">next-statement</text>
+  <path d="M190,45 H222 V280 H188" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#ah6b)"/>
+  <text x="196" y="40" fill="#e74c3c">False</text>
+</svg>
+```
+
+:::
+::::
+
+ต่างกันแค่ **ลูกศรสีแดง** ของ `while` ที่พาการทำงาน **กลับไปเช็คเงื่อนไขอีกครั้ง**
+
 ## รูปแบบคำสั่ง while {#m6-while}
 
 :::: {.columns}
@@ -651,12 +761,53 @@ print('exit-loop')
 
 ## คำสั่ง break {#m6-break}
 
-`break` เป็นคำสั่งที่ใช้บอกให้ลูปจบการทำงานอย่างกระทันหัน
+:::: {.columns}
+::: {.column width="52%"}
+
+`break` = จบลูป **ทันที** แล้วออกไปทำ `next-statement`
 
 ::: {.incremental}
-- ระหว่างการทำซ้ำ จะจบการทำงานของลูปทันที แล้วไปทำ `next-statement` ที่เป็นคำสั่งแรกนอกลูป
-- นิยมใช้คู่กับเงื่อนไข `if` เพื่อว่า หากเงื่อนไขเป็นจริง ก็ให้หยุดการทำซ้ำทันที
+- ระหว่างทำซ้ำ จะ **ออกจากลูปทันที** ไปทำคำสั่งแรกนอกลูป
+- นิยมใช้คู่กับ `if` — เมื่อเงื่อนไขจริง ก็ **หยุดวนทันที**
 :::
+
+::: {.callout-note}
+🔴 เส้นแดง = `break` พุ่งออกจากลูป
+⚪ เส้นประเทา = วนปกติ (เมื่อ "ไม่เจอ")
+:::
+
+:::
+::: {.column width="48%"}
+
+```{=html}
+<svg viewBox="0 0 250 330" width="400" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="12.5">
+  <defs>
+    <marker id="brkg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker>
+    <marker id="brkd" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/></marker>
+    <marker id="brkr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e74c3c"/></marker>
+  </defs>
+  <rect x="45" y="12" width="150" height="30" rx="6" fill="#d6eaf8" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="31" text-anchor="middle">while เงื่อนไข :</text>
+  <line x1="120" y1="42" x2="120" y2="65" stroke="#2c3e50" stroke-width="2" marker-end="url(#brkd)"/>
+  <rect x="58" y="67" width="124" height="30" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="86" text-anchor="middle">งานก่อน if</text>
+  <line x1="120" y1="97" x2="120" y2="115" stroke="#2c3e50" stroke-width="2" marker-end="url(#brkd)"/>
+  <polygon points="120,117 182,145 120,173 58,145" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="149" text-anchor="middle">if เจอ ?</text>
+  <text x="124" y="193" fill="#27ae60">ไม่เจอ</text>
+  <line x1="120" y1="173" x2="120" y2="199" stroke="#2c3e50" stroke-width="2" marker-end="url(#brkd)"/>
+  <rect x="58" y="201" width="124" height="30" rx="6" fill="#eafaf1" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="220" text-anchor="middle">งานหลัง if</text>
+  <path d="M58,216 H26 V27 H43" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#brkg)"/>
+  <rect x="58" y="286" width="150" height="34" rx="6" fill="#f2f4f4" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="133" y="307" text-anchor="middle">next-statement</text>
+  <path d="M182,145 H223 V303 H212" fill="none" stroke="#e74c3c" stroke-width="3" marker-end="url(#brkr)"/>
+  <text x="150" y="138" fill="#e74c3c" font-weight="bold">break</text>
+</svg>
+```
+
+:::
+::::
 
 ## โจทย์ #7 (break) {.exercise}
 
@@ -765,14 +916,54 @@ print(k)
 
 ข้ามรอบปัจจุบัน แล้ววนต่อ
 
-## คำสั่ง continue {#m6-continue}
+## คำสั่ง continue {#m6-continue .smaller}
 
-`continue` ใช้บอกให้จบการทำงานในรอบนั้น ๆ ทันที แล้วกระโดดกลับไปตรวจสอบเงื่อนไขของลูปในรอบถัดไป
+:::: {.columns}
+::: {.column width="52%"}
+
+`continue` = จบ **เฉพาะรอบนี้** แล้วกระโดดกลับไปเช็คเงื่อนไขรอบถัดไป
 
 ::: {.incremental}
-- ลูปรอบถัดไปจะทำงานหรือไม่ ขึ้นกับเงื่อนไขของลูปขณะนั้นว่า `True` หรือ `False`
-- นิยมใช้เมื่อต้องการ **ยกเว้น (skip)** การทำงานในบางกรณี
+- **ข้ามคำสั่งที่เหลือ** ในรอบนั้น (ยังอยู่ในลูป)
+- รอบถัดไปทำต่อหรือไม่ ขึ้นกับเงื่อนไขลูป
+- นิยมใช้เมื่อต้องการ **ยกเว้น (skip)** บางกรณี
 :::
+
+::: {.callout-note}
+🟠 เส้นส้ม = `continue` กลับไปเช็คเงื่อนไข
+โดย **ข้าม "งานหลัง if"** ของรอบนั้น
+:::
+
+:::
+::: {.column width="48%"}
+
+```{=html}
+<svg viewBox="0 0 250 290" width="400" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="12.5">
+  <defs>
+    <marker id="cong" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker>
+    <marker id="cond" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/></marker>
+    <marker id="cono" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e67e22"/></marker>
+  </defs>
+  <rect x="45" y="14" width="150" height="30" rx="6" fill="#d6eaf8" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="33" text-anchor="middle">while เงื่อนไข :</text>
+  <line x1="120" y1="44" x2="120" y2="67" stroke="#2c3e50" stroke-width="2" marker-end="url(#cond)"/>
+  <rect x="58" y="69" width="124" height="30" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="88" text-anchor="middle">งานก่อน if</text>
+  <line x1="120" y1="99" x2="120" y2="117" stroke="#2c3e50" stroke-width="2" marker-end="url(#cond)"/>
+  <polygon points="120,119 182,147 120,175 58,147" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="120" y="151" text-anchor="middle">if เจอ ?</text>
+  <text x="124" y="195" fill="#27ae60">ไม่เจอ</text>
+  <line x1="120" y1="175" x2="120" y2="201" stroke="#2c3e50" stroke-width="2" marker-end="url(#cond)"/>
+  <rect x="58" y="203" width="124" height="30" rx="6" fill="#eafaf1" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="120" y="222" text-anchor="middle" fill="#95a5a6">งานหลัง if</text>
+  <path d="M58,218 H26 V29 H43" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#cong)"/>
+  <path d="M182,147 H222 V29 H198" fill="none" stroke="#e67e22" stroke-width="3" marker-end="url(#cono)"/>
+  <text x="150" y="140" fill="#e67e22" font-weight="bold">continue</text>
+</svg>
+```
+
+:::
+::::
 
 . . .
 
@@ -840,7 +1031,7 @@ value of a: 20
 
 # Summary 🎯 {background-color="#2c3e50" .white-text}
 
-## สรุป Module 6 🎉
+## สรุป Module 6 🎉 {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
