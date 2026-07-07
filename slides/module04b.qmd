@@ -376,12 +376,14 @@ print(len(b))    # ใช้ len() กับ set ก็ได้
 :::
 
 
-## Union และ Intersection {#m4-set-ops}
+## Set Operations {#m4-set-ops}
 
 :::: {.columns}
 ::: {.column width="50%"}
 
 **Union** — รวมสมาชิกทั้งหมด
+
+$$A \cup B$$
 
 ```python
 c = a.union(b)
@@ -393,9 +395,38 @@ d = a | b
 
 **Intersection** — เฉพาะสมาชิกร่วม
 
+$$A \cap B$$
+
 ```python
 c = a.intersection(b)
 d = a & b
+```
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**Difference** — อยู่ใน `a` แต่ไม่อยู่ใน `b`
+
+$$A - B$$
+
+```python
+c = a.difference(b)
+d = a - b
+```
+
+:::
+::: {.column width="50%"}
+
+**Subset** — `a` อยู่ใน `b` ทั้งหมดหรือไม่
+
+$$A \subseteq B$$
+
+```python
+c = a.issubset(b)
+d = a <= b
 ```
 
 :::
@@ -413,16 +444,14 @@ d = a & b
 #| autorun: false
 a = {1,2,2,3,3,5,8}
 b = {1,2,'hello','hello','Hello',3.78}
-print(a)
-print(b)
-c = a.____(b)
-d = a ____ b
-print(f'c = a.union(b): {c}')
-print(f'd = a | b     : {d}')
-c = a.____(b)
-d = a ____ b
-print(f'c = a.intersection(b): {c}')
-print(f'd = a & b            : {d}')
+c = a.____(b)   # This line does "a union b"
+d = a ____ b    # This line does "a union b"
+print(f'c = {c}')
+print(f'd = {d}')
+c = a.____(b)   # This line does "a intersect b"
+d = a ____ b    # This line does "a intersect b"
+print(f'c = {c}')
+print(f'd = {d}')
 ```
 
 ### Solution
@@ -430,27 +459,21 @@ print(f'd = a & b            : {d}')
 ```python
 a = {1,2,2,3,3,5,8}
 b = {1,2,'hello','hello','Hello',3.78}
-print(a)
-print(b)
-
-c = a.union(b)
-d = a | b
-print(f'c = a.union(b): {c}')
-print(f'd = a | b     : {d}')
-
+c = a.union(b)   # a union b
+d = a | b    # a union b
+print(f'c = {c}')
+print(f'd = {d}')
 c = a.intersection(b)
 d = a & b
-print(f'c = a.intersection(b): {c}')
-print(f'd = a & b            : {d}')
+print(f'c = {c}')
+print(f'd = {d}')
 ```
 
 ```{.python .code-output}
-{1, 2, 3, 5, 8}
-{1, 2, 3.78, 'Hello', 'hello'}
-c = a.union(b): {1, 2, 3, 5, 8, 3.78, 'Hello', 'hello'}
-d = a | b     : {1, 2, 3, 5, 8, 3.78, 'Hello', 'hello'}
-c = a.intersection(b): {1, 2}
-d = a & b            : {1, 2}
+c = {1, 2, 3, 3.78, 5, 8, 'Hello', 'hello'}
+d = {1, 2, 3, 3.78, 5, 8, 'Hello', 'hello'}
+c = {1, 2}
+d = {1, 2}
 ```
 
 :::
@@ -500,6 +523,7 @@ Set ไม่รองรับการอ้างอิงด้วย `index
 a = {1,2,3,5,8}
 # ลองเข้าถึงด้วย index
 print(a[3])
+a[3] = 100
 ```
 
 ### Solution
@@ -531,15 +555,21 @@ Set **ไม่มี index** — ไม่สามารถอ้างอิ�
 
 | วิธี | คำอธิบาย |
 |:-----|:---------|
-| `.add(x)` | เพิ่มข้อมูลทีละตัว |
-| `.update(set2)` | เพิ่มข้อมูลจาก set อื่น |
+| `.add(x)` | เพิ่มข้อมูลทีละตัว (รับค่าที่จะใส่เพิ่ม) |
+| `.update(set2)` | เพิ่มข้อมูลจาก set อื่น (รับ set ที่จะใส่เพิ่ม) |
 | `.remove(x)` | ลบ `x` (error ถ้าไม่มี) |
 | `.discard(x)` | ลบ `x` (**ไม่ error** ถ้าไม่มี) |
 | `.clear()` | ลบทั้งหมด |
 
+::: {.callout-note}
+คำสั่งกลุ่มนี้**แก้ไข set ต้นฉบับโดยตรง** (in-place) และคืนค่า `None` — ต่างจาก `.union()`, `.intersection()`, `.difference()` ที่ไม่แก้ต้นฉบับ แต่คืน set ใหม่ออกมา
+:::
+
 ## โจทย์ #27 {.exercise}
 
 ใช้ `.add()` และ `.update()` เพิ่มข้อมูลใน set
+
+โค้ดต่อไปนี้พิมพ์อะไรออกมา?
 
 ::: {.panel-tabset}
 
@@ -548,9 +578,10 @@ Set **ไม่มี index** — ไม่สามารถอ้างอิ�
 ```{pyodide}
 #| autorun: false
 a = {1,2,2,3,3,5,8}
-a.____(10)
+a.add(10)
+
 print(a)
-a.____({100,200,300})
+a.update({100,200,300})
 print(a)
 ```
 
@@ -587,11 +618,10 @@ print(a)
 ```{pyodide}
 #| autorun: false
 a = {1, 2, 3, 5, 8, 10, 100, 200, 300}
-a.____(100)
-print(a)
-# ลองลบค่าที่ไม่มีใน Set
-a.____(1000)
-print(a)
+a.discard(1000)   # จะเกิดอะไร?
+a.remove(1000)    # จะเกิดอะไร? 
+a.remove(100)     # จะเกิดอะไร?
+
 ```
 
 ### Solution
@@ -629,35 +659,55 @@ print(a)
 
 ```python
 a = {1, 2, 3, 5, 8, 10, 200, 300}
-print(a)
+print(f'a = {a}')
+
 a.clear()
-print(a)
+print(f'a = {a}')
 ```
 
 ```{.python .code-output}
-{1, 2, 3, 5, 8, 10, 200, 300}
-set()
+a = {1, 2, 3, 5, 8, 10, 200, 300}
+a = set()
 ```
 
 # Dictionary 📖 {background-color="#2c3e50" .white-text}
 
 ดิกชันนารี — เก็บข้อมูลด้วย key แทน index
 
-## ดิกชันนารี (Dictionary) คืออะไร? {#m4-dict}
+## ดิกชันนารี (Dictionary) คืออะไร? {#m4-dict .smaller}
 
 - เก็บข้อมูลเป็น item คล้าย List แต่ใช้ **key** ในการอ้างอิงแทน index ตัวเลข
 - ค่า **key** สามารถเป็น `int`, `float`, `string`, `tuple` ก็ได้
-- ค่า **key** เมื่อกำหนดแล้ว **จะไม่สามารถเปลี่ยนแปลงได้**
+- ค่า **key** เมื่อกำหนดแล้ว **จะไม่สามารถเปลี่ยนแปลงได้** (หมายถึงเพิ่มหรือลบ key ได้ แต่ rename ไม่ได้)
 
 . . .
 
-```python
-dict_variable = {key1: value1, key2: value2, ...}
-```
+<pre class="code-pattern" style="font-size:1.0em">dict_variable = {<span class="cond">key1</span>: <span class="stmt">value1</span>, <span class="cond">key2</span>: <span class="stmt">value2</span>, ...}</pre>
+
+. . .
+
+หรือจะเขียนสวย ๆ
+
+<pre class="code-pattern" style="font-size:1.0em">dict_variable = {
+    <span class="cond">key1</span>: <span class="stmt">value1</span>,
+    <span class="cond">key2</span>: <span class="stmt">value2</span>,
+    ...
+}</pre>
+
 
 ## โจทย์ #29 {.exercise}
 
-สร้าง dictionary เก็บข้อมูลนักเรียน
+ให้สร้าง dictionary เก็บข้อมูลนักเรียนตามตารางต่อไปนี้
+
+| key | value |
+|:--------|:------|
+| `"name"` | `"Harry Potter"` |
+|  999 | `"085-123-4567"` |
+| `"isMale"` | `True` |
+| `"midterm"` | `25` |
+| `"final"` | `30` |
+
+
 
 ::: {.panel-tabset}
 
@@ -665,30 +715,21 @@ dict_variable = {key1: value1, key2: value2, ...}
 
 ```{pyodide}
 #| autorun: false
-person1 = ____
-print(person1)
-print(type(person1))
-person2 = {"name":"Harry Potter", "isMale": True, "midterm":25, "final":30}
-print(person2)
-print(type(person2))
+person = {}   # นี่คือ dictionary เปล่า ๆ (ไม่ใช่ set นะ) ให้เติมข้อมูลให้ครบ
+print(person)
+print(type(person))
 ```
 
 ### Solution
 
 ```python
-person1 = {}
-print(person1)
-print(type(person1))
-
-person2 = {"name":"Harry Potter", "isMale": True, "midterm":25, "final":30}
-print(person2)
-print(type(person2))
+person = {"name":"Harry Potter",999:"085-123-4567","isMale":True,"midterm":25,"final":30}
+print(person)
+print(type(person))
 ```
 
 ```{.python .code-output}
-{}
-<class 'dict'>
-{'name': 'Harry Potter', 'isMale': True, 'midterm': 25, 'final': 30}
+{'name': 'Harry Potter', 999: '085-123-4567', 'isMale': True, 'midterm': 25, 'final': 30}
 <class 'dict'>
 ```
 
@@ -696,13 +737,39 @@ print(type(person2))
 
 ## การเข้าถึงข้อมูลภายใน Dict ด้วย `key` {#m4-dict-access}
 
+ใช้ `key` อ้างอิงแทน index ตัวเลข
+
 ```python
 dict_variable[key]
 ```
 
+. . .
+
+```python
+person2 = {"name":"Harry Potter", "isMale": True, "midterm":25, "final":30}
+print(person2["name"])      # เข้าถึงค่าด้วย key "name"
+print(person2["final"])     # เข้าถึงค่าด้วย key "final"
+```
+
+. . .
+
+```{.python .code-output}
+Harry Potter
+30
+```
+
+::: {.callout-important .fragment}
+ถ้าอ้างอิง `key` ที่ไม่มีอยู่ จะเกิด `KeyError`
+:::
+
+
 ## โจทย์ #30 {.exercise}
 
-ดึงข้อมูลจาก dict ด้วย key แล้วนำมาคำนวณ
+ดึงข้อมูลจาก dict ด้วย key แล้วนำมาคำนวณคะแนนรวม `midterm`+`final` และพิมพ์ข้อความ
+
+```
+Harry Potter got 55/100 in Python programming.
+```
 
 ::: {.panel-tabset}
 
@@ -710,19 +777,19 @@ dict_variable[key]
 
 ```{pyodide}
 #| autorun: false
-person2 = {"name":"Harry Potter", "isMale": True, "midterm":25, "final":30}
-std_name = person2[____]
-std_score = person2[____] + person2[____]
-print(f'{std_name} got {std_score}/100 in Python programming.')
+person = {"name":"Harry Potter", "isMale": True, "midterm":25, "final":30}
+name = ____
+score = ____
+print(f'{name} got {score}/100 in Python programming.')
 ```
 
 ### Solution
 
 ```python
-person2 = {"name":"Harry Potter", "isMale": True, "midterm":25, "final":30}
-std_name = person2["name"]
-std_score = person2["midterm"] + person2["final"]
-print(f'{std_name} got {std_score}/100 in Python programming.')
+person = {"name":"Harry Potter", "isMale": True, "midterm":25, "final":30}
+name = person["name"]
+score = person["midterm"] + person["final"]
+print(f'{name} got {score}/100 in Python programming.')
 ```
 
 ```{.python .code-output}
@@ -737,10 +804,17 @@ Harry Potter got 55/100 in Python programming.
 
 ## ตัวอย่าง: แก้ไขค่าใน Dict ด้วย key
 
+แก้ไข value ของ keyword `"name"` 
+
 ```python
-person2 = {"name":"Harry Potter", "isMale": True, "midterm":25, "final":30}
-person2["name"] = "Rionel Messi"
-print(person2)
+person = {
+    "name":"Harry Potter", 
+    "isMale": True, 
+    "midterm":25, 
+    "final":30
+}
+person["name"] = "Rionel Messi"
+print(person)
 ```
 
 ```{.python .code-output}
@@ -782,13 +856,40 @@ KeyError: 'address'
 
 เพิ่ม item ใหม่ด้วยการ**กำหนดค่าให้ `key` ที่ไม่เคยมีมาก่อน**
 
-```python
-dict_variable[new_key] = value
-```
+<pre class="code-pattern" style="font-size:1.3em">dict_variable[<span class="cond">new_key</span>] = <span class="stmt">value</span></pre>
 
-## โจทย์ #32 {.exercise}
+::: {.callout-important}
+`dict_variable[key] = value` — ถ้า `key` **ยังไม่มี** จะเป็นการ**สร้าง item ใหม่** แต่ถ้า `key` **มีอยู่แล้ว** จะเป็นการ**แก้ไขค่าเดิม**
+:::
+
+## โจทย์ #32 {.exercise .smaller}
 
 เพิ่มข้อมูล `"weight"` และ `"height"` ให้กับ dict
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**ข้อมูลเดิม**
+
+| key | value |
+|:--------|:------|
+| `"name"` | `"Rionel Messi"` |
+| `"isMale"` | `True` |
+| `"midterm"` | `25` |
+| `"final"` | `30` |
+
+:::
+::: {.column width="50%"}
+
+**ข้อมูลที่ต้องการเพิ่ม** ➕
+
+| key | value |
+|:--------|:------|
+| `"weight"` | `65.25` |
+| `"height"` | `180.0` |
+
+:::
+::::
 
 ::: {.panel-tabset}
 
@@ -798,8 +899,8 @@ dict_variable[new_key] = value
 #| autorun: false
 person2 = {"name":"Rionel Messi", "isMale": True, "midterm":25, "final":30}
 print(person2)
-person2[____] = 65.25
-person2[____] = 180.0
+weight = 65.25
+height = 180.0
 print(person2)
 ```
 
@@ -818,19 +919,136 @@ print(person2)
 {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
 ```
 
+
+
 :::
+
+## อีกวิธี: เพิ่มหลาย item ด้วย `.update()` {#m4-dict-update}
+
+`.update()` เพิ่ม (หรือแก้ไข) หลาย item พร้อมกันในครั้งเดียว โดยรับ dict อีกตัวเข้าไป — เป็น method เดียวกับ [`.update()` ของ set](#m4-set-modify) ที่เคยเรียนมา
+
+```python
+person2 = {"name":"Rionel Messi", "isMale": True, "midterm":25, "final":30}
+person2.update({"weight": 65.25, "height": 180.0})
+print(person2)
+```
+
+. . .
+
+```{.python .code-output}
+{'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
+```
+
+::: {.callout-note}
+ได้ผลลัพธ์เหมือนโจทย์ #32 แต่เขียนบรรทัดเดียว — ถ้า `key` มีอยู่แล้วจะเป็นการแก้ไขค่าเดิม เหมือน `dict_variable[key] = value`
+:::
+
+## Dict — `len()` {#m4-dict-len}
+
+`len()` นับจำนวน item (จำนวน key) ใน Dict
+
+```python
+person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
+print(person2)
+print(f'len(person2): {len(person2)}')
+```
+
+```{.python .code-output}
+{'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
+len(person2): 6
+```
+
+## การดูข้อมูลภายใน Dict {#m4-dict-view}
+
+Dict มี method สำหรับดึงรายการข้อมูลออกมาดู 3 แบบ
+
+| วิธี | คืนค่า |
+|:-----|:-------|
+| `.keys()` | รายการ **key** ทั้งหมด |
+| `.values()` | รายการ **value** ทั้งหมด |
+| `.items()` | รายการ **(key, value)** ทั้งหมด (Tuple) |
+
+::: {.callout-tip}
+นำผลลัพธ์ไปครอบด้วย `list()` เพื่อแปลงเป็น List ปกติได้
+:::
+
+## การดูรายการ key ทั้งหมด — `.keys()` {#m4-dict-keys}
+
+<pre class="code-pattern" style="font-size:1.3em">dict_variable.<span style="color:#1565c0;font-weight:bold">keys</span>()</pre>
+
+. . .
+
+**ตัวอย่าง:** ดึง key ทั้งหมด
+
+```python
+person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
+person2_keys = person2.keys()
+print(person2_keys)
+print(list(person2_keys))
+```
+
+```{.python .code-output}
+dict_keys(['name', 'isMale', 'midterm', 'final', 'weight', 'height'])
+['name', 'isMale', 'midterm', 'final', 'weight', 'height']
+```
+
+## การดูรายการ value ทั้งหมด — `.values()` {#m4-dict-values}
+
+<pre class="code-pattern" style="font-size:1.3em">dict_variable.<span style="color:#2e7d32;font-weight:bold">values</span>()</pre>
+
+. . .
+
+**ตัวอย่าง:** ดึง value ทั้งหมด
+
+```python
+person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
+person2_values = person2.values()
+print(person2_values)
+print(list(person2_values))
+```
+
+```{.python .code-output}
+dict_values(['Rionel Messi', True, 25, 30, 65.25, 180.0])
+['Rionel Messi', True, 25, 30, 65.25, 180.0]
+```
+
+## การดูรายการข้อมูลทั้งหมด — `.items()` {#m4-dict-items}
+
+`.items()` แสดงรายการข้อมูลทั้งหมดใน Dict ในรูปแบบ **List ของ Tuple**
+
+<pre class="code-pattern" style="font-size:1.2em">[(<span style="color:#1565c0;font-weight:bold">key1</span>, <span style="color:#2e7d32;font-weight:bold">value1</span>), (<span style="color:#1565c0;font-weight:bold">key2</span>, <span style="color:#2e7d32;font-weight:bold">value2</span>), ..., (<span style="color:#1565c0;font-weight:bold">keyN</span>, <span style="color:#2e7d32;font-weight:bold">valueN</span>)]</pre>
+
+. . .
+
+**ตัวอย่าง:** ดึงข้อมูลทั้งหมด
+
+```python
+person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
+person2_items = person2.items()
+print(person2_items)
+print(list(person2_items))
+```
+
+```{.python .code-output}
+dict_items([('name', 'Rionel Messi'), ('isMale', True), ('midterm', 25), ('final', 30), ('weight', 65.25), ('height', 180.0)])
+[('name', 'Rionel Messi'), ('isMale', True), ('midterm', 25), ('final', 30), ('weight', 65.25), ('height', 180.0)]
+```
 
 ## การลบข้อมูลจาก Dict {#m4-dict-delete}
 
 | วิธี | คำอธิบาย |
 |:-----|:---------|
 | `.pop(key)` | ลบข้อมูลด้วย `key` ที่ระบุ |
-| `.popitem()` | ลบข้อมูลรายการ**สุดท้าย** |
+| `.popitem()` | ลบ item ที่**เพิ่มล่าสุด** |
 | `.clear()` | ลบข้อมูล**ทั้งหมด** |
+
+::: {.callout-note}
+ตั้งแต่ **Python 3.7** เป็นต้นมา Dict **จำลำดับการเพิ่มข้อมูล (insertion order)** — ต่างจาก Set ที่ไม่มีลำดับ ดังนั้น `.popitem()` จึงลบตัวที่**เพิ่มเข้าไปล่าสุด**ออกได้เสมอ
+:::
 
 ## โจทย์ #33 {.exercise}
 
-ใช้ `.pop()` ดึงข้อมูลออกจาก dict
+ใช้ `.pop()` ดึง keyword `"height"` ออกจาก dict และเก็บค่าที่ดึงออกมาลงในตัวแปร `height` โดยที่ dict ต้นฉบับจะต้องไม่มี keyword `"height"` เหลืออยู่
 
 ::: {.panel-tabset}
 
@@ -839,8 +1057,8 @@ print(person2)
 ```{pyodide}
 #| autorun: false
 d1 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
-print(d1)
-height = d1.____('height')
+
+________ # เขียนโค้ดตรงนี้บรรทัดเดียว
 print(d1)
 print(height)
 ```
@@ -925,63 +1143,8 @@ print(d1)
 ```
 
 ::: {.callout-tip}
-`.popitem()` คืนค่าเป็น **Tuple** `(key, value)`
+`.popitem()` ลบ `'weight'` (key ที่อยู่ท้ายสุด = เพิ่มล่าสุด) และคืนค่าเป็น **Tuple** `(key, value)`
 :::
-
-## Dict — `len()` {#m4-dict-len}
-
-```python
-person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
-print(person2)
-print(f'len(person2): {len(person2)}')
-```
-
-```{.python .code-output}
-{'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
-len(person2): 6
-```
-
-## การดูรายการ key ทั้งหมด — `.keys()` {#m4-dict-keys}
-
-```python
-dict_variable.keys()
-```
-
-## ตัวอย่าง: `.keys()` — ดึง key ทั้งหมด
-
-```python
-person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
-person2_keys = person2.keys()
-print(person2_keys)
-print(list(person2_keys))
-```
-
-```{.python .code-output}
-dict_keys(['name', 'isMale', 'midterm', 'final', 'weight', 'height'])
-['name', 'isMale', 'midterm', 'final', 'weight', 'height']
-```
-
-## การดูรายการข้อมูลทั้งหมด — `.items()` {#m4-dict-items}
-
-`.items()` แสดงรายการข้อมูลทั้งหมดใน Dict ในรูปแบบ **List ของ Tuple**
-
-```
-[(key1, value1), (key2, value2), ..., (keyN, valueN)]
-```
-
-## ตัวอย่าง: `.items()` — ดึงข้อมูลทั้งหมด
-
-```python
-person2 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25, 'height': 180.0}
-person2_items = person2.items()
-print(person2_items)
-print(list(person2_items))
-```
-
-```{.python .code-output}
-dict_items([('name', 'Rionel Messi'), ('isMale', True), ('midterm', 25), ('final', 30), ('weight', 65.25), ('height', 180.0)])
-[('name', 'Rionel Messi'), ('isMale', True), ('midterm', 25), ('final', 30), ('weight', 65.25), ('height', 180.0)]
-```
 
 # Collection of Collections 🪆 {background-color="#2c3e50" .white-text}
 
