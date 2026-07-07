@@ -768,6 +768,56 @@ Junior
 ถ้าเขียน `if` แยกหลายอัน โปรแกรมจะตรวจ **ทุกเงื่อนไข**; แต่ `if-elif-else` จะ **หยุดทันที** ที่เจอเงื่อนไขจริง — สื่อความหมาย "เลือกทางเดียว" และทำงานน้อยขั้นกว่า
 :::
 
+## `if` แยกกัน vs `if-elif`: ต่างกันมาก! {#m5-if-vs-elif}
+
+`score = 85` — เขียนต่างกันนิดเดียว แต่ผลลัพธ์ `grade` **ต่างกัน!**
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**`if` แยก 3 อัน — ตรวจครบทุกอัน**
+
+```{=html}
+<svg viewBox="0 0 300 250" width="100%" style="max-width:330px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="13">
+  <defs><marker id="ie1" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/></marker></defs>
+  <rect x="10" y="8" width="280" height="36" rx="6" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="150" y="31" text-anchor="middle">score≥80 ✓ → grade='A'</text>
+  <line x1="150" y1="44" x2="150" y2="58" stroke="#2c3e50" stroke-width="2" marker-end="url(#ie1)"/>
+  <rect x="10" y="60" width="280" height="36" rx="6" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="150" y="83" text-anchor="middle">score≥70 ✓ → grade='B'</text>
+  <line x1="150" y1="96" x2="150" y2="110" stroke="#2c3e50" stroke-width="2" marker-end="url(#ie1)"/>
+  <rect x="10" y="112" width="280" height="36" rx="6" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="150" y="135" text-anchor="middle">score≥50 ✓ → grade='C'</text>
+  <line x1="150" y1="148" x2="150" y2="164" stroke="#e74c3c" stroke-width="2" marker-end="url(#ie1)"/>
+  <rect x="10" y="166" width="280" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2.5"/><text x="150" y="191" text-anchor="middle" fill="#e74c3c" font-weight="bold">grade = 'C'  ❌</text>
+</svg>
+```
+
+ตรวจครบ 3 อัน → **ทับค่าจนเหลือ `'C'`** (ผิด!)
+
+:::
+::: {.column width="50%"}
+
+**`if-elif-else` — หยุดที่เจอตัวแรก**
+
+```{=html}
+<svg viewBox="0 0 300 250" width="100%" style="max-width:330px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="13">
+  <defs><marker id="ie2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27ae60"/></marker></defs>
+  <rect x="10" y="8" width="280" height="36" rx="6" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="150" y="31" text-anchor="middle">if score≥80 ✓ → grade='A'</text>
+  <rect x="10" y="60" width="280" height="36" rx="6" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="150" y="83" text-anchor="middle" fill="#95a5a6">elif score≥70 (ข้าม)</text>
+  <rect x="10" y="112" width="280" height="36" rx="6" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="150" y="135" text-anchor="middle" fill="#95a5a6">elif score≥50 (ข้าม)</text>
+  <path d="M150,44 C 40,80 40,140 145,164" fill="none" stroke="#27ae60" stroke-width="2.5" marker-end="url(#ie2)"/>
+  <text x="45" y="112" fill="#27ae60" font-size="11" font-weight="bold">หยุด!</text>
+  <rect x="10" y="166" width="280" height="40" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2.5"/><text x="150" y="191" text-anchor="middle" fill="#27ae60" font-weight="bold">grade = 'A'  ✅</text>
+</svg>
+```
+
+เจอ `≥80` ก่อน → `'A'` แล้ว **ข้ามที่เหลือ** (ถูก!)
+
+:::
+::::
+
+::: {.callout-important}
+`if` แยกกัน = ตรวจ **ทุกเงื่อนไข** (อาจทำหลายอัน/ทับค่า) · `if-elif` = **หยุดทันที**ที่เจอจริง → เลือกทางเดียว
+:::
+
 # Nested if 🪆 {background-color="#2c3e50" .white-text}
 
 เงื่อนไขซ้อนเงื่อนไข
@@ -865,6 +915,35 @@ Both numbers are entered correctly.
 **คิดก่อน:** ต้องใช้ `if` กี่ที่ดี ใช้ `elif` หรือ `else` ด้วยไหม?
 
 **คิดก่อน:** การ slice string เช่น `id[0:2]`, `id[2:4]`, `id[4:6]` ดึงข้อมูลส่วนใดบ้าง?
+
+## เห็นภาพ: slice รหัสนักศึกษา {#m5-id-slice-viz}
+
+`id = '630610123'` — ใช้ **slice** แยกส่วนต่าง ๆ ของรหัสออกมา (แต่ละส่วนคือ substring)
+
+```{=html}
+<svg viewBox="0 0 600 220" width="100%" style="max-width:820px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="20">
+  <!-- index labels -->
+  <g fill="#7f8c8d" font-size="12" text-anchor="middle"><text x="46" y="35">0</text><text x="106" y="35">1</text><text x="166" y="35">2</text><text x="226" y="35">3</text><text x="286" y="35">4</text><text x="346" y="35">5</text><text x="406" y="35">6</text><text x="466" y="35">7</text><text x="526" y="35">8</text></g>
+  <!-- char boxes (grouped colors) -->
+  <rect x="20" y="42" width="52" height="50" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="46" y="76" text-anchor="middle">6</text>
+  <rect x="80" y="42" width="52" height="50" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="106" y="76" text-anchor="middle">3</text>
+  <rect x="140" y="42" width="52" height="50" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="166" y="76" text-anchor="middle">0</text>
+  <rect x="200" y="42" width="52" height="50" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="226" y="76" text-anchor="middle">6</text>
+  <rect x="260" y="42" width="52" height="50" rx="6" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="286" y="76" text-anchor="middle">1</text>
+  <rect x="320" y="42" width="52" height="50" rx="6" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="346" y="76" text-anchor="middle">0</text>
+  <rect x="380" y="42" width="52" height="50" rx="6" fill="#f4f6f7" stroke="#95a5a6" stroke-width="2"/><text x="406" y="76" text-anchor="middle">1</text>
+  <rect x="440" y="42" width="52" height="50" rx="6" fill="#f4f6f7" stroke="#95a5a6" stroke-width="2"/><text x="466" y="76" text-anchor="middle">2</text>
+  <rect x="500" y="42" width="52" height="50" rx="6" fill="#f4f6f7" stroke="#95a5a6" stroke-width="2"/><text x="526" y="76" text-anchor="middle">3</text>
+  <!-- group brackets + labels -->
+  <line x1="20" y1="102" x2="132" y2="102" stroke="#2980b9" stroke-width="3"/><text x="76" y="124" text-anchor="middle" fill="#2980b9" font-size="14" font-weight="bold">id[0:2]='63'</text><text x="76" y="142" text-anchor="middle" fill="#2980b9" font-size="12">ปีที่เข้า</text>
+  <line x1="140" y1="102" x2="252" y2="102" stroke="#27ae60" stroke-width="3"/><text x="196" y="124" text-anchor="middle" fill="#27ae60" font-size="14" font-weight="bold">id[2:4]='06'</text><text x="196" y="142" text-anchor="middle" fill="#27ae60" font-size="12">คณะ</text>
+  <line x1="260" y1="102" x2="372" y2="102" stroke="#8e44ad" stroke-width="3"/><text x="316" y="124" text-anchor="middle" fill="#8e44ad" font-size="14" font-weight="bold">id[4:6]='10'</text><text x="316" y="142" text-anchor="middle" fill="#8e44ad" font-size="12">หลักสูตร</text>
+  <line x1="380" y1="102" x2="552" y2="102" stroke="#95a5a6" stroke-width="3"/><text x="466" y="124" text-anchor="middle" fill="#7f8c8d" font-size="14" font-weight="bold">id[6:9]='123'</text><text x="466" y="142" text-anchor="middle" fill="#7f8c8d" font-size="12">เลขลำดับ</text>
+  <!-- decode notes -->
+  <text x="20" y="182" font-size="14">🟢 คณะ <tspan font-weight="bold">06</tspan> = วิศวกรรมศาสตร์ · 🟣 หลักสูตร <tspan font-weight="bold">10</tspan> = ปกติ, <tspan font-weight="bold">15</tspan> = อินเตอร์</text>
+  <text x="20" y="206" font-size="14">🔵 ปี = 69 − int(id[0:2]) = 69 − 63 = <tspan font-weight="bold">6</tspan></text>
+</svg>
+```
 
 ## โจทย์ #9: ชวนคิด (ต่อ) {.exercise-think}
 
