@@ -64,7 +64,7 @@ else:
 
 ผังงาน — เครื่องมืออธิบายลำดับความคิดและตรรกะของโปรแกรม
 
-## Flowchart คืออะไร? {#m5-flowchart}
+## Flowchart คืออะไร? {#m5-flowchart .smaller}
 
 - **Flowchart** คือเครื่องมือที่ช่วยอธิบายลำดับความคิดและแสดงตรรกะของผู้เขียนโปรแกรมต่อผู้อ่านโปรแกรม
 - มีลักษณะเป็นแผนภาพแสดงการทำงานของโปรแกรม
@@ -550,15 +550,15 @@ end-of-script
 
 สองทางเลือก
 
-## การใช้คำสั่ง if-else {#m5-if-else}
+## การใช้คำสั่ง if-else {#m5-if-else .smaller}
 
 
 :::: {.columns}
 ::: {.column width="50%"}
-![](images/m5-if-else-2.png){height="460px" fig-align="center" .fragment} 
+![](images/m5-if-else-2.png){height="400px" fig-align="center" .fragment} 
 :::
 ::: {.column width="50%"}
-![](images/m5-if-else-1.png){height="460px" fig-align="center" .fragment}
+![](images/m5-if-else-1.png){height="400px" fig-align="center" .fragment}
 :::
 
 ::::
@@ -647,14 +647,14 @@ end-of-script
 
 มากกว่าสองทางเลือก
 
-## การใช้คำสั่ง if-elif-else {#m5-if-elif-else}
+## การใช้คำสั่ง if-elif-else {#m5-if-elif-else .smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![](images/m5-if-elif-else-2.png){height="460px" fig-align="center" .fragment}
+![](images/m5-if-elif-else-2.png){height="400px" fig-align="center" .fragment}
 :::
 ::: {.column width="50%"}
-![](images/m5-if-elif-else-1.png){height="460px" fig-align="center" .fragment}
+![](images/m5-if-elif-else-1.png){height="400px" fig-align="center" .fragment}
 :::
 ::::
 
@@ -724,7 +724,7 @@ Junior
 
 :::
 
-## ข้อสังเกต: ตัดสินใจเป็นชั้น ๆ {#m5-elif-layered}
+## ข้อสังเกต: ตัดสินใจเป็นชั้น ๆ {#m5-elif-layered .smaller
 
 `if-elif-else` ทำงานเหมือน **การกรองเป็นชั้น ๆ** — ข้อมูลไหลผ่านลงมา ตรวจทีละชั้นจนกว่าจะถูก "ดัก" ไว้
 
@@ -772,14 +772,14 @@ Junior
 
 เงื่อนไขซ้อนเงื่อนไข
 
-## การใช้คำสั่ง Nested if {#m5-nested-if}
+## การใช้คำสั่ง Nested if {#m5-nested-if .smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![](images/m5-nested-if-2.png){height="460px" fig-align="center"}
+![](images/m5-nested-if-2.png){height="400px" fig-align="center"}
 :::
 ::: {.column width="50%"}
-![](images/m5-nested-if-1.png){height="460px" fig-align="center"}
+![](images/m5-nested-if-1.png){height="400px" fig-align="center"}
 :::
 ::::
 
@@ -961,7 +961,7 @@ You are a 6-year student of Engineering program.
 :::
 ::::
 
-## โจทย์ #10: ชวนคิดอีก {.exercise-think}
+## โจทย์ #10: ชวนคิดอีก {.exercise-think .smaller}
 
 จงหาค่าความจริงของนิพจน์ต่อไปนี้ (True / False) เมื่อ
 
