@@ -23,8 +23,8 @@ Introduction to computers for engineers. Principles of computer hardware and sof
 | 6 | Iterations (I): while-loop | [Slides](slides/module06.html){target="_blank"} (?), [Extras](slides/module06_extra.html){target="_blank"} |
 | 7 | Iterations (II): for-loop | [Slides](slides/module07.html){target="_blank"} (?), [Extras](slides/module07_extra.html){target="_blank"} |
 | 8 | Iterations and Collections | [Slides](slides/module08.html){target="_blank"} (?), [Extras](slides/module08_extra.html){target="_blank"} |
-| 9 | Functions | — |
-| 10 | List Comprehension and 2D Arrays | — |
+| 9 | Functions | [Slides](slides/module09.html){target="_blank"} (?) |
+| 10 | List Comprehension and 2D Arrays | [Slides](slides/module10.html){target="_blank"} (?) |
 | 11 | Basic Data Visualization with Matplotlib | — |
 | 12 (I) | N-Dimensional Arrays with Numpy (I) | — |
 | 12 (II) | N-Dimensional Arrays with Numpy (II) | — |
