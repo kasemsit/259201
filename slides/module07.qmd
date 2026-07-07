@@ -418,17 +418,41 @@ next-statement
 
 ครบทุกค่าใน iterable แล้ว → ออกจากลูป (ไม่ต้องเขียน `i += 1` เอง!)
 
-## `for` กับส่วนประกอบของลูป {#m7-for-parts}
+## `for` กับส่วนประกอบของลูป {#m7-for-parts .smaller}
 
 ส่วน **Initialization**, **Condition**, และ **Update** ของลูป `for` แฝงตัวอยู่ในบรรทัด `for i in iterable`
 
 เทียบกับแผนภาพของลูป `while` จะได้ว่า
 
-::: {.incremental}
-- **init** = ตัวแปร `i` รับค่าแรกของลำดับ
-- **cond** = ตรวจสอบว่าตัวแปร `i` รับค่ามาได้หรือไม่
-- **update** = ตัวแปร `i` รับค่าถัดไปในลำดับ
+:::: {.columns}
+::: {.column width="50%"}
+
+**`for` — 3 ส่วนซ่อนในบรรทัดเดียว**
+
+```{=html}
+<pre class="code-pattern" style="font-size:1.05em">for i in range(<span style="color:#27ae60;font-weight:bold">1</span>, <span style="color:#2980b9;font-weight:bold">n+1</span>, <span style="color:#e67e22;font-weight:bold">1</span>):</pre>
+```
+
+- 🟢 START = **init** — `i` เริ่มที่ `1`
+- 🔵 STOP = **cond** — วนขณะ `i < n+1`
+- 🟠 STEP = **update** — `i` รับค่าถัดไป
+
 :::
+::: {.column width="50%"}
+
+**`while` — เขียนแยก 3 ส่วน**
+
+```{=html}
+<pre class="code-pattern" style="font-size:1.05em"><span style="color:#27ae60;font-weight:bold">i = 1</span>
+<span style="color:#2980b9;font-weight:bold">while i &lt;= n</span>:
+    print(i)
+    <span style="color:#e67e22;font-weight:bold">i += 1</span></pre>
+```
+
+**สีเดียวกัน = ส่วนเดียวกัน** — `for` แค่ย่อ 3 ส่วนไว้บรรทัดเดียว
+
+:::
+::::
 
 ::: {.callout-note}
 ทบทวน: [while-loop (Module 6)](module06.html#m6-while)
@@ -997,6 +1021,58 @@ for r in range(nrow):
 
 :::
 
+## เห็นภาพ: `break` ในลูปซ้อน ออกแค่ลูปใน {#m7-nested-break-viz}
+
+`break` หยุด **เฉพาะลูปใน (c)** ของแถวนั้น — **ลูปนอก (r) เดินต่อ** ไปแถวถัดไป
+
+:::: {.columns}
+::: {.column width="62%"}
+
+```{=html}
+<svg viewBox="0 0 420 320" width="100%" style="max-width:470px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="15">
+  <defs><marker id="nbk" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2980b9"/></marker></defs>
+  <g fill="#8e44ad" font-weight="bold" text-anchor="middle" font-size="14"><text x="132" y="58">c=0</text><text x="207" y="58">c=1</text><text x="282" y="58">c=2</text><text x="357" y="58">c=3</text></g>
+  <g fill="#2980b9" font-weight="bold" font-size="14"><text x="58" y="108">r=0</text><text x="58" y="166">r=1</text><text x="58" y="224">r=2</text><text x="58" y="282">r=3</text></g>
+  <!-- r=0 -->
+  <rect x="98" y="73" width="69" height="52" rx="5" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="132" y="100" text-anchor="middle" fill="#e74c3c" font-weight="bold">*</text><text x="132" y="116" text-anchor="middle" fill="#e74c3c" font-size="10">break</text>
+  <rect x="173" y="73" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="207" y="105" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
+  <rect x="248" y="73" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="282" y="105" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
+  <rect x="323" y="73" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="357" y="105" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
+  <!-- r=1 -->
+  <rect x="98" y="131" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="163" text-anchor="middle">0</text>
+  <rect x="173" y="131" width="69" height="52" rx="5" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="207" y="158" text-anchor="middle" fill="#e74c3c" font-weight="bold">*</text><text x="207" y="174" text-anchor="middle" fill="#e74c3c" font-size="10">break</text>
+  <rect x="248" y="131" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="282" y="163" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
+  <rect x="323" y="131" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="357" y="163" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
+  <!-- r=2 -->
+  <rect x="98" y="189" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="221" text-anchor="middle">0</text>
+  <rect x="173" y="189" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="207" y="221" text-anchor="middle">1</text>
+  <rect x="248" y="189" width="69" height="52" rx="5" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="282" y="216" text-anchor="middle" fill="#e74c3c" font-weight="bold">*</text><text x="282" y="232" text-anchor="middle" fill="#e74c3c" font-size="10">break</text>
+  <rect x="323" y="189" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="357" y="221" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
+  <!-- r=3 -->
+  <rect x="98" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="279" text-anchor="middle">0</text>
+  <rect x="173" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="207" y="279" text-anchor="middle">1</text>
+  <rect x="248" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="282" y="279" text-anchor="middle">2</text>
+  <rect x="323" y="247" width="69" height="52" rx="5" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="357" y="274" text-anchor="middle" fill="#e74c3c" font-weight="bold">*</text><text x="357" y="290" text-anchor="middle" fill="#e74c3c" font-size="10">break</text>
+  <!-- outer continue arrow -->
+  <line x1="20" y1="80" x2="20" y2="292" stroke="#2980b9" stroke-width="2.5" marker-end="url(#nbk)"/>
+</svg>
+```
+
+:::
+::: {.column width="38%"}
+
+::: {style="font-size:0.9em"}
+- 🟢 พิมพ์ค่า `c`
+- 🔴 เจอ `r==c` → พิมพ์ `*` แล้ว **`break`**
+- ⬜ ที่เหลือในแถว **ถูกข้าม**
+- 🔵 ลูปนอก `r` **เดินต่อ** ลงแถวถัดไป
+:::
+
+:::
+::::
+
+**สรุป:** `break` ในลูปซ้อน ออกจาก**ลูปในสุดชั้นเดียว** ไม่ได้ออกทั้งหมด
+
 ## โจทย์ #8: nested for with continue {.exercise}
 
 จากโจทย์ #6 จงดัดแปลงโดยใช้ `continue` เพื่อ**ข้าม**การพิมพ์อักษร `*` (ดอกจันแนวทแยงหายไป)
@@ -1060,6 +1136,54 @@ for r in range(nrow):
 
 :::
 
+## เห็นภาพ: `continue` ในลูปซ้อน ข้ามแค่รอบเดียว {#m7-nested-continue-viz}
+
+`continue` ข้าม **เฉพาะช่องแนวทแยง** (`r==c`) — **แถวยังพิมพ์ต่อจนครบ** (ต่างจาก `break`)
+
+:::: {.columns}
+::: {.column width="62%"}
+
+```{=html}
+<svg viewBox="0 0 420 320" width="100%" style="max-width:470px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="15">
+  <g fill="#8e44ad" font-weight="bold" text-anchor="middle" font-size="14"><text x="132" y="58">c=0</text><text x="207" y="58">c=1</text><text x="282" y="58">c=2</text><text x="357" y="58">c=3</text></g>
+  <g fill="#2980b9" font-weight="bold" font-size="14"><text x="58" y="108">r=0</text><text x="58" y="166">r=1</text><text x="58" y="224">r=2</text><text x="58" y="282">r=3</text></g>
+  <!-- r=0 : skip c0, print 1,2,3 -->
+  <rect x="98" y="73" width="69" height="52" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="4 3"/><text x="132" y="99" text-anchor="middle" fill="#e67e22" font-size="11">ข้าม</text><text x="132" y="114" text-anchor="middle" fill="#e67e22" font-size="9">continue</text>
+  <rect x="173" y="73" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="207" y="105" text-anchor="middle">1</text>
+  <rect x="248" y="73" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="282" y="105" text-anchor="middle">2</text>
+  <rect x="323" y="73" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="357" y="105" text-anchor="middle">3</text>
+  <!-- r=1 -->
+  <rect x="98" y="131" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="163" text-anchor="middle">0</text>
+  <rect x="173" y="131" width="69" height="52" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="4 3"/><text x="207" y="157" text-anchor="middle" fill="#e67e22" font-size="11">ข้าม</text><text x="207" y="172" text-anchor="middle" fill="#e67e22" font-size="9">continue</text>
+  <rect x="248" y="131" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="282" y="163" text-anchor="middle">2</text>
+  <rect x="323" y="131" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="357" y="163" text-anchor="middle">3</text>
+  <!-- r=2 -->
+  <rect x="98" y="189" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="221" text-anchor="middle">0</text>
+  <rect x="173" y="189" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="207" y="221" text-anchor="middle">1</text>
+  <rect x="248" y="189" width="69" height="52" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="4 3"/><text x="282" y="215" text-anchor="middle" fill="#e67e22" font-size="11">ข้าม</text><text x="282" y="230" text-anchor="middle" fill="#e67e22" font-size="9">continue</text>
+  <rect x="323" y="189" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="357" y="221" text-anchor="middle">3</text>
+  <!-- r=3 -->
+  <rect x="98" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="279" text-anchor="middle">0</text>
+  <rect x="173" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="207" y="279" text-anchor="middle">1</text>
+  <rect x="248" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="282" y="279" text-anchor="middle">2</text>
+  <rect x="323" y="247" width="69" height="52" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="4 3"/><text x="357" y="273" text-anchor="middle" fill="#e67e22" font-size="11">ข้าม</text><text x="357" y="288" text-anchor="middle" fill="#e67e22" font-size="9">continue</text>
+</svg>
+```
+
+:::
+::: {.column width="38%"}
+
+::: {style="font-size:0.9em"}
+- 🟢 พิมพ์ค่า `c` ตามปกติ
+- 🟠 เจอ `r==c` → **`continue`** ข้ามช่องนี้
+- ✅ ช่อง `c` ที่เหลือ **ยังพิมพ์ต่อ**
+:::
+
+**ต่างจาก `break`:** `break` ตัดท้ายแถว · `continue` เว้นแค่ช่องเดียว
+
+:::
+::::
+
 ## โจทย์ #9: nested loop with break + continue {.exercise}
 
 จากโจทย์ #7 จงดัดแปลงโดยใช้ `continue` เพิ่ม เพื่อพิมพ์**แถวเว้นแถว** (ข้ามแถวที่ `r` เป็นเลขคี่)
@@ -1122,6 +1246,30 @@ for r in range(nrow):
 :::
 
 :::
+
+## เห็นภาพ: `break` + `continue` คนละระดับ {#m7-nested-both-viz}
+
+`continue` ที่ **ลูปนอก** → ข้าม**ทั้งแถว** (แถวคี่) · `break` ที่ **ลูปใน** → ตัด**ท้ายแถว** (แถวคู่)
+
+```{=html}
+<svg viewBox="0 0 500 330" width="100%" style="max-width:640px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="14">
+  <g fill="#2980b9" font-weight="bold" font-size="13">
+    <text x="20" y="42">r=0</text><text x="20" y="79">r=1</text><text x="20" y="116">r=2</text><text x="20" y="153">r=3</text><text x="20" y="190">r=4</text><text x="20" y="227">r=5</text><text x="20" y="264">r=6</text><text x="20" y="301">r=7</text>
+  </g>
+  <!-- even rows: green (break cuts tail) -->
+  <rect x="60" y="24" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="43">*</text><text x="120" y="43" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
+  <rect x="60" y="98" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="117">0 1 *</text><text x="150" y="117" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
+  <rect x="60" y="172" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="191">0 1 2 3 *</text><text x="190" y="191" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
+  <rect x="60" y="246" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="265">0 1 2 3 4 5 *</text><text x="250" y="265" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
+  <!-- odd rows: orange dashed (outer continue skips whole row) -->
+  <rect x="60" y="61" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text x="72" y="80" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
+  <rect x="60" y="135" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text x="72" y="154" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
+  <rect x="60" y="209" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text x="72" y="228" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
+  <rect x="60" y="283" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text x="72" y="302" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
+</svg>
+```
+
+🟠 `continue` (ลูปนอก) จัดการ **ระดับแถว** · 🔴 `break` (ลูปใน) จัดการ **ระดับคอลัมน์** — แต่ละคำสั่งมีผลเฉพาะลูปของตัวเอง
 
 ## โจทย์ #9: ส่วนประกอบที่ใช้วนลูป {.exercise}
 
