@@ -677,7 +677,7 @@ a = set()
 ## ดิกชันนารี (Dictionary) คืออะไร? {#m4-dict .smaller}
 
 - เก็บข้อมูลเป็น item คล้าย List แต่ใช้ **key** ในการอ้างอิงแทน index ตัวเลข
-- ค่า **key** สามารถเป็น `int`, `float`, `string`, `tuple` ก็ได้
+- ค่า **key** สามารถเป็น `int`, `float`, `string`, `tuple` ก็ได้ (แต่ `list` เป็น key ไม่ได้)
 - ค่า **key** เมื่อกำหนดแล้ว **จะไม่สามารถเปลี่ยนแปลงได้** (หมายถึงเพิ่มหรือลบ key ได้ แต่ rename ไม่ได้)
 
 . . .
@@ -1093,22 +1093,24 @@ print(height)
 ```{pyodide}
 #| autorun: false
 d1 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25}
-# pop ด้วย key ที่ไม่มี
-team = d1.pop('team')
+
+a = d1.pop('isMale') # บรรทัดนี้โค้ดทำอะไร?
+b = d1.pop()         # บรรทัดนี้โค้ดทำอะไร? แล้วเกิดอะไร?
+c = d1.pop('team')   # pop ด้วย key ที่ไม่มี แล้วเกิดอะไร?
 ```
 
 ### Solution
 
 ```python
-d1.pop('team')
-```
+c = d1.pop('team')
+``` 
 
 ```{.python .code-output}
 KeyError: 'team'
 ```
 
 ```python
-d1.pop()
+b = d1.pop()
 ```
 
 ```{.python .code-output}
@@ -1125,7 +1127,6 @@ Dict `.pop()` ต้องระบุ key เสมอ! (ต่างจาก 
 
 ```python
 d1 = {'name': 'Rionel Messi', 'isMale': True, 'midterm': 25, 'final': 30, 'weight': 65.25}
-print(d1)
 
 thing = d1.popitem()
 print(d1)
@@ -1173,7 +1174,7 @@ items = [
 
 ## โจทย์ #35 {.exercise}
 
-เข้าถึงข้อมูลใน List of List แล้วคำนวณค่าเฉลี่ยส่วนสูง
+เข้าถึงข้อมูลใน List of List แล้วคำนวณค่าเฉลี่ยส่วนสูง $\frac{180.5+176+187.5}{3}$
 
 ::: {.panel-tabset}
 
@@ -1181,11 +1182,13 @@ items = [
 
 ```{pyodide}
 #| autorun: false
-items = [["John","male",180.5,80], ["Jane","female",176,60.5], ["Steve","male",187.5,82]]
-print(items[0])
-print(items[1])
-print(items[2])
-average_height = (items[____][____] + items[____][____] + items[____][____]) / len(items)
+items = [["John","male",180.5,80], 
+         ["Jane","female",176,60.5], 
+         ["Steve","male",187.5,82]]
+print(items[0])   # บรรทัดนี้พิมพ์อะไร?
+print(items[1])   # บรรทัดนี้พิมพ์อะไร?
+print(items[2])   # บรรทัดนี้พิมพ์อะไร?
+average_height = (_________) / len(items)
 print(f'Average height: {average_height}')
 ```
 
@@ -1212,36 +1215,53 @@ Average height: 181.33333333333334
 
 ## ตัวอย่าง: เพิ่ม/ลบใน List of List
 
-ใช้ `.append()` / `.pop()` เหมือน List ปกติ (แต่ละ item เป็น List)
+ใช้ `.append()` / `.pop()` เหมือน List ปกติ (มอง List ข้างใน 1 ตัวเป็น 1 object) 
 
 ```python
-items = [["John","male",180.5,80], ["Jane","female",176,60.5], ["Steve","male",187.5,82]]
-items.append(["Lisa","female",168,48])
-data = items.pop(0)
-print(data)
-print(items)
+items = [["John","male",180.5,80], 
+         ["Jane","female",176,60.5], 
+         ["Steve","male",187.5,82]]
+items.append(["Lisa","female",168,48])  # บรรทัดนี้ทำอะไร?
+data = items.pop(0)   # บรรทัดนี้ทำอะไร?
+print(f"data = {data}")
+print(f"items = {items}")
 ```
 
 ```{.python .code-output}
-['John', 'male', 180.5, 80]
-[['Jane', 'female', 176, 60.5], ['Steve', 'male', 187.5, 82], ['Lisa', 'female', 168, 48]]
+data = ['John', 'male', 180.5, 80]
+items = [['Jane', 'female', 176, 60.5], ['Steve', 'male', 187.5, 82], ['Lisa', 'female', 168, 48]]
 ```
 
 ## List of Dict {#m4-list-of-dict}
 
 ```python
 items2 = [
-    {"name":"John","gender":"male","height":180.5,"weight":80},
-    {"name":"Jane","gender":"female","height":176,"weight":60.5},
-    {"name":"Steve","gender":"male","height":187.5,"weight":82}
+    { 
+        "name": "John",
+        "gender": "male", 
+        "height": 180.5,
+        "weight": 80
+    },
+    {
+        "name": "Jane",
+        "gender": "female",
+        "height": 176,
+        "weight": 60.5
+    },
+    {
+        "name": "Steve",
+        "gender": "male",
+        "height": 187.5,
+        "weight": 82
+    }
 ]
 ```
 
 ## โจทย์ #36 {.exercise}
 
-เข้าถึงข้อมูลใน List of Dict แล้วคำนวณค่าเฉลี่ยส่วนสูง
+เข้าถึงข้อมูลใน List of Dict แล้วคำนวณค่าเฉลี่ยส่วนสูง $\frac{180.5+176+187.5}{3}$
 
-::: {.panel-tabset}
+::: {.panel-tabset} 
 
 ### Live Code
 
@@ -1252,10 +1272,10 @@ items2 = [
     {"name":"Jane","gender":"female","height":176,"weight":60.5},
     {"name":"Steve","gender":"male","height":187.5,"weight":82}
 ]
-print(items2[0])
-print(items2[1])
-print(items2[2])
-average_height = (items2[0][____] + items2[1][____] + items2[2][____]) / len(items2)
+print(items2[0])  # บรรทัดนี้พิมพ์ค่าอะไร?
+print(items2[1])  # บรรทัดนี้พิมพ์ค่าอะไร?
+print(items2[2])  # บรรทัดนี้พิมพ์ค่าอะไร?
+average_height = (__________) / len(items2)
 print(f'Average height: {average_height}')
 ```
 
@@ -1316,7 +1336,11 @@ items3 = {
 
 ## ตัวอย่าง: เข้าถึง Dict of List
 
-เข้าถึงด้วย **key** แล้วตามด้วย **index** ของ List ข้างใน → `items3["John"][1]`
+เข้าถึงข้อมูลใน Dict of List แล้วคำนวณค่าเฉลี่ยส่วนสูง $\frac{180.5+176+187.5}{3}$
+
+**แนวคิด:** เข้าถึงด้วย **key** แล้วตามด้วย **index** ของ List ข้างใน → `items3["John"][1]`
+
+
 
 ```python
 items3 = {
@@ -1334,15 +1358,16 @@ Average height: 181.33333333333334
 
 ## ตัวอย่าง: เพิ่ม/ลบใน Dict of List
 
-เพิ่มด้วยการกำหนด key ใหม่ · ลบด้วย `.pop(key)`
+- เพิ่มด้วยการกำหนด key ใหม่ 
+- ลบด้วย `.pop(key)`
 
 ```python
 items3 = {
     "John":  ["male",180.5,80],
     "Jane":  ["female",176,60.5],
 }
-items3["Lisa"] = ["female",168,48]
-data = items3.pop("John")
+items3["Lisa"] = ["female",168,48]   # เพิ่ม key='Lisa', value=["female",168,48]
+data = items3.pop("John")            # เอา key='Jonh' ออกพร้อม assign ค่าให้ data
 print(data)
 print(items3)
 ```
@@ -1382,15 +1407,13 @@ student1 = {
 ```{pyodide}
 #| autorun: false
 student1 = {
-    'id': 650610123, 'name': 'Peter Hamilton',
-    'gpax': 3.45, 'isMale': True,
-    'grades': {'259201':'A','259104':'B+','259106':'B+'},
+    'id': 650610123, 'name': 'Peter Hamilton', 'gpax': 3.45, 'isMale': True,
+    'grades': {259201:'A', 259104:'B+', 259106:'B+'},
     'hobbies': ['gaming','running','K-drama'],
 }
 student2 = {
-    'id': 650610203, 'name': 'Thanya Taylor',
-    'gpax': 3.60, 'isMale': False,
-    'grades': {'259201':'B+','259104':'A','259106':'B'},
+    'id': 650610203, 'name': 'Thanya Taylor', 'gpax': 3.60, 'isMale': False,
+    'grades': {259201:'B+', 259104:'A', 259106:'B'},
     'hobbies': [],
 }
 students = [student1, student2]
@@ -1423,21 +1446,19 @@ average GPA: 3.525
 ```{pyodide}
 #| autorun: false
 student1 = {
-    'id': 650610123, 'name': 'Peter Hamilton',
-    'gpax': 3.45, 'isMale': True,
-    'grades': {'259201':'A','259104':'B+','259106':'B+'},
+    'id': 650610123, 'name': 'Peter Hamilton', 'gpax': 3.45, 'isMale': True,
+    'grades': {259201:'A', 259104:'B+', 259106:'B+'},
     'hobbies': ['gaming','running','K-drama'],
 }
 student2 = {
-    'id': 650610203, 'name': 'Thanya Taylor',
-    'gpax': 3.60, 'isMale': False,
-    'grades': {'259201':'B+','259104':'A','259106':'B'},
+    'id': 650610203, 'name': 'Thanya Taylor', 'gpax': 3.60, 'isMale': False,
+    'grades': {259201:'B+', 259104:'A', 259106:'B'},
     'hobbies': [],
 }
 students = [student1, student2]
-students[____][____].append('novel')
-print(students[1])
-print(students[____][____][____])
+students[____][____].append('novel') # อยากเพิ่ม hobby ให้กับ student2
+print(students[______])              # อยากพิมพ์ student2 ออกมาดู             
+print(students[____][____][____])    # ดูเกรดวิชา `259201` ของ student1
 ```
 
 ### Solution
@@ -1446,9 +1467,9 @@ print(students[____][____][____])
 students = [student1, student2]
 
 students[1]['hobbies'].append('novel')
-print(students[1])
+print(students[1])   
 
-print(students[0]['grades']['259201'])
+print(students[0]['grades'][259201])
 ```
 
 ```{.python .code-output}
@@ -1460,7 +1481,7 @@ A
 
 # Summary {background-color="#2c3e50" .white-text}
 
-## สรุป Module 4b
+## สรุป Module 4b {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -1485,8 +1506,8 @@ A
 **Dictionary** `{key: value}`
 
 - อ้างอิงด้วย **key** แทน index
+- `.keys()`, `.values()`, `.items()` 
 - `.pop()`, `.popitem()`, `.clear()`
-- `.keys()`, `.items()`
 
 **Collection of Collections**
 
