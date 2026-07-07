@@ -25,9 +25,9 @@ Introduction to computers for engineers. Principles of computer hardware and sof
 | 8 | Iterations and Collections | [Slides](slides/module08.html){target="_blank"} (?), [Extras](slides/module08_extra.html){target="_blank"} |
 | 9 | Functions | [Slides](slides/module09.html){target="_blank"} (?) |
 | 10 | List Comprehension and 2D Arrays | [Slides](slides/module10.html){target="_blank"} (?) |
-| 11 | Basic Data Visualization with Matplotlib | — |
-| 12 (I) | N-Dimensional Arrays with Numpy (I) | — |
-| 12 (II) | N-Dimensional Arrays with Numpy (II) | — |
+| 11 | Basic Data Visualization with Matplotlib | [Slides](slides/module11.html){target="_blank"} (?) |
+| 12 | N-Dimensional Arrays with Numpy (I) | [Slides](slides/module12a.html){target="_blank"} (?) |
+|     | N-Dimensional Arrays with Numpy (II) | [Slides](slides/module12b.html){target="_blank"} (?) |
 
 ---
 
