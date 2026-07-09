@@ -1024,3 +1024,7 @@ plt.show()
 
 :::
 ::::
+
+::: {.callout-note}
+ต่อ Module 12a: [N-Dimensional Arrays ด้วย NumPy (I)](module12a.html) 👉
+:::

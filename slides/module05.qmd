@@ -212,7 +212,7 @@ True
 
 ```{pyodide}
 #| autorun: false
-# input() ไม่ทำงานใน Pyodide — จำลองด้วยค่าตรง
+# สมมติค่าที่ผู้ใช้ป้อน (แทน input())
 age = int('15')
 print(f'age < 18: {age ____ 18}')
 ```
@@ -1003,7 +1003,7 @@ You are a 6-year student of Engineering program.
 
 # Summary 🎯 {background-color="#2c3e50" .white-text}
 
-## สรุป Module 5 🎉
+## สรุป Module 5 🎉 {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -1035,6 +1035,10 @@ You are a 6-year student of Engineering program.
 
 :::
 ::::
+
+::: {.callout-note}
+ต่อ Module 6: [Iterations — while-loop](module06.html) 👉
+:::
 
 ## โจทย์ #10: ชวนคิดอีก {.exercise-think .smaller}
 

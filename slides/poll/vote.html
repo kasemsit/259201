@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>โหวต</title>
+<style>
+  :root { --navy:#2c3e50; }
+  * { box-sizing:border-box; }
+  body { font-family:-apple-system,"Segoe UI","Noto Sans Thai",sans-serif; margin:0;
+         background:#f4f6f7; color:var(--navy); display:flex; min-height:100vh;
+         align-items:center; justify-content:center; padding:20px; }
+  .card { background:#fff; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,.12);
+          padding:26px; max-width:460px; width:100%; }
+  h1 { font-size:1.2rem; margin:0 0 4px; }
+  .q { font-size:1.2rem; font-weight:700; margin:8px 0 18px; line-height:1.45; }
+  button.opt { display:block; width:100%; margin:11px 0; padding:16px; font-size:1.12rem;
+               border:2px solid var(--navy); border-radius:12px; background:#fff;
+               color:var(--navy); cursor:pointer; transition:.15s; }
+  button.opt:active { transform:scale(.98); }
+  button.opt:hover { background:var(--navy); color:#fff; }
+  button.opt:disabled { opacity:.45; cursor:default; }
+  .thanks { text-align:center; font-size:1.35rem; font-weight:700; color:#27ae60; padding:26px 0; }
+  .muted { color:#7f8c8d; font-size:.86rem; text-align:center; margin-top:14px; }
+  .err { color:#c0392b; }
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <h1>🗳️ โหวต</h1>
+  <div class="q" id="q">กำลังโหลด…</div>
+  <div id="opts"></div>
+  <div class="muted" id="msg"></div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+<script src="poll-config.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var pollId = params.get('poll') || 'intro';
+  // แยกผลโหวตต่อ "session" — ไม่ระบุ = ใช้วันที่วันนี้ (คนละวันจะไม่ปนกัน)
+  var session = params.get('session') || new Date().toISOString().slice(0, 10);
+  var poll   = (window.POLLS || {})[pollId];
+  var qEl = document.getElementById('q'),
+      optsEl = document.getElementById('opts'),
+      msgEl = document.getElementById('msg');
+
+  if (!poll) { qEl.innerHTML = '<span class="err">ไม่พบคำถาม: ' + pollId + '</span>'; return; }
+  qEl.textContent = poll.question;
+
+  var db;
+  try { firebase.initializeApp(window.FIREBASE_CONFIG); db = firebase.database(); }
+  catch (e) { msgEl.innerHTML = '<span class="err">ยังไม่ได้ตั้งค่า Firebase (แก้ poll-config.js)</span>'; }
+
+  var votedKey = 'voted_' + pollId + '_' + session;
+  function done(txt) {
+    document.getElementById('card').innerHTML =
+      '<div class="thanks">✅ ' + txt + '</div>' +
+      '<div class="muted">ดูผลโหวตได้ที่จอหน้าห้อง</div>';
+  }
+  if (localStorage.getItem(votedKey)) { done('คุณโหวตไปแล้ว'); return; }
+
+  poll.options.forEach(function (opt) {
+    var b = document.createElement('button');
+    b.className = 'opt'; b.textContent = opt;
+    b.onclick = function () {
+      if (!db) { msgEl.innerHTML = '<span class="err">ยังไม่ได้ตั้งค่า Firebase</span>'; return; }
+      var all = document.querySelectorAll('button.opt');
+      Array.prototype.forEach.call(all, function (x) { x.disabled = true; });
+      db.ref('polls/' + pollId + '/' + session + '/votes').push(opt)
+        .then(function () { localStorage.setItem(votedKey, '1'); done('ขอบคุณสำหรับการโหวต!'); })
+        .catch(function (e) {
+          msgEl.innerHTML = '<span class="err">ส่งไม่สำเร็จ: ' + e.message + '</span>';
+          Array.prototype.forEach.call(all, function (x) { x.disabled = false; });
+        });
+    };
+    optsEl.appendChild(b);
+  });
+})();
+</script>
+</body>
+</html>

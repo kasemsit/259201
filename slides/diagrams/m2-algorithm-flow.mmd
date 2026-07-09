@@ -1,0 +1,24 @@
+flowchart LR
+  S(("เริ่ม")) --> I1[/"รับ: ชื่อผู้ใช้"/]
+  I1 --> ST1["เก็บค่า: name"]
+  ST1 --> O1[/"แสดง: Hello + name"/]
+  O1 --> I2[/"รับ: อายุ"/]
+  I2 --> ST2["เก็บค่า: age"]
+  ST2 --> C{"age >= 70 ?"}
+  C -- "True" --> Y[/"แสดง: 'อายุมากประสบการณ์!'"/]
+  C -- "False" --> N[/"แสดง: 'ยังหนุ่มสาวอยู่!'"/]
+  Y --> E(("จบ"))
+  N --> E
+
+  classDef term fill:#ecf0f1,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  classDef cond fill:#eaf2fb,stroke:#2980b9,color:#1a5276,stroke-width:2px;
+  classDef stmt fill:#f4f6f7,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  classDef io fill:#fef5e7,stroke:#e67e22,color:#7e5109,stroke-width:1.5px;
+  classDef yes fill:#eafaf1,stroke:#27ae60,color:#145a32,stroke-width:1.5px;
+  classDef no fill:#fdedec,stroke:#c0392b,color:#922b21,stroke-width:1.5px;
+  class S,E term;
+  class C cond;
+  class ST1,ST2 stmt;
+  class I1,O1,I2 io;
+  class Y yes;
+  class N no;

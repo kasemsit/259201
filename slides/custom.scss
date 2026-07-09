@@ -170,4 +170,32 @@ div.callout {
 .reveal pre.code-pattern .stmt { color: #2e7d32; font-weight: 600; }
 .reveal pre.code-pattern .cmt  { color: #6a737d; font-style: italic; }
 
+// รูป + caption ที่จัดกึ่งกลางและชิดกัน
+// ครอบรูปกับ caption ไว้ใน .figbox — รูปจะ center และ caption ชิดใต้รูป:
+//   :::: {.figbox}
+//   ![](images/x.jpg){height="300px"}
+//   ::: {.figcap}
+//   ภาพ: ... CC BY-SA 4.0
+//   :::
+//   ::::
+.reveal .figbox { text-align: center; }
+.reveal .figbox img { display: inline-block; margin: 0 auto 2px; }
+
+// Figure caption / image credit — เล็ก จัดกึ่งกลาง และชิดรูปด้านบน
+.reveal .figcap {
+  font-size: 0.4em;
+  line-height: 1.25;
+  text-align: center;
+  margin: 2px 0 0;
+  opacity: 0.85;
+}
+.reveal .figcap p { margin: 0; }
+
+// แถวโลโก้แบรนด์ (เช่น IDE) — จัดเป็นแถว เอา border/พื้น/margin ของ reveal img ออก
+//   ::: {.logos}
+//   ![](images/logo-x.svg) ![](images/logo-y.svg)
+//   :::
+.reveal .logos { text-align: center; margin: 0.4em 0; }
+.reveal .logos img { height: 2.6em; display: inline-block; vertical-align: middle; border: none; background: none; box-shadow: none; margin: 0 0.7em; }
+
 

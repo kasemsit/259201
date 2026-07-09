@@ -133,7 +133,7 @@ Rules:
   - Type conversion: `i = ____(42 + 3.5)` (student fills `int`)
 - For `input()` exercises: since Pyodide doesn't support interactive input, hardcode a sample value:
   ```python
-  # input() ไม่ทำงานใน Pyodide — จำลองด้วยค่าตรง
+  # สมมติค่าที่ผู้ใช้ป้อน (แทน input())
   x = '5'
   ```
 

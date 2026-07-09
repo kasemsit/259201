@@ -442,7 +442,7 @@ while i <= n:
 ```{pyodide}
 #| autorun: false
 print("Counting from 1 to n")
-n = 10   # input() ไม่ทำงานใน Pyodide — สมมติผู้ใช้ป้อน 10
+n = 10   # สมมติผู้ใช้ป้อน 10 (แทน input())
 for i in range(____, ____):     # [1, 2, 3, ..., n]
     print(i, end=" ")
 ```
@@ -634,7 +634,7 @@ $$
 
 ```{pyodide}
 #| autorun: false
-# input() ไม่ทำงานใน Pyodide — จำลองข้อมูลด้วย list
+# สมมติข้อมูลที่ผู้ใช้ป้อนเป็น list (แทน input())
 data_list = [10, 20, 30]
 n = len(data_list)
 Sum = 0.0
@@ -1205,5 +1205,12 @@ for r in range(nrow):
 - `break` — ออกจากลูป
 - `continue` — ข้ามไปรอบถัดไป
 
+::: {.callout-note}
+ต่อ Module 8: [Iterations และ Collections](module08.html) 👉
 :::
+
+:::
+
 ::::
+
+

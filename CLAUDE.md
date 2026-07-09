@@ -19,6 +19,7 @@ Original content lives in Jupyter notebooks (`ipynb/`), converted to interactive
 │   ├── cross-references.md   # Slide-ID map for cross-module review links
 │   ├── diagrams/             # Mermaid sources (*.mmd) → images/*.svg
 │   ├── figures/              # make-figures.py → images/m11-*.svg
+│   ├── poll/                 # Live audience voting (Firebase): vote.html, results.html, poll-config.js, make-qr.py
 │   ├── mermaid-config.json   # Mermaid theme (fonts, colors, spacing)
 │   ├── render-diagrams.sh    # diagrams/*.mmd → SVG + post-process
 │   ├── images/               # Slide images (SVG diagrams, CC/xkcd comics)
@@ -113,12 +114,31 @@ Never inline `<svg>` into a `.qmd` — it makes the deck unreadable and the styl
 - **Bigger/smaller text on part of a slide**: use inline `[text]{style="font-size:1.5em"}` or a `::: {style="..."}` div — `.smaller` only works on a whole slide (`## Title {.smaller}`), not on a div
 - **Colored syntax skeleton**: reuse the `.code-pattern` box (see `custom.scss`) with `<span>` colors for parts like `start:stop:step` — never render a syntax skeleton as an image
 - **Images**: store in `slides/images/`, reference with `![](...){...}` (not `<img>`); credit CC/xkcd sources with license + link. See **Images: three SVG pipelines** above
+- **Reusable `custom.scss` classes** (so you don't re-fight reveal defaults):
+  - **Captioned image**: wrap in `:::: {.figbox}` (image) + `::: {.figcap}` (credit/caption) — centers the image and hugs the caption under it. Needed because reveal gives every `<img>` a border + `margin:15px 0`, so plain markdown captions drift away and don't center.
+  - **Row of brand logos**: `::: {.logos}` around inline `![](logo-x.svg)` — strips the reveal img border/margin and lays them out centered.
+  - **Syntax skeleton**: `.code-pattern` box with `<span>` colors (see below).
+- **AI-generated images**: caption them honestly (e.g. `ภาพจำลอง (AI-generated)`); optimize to JPEG (~200–330 KB) before committing
 
 ## Splitting a long module (e.g. `moduleNN` → `moduleNNa` / `moduleNNb`)
 
 - Each part is a standalone deck: own front-matter (title/subtitle/footer `Module NNa`), topics slide, and summary; cross-link the parts with a `callout-note`
 - Keep slide IDs (`{#m...}`) unchanged so anchors stay stable; update every cross-module link (`moduleNN.html#...` → `moduleNNa/b.html#...`) across `slides/*.qmd`, `cross-references.md`, `convert-slides.md`, and `index.qmd`
 - Verify with `grep -rn "moduleNN.html"` and re-render the dependent modules (stale `_output/*.html` keeps old links)
+
+## Live audience polling (`slides/poll/`)
+
+Realtime in-slide voting backed by **Firebase Realtime Database** (free Spark plan) — no paid service, self-owned.
+
+- `poll-config.js` — Firebase config + a `POLLS` object (question/options per `pollId`). **The only file to edit to add a question.**
+- `vote.html` — student page (opened via QR on phones) → pushes a vote.
+- `results.html` — live bar chart, embedded in a slide as a raw-HTML `` ```{=html} `` `<iframe src="poll/results.html?poll=<id>">`.
+- `make-qr.py` — regenerates `images/qr-poll-<id>.png` from the deployed vote URL (uses `qrcode`, in `requirements` after `pip install qrcode[pil]`).
+- Pages are copied to `_output/slides/poll/` via the `resources:` key in `_quarto.yml` (iframes aren't auto-detected, so this is required).
+
+**Sessions (so re-teaching doesn't mix results):** votes live at `polls/<pollId>/<session>/votes`; `session` defaults to **today's date**, so different class-days stay separate automatically. For two same-day sections, append `&session=secA` to **both** the iframe `src` and the QR URL.
+
+Full setup (Firebase project, DB rules, deploy to Firebase Hosting / GitHub Pages) is in `slides/poll/README.md`. Example: the `#m1-poll` slide in `module01.qmd`.
 
 ## Do NOT
 

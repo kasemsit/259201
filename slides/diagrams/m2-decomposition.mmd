@@ -1,0 +1,20 @@
+flowchart TD
+  P["โครงการรถไฟฟ้าเชียงใหม่"] --> A["วางเส้นทาง"]
+  P --> B["ออกแบบสถานี"]
+  P --> C["ระบบไฟฟ้า"]
+  P --> D["ความปลอดภัย"]
+  A --> A1["ความหนาแน่นประชากร"]
+  A --> A2["จุดเชื่อมต่อสำคัญ"]
+  B --> B1["ความจุผู้โดยสาร"]
+  B --> B2["กันแดด-กันฝน"]
+  C --> C1["แหล่งจ่ายไฟ"]
+  C --> C2["ระบบสำรอง"]
+  D --> D1["ทางหนีไฟ"]
+  D --> D2["กล้องวงจรปิด"]
+
+  classDef term fill:#ecf0f1,stroke:#7f8c8d,color:#2c3e50,stroke-width:2px;
+  classDef cond fill:#eaf2fb,stroke:#2980b9,color:#1a5276,stroke-width:2px;
+  classDef leaf fill:#eafaf1,stroke:#27ae60,color:#145a32,stroke-width:1.5px;
+  class P term;
+  class A,B,C,D cond;
+  class A1,A2,B1,B2,C1,C2,D1,D2 leaf;

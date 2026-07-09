@@ -1127,7 +1127,7 @@ The heaviest person in the group is Steve with the weight of 82 kg.
 
 # Summary 🎯 {background-color="#2c3e50" .white-text}
 
-## สรุป Module 8 🎉
+## สรุป Module 8 🎉 {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -1163,3 +1163,7 @@ loop + **condition** ช่วยกรอง/นับ/ค้นหาข้อ
 
 :::
 ::::
+
+::: {.callout-note}
+ต่อ Module 9: [Functions](module09.html) 👉
+:::

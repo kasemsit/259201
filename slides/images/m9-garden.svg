@@ -1,0 +1,49 @@
+<svg width="820" height="432" viewBox="0 0 820 432" xmlns="http://www.w3.org/2000/svg"
+     font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="17">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+
+  <!-- garden plot (ground) -->
+  <rect x="16" y="46" width="788" height="352" rx="14" fill="#eef2ee" stroke="#7f8c8d" stroke-width="2"/>
+  <text class="th" x="22" y="32" font-size="20" fill="#2c3e50" font-weight="bold">ผังการจัดสวน 🌱</text>
+
+  <!-- grass zone B: 3 x 6 -->
+  <rect x="44" y="86" width="240" height="118" rx="8" fill="#d3f0de" stroke="#27ae60" stroke-width="2.5"/>
+  <text class="th" x="164" y="138" text-anchor="middle" fill="#145a32" font-weight="bold">ปูหญ้า โซน 1</text>
+  <text x="164" y="168" text-anchor="middle" fill="#145a32" font-weight="bold">3 × 6 m</text>
+
+  <!-- grass zone A: 2 x 3 -->
+  <rect x="44" y="236" width="150" height="104" rx="8" fill="#d3f0de" stroke="#27ae60" stroke-width="2.5"/>
+  <text class="th" x="119" y="282" text-anchor="middle" fill="#145a32" font-weight="bold">ปูหญ้า โซน 2</text>
+  <text x="119" y="310" text-anchor="middle" fill="#145a32" font-weight="bold">2 × 3 m</text>
+
+  <!-- fountain 1: r = 0.5 (big) -->
+  <circle cx="432" cy="150" r="62" fill="#d0e5f7" stroke="#2980b9" stroke-width="2.5"/>
+  <circle cx="432" cy="150" r="44" fill="none" stroke="#2980b9" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="432" cy="150" r="26" fill="none" stroke="#2980b9" stroke-width="1.5" opacity="0.35"/>
+  <text class="th" x="432" y="146" text-anchor="middle" fill="#1a5276" font-weight="bold">น้ำพุ</text>
+  <text x="432" y="171" text-anchor="middle" fill="#1a5276" font-weight="bold">r = 0.5 m</text>
+
+  <!-- fountain 2: r = 0.25 (half the radius) -->
+  <circle cx="600" cy="150" r="31" fill="#d0e5f7" stroke="#2980b9" stroke-width="2.5"/>
+  <circle cx="600" cy="150" r="17" fill="none" stroke="#2980b9" stroke-width="1.5" opacity="0.45"/>
+  <text class="th" x="600" y="210" text-anchor="middle" fill="#1a5276" font-weight="bold">น้ำพุ</text>
+  <text x="600" y="234" text-anchor="middle" fill="#1a5276" font-weight="bold">r = 0.25 m</text>
+
+  <!-- flower pot: triangle, base 0.2 x height 0.3 -->
+  <polygon points="472,342 566,342 519,248" fill="#fde3cf" stroke="#e67e22" stroke-width="2.5"/>
+  <circle cx="512" cy="250" r="5" fill="#e74c3c"/>
+  <circle cx="519" cy="243" r="5" fill="#f1c40f"/>
+  <circle cx="526" cy="250" r="5" fill="#e74c3c"/>
+  <text class="th" x="519" y="368" text-anchor="middle" fill="#7e5109" font-weight="bold">กระถางดอกไม้</text>
+  <text class="th" x="519" y="390" text-anchor="middle" fill="#7e5109">ฐาน <tspan class="c">0.2</tspan> · สูง <tspan class="c">0.3</tspan> m</text>
+
+  <!-- note -->
+  <text class="th" x="656" y="332" text-anchor="middle" fill="#5d6d7e" font-size="13">วงกลม <tspan class="c">r=0.5</tspan> ใหญ่กว่า</text>
+  <text class="th" x="656" y="352" text-anchor="middle" fill="#5d6d7e" font-size="13"><tspan class="c">r=0.25</tspan> เท่าตัว</text>
+
+  <text class="th" x="16" y="422" fill="#95a5a6" font-size="13">* วาดเชิงสัญลักษณ์ — สัดส่วนโดยประมาณ ไม่ได้ตามสเกลจริงทุกส่วน</text>
+</svg>

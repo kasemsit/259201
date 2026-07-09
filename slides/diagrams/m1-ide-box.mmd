@@ -1,0 +1,14 @@
+flowchart LR
+  subgraph IDE["IDE — รวมทุกเครื่องมือไว้ในโปรแกรมเดียว"]
+    direction LR
+    E["Text Editor"] ~~~ C["Compiler /<br/>Interpreter"] ~~~ D["Debugger"] ~~~ G["GUI + เครื่องมืออื่น ๆ"]
+  end
+
+  classDef io fill:#fef5e7,stroke:#e67e22,color:#7e5109,stroke-width:1.5px;
+  classDef stmt fill:#f4f6f7,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  classDef cond fill:#eaf2fb,stroke:#2980b9,color:#1a5276,stroke-width:2px;
+  classDef neut fill:#f4f6f7,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  class E io;
+  class C stmt;
+  class D cond;
+  class G neut;

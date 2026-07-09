@@ -13,8 +13,8 @@ Introduction to computers for engineers. Principles of computer hardware and sof
 
 | Module | Topic | Slides |
 |:------:|:------|:------:|
-| 1 | Course Orientation / Introduction to Programming | — |
-| 2 | Computational Thinking | — |
+| 1 | Course Orientation / Introduction to Programming | [Slides](slides/module01.html){target="_blank"} |
+| 2 | Computational Thinking | [Slides](slides/module02.html){target="_blank"} |
 | 3 | Variables and Types, Operators, Math | [Slides](slides/module03a.html){target="_blank"}, [Extras](slides/module03a_extra.html){target="_blank"} |
 |   | Input / Output and f-string | [Slides](slides/module03b.html){target="_blank"}, [Extras](slides/module03b_extra.html){target="_blank"} |
 | 4  | Collections: List | [Slides](slides/module04a.html){target="_blank"}, [Extras](slides/module04a_extra.html){target="_blank"}   |

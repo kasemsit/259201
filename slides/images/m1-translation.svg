@@ -1,0 +1,39 @@
+<svg width="880" height="300" viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg"
+     font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="16">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5d6d7e"/>
+    </marker>
+  </defs>
+
+  <!-- High-level source -->
+  <rect x="20" y="96" width="210" height="108" rx="8" fill="#eaf2fb" stroke="#2980b9" stroke-width="2.5"/>
+  <text class="th" x="125" y="82" text-anchor="middle" fill="#1a5276" font-weight="bold">ภาษาระดับสูง (High Level)</text>
+  <text x="125" y="140" text-anchor="middle" fill="#1a5276" font-weight="bold" font-size="15">print('Hello')</text>
+  <text x="125" y="168" text-anchor="middle" fill="#1a5276" font-weight="bold" font-size="15">x = 1 + 2</text>
+  <text class="th" x="125" y="196" text-anchor="middle" fill="#5d6d7e" font-size="13">มนุษย์อ่านเข้าใจง่าย</text>
+
+  <!-- Translator -->
+  <rect x="330" y="106" width="200" height="88" rx="8" fill="#fef5e7" stroke="#e67e22" stroke-width="2.5"/>
+  <text class="th" x="430" y="146" text-anchor="middle" fill="#7e5109" font-weight="bold">Compiler /</text>
+  <text class="th" x="430" y="172" text-anchor="middle" fill="#7e5109" font-weight="bold">Interpreter</text>
+  <text class="th" x="430" y="92" text-anchor="middle" fill="#5d6d7e" font-size="13">แปลภาษา</text>
+
+  <!-- Machine code + CPU -->
+  <rect x="630" y="96" width="230" height="108" rx="8" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="2.5"/>
+  <text class="th" x="745" y="82" text-anchor="middle" fill="#2c3e50" font-weight="bold">ภาษาเครื่อง (Machine Code)</text>
+  <text x="745" y="140" text-anchor="middle" fill="#2c3e50" font-weight="bold" font-size="15">0100 1011</text>
+  <text x="745" y="166" text-anchor="middle" fill="#2c3e50" font-weight="bold" font-size="15">1010 0001</text>
+  <text class="th" x="745" y="196" text-anchor="middle" fill="#5d6d7e" font-size="13">CPU ทำงานได้โดยตรง</text>
+
+  <!-- arrows -->
+  <line x1="234" y1="150" x2="322" y2="150" stroke="#5d6d7e" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="534" y1="150" x2="622" y2="150" stroke="#5d6d7e" stroke-width="2.2" marker-end="url(#arrow)"/>
+
+  <text class="th" x="440" y="250" text-anchor="middle" fill="#95a5a6" font-size="14">C/C++, C#, Java, Python เป็นภาษาระดับสูง — ต้องผ่านการแปลก่อนโปรแกรมจึงทำงานได้</text>
+</svg>

@@ -507,7 +507,7 @@ print(myf4(20))
 ## ตัวอย่าง: แปลงเป็น float แล้วหาค่าเฉลี่ย {#m10-convert-example}
 
 ```python
-# input().split() ไม่ทำงานใน Pyodide — จำลองด้วยค่าตรง
+# สมมติค่าที่ผู้ใช้ป้อน (แทน input().split())
 data = "12 3 50 100 0 -99".split()
 print(data)
 
@@ -767,3 +767,7 @@ List comprehension = loop + ประมวลผล + เงื่อนไข 
 
 :::
 ::::
+
+::: {.callout-note}
+ต่อ Module 11: [Data Visualization ด้วย Matplotlib](module11.html) 👉
+:::

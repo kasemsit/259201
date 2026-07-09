@@ -1,0 +1,41 @@
+<svg width="760" height="360" viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg"
+     font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="16">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+
+  <text class="th" x="16" y="28" fill="#2c3e50" font-weight="bold" font-size="18">ส่วนแบ่งความนิยม (PYPL Index, ก.ค. 2026) 🐍</text>
+
+  <!-- Python: 47.49% highlighted -->
+  <text x="118" y="75" text-anchor="end" fill="#1a5276" font-weight="bold">Python</text>
+  <rect x="130" y="59" width="546" height="26" rx="6" fill="#eaf2fb" stroke="#2980b9" stroke-width="2.5"/>
+  <text x="668" y="78" text-anchor="end" fill="#1a5276" font-weight="bold">47.49%</text>
+
+  <!-- Java: 11.44% -->
+  <text x="118" y="121" text-anchor="end" fill="#2c3e50">Java</text>
+  <rect x="130" y="105" width="132" height="26" rx="6" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="272" y="124" fill="#5d6d7e">11.44%</text>
+
+  <!-- C/C++: 9.68% -->
+  <text x="118" y="167" text-anchor="end" fill="#2c3e50">C/C++</text>
+  <rect x="130" y="151" width="111" height="26" rx="6" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="251" y="170" fill="#5d6d7e">9.68%</text>
+
+  <!-- R: 4.68% -->
+  <text x="118" y="213" text-anchor="end" fill="#2c3e50">R</text>
+  <rect x="130" y="197" width="54" height="26" rx="6" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="194" y="216" fill="#5d6d7e">4.68%</text>
+
+  <!-- JavaScript: 3.97% -->
+  <text x="118" y="259" text-anchor="end" fill="#2c3e50">JavaScript</text>
+  <rect x="130" y="243" width="46" height="26" rx="6" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="186" y="262" fill="#5d6d7e">3.97%</text>
+
+  <!-- C#: 2.06% -->
+  <text x="118" y="305" text-anchor="end" fill="#2c3e50">C#</text>
+  <rect x="130" y="289" width="24" height="26" rx="6" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="164" y="308" fill="#5d6d7e">2.06%</text>
+
+  <text class="th" x="16" y="344" fill="#95a5a6" font-size="13">* ส่วนแบ่งจากการค้นหา tutorial บน Google — ที่มา: PYPL Index (Worldwide) · อันดับเปลี่ยนแปลงตามเวลา</text>
+</svg>

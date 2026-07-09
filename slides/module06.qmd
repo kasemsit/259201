@@ -247,17 +247,19 @@ while condition:           # ทดสอบเงื่อนไข
 next-statement
 ```
 
+::: {.callout-tip}
+หากลืม **update** ตัวแปรเงื่อนไข ลูปจะวนไม่รู้จบ (infinite loop)
+:::
+
 :::
 ::: {.column width="50%"}
 
-![](images/m6-components-form.svg){width="400px" fig-align="center"}
+![](images/m6-components-form.svg){width="250px" fig-align="center"}
 
 :::
 ::::
 
-::: {.callout-tip}
-หากลืม **update** ตัวแปรเงื่อนไข ลูปจะวนไม่รู้จบ (infinite loop)
-:::
+
 
 ## โจทย์ #1 (พิมพ์ `1` ถึง `n`) {.exercise}
 
@@ -278,7 +280,7 @@ next-statement
 ```{pyodide}
 #| autorun: false
 print("Counting from 1 to n")
-# input() ไม่ทำงานใน Pyodide — จำลองด้วยค่าตรง
+# สมมติค่าที่ผู้ใช้ป้อน (แทน input())
 n = int('10')
 i = 1                  # initial value
 while i ____ n:        # condition
@@ -563,7 +565,7 @@ Summation:  455
 
 ```{pyodide}
 #| autorun: false
-# input() ไม่ทำงานใน Pyodide — จำลองลำดับคำตอบที่ผู้ใช้ป้อน
+# สมมติลำดับคำตอบที่ผู้ใช้ป้อน (แทน input())
 answers = iter(["n", "k", "x", "y"])
 ans = "n"                # ค่าตั้งต้น (ห้ามเป็น "y")
 while ans ____ "y":
@@ -766,7 +768,7 @@ print('exit-loop')
 :::
 ::: {.column width="48%"}
 
-![](images/m6-break-flow.svg){width="250px" fig-align="center"}
+![](images/m6-break-flow.svg){width="350px" fig-align="center"}
 
 :::
 ::::
@@ -899,7 +901,7 @@ print(k)
 :::
 ::: {.column width="48%"}
 
-![](images/m6-continue-flow.svg){width="250px" fig-align="center"}
+![](images/m6-continue-flow.svg){width="320px" fig-align="center"}
 
 :::
 ::::
@@ -986,6 +988,10 @@ value of a: 20
 - **Condition** — ทดสอบเงื่อนไข
 - **Update** — เพิ่ม/ลด/รับค่าใหม่
 
+::: {.callout-tip}
+อย่าลืม **update** ตัวแปรเงื่อนไข มิฉะนั้นลูปจะไม่จบ
+:::
+
 :::
 ::: {.column width="50%"}
 
@@ -999,9 +1005,11 @@ value of a: 20
 - **`break`** — จบลูปทันที ไปทำ next-statement
 - **`continue`** — จบรอบนั้น แล้ววนกลับไปตรวจเงื่อนไขรอบถัดไป
 
-::: {.callout-tip}
-อย่าลืม **update** ตัวแปรเงื่อนไข มิฉะนั้นลูปจะไม่จบ
-:::
 
+::: {.callout-note}
+ต่อ Module 7: [Iterations — for-loop](module07.html) 👉
+:::
 :::
 ::::
+
+

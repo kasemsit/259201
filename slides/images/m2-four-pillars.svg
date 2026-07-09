@@ -1,0 +1,47 @@
+<svg width="860" height="470" viewBox="0 0 860 470" xmlns="http://www.w3.org/2000/svg"
+     font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="16">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+
+  <!-- central hub -->
+  <circle cx="430" cy="235" r="58" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="2.5"/>
+  <text class="th" x="430" y="228" text-anchor="middle" fill="#2c3e50" font-weight="bold" font-size="17">แนวคิด</text>
+  <text class="th" x="430" y="252" text-anchor="middle" fill="#2c3e50" font-weight="bold" font-size="17">เชิงคำนวณ</text>
+
+  <!-- connectors -->
+  <line x1="300" y1="120" x2="388" y2="200" stroke="#7f8c8d" stroke-width="1.8"/>
+  <line x1="560" y1="120" x2="472" y2="200" stroke="#7f8c8d" stroke-width="1.8"/>
+  <line x1="300" y1="350" x2="388" y2="270" stroke="#7f8c8d" stroke-width="1.8"/>
+  <line x1="560" y1="350" x2="472" y2="270" stroke="#7f8c8d" stroke-width="1.8"/>
+
+  <!-- Decomposition (blue, top-left) -->
+  <rect x="24" y="40" width="290" height="120" rx="8" fill="#eaf2fb" stroke="#2980b9" stroke-width="2.5"/>
+  <text class="th" x="44" y="72" fill="#1a5276" font-weight="bold" font-size="18">1. การแยกส่วน (Decomposition)</text>
+  <text class="th" x="44" y="100" fill="#1a5276">แตกปัญหาใหญ่ที่ซับซ้อน</text>
+  <text class="th" x="44" y="124" fill="#1a5276">ให้เป็นปัญหาย่อย ๆ</text>
+  <text class="th" x="44" y="148" fill="#1a5276">ที่จัดการได้ทีละส่วน</text>
+
+  <!-- Pattern Recognition (red, top-right) -->
+  <rect x="546" y="40" width="290" height="120" rx="8" fill="#fdedec" stroke="#c0392b" stroke-width="2.5"/>
+  <text class="th" x="566" y="72" fill="#922b21" font-weight="bold" font-size="18">2. การหารูปแบบ (Pattern)</text>
+  <text class="th" x="566" y="100" fill="#922b21">มองหาความคล้ายหรือ</text>
+  <text class="th" x="566" y="124" fill="#922b21">รูปแบบซ้ำในปัญหา</text>
+  <text class="th" x="566" y="148" fill="#922b21">เพื่อนำวิธีเดิมมาใช้ซ้ำ</text>
+
+  <!-- Abstraction (orange, bottom-left) -->
+  <rect x="24" y="310" width="290" height="120" rx="8" fill="#fef5e7" stroke="#e67e22" stroke-width="2.5"/>
+  <text class="th" x="44" y="342" fill="#7e5109" font-weight="bold" font-size="18">3. นามธรรม (Abstraction)</text>
+  <text class="th" x="44" y="370" fill="#7e5109">กรอง "รายละเอียดที่ไม่จำเป็น"</text>
+  <text class="th" x="44" y="394" fill="#7e5109">ออกไป เหลือเฉพาะสิ่งสำคัญ</text>
+  <text class="th" x="44" y="418" fill="#7e5109">ต่อการแก้ปัญหา</text>
+
+  <!-- Algorithms (green, bottom-right) -->
+  <rect x="546" y="310" width="290" height="120" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2.5"/>
+  <text class="th" x="566" y="342" fill="#145a32" font-weight="bold" font-size="18">4. อัลกอริทึม (Algorithms)</text>
+  <text class="th" x="566" y="370" fill="#145a32">ออกแบบขั้นตอนการแก้ปัญหา</text>
+  <text class="th" x="566" y="394" fill="#145a32">แบบทีละขั้น ที่ทำตามแล้ว</text>
+  <text class="th" x="566" y="418" fill="#145a32">ได้ผลลัพธ์เหมือนเดิมทุกครั้ง</text>
+</svg>

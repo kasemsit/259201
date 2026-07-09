@@ -129,7 +129,10 @@ Area of triangle: 12.0
 
 :::
 
-## โจทย์ #2 {.exercise}
+## โจทย์ #2 {.exercise .smaller}
+
+:::: {.columns}
+::: {.column width="45%"}
 
 เขียนโปรแกรมคำนวณพื้นที่ที่ต้องใช้สำหรับการ**จัดสวน** ประกอบด้วย
 
@@ -137,13 +140,19 @@ Area of triangle: 12.0
 - **น้ำพุ** (วงกลม) 2 อัน รัศมี `0.5` m. กับ `0.25` m.
 - **กระถางดอกไม้** (สามเหลี่ยม) 1 อัน ฐาน `0.2` m. สูง `0.3` m.
 
-. . .
-
 หา**ผลรวม**ของพื้นที่ทั้งหมด แล้วแสดงผลดังนี้
 
 ```
 Total Area: (พื้นที่ทั้งหมด)
 ```
+
+:::
+::: {.column width="55%"}
+
+![](images/m9-garden.svg){height="500px" fig-align="center"}
+
+:::
+::::
 
 ## โจทย์ #2 (ต่อ) {.exercise}
 
@@ -1019,3 +1028,7 @@ myFunction():x 13
 
 :::
 ::::
+
+::: {.callout-note}
+ต่อ Module 10: [List Comprehension และ 2D Arrays](module10.html) 👉
+:::

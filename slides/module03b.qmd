@@ -554,7 +554,7 @@ Average height = 167.5000.
 
 # Summary 🎯 {background-color="#2c3e50" .white-text}
 
-## สรุป Module 3b 🎉
+## สรุป Module 3b 🎉 {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -579,3 +579,7 @@ Average height = 167.5000.
 
 :::
 ::::
+
+::: {.callout-note}
+ต่อ Module 4a: [Collections — List](module04a.html) 👉
+:::

@@ -1400,7 +1400,7 @@ not y is True
 
 
 
-## Assignment Operators {#m3-assignment}
+## Assignment Operators {#m3-assignment .smaller}
 
 **แบบพื้นฐาน** — กำหนดค่า (`=`) 📌
 
@@ -1461,15 +1461,14 @@ x = 10        # assign
 | `or`                  | Logical OR                            | ซ้าย → ขวา               |
 | `=`, `+=`, `-=`, `*=`, `**=`, `/=`, `//=` | Assignment operators      | **ขวา → ซ้าย** ⭐ |
 
-::: {.callout-important}
-`not` · `and` · `or` **ไม่ได้อยู่ระดับเดียวกัน** — `not` แน่นสุด แล้ว `and` แล้วจึง `or`
 
-`True or False and False` → `and` ทำก่อน → ได้ `True` (ไม่ใช่ `False`)
-:::
-
-## เห็นภาพ: `20 + 10 * 15 / 5` ทำงานทีละขั้น {#m3-precedence-trace .center}
+## เห็นภาพ: `2 * 20 + 10 * 15 / 5` ทำงานทีละขั้น {#m3-precedence-trace .center}
 
 ![](images/m3-precedence-trace.svg){height="420px" fig-align="center"}
+
+## เห็นภาพ: `(2 + 3) ** 2 * 4 // 5` ทำงานทีละขั้น {#m3-precedence-trace2 .center}
+
+![](images/m3-precedence-trace2.svg){height="420px" fig-align="center"}
 
 ## Associativity: จับคู่จากทางไหน {#m3-associativity .center}
 
@@ -1856,7 +1855,7 @@ print(math.floor(5.99))
 
 # Summary 🎯 {background-color="#2c3e50" .white-text}
 
-## สรุป Module 3a 🎉
+## สรุป Module 3a 🎉 {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -1883,9 +1882,13 @@ print(math.floor(5.99))
 - `sqrt`, `sin`, `cos`, `pi`, ...
 - `ceil`, `floor`, `factorial`
 
-:::
-::::
 
 ::: {.callout-note}
 ต่อ Module 3b: [Input / Output และ f-string](module03b.html) 👉
 :::
+:::
+
+
+::::
+
+

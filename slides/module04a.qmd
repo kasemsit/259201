@@ -1197,7 +1197,7 @@ print(x[idx_mx])
 
 # Summary {background-color="#2c3e50" .white-text}
 
-## สรุป Module 4a
+## สรุป Module 4a {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -1222,3 +1222,7 @@ print(x[idx_mx])
 
 :::
 ::::
+
+::: {.callout-note}
+ต่อ Module 4b: [Tuple, Set และ Dictionary](module04b.html) 👉
+:::

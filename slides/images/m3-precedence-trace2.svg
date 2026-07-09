@@ -1,0 +1,87 @@
+<svg width="830" height="460" viewBox="0 0 830 460" xmlns="http://www.w3.org/2000/svg"
+     font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="22">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+  <defs>
+    <marker id="tr2-orange" markerWidth="9" markerHeight="9" refX="4.5" refY="4.5" orient="auto">
+      <path d="M0,0 L8,4.5 L0,9 Z" fill="#e67e22"/>
+    </marker>
+    <marker id="tr2-blue" markerWidth="9" markerHeight="9" refX="4.5" refY="4.5" orient="auto">
+      <path d="M0,0 L8,4.5 L0,9 Z" fill="#2980b9"/>
+    </marker>
+  </defs>
+
+  <!-- row 1: full expression, parentheses go first -->
+  <rect x="46" y="26" width="140" height="38" rx="8" fill="#eaf2fb" stroke="#2980b9" stroke-width="2"/>
+  <text x="62"  y="53" text-anchor="middle" fill="#2980b9" font-weight="bold">(</text>
+  <text x="88"  y="53" text-anchor="middle" fill="#1a5276" font-weight="bold">2</text>
+  <text x="116" y="53" text-anchor="middle" fill="#2980b9" font-weight="bold">+</text>
+  <text x="144" y="53" text-anchor="middle" fill="#1a5276" font-weight="bold">3</text>
+  <text x="170" y="53" text-anchor="middle" fill="#2980b9" font-weight="bold">)</text>
+  <text x="208" y="53" text-anchor="middle" fill="#95a5a6">**</text>
+  <text x="248" y="53" text-anchor="middle" fill="#2c3e50">2</text>
+  <text x="288" y="53" text-anchor="middle" fill="#95a5a6">*</text>
+  <text x="322" y="53" text-anchor="middle" fill="#2c3e50">4</text>
+  <text x="360" y="53" text-anchor="middle" fill="#95a5a6">//</text>
+  <text x="398" y="53" text-anchor="middle" fill="#2c3e50">5</text>
+  <text class="th" x="490" y="52" fill="#2980b9" font-size="15">วงเล็บทำก่อนเสมอ — แม้ <tspan class="c">+</tspan> จะระดับต่ำสุด</text>
+
+  <!-- arrow: + inside () (x=116) down onto the 5 -->
+  <line x1="116" y1="68" x2="116" y2="104" stroke="#2980b9" stroke-width="2" marker-end="url(#tr2-blue)"/>
+
+  <!-- row 2: (2+3) = 5, then ** -->
+  <rect x="98" y="106" width="118" height="38" rx="8" fill="#fef5e7" stroke="#e67e22" stroke-width="2"/>
+  <circle cx="32" cy="125" r="13" fill="#2980b9"/>
+  <text x="32" y="132" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">1</text>
+  <text x="116" y="133" text-anchor="middle" fill="#7e5109" font-weight="bold">5</text>
+  <text x="158" y="133" text-anchor="middle" fill="#e67e22" font-weight="bold">**</text>
+  <text x="198" y="133" text-anchor="middle" fill="#7e5109" font-weight="bold">2</text>
+  <text x="238" y="133" text-anchor="middle" fill="#95a5a6">*</text>
+  <text x="272" y="133" text-anchor="middle" fill="#2c3e50">4</text>
+  <text x="310" y="133" text-anchor="middle" fill="#95a5a6">//</text>
+  <text x="348" y="133" text-anchor="middle" fill="#2c3e50">5</text>
+  <text class="th" x="490" y="132" fill="#e67e22" font-size="15"><tspan class="c">**</tspan> ระดับสูงสุด (รองจากวงเล็บ)</text>
+
+  <!-- arrow: ** (x=158) down onto the 25 -->
+  <line x1="158" y1="148" x2="158" y2="184" stroke="#e67e22" stroke-width="2" marker-end="url(#tr2-orange)"/>
+
+  <!-- row 3: 5**2 = 25, then * -->
+  <rect x="136" y="186" width="120" height="38" rx="8" fill="#fef5e7" stroke="#e67e22" stroke-width="2"/>
+  <circle cx="32" cy="205" r="13" fill="#e67e22"/>
+  <text x="32" y="212" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">2</text>
+  <text x="158" y="213" text-anchor="middle" fill="#7e5109" font-weight="bold">25</text>
+  <text x="206" y="213" text-anchor="middle" fill="#e67e22" font-weight="bold">*</text>
+  <text x="240" y="213" text-anchor="middle" fill="#7e5109" font-weight="bold">4</text>
+  <text x="278" y="213" text-anchor="middle" fill="#95a5a6">//</text>
+  <text x="316" y="213" text-anchor="middle" fill="#2c3e50">5</text>
+  <text class="th" x="490" y="212" fill="#e67e22" font-size="15"><tspan class="c">*</tspan> กับ <tspan class="c">//</tspan> ระดับเดียวกัน → ตัวซ้ายก่อน</text>
+
+  <!-- arrow: * (x=206) down onto the 100 -->
+  <line x1="206" y1="228" x2="206" y2="264" stroke="#e67e22" stroke-width="2" marker-end="url(#tr2-orange)"/>
+
+  <!-- row 4: 25*4 = 100, then // -->
+  <rect x="178" y="266" width="134" height="38" rx="8" fill="#fef5e7" stroke="#e67e22" stroke-width="2"/>
+  <circle cx="32" cy="285" r="13" fill="#e67e22"/>
+  <text x="32" y="292" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">3</text>
+  <text x="206" y="293" text-anchor="middle" fill="#7e5109" font-weight="bold">100</text>
+  <text x="258" y="293" text-anchor="middle" fill="#e67e22" font-weight="bold">//</text>
+  <text x="296" y="293" text-anchor="middle" fill="#7e5109" font-weight="bold">5</text>
+  <text class="th" x="490" y="292" fill="#e67e22" font-size="15"><tspan class="c">//</tspan> หารปัดลง (floor division)</text>
+
+  <!-- arrow: // (x=258) down onto the 20 -->
+  <line x1="258" y1="308" x2="258" y2="344" stroke="#e67e22" stroke-width="2" marker-end="url(#tr2-orange)"/>
+
+  <!-- row 5: result -->
+  <rect x="198" y="346" width="120" height="40" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2.5"/>
+  <circle cx="32" cy="366" r="13" fill="#27ae60"/>
+  <text x="32" y="373" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">4</text>
+  <text x="258" y="374" text-anchor="middle" fill="#145a32" font-weight="bold">20</text>
+  <text class="th" x="350" y="373" fill="#27ae60" font-size="15"><tspan class="c">int // int</tspan> → ได้ <tspan class="c">int</tspan> → <tspan class="c">20</tspan> (ไม่ใช่ <tspan class="c">20.0</tspan>)</text>
+
+  <!-- footer: parentheses as a tool -->
+  <line x1="46" y1="410" x2="784" y2="410" stroke="#e5e8ea" stroke-width="1.5"/>
+  <text class="th" x="46" y="440" fill="#5d6d7e" font-size="15">วงเล็บคือเครื่องมือ <tspan fill="#2c3e50" font-weight="bold">บังคับลำดับ</tspan> — ใช้เมื่ออยากได้ผลต่างจากลำดับปกติ</text>
+</svg>

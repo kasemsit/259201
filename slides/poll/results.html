@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ผลโหวต</title>
+<style>
+  :root { --navy:#2c3e50; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; }
+  body { font-family:-apple-system,"Segoe UI","Noto Sans Thai",sans-serif;
+         color:var(--navy); background:transparent; padding:8px 14px; }
+  .q { font-size:1.1rem; font-weight:700; margin:0 0 14px; line-height:1.35; }
+  .row { display:flex; align-items:center; margin:9px 0; gap:10px; }
+  .label { flex:0 0 32%; font-weight:600; text-align:right; font-size:1rem; line-height:1.15; }
+  .barwrap { flex:1; background:#e8ecef; border-radius:8px; overflow:hidden; height:34px; }
+  .bar { height:100%; width:0; border-radius:8px; transition:width .5s ease; }
+  .cnt { flex:0 0 auto; min-width:78px; font-variant-numeric:tabular-nums; font-size:.95rem; }
+  .foot { color:#95a5a6; font-size:.8rem; margin-top:12px; display:flex; justify-content:space-between; }
+  .reset { color:#cfd6da; text-decoration:none; }
+  .reset:hover { color:#c0392b; }
+</style>
+</head>
+<body>
+  <div class="q" id="q">กำลังโหลด…</div>
+  <div id="bars"></div>
+  <div class="foot"><span id="totaltxt"></span><a href="#" class="reset" id="reset">ล้างผล</a></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+<script src="poll-config.js"></script>
+<script>
+(function () {
+  var COLORS = ['#2980b9', '#27ae60', '#e67e22', '#c0392b', '#8e44ad', '#16a085'];
+  var params = new URLSearchParams(location.search);
+  var pollId = params.get('poll') || 'intro';
+  // แยกผลโหวตต่อ "session" — ไม่ระบุ = ใช้วันที่วันนี้ (ต้องตรงกับหน้า vote)
+  var session = params.get('session') || new Date().toISOString().slice(0, 10);
+  var poll   = (window.POLLS || {})[pollId];
+  var qEl = document.getElementById('q'),
+      barsEl = document.getElementById('bars'),
+      totalEl = document.getElementById('totaltxt');
+
+  if (!poll) { qEl.textContent = 'ไม่พบคำถาม: ' + pollId; return; }
+  qEl.textContent = poll.question;
+
+  var rows = {};
+  poll.options.forEach(function (opt, i) {
+    var row = document.createElement('div'); row.className = 'row';
+    row.innerHTML = '<div class="label"></div>' +
+                    '<div class="barwrap"><div class="bar" style="background:' + COLORS[i % COLORS.length] + '"></div></div>' +
+                    '<div class="cnt">0</div>';
+    row.querySelector('.label').textContent = opt;
+    barsEl.appendChild(row);
+    rows[opt] = { bar: row.querySelector('.bar'), cnt: row.querySelector('.cnt') };
+  });
+
+  var db;
+  try { firebase.initializeApp(window.FIREBASE_CONFIG); db = firebase.database(); }
+  catch (e) { qEl.textContent = 'ยังไม่ได้ตั้งค่า Firebase (แก้ poll-config.js)'; return; }
+
+  var votesRef = db.ref('polls/' + pollId + '/' + session + '/votes');
+  votesRef.on('value', function (snap) {
+    var counts = {}; poll.options.forEach(function (o) { counts[o] = 0; });
+    var total = 0;
+    snap.forEach(function (c) { var v = c.val(); if (counts[v] !== undefined) counts[v]++; total++; });
+    poll.options.forEach(function (opt) {
+      var n = counts[opt] || 0, pct = total ? Math.round(n / total * 100) : 0;
+      rows[opt].bar.style.width = pct + '%';
+      rows[opt].cnt.textContent = n + ' (' + pct + '%)';
+    });
+    totalEl.textContent = 'รวม ' + total + ' โหวต · session: ' + session;
+  });
+
+  document.getElementById('reset').onclick = function (e) {
+    e.preventDefault();
+    if (confirm('ล้างผลโหวตของ session "' + session + '"?')) votesRef.remove();
+  };
+})();
+</script>
+</body>
+</html>

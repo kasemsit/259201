@@ -1,0 +1,14 @@
+flowchart LR
+  E["Text Editor<br/>เขียนโค้ด"] -->|"ไฟล์ .py / .c"| C["Compiler / Interpreter<br/>แปลเป็นภาษาเครื่อง"]
+  C --> R(("โปรแกรม<br/>ทำงาน"))
+  D["Debugger<br/>ตรวจทีละขั้น หาบั๊ก"] -.-> R
+  R -.->|"เจอบั๊ก → กลับไปแก้"| E
+
+  classDef io fill:#fef5e7,stroke:#e67e22,color:#7e5109,stroke-width:1.5px;
+  classDef stmt fill:#f4f6f7,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  classDef term fill:#ecf0f1,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  classDef cond fill:#eaf2fb,stroke:#2980b9,color:#1a5276,stroke-width:2px;
+  class E io;
+  class C stmt;
+  class R term;
+  class D cond;

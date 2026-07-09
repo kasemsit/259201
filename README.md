@@ -33,6 +33,10 @@ Slides use [Pyodide](https://pyodide.org/) to run Python in the browser. Key lim
 | **Memory** | Limited by the browser (~2–4 GB) |
 | **matplotlib** | Renders static images (PNG), not interactive plots |
 
+## Live audience polling (optional)
+
+Realtime in-slide voting backed by [Firebase Realtime Database](https://firebase.google.com/docs/database) (free Spark plan) — students scan a QR, vote on their phones, and a live bar chart updates in the slide. Results are scoped per session (defaults to the date) so re-teaching the same slide never mixes classes. Setup and usage: [`slides/poll/README.md`](slides/poll/README.md). Example: the *"มาโหวตกันหน่อย"* slide in Module 1.
+
 ## Setup
 
 ```bash
