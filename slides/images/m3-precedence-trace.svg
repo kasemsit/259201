@@ -1,0 +1,61 @@
+<svg width="780" height="380" viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg"
+     font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="22">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+  <defs>
+    <marker id="tr-down" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L7,4 L0,8 Z" fill="#95a5a6"/>
+    </marker>
+  </defs>
+
+  <!-- row 1: the expression, * and / bind tightest -->
+  <rect x="158" y="26" width="146" height="38" rx="8" fill="#fef5e7" stroke="#e67e22" stroke-width="2"/>
+  <text x="80"  y="53" text-anchor="middle" fill="#2c3e50">20</text>
+  <text x="130" y="53" text-anchor="middle" fill="#95a5a6">+</text>
+  <text x="180" y="53" text-anchor="middle" fill="#7e5109" font-weight="bold">10</text>
+  <text x="231" y="53" text-anchor="middle" fill="#e67e22" font-weight="bold">*</text>
+  <text x="282" y="53" text-anchor="middle" fill="#7e5109" font-weight="bold">15</text>
+  <text x="332" y="53" text-anchor="middle" fill="#95a5a6">/</text>
+  <text x="382" y="53" text-anchor="middle" fill="#2c3e50">5</text>
+  <text class="th" x="430" y="52" fill="#e67e22" font-size="15"><tspan class="c">*</tspan> จับคู่ซ้ายไปขวา → ทำก่อน</text>
+
+  <line x1="60" y1="72" x2="60" y2="102" stroke="#95a5a6" stroke-width="1.5" marker-end="url(#tr-down)"/>
+
+  <!-- row 2 -->
+  <rect x="200" y="106" width="206" height="38" rx="8" fill="#fef5e7" stroke="#e67e22" stroke-width="2"/>
+  <circle cx="32" cy="125" r="13" fill="#e67e22"/>
+  <text x="32" y="132" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">1</text>
+  <text x="80"  y="133" text-anchor="middle" fill="#2c3e50">20</text>
+  <text x="130" y="133" text-anchor="middle" fill="#95a5a6">+</text>
+  <text x="231" y="133" text-anchor="middle" fill="#7e5109" font-weight="bold">150</text>
+  <text x="332" y="133" text-anchor="middle" fill="#e67e22" font-weight="bold">/</text>
+  <text x="382" y="133" text-anchor="middle" fill="#7e5109" font-weight="bold">5</text>
+  <text class="th" x="430" y="132" fill="#e67e22" font-size="15"><tspan class="c">/</tspan> อยู่ระดับเดียวกับ <tspan class="c">*</tspan> → ทำต่อ</text>
+
+  <line x1="60" y1="152" x2="60" y2="182" stroke="#95a5a6" stroke-width="1.5" marker-end="url(#tr-down)"/>
+
+  <!-- row 3 -->
+  <rect x="52" y="186" width="222" height="38" rx="8" fill="#eaf2fb" stroke="#2980b9" stroke-width="2"/>
+  <circle cx="32" cy="205" r="13" fill="#e67e22"/>
+  <text x="32" y="212" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">2</text>
+  <text x="80"  y="213" text-anchor="middle" fill="#1a5276" font-weight="bold">20</text>
+  <text x="130" y="213" text-anchor="middle" fill="#2980b9" font-weight="bold">+</text>
+  <text x="231" y="213" text-anchor="middle" fill="#1a5276" font-weight="bold">30.0</text>
+  <text class="th" x="430" y="212" fill="#2980b9" font-size="15"><tspan class="c">+</tspan> ระดับต่ำกว่า → ทำทีหลัง</text>
+
+  <line x1="60" y1="232" x2="60" y2="262" stroke="#95a5a6" stroke-width="1.5" marker-end="url(#tr-down)"/>
+
+  <!-- row 4: result -->
+  <rect x="52" y="266" width="120" height="40" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2.5"/>
+  <circle cx="32" cy="286" r="13" fill="#27ae60"/>
+  <text x="32" y="293" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">3</text>
+  <text x="112" y="294" text-anchor="middle" fill="#145a32" font-weight="bold">50.0</text>
+  <text class="th" x="200" y="293" fill="#27ae60" font-size="15">หาร → ได้ <tspan class="c">float</tspan> ผลลัพธ์จึงเป็น <tspan class="c">50.0</tspan></text>
+
+  <!-- footer: parentheses make it explicit -->
+  <line x1="52" y1="330" x2="728" y2="330" stroke="#e5e8ea" stroke-width="1.5"/>
+  <text class="th" x="52" y="360" fill="#5d6d7e" font-size="15">เขียนให้ชัดด้วยวงเล็บ: <tspan class="c" fill="#2c3e50" font-weight="bold">20 + ((10 * 15) / 5)</tspan> — ผลเท่ากัน แต่ผู้อ่านไม่ต้องเดา</text>
+</svg>

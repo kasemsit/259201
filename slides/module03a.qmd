@@ -1437,7 +1437,11 @@ x = 10        # assign
 
 
 
-## Operator Precedence (ลำดับความสำคัญ) {#m3-precedence .smaller}
+## Operator Precedence (ลำดับความสำคัญ) {#m3-precedence .center}
+
+![](images/m3-precedence-ladder.svg){height="520px" fig-align="center"}
+
+## Operator Precedence — ตาราง {#m3-precedence-table .smaller}
 
 ลำดับจาก **สูงสุด → ต่ำสุด**
 
@@ -1451,13 +1455,31 @@ x = 10        # assign
 | `<<`, `>>`            | Bitwise **`shift`** operators         | ซ้าย → ขวา               |
 | `&`                   | Bitwise **`AND`**                     | ซ้าย → ขวา               |
 | `^`, `\|`             | Bitwise **`XOR`** and **`OR`**        | ซ้าย → ขวา               |
-| `>`, `>=`, `<`, `<=`  | Comparison operators                  | ซ้าย → ขวา               |
-| `==`, `!=`            | Equality operators                    | ซ้าย → ขวา               |
+| `<`, `<=`, `>`, `>=`, `==`, `!=`, `is`, `is not`, `in`, `not in` | Comparison, Identity, Membership — **ระดับเดียวกัน** | ซ้าย → ขวา |
+| `not`                 | Logical NOT                           | —                        |
+| `and`                 | Logical AND                           | ซ้าย → ขวา               |
+| `or`                  | Logical OR                            | ซ้าย → ขวา               |
 | `=`, `+=`, `-=`, `*=`, `**=`, `/=`, `//=` | Assignment operators      | **ขวา → ซ้าย** ⭐ |
-| `is`, `is not`        | Identity operators                    | ซ้าย → ขวา               |
-| `in`, `not in`        | Membership operators                  | ซ้าย → ขวา               |
-| `not`, `or`, `and`    | Logical operators                     | ซ้าย → ขวา               |
 
+::: {.callout-important}
+`not` · `and` · `or` **ไม่ได้อยู่ระดับเดียวกัน** — `not` แน่นสุด แล้ว `and` แล้วจึง `or`
+
+`True or False and False` → `and` ทำก่อน → ได้ `True` (ไม่ใช่ `False`)
+:::
+
+## เห็นภาพ: `20 + 10 * 15 / 5` ทำงานทีละขั้น {#m3-precedence-trace .center}
+
+![](images/m3-precedence-trace.svg){height="420px" fig-align="center"}
+
+## Associativity: จับคู่จากทางไหน {#m3-associativity .center}
+
+เมื่อ operator **ระดับเดียวกัน** อยู่ติดกัน — ตัวไหนจับคู่ก่อน?
+
+![](images/m3-associativity.svg){height="360px" fig-align="center"}
+
+::: {.callout-tip}
+`**` เป็นตัวเดียวในหมู่คณิตศาสตร์ที่จับคู่ **ขวา → ซ้าย** — จำไว้ให้ดี
+:::
 
 ## โจทย์ #26 {.exercise}
 

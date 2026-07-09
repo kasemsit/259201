@@ -1,0 +1,60 @@
+<svg width="880" height="330" viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg"
+     font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="20">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+
+  <!-- ===== left: ** is right-associative ===== -->
+  <rect x="16" y="16" width="410" height="298" rx="10" fill="#fdf7fb" stroke="#6c3483" stroke-width="2.5"/>
+  <text class="th" x="221" y="48" text-anchor="middle" fill="#4a235a" font-size="17" font-weight="bold">
+    <tspan class="c">**</tspan> จับคู่ ขวา → ซ้าย
+  </text>
+
+  <text x="221" y="96" text-anchor="middle" fill="#2c3e50" font-size="24" font-weight="bold">2 ** 3 ** 2</text>
+
+  <!-- correct: group the right pair -->
+  <rect x="204" y="128" width="118" height="34" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+  <text x="120" y="152" text-anchor="middle" fill="#2c3e50" font-size="19">2 **</text>
+  <text x="263" y="152" text-anchor="middle" fill="#145a32" font-size="19" font-weight="bold">3 ** 2</text>
+  <text x="332" y="152" fill="#27ae60" font-size="19" font-weight="bold">= 512</text>
+  <text class="th" x="221" y="182" text-anchor="middle" fill="#27ae60" font-size="15">ถูก — Python จับคู่ขวาก่อน <tspan class="c">2**(3**2)</tspan></text>
+
+  <line x1="40" y1="204" x2="402" y2="204" stroke="#e5e8ea" stroke-width="1.5"/>
+
+  <!-- wrong: group the left pair -->
+  <rect x="82" y="226" width="118" height="34" rx="8" fill="#fdedec" stroke="#c0392b" stroke-width="2"/>
+  <text x="141" y="250" text-anchor="middle" fill="#922b21" font-size="19" font-weight="bold">2 ** 3</text>
+  <text x="238" y="250" text-anchor="middle" fill="#2c3e50" font-size="19">** 2</text>
+  <text x="300" y="250" fill="#c0392b" font-size="19" font-weight="bold">= 64</text>
+  <text class="th" x="221" y="280" text-anchor="middle" fill="#c0392b" font-size="15">ผิด — ถ้าเผลออ่านซ้ายไปขวา</text>
+  <text x="385" y="250" fill="#c0392b" font-size="20" font-weight="bold">✗</text>
+  <text x="400" y="152" fill="#27ae60" font-size="20" font-weight="bold">✓</text>
+
+  <!-- ===== right: / is left-associative ===== -->
+  <rect x="454" y="16" width="410" height="298" rx="10" fill="#f7fafd" stroke="#2980b9" stroke-width="2.5"/>
+  <text class="th" x="659" y="48" text-anchor="middle" fill="#1a5276" font-size="17" font-weight="bold">
+    <tspan class="c">/</tspan> จับคู่ ซ้าย → ขวา
+  </text>
+
+  <text x="659" y="96" text-anchor="middle" fill="#2c3e50" font-size="24" font-weight="bold">100 / 10 / 2</text>
+
+  <!-- correct: group the left pair -->
+  <rect x="512" y="128" width="140" height="34" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+  <text x="582" y="152" text-anchor="middle" fill="#145a32" font-size="19" font-weight="bold">100 / 10</text>
+  <text x="686" y="152" text-anchor="middle" fill="#2c3e50" font-size="19">/ 2</text>
+  <text x="736" y="152" fill="#27ae60" font-size="19" font-weight="bold">= 5.0</text>
+  <text class="th" x="659" y="182" text-anchor="middle" fill="#27ae60" font-size="15">ถูก — จับคู่ซ้ายก่อน <tspan class="c">(100/10)/2</tspan></text>
+
+  <line x1="478" y1="204" x2="840" y2="204" stroke="#e5e8ea" stroke-width="1.5"/>
+
+  <!-- wrong: group the right pair -->
+  <rect x="600" y="226" width="106" height="34" rx="8" fill="#fdedec" stroke="#c0392b" stroke-width="2"/>
+  <text x="555" y="250" text-anchor="middle" fill="#2c3e50" font-size="19">100 /</text>
+  <text x="653" y="250" text-anchor="middle" fill="#922b21" font-size="19" font-weight="bold">10 / 2</text>
+  <text x="726" y="250" fill="#c0392b" font-size="19" font-weight="bold">= 20.0</text>
+  <text class="th" x="659" y="280" text-anchor="middle" fill="#c0392b" font-size="15">ผิด — ถ้าเผลอจับคู่ขวาก่อน</text>
+  <text x="820" y="250" fill="#c0392b" font-size="20" font-weight="bold">✗</text>
+  <text x="820" y="152" fill="#27ae60" font-size="20" font-weight="bold">✓</text>
+</svg>

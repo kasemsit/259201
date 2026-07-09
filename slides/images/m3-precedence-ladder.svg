@@ -1,0 +1,96 @@
+<svg width="900" height="580" viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg"
+     font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="15">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+  <defs>
+    <marker id="prec-down" markerWidth="9" markerHeight="9" refX="5" refY="4.5" orient="auto">
+      <path d="M0,0 L8,4.5 L0,9 Z" fill="#5d6d7e"/>
+    </marker>
+  </defs>
+
+  <!-- high → low axis -->
+  <text class="th" x="40" y="40" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">สูง</text>
+  <line x1="40" y1="52" x2="40" y2="536" stroke="#5d6d7e" stroke-width="2.5" marker-end="url(#prec-down)"/>
+  <text class="th" x="40" y="568" text-anchor="middle" font-size="14" fill="#2980b9" font-weight="bold">ต่ำ</text>
+
+  <!-- 1: grouping -->
+  <rect x="75" y="55" width="290" height="34" rx="8" fill="#ecf0f1" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="90" y="77" fill="#2c3e50" font-weight="bold">()</text>
+  <text class="th" x="380" y="77" fill="#2c3e50">จัดกลุ่มด้วยวงเล็บ</text>
+  <text class="th" x="690" y="77" fill="#95a5a6" font-size="13">—</text>
+
+  <!-- 2: power -->
+  <rect x="75" y="95" width="290" height="34" rx="8" fill="#f4ecf7" stroke="#6c3483" stroke-width="2"/>
+  <text x="90" y="117" fill="#4a235a" font-weight="bold">**</text>
+  <text class="th" x="380" y="117" fill="#2c3e50">ยกกำลัง</text>
+  <text class="th" x="690" y="117" fill="#c0392b" font-size="13" font-weight="bold">← ขวาไปซ้าย ⭐</text>
+
+  <!-- 3: unary -->
+  <rect x="75" y="135" width="290" height="34" rx="8" fill="#f4ecf7" stroke="#6c3483" stroke-width="1.5"/>
+  <text x="90" y="157" fill="#4a235a" font-weight="bold">+x  -x  ~x</text>
+  <text class="th" x="380" y="157" fill="#2c3e50">เครื่องหมายหน้าตัวเลข</text>
+  <text class="th" x="690" y="157" fill="#c0392b" font-size="13">← ขวาไปซ้าย</text>
+
+  <!-- 4: mul -->
+  <rect x="75" y="175" width="290" height="34" rx="8" fill="#eaf2fb" stroke="#2980b9" stroke-width="2"/>
+  <text x="90" y="197" fill="#1a5276" font-weight="bold">*  /  //  %</text>
+  <text class="th" x="380" y="197" fill="#2c3e50">คูณ · หาร · หารปัดลง · เศษเหลือ</text>
+  <text class="th" x="690" y="197" fill="#2980b9" font-size="13">ซ้ายไปขวา →</text>
+
+  <!-- 5: add -->
+  <rect x="75" y="215" width="290" height="34" rx="8" fill="#eaf2fb" stroke="#2980b9" stroke-width="2"/>
+  <text x="90" y="237" fill="#1a5276" font-weight="bold">+  -</text>
+  <text class="th" x="380" y="237" fill="#2c3e50">บวก · ลบ</text>
+  <text class="th" x="690" y="237" fill="#2980b9" font-size="13">ซ้ายไปขวา →</text>
+
+  <!-- 6: shift -->
+  <rect x="75" y="255" width="290" height="34" rx="8" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="90" y="277" fill="#5d6d7e">&lt;&lt;  &gt;&gt;</text>
+  <text class="th" x="380" y="277" fill="#5d6d7e">เลื่อนบิต</text>
+  <text class="th" x="690" y="277" fill="#95a5a6" font-size="13">ซ้ายไปขวา →</text>
+
+  <!-- 7: bitand -->
+  <rect x="75" y="295" width="290" height="34" rx="8" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="90" y="317" fill="#5d6d7e">&amp;</text>
+  <text class="th" x="380" y="317" fill="#5d6d7e">บิต AND</text>
+  <text class="th" x="690" y="317" fill="#95a5a6" font-size="13">ซ้ายไปขวา →</text>
+
+  <!-- 8: bitor -->
+  <rect x="75" y="335" width="290" height="34" rx="8" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="90" y="357" fill="#5d6d7e">^  |</text>
+  <text class="th" x="380" y="357" fill="#5d6d7e">บิต XOR · OR</text>
+  <text class="th" x="690" y="357" fill="#95a5a6" font-size="13">ซ้ายไปขวา →</text>
+
+  <!-- 9: comparisons (one level) -->
+  <rect x="75" y="375" width="290" height="48" rx="8" fill="#fef5e7" stroke="#e67e22" stroke-width="2"/>
+  <text x="90" y="394" fill="#7e5109" font-weight="bold" font-size="14">&lt;  &lt;=  &gt;  &gt;=  ==  !=</text>
+  <text x="90" y="414" fill="#7e5109" font-weight="bold" font-size="14">in  not in  is  is not</text>
+  <text class="th" x="380" y="395" fill="#2c3e50">เปรียบเทียบ · สมาชิก · เอกลักษณ์</text>
+  <text class="th" x="380" y="415" fill="#e67e22" font-size="13" font-weight="bold">ทั้งหมดนี้อยู่ระดับเดียวกัน</text>
+  <text class="th" x="690" y="405" fill="#e67e22" font-size="13">ซ้ายไปขวา →</text>
+
+  <!-- 10: not -->
+  <rect x="75" y="431" width="290" height="34" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+  <text x="90" y="453" fill="#145a32" font-weight="bold">not</text>
+  <text class="th" x="380" y="453" fill="#2c3e50">นิเสธ</text>
+  <text class="th" x="690" y="453" fill="#95a5a6" font-size="13">—</text>
+
+  <!-- 11: and -->
+  <rect x="75" y="471" width="290" height="34" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+  <text x="90" y="493" fill="#145a32" font-weight="bold">and</text>
+  <text class="th" x="380" y="493" fill="#2c3e50">และ</text>
+  <text class="th" x="690" y="493" fill="#27ae60" font-size="13">ซ้ายไปขวา →</text>
+
+  <!-- 12: or -->
+  <rect x="75" y="511" width="290" height="34" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+  <text x="90" y="533" fill="#145a32" font-weight="bold">or</text>
+  <text class="th" x="380" y="533" fill="#2c3e50">หรือ</text>
+  <text class="th" x="690" y="533" fill="#27ae60" font-size="13">ซ้ายไปขวา →</text>
+
+  <!-- bracket calling out not > and > or -->
+  <path d="M872,438 h10 v100 h-10" fill="none" stroke="#27ae60" stroke-width="1.5"/>
+  <text class="th" x="878" y="425" text-anchor="end" fill="#27ae60" font-size="12" font-weight="bold">คนละระดับกัน!</text>
+</svg>
