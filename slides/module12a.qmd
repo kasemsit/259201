@@ -383,6 +383,16 @@ print(f"{c} data type: {c.dtype}")
 
 - `(15,)` — 1D 15 item · `(2,4)` — 2D 2×4 · `(3,3,3)` — 3D 3×3×3
 
+## เห็นภาพ: shape `(3, 3, 3)` {#m12-shape-photo .center}
+
+ลูกบาศก์รูบิคคือ array 3 มิติขนาด `3x3x3` — เอา 2D ขนาด `3x3` มาวางซ้อนกัน 3 ชั้น 🧊
+
+![](images/m12-rubik-cube.jpg){height="380px" fig-align="center"}
+
+::: {style="font-size:0.5em"}
+ภาพ: ["Rubik's Cube"](https://www.flickr.com/photos/151415985@N06/36940314035) โดย Wallboat · [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+:::
+
 ## โจทย์ #4 {.exercise}
 
 สร้าง array ต่อไปนี้ แล้วแสดงค่า

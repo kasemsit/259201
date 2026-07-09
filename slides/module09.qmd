@@ -240,6 +240,16 @@ Total Area: 37.44585
 
 Task-A ถูกเขียนซ้ำหลายจุด → ถ้าต้องแก้ ต้องแก้ทุกที่
 
+## พักสมอง 😄 {#m9-xkcd .center}
+
+แต่ก็อย่า **generalize** จนเกินพอดี 😅
+
+![](images/xkcd-974-general-problem.png){height="380px" fig-align="center"}
+
+::: {style="font-size:0.5em"}
+ที่มา: [xkcd #974 — "The General Problem"](https://xkcd.com/974/) (CC BY-NC 2.5)
+:::
+
 # โปรแกรมที่ใช้งานฟังก์ชัน 🧩 {background-color="#2c3e50" .white-text}
 
 แยกงานซ้ำ ๆ ออกมาเป็นฟังก์ชัน แล้วเรียกใช้ซ้ำได้

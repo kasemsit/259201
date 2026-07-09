@@ -976,6 +976,16 @@ plt.show()
 :::
 ::::
 
+## พักสมอง 😄 {#m11-xkcd .center}
+
+กราฟที่ดีมีผลต่อความน่าเชื่อถือของงาน — อย่าปล่อยให้กราฟของเราตกอยู่ในยุค MS Paint 📉
+
+![](images/xkcd-1945-graph-quality.png){height="400px" fig-align="center"}
+
+::: {style="font-size:0.5em"}
+ที่มา: [xkcd #1945 — "Scientific Paper Graph Quality"](https://xkcd.com/1945/) (CC BY-NC 2.5)
+:::
+
 # Summary 🎯 {background-color="#2c3e50" .white-text}
 
 ## สรุป Module 11 🎉 {.smaller}

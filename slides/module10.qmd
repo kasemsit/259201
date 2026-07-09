@@ -530,6 +530,16 @@ Average: 11.0
 
 List ที่มี item ภายในเป็น List อีกชั้น (list of lists)
 
+## เห็นภาพ: 2 มิติ = แถว × คอลัมน์ {#m10-2d-photo .center}
+
+ที่นั่งในสนามกีฬา — ระบุตำแหน่งด้วย **แถว** แล้วตามด้วย **ที่นั่งในแถวนั้น** เหมือน `a[row][col]` 🏟️
+
+![](images/m10-stadium-seats.jpg){height="400px" fig-align="center"}
+
+::: {style="font-size:0.5em"}
+ภาพ: ["olympic stadium munich"](https://www.flickr.com/photos/125167502@N02/46944595855) โดย markus spiske · [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+:::
+
 ## ข้อมูล List แบบ 2 มิติ {#m10-2d}
 
 **List แบบ 2 มิติ** คือ List ที่มี item ภายในเป็น **List อีกชั้นหนึ่ง** (list of lists)

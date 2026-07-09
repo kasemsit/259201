@@ -674,6 +674,16 @@ a = set()
 
 ดิกชันนารี — เก็บข้อมูลด้วย key แทน index
 
+## เห็นภาพ: เปิดหาด้วย "คำ" ไม่ใช่ "ลำดับที่" {#m4-dict-photo .center}
+
+พจนานุกรมจริง ๆ ก็ค้นด้วย **คำ** (key) ไม่ใช่ "หน้าที่ 47 บรรทัดที่ 3" 📖
+
+![](images/m4-dictionaries.jpg){height="380px" fig-align="center"}
+
+::: {style="font-size:0.5em"}
+ภาพ: ["Stack of dictionaries"](https://www.flickr.com/photos/135396164@N05/23349605895) โดย freestocks.org · [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+:::
+
 ## ดิกชันนารี (Dictionary) คืออะไร? {#m4-dict .smaller}
 
 - เก็บข้อมูลเป็น item คล้าย List แต่ใช้ **key** ในการอ้างอิงแทน index ตัวเลข
