@@ -1,0 +1,11 @@
+{
+  "name": "259201-slides-diagrams",
+  "private": true,
+  "description": "Pinned mermaid-cli used by render-diagrams.sh to bake diagrams/*.mmd into images/*.svg",
+  "scripts": {
+    "diagrams": "./render-diagrams.sh"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "11.16.0"
+  }
+}

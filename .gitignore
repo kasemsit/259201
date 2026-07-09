@@ -8,5 +8,6 @@ __pycache__/
 .DS_Store
 .ipynb_checkpoints/
 ipynb/
+node_modules/
 
 **/*.quarto_ipynb

@@ -1,0 +1,18 @@
+{
+  "theme": "neutral",
+  "securityLevel": "loose",
+  "themeVariables": {
+    "fontFamily": "'Noto Sans Thai', Inter, 'Segoe UI', system-ui, sans-serif",
+    "fontSize": "16px",
+    "lineColor": "#5d6d7e",
+    "edgeLabelBackground": "#ffffff"
+  },
+  "flowchart": {
+    "htmlLabels": true,
+    "useMaxWidth": true,
+    "padding": 12,
+    "nodeSpacing": 45,
+    "rankSpacing": 45,
+    "cornerRadius": 8
+  }
+}
