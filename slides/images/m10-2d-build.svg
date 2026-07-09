@@ -1,0 +1,25 @@
+<svg width="470" height="250" viewBox="0 0 470 250" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="15">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+  <g fill="#8e44ad" font-weight="bold" text-anchor="middle" font-size="13"><text x="127" y="38">col 0</text><text x="199" y="38">col 1</text><text x="271" y="38">col 2</text><text x="343" y="38">col 3</text></g>
+  <g fill="#2980b9" font-weight="bold" font-size="13"><text x="30" y="78">a[0]</text><text x="30" y="136">a[1]</text><text x="30" y="194">a[2]</text></g>
+  <!-- row 0 -->
+  <rect x="95" y="48" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="127" y="78" text-anchor="middle">0</text>
+  <rect x="167" y="48" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="199" y="78" text-anchor="middle">0</text>
+  <rect x="239" y="48" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="271" y="78" text-anchor="middle">0</text>
+  <rect x="311" y="48" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="343" y="78" text-anchor="middle">0</text>
+  <!-- row 1 (highlight a[1][2]) -->
+  <rect x="95" y="106" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="127" y="136" text-anchor="middle">0</text>
+  <rect x="167" y="106" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="199" y="136" text-anchor="middle">0</text>
+  <rect x="239" y="106" width="64" height="48" rx="5" fill="#f4ecf7" stroke="#8e44ad" stroke-width="3"/><text x="271" y="136" text-anchor="middle" fill="#8e44ad" font-weight="bold">0</text>
+  <rect x="311" y="106" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="343" y="136" text-anchor="middle">0</text>
+  <!-- row 2 -->
+  <rect x="95" y="164" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="127" y="194" text-anchor="middle">0</text>
+  <rect x="167" y="164" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="199" y="194" text-anchor="middle">0</text>
+  <rect x="239" y="164" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="271" y="194" text-anchor="middle">0</text>
+  <rect x="311" y="164" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="343" y="194" text-anchor="middle">0</text>
+  <text class="th" x="235" y="238" text-anchor="middle" font-size="13"><tspan class="c" fill="#2980b9" font-weight="bold">n=3</tspan> แถว × <tspan class="c" fill="#8e44ad" font-weight="bold">m=4</tspan> คอลัมน์ · ช่องม่วง = <tspan class="c" fill="#8e44ad" font-weight="bold">a[1][2]</tspan></text>
+</svg>

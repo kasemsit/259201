@@ -1,0 +1,28 @@
+<svg width="620" height="230" viewBox="0 0 620 230" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="15">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+  <defs><marker id="m12-broadcast-row-bd2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e67e22"/></marker></defs>
+  <text x="20" y="30" font-size="13" fill="#7f8c8d">array (2, 3)</text>
+  <g fill="#eaf2f8" stroke="#2980b9" stroke-width="2">
+    <rect x="20" y="40" width="46" height="40" rx="4"/><rect x="66" y="40" width="46" height="40" rx="4"/><rect x="112" y="40" width="46" height="40" rx="4"/>
+    <rect x="20" y="80" width="46" height="40" rx="4"/><rect x="66" y="80" width="46" height="40" rx="4"/><rect x="112" y="80" width="46" height="40" rx="4"/>
+  </g>
+  <g text-anchor="middle"><text x="43" y="66">1</text><text x="89" y="66">2</text><text x="135" y="66">3</text><text x="43" y="106">4</text><text x="89" y="106">5</text><text x="135" y="106">6</text></g>
+  <text x="178" y="88" font-size="24">+</text>
+  <text class="th" x="205" y="30" font-size="13" fill="#e67e22">แถว (3,)</text>
+  <g fill="#fdf2e9" stroke="#e67e22" stroke-width="2">
+    <rect x="205" y="60" width="50" height="40" rx="4"/><rect x="255" y="60" width="50" height="40" rx="4"/><rect x="305" y="60" width="50" height="40" rx="4"/>
+  </g>
+  <g text-anchor="middle" fill="#e67e22" font-weight="bold"><text x="230" y="86">10</text><text x="280" y="86">20</text><text x="330" y="86">30</text></g>
+  <text class="th" x="270" y="130" text-anchor="middle" fill="#e67e22" font-size="12">↓ กระจายลงทุกแถว ↓</text>
+  <text x="372" y="88" font-size="24">=</text>
+  <g fill="#eafaf1" stroke="#27ae60" stroke-width="2">
+    <rect x="400" y="40" width="52" height="40" rx="4"/><rect x="452" y="40" width="52" height="40" rx="4"/><rect x="504" y="40" width="52" height="40" rx="4"/>
+    <rect x="400" y="80" width="52" height="40" rx="4"/><rect x="452" y="80" width="52" height="40" rx="4"/><rect x="504" y="80" width="52" height="40" rx="4"/>
+  </g>
+  <g text-anchor="middle"><text x="426" y="66">11</text><text x="478" y="66">22</text><text x="530" y="66">33</text><text x="426" y="106">14</text><text x="478" y="106">25</text><text x="530" y="106">36</text></g>
+  <text class="th" x="20" y="185" font-size="13.5">แถว <tspan class="c" fill="#e67e22" font-weight="bold">(3,)</tspan> ถูก broadcast ลงให้ครบทั้ง 2 แถว → เข้ากับ shape <tspan class="c" fill="#2980b9" font-weight="bold">(2, 3)</tspan></text>
+</svg>

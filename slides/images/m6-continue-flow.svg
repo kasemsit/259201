@@ -1,0 +1,26 @@
+<svg width="250" height="290" viewBox="0 0 250 290" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12.5">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs>
+    <marker id="m6-continue-flow-cong" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker>
+    <marker id="m6-continue-flow-cond" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/></marker>
+    <marker id="m6-continue-flow-cono" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e67e22"/></marker>
+  </defs>
+  <rect x="45" y="14" width="150" height="30" rx="6" fill="#d6eaf8" stroke="#7f8c8d" stroke-width="2"/>
+  <text class="th" x="120" y="33" text-anchor="middle">while เงื่อนไข :</text>
+  <line x1="120" y1="44" x2="120" y2="67" stroke="#2c3e50" stroke-width="2" marker-end="url(#m6-continue-flow-cond)"/>
+  <rect x="58" y="69" width="124" height="30" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
+  <text class="th" x="120" y="88" text-anchor="middle">งานก่อน if</text>
+  <line x1="120" y1="99" x2="120" y2="117" stroke="#2c3e50" stroke-width="2" marker-end="url(#m6-continue-flow-cond)"/>
+  <polygon points="120,119 182,147 120,175 58,147" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
+  <text class="th" x="120" y="151" text-anchor="middle">if เจอ ?</text>
+  <text class="th" x="124" y="195" fill="#27ae60">ไม่เจอ</text>
+  <line x1="120" y1="175" x2="120" y2="201" stroke="#2c3e50" stroke-width="2" marker-end="url(#m6-continue-flow-cond)"/>
+  <rect x="58" y="203" width="124" height="30" rx="6" fill="#eafaf1" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/>
+  <text class="th" x="120" y="222" text-anchor="middle" fill="#95a5a6">งานหลัง if</text>
+  <path d="M58,218 H26 V29 H43" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#m6-continue-flow-cong)"/>
+  <path d="M182,147 H222 V29 H198" fill="none" stroke="#e67e22" stroke-width="3" marker-end="url(#m6-continue-flow-cono)"/>
+  <text x="150" y="140" fill="#e67e22" font-weight="bold">continue</text>
+</svg>

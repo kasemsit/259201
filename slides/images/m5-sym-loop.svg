@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" width="110" height="110" role="img" aria-label="Loop arrow symbol">
+  <defs>
+    <marker id="lp-head" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#5d6d7e"/>
+    </marker>
+  </defs>
+  <path d="M104 96 H10 V16 H92" fill="none" stroke="#5d6d7e" stroke-width="2.5"
+        stroke-linejoin="round" stroke-linecap="round" marker-end="url(#lp-head)"/>
+</svg>

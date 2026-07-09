@@ -1,0 +1,25 @@
+<svg width="580" height="210" viewBox="0 0 580 210" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="15">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs><marker id="m8-enumerate-enm" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8e44ad"/></marker></defs>
+  <text x="15" y="22" font-weight="bold">sc_new = [88, 91, 22, 62]</text>
+  <!-- value boxes -->
+  <rect x="15" y="34" width="110" height="42" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="70" y="61" text-anchor="middle" font-weight="bold">88</text>
+  <rect x="155" y="34" width="110" height="42" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="210" y="61" text-anchor="middle" font-weight="bold">91</text>
+  <rect x="295" y="34" width="110" height="42" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="350" y="61" text-anchor="middle" font-weight="bold">22</text>
+  <rect x="435" y="34" width="110" height="42" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="490" y="61" text-anchor="middle" font-weight="bold">62</text>
+  <!-- arrows -->
+  <line x1="70" y1="78" x2="70" y2="110" stroke="#8e44ad" stroke-width="2" marker-end="url(#m8-enumerate-enm)"/>
+  <line x1="210" y1="78" x2="210" y2="110" stroke="#8e44ad" stroke-width="2" marker-end="url(#m8-enumerate-enm)"/>
+  <line x1="350" y1="78" x2="350" y2="110" stroke="#8e44ad" stroke-width="2" marker-end="url(#m8-enumerate-enm)"/>
+  <line x1="490" y1="78" x2="490" y2="110" stroke="#8e44ad" stroke-width="2" marker-end="url(#m8-enumerate-enm)"/>
+  <text x="300" y="98" text-anchor="middle" fill="#8e44ad" font-size="12">enumerate()</text>
+  <!-- tuple boxes -->
+  <rect x="15" y="112" width="110" height="44" rx="6" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="70" y="140" text-anchor="middle">(<tspan fill="#8e44ad" font-weight="bold">0</tspan>, <tspan fill="#2980b9" font-weight="bold">88</tspan>)</text>
+  <rect x="155" y="112" width="110" height="44" rx="6" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="210" y="140" text-anchor="middle">(<tspan fill="#8e44ad" font-weight="bold">1</tspan>, <tspan fill="#2980b9" font-weight="bold">91</tspan>)</text>
+  <rect x="295" y="112" width="110" height="44" rx="6" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="350" y="140" text-anchor="middle">(<tspan fill="#8e44ad" font-weight="bold">2</tspan>, <tspan fill="#2980b9" font-weight="bold">22</tspan>)</text>
+  <rect x="435" y="112" width="110" height="44" rx="6" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="490" y="140" text-anchor="middle">(<tspan fill="#8e44ad" font-weight="bold">3</tspan>, <tspan fill="#2980b9" font-weight="bold">62</tspan>)</text>
+  <text x="290" y="185" text-anchor="middle" font-size="14">for <tspan fill="#8e44ad" font-weight="bold">i</tspan>, <tspan fill="#2980b9" font-weight="bold">x</tspan> in enumerate(sc_new):  →  <tspan fill="#8e44ad" font-weight="bold">i</tspan>=index, <tspan fill="#2980b9" font-weight="bold">x</tspan>=value</text>
+</svg>

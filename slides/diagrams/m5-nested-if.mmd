@@ -1,0 +1,19 @@
+flowchart TD
+  E(("Entry")) --> C1{"Expr1"}
+  C1 -- "True" --> S1["statement1"]
+  C1 -- "False" --> S4["statement4"]
+  S1 --> C2{"Expr2"}
+  C2 -- "True" --> S2["statement2"]
+  C2 -- "False" --> S3["statement3"]
+  S2 --> X(("Exit"))
+  S3 --> X
+  S4 --> X
+
+  classDef term fill:#ecf0f1,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  classDef cond fill:#eaf2fb,stroke:#2980b9,color:#1a5276,stroke-width:2px;
+  classDef stmt fill:#eafaf1,stroke:#27ae60,color:#145a32,stroke-width:1.5px;
+  classDef alt fill:#fdedec,stroke:#c0392b,color:#922b21,stroke-width:1.5px;
+  class E,X term;
+  class C1,C2 cond;
+  class S1,S2 stmt;
+  class S3,S4 alt;

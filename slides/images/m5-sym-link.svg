@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" width="200" height="140" font-family="'Noto Sans Thai', Inter, 'Segoe UI', system-ui, sans-serif" role="img" aria-label="Link symbol">
+  <defs>
+    <marker id="lk-head" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#5d6d7e"/>
+    </marker>
+  </defs>
+
+  <!-- inbound: arrow into the pentagon -->
+  <line x1="45" y1="18" x2="45" y2="64" stroke="#5d6d7e" stroke-width="2.5" marker-end="url(#lk-head)"/>
+  <path d="M12 72 H78 V102 L45 128 L12 102 Z" fill="#f4ecf7" stroke="#6c3483" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="45" y="100" text-anchor="middle" font-size="26" font-weight="600" fill="#4a235a">A</text>
+
+  <!-- outbound: pentagon into an arrow -->
+  <path d="M122 12 H188 V42 L155 68 L122 42 Z" fill="#f4ecf7" stroke="#6c3483" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="155" y="40" text-anchor="middle" font-size="26" font-weight="600" fill="#4a235a">A</text>
+  <line x1="155" y1="70" x2="155" y2="122" stroke="#5d6d7e" stroke-width="2.5" marker-end="url(#lk-head)"/>
+</svg>

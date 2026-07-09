@@ -1,0 +1,28 @@
+<svg width="580" height="250" viewBox="0 0 580 250" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs><marker id="m8-dict-loop-dic" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8e44ad"/></marker></defs>
+  <text x="115" y="24" fill="#8e44ad" font-weight="bold">for k in person:</text>
+  <text class="th" x="290" y="24" fill="#8e44ad">k รับค่าเป็น key ทีละตัว ↓</text>
+  <text x="180" y="52" text-anchor="middle" fill="#8e44ad" font-weight="bold">key</text>
+  <text x="360" y="52" text-anchor="middle" fill="#2980b9" font-weight="bold">value</text>
+  <!-- rows -->
+  <rect x="110" y="60" width="140" height="34" rx="5" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="180" y="82" text-anchor="middle">'name'</text>
+  <rect x="270" y="60" width="180" height="34" rx="5" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="360" y="82" text-anchor="middle">'Lionel Messi'</text>
+  <rect x="110" y="98" width="140" height="34" rx="5" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="180" y="120" text-anchor="middle">'midterm'</text>
+  <rect x="270" y="98" width="180" height="34" rx="5" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="360" y="120" text-anchor="middle">25</text>
+  <rect x="110" y="136" width="140" height="34" rx="5" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="180" y="158" text-anchor="middle">'final'</text>
+  <rect x="270" y="136" width="180" height="34" rx="5" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="360" y="158" text-anchor="middle">30</text>
+  <!-- loop pointer to keys -->
+  <line x1="95" y1="115" x2="105" y2="115" stroke="#8e44ad" stroke-width="2" marker-end="url(#m8-dict-loop-dic)"/>
+  <line x1="85" y1="77" x2="85" y2="153" stroke="#8e44ad" stroke-width="2"/>
+  <text x="72" y="118" text-anchor="end" fill="#8e44ad" font-size="12">k</text>
+  <!-- bridge key->value -->
+  <text x="470" y="82" fill="#2980b9" font-size="12">← person['name']</text>
+  <!-- bottom summaries -->
+  <text x="20" y="200" fill="#8e44ad">for k in person      → k = <tspan font-weight="bold">key</tspan></text>
+  <text x="20" y="222" fill="#2980b9">person[k]            → <tspan font-weight="bold">value</tspan></text>
+  <text x="20" y="244" fill="#16a085">for k, v in person.items()  → (<tspan font-weight="bold">key</tspan>, <tspan font-weight="bold">value</tspan>)</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg width="540" height="300" viewBox="0 0 540 300" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs><marker id="m9-function-concept-fc" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2980b9"/></marker></defs>
+  <text x="125" y="30" text-anchor="middle" font-weight="bold">main program</text>
+  <rect x="20" y="40" width="210" height="238" rx="8" fill="#fbfcfc" stroke="#7f8c8d" stroke-width="2"/>
+  <rect x="35" y="50" width="180" height="28" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="1"/><text class="th" x="125" y="70" text-anchor="middle" fill="#95a5a6">โค้ดอื่น ๆ</text>
+  <rect x="35" y="84" width="180" height="32" rx="5" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="125" y="106" text-anchor="middle" fill="#2980b9">Task_A()</text>
+  <rect x="35" y="122" width="180" height="28" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="1"/><text class="th" x="125" y="142" text-anchor="middle" fill="#95a5a6">โค้ดอื่น ๆ</text>
+  <rect x="35" y="156" width="180" height="32" rx="5" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="125" y="178" text-anchor="middle" fill="#2980b9">Task_A()</text>
+  <rect x="35" y="194" width="180" height="28" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="1"/><text class="th" x="125" y="214" text-anchor="middle" fill="#95a5a6">โค้ดอื่น ๆ</text>
+  <rect x="35" y="228" width="180" height="32" rx="5" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="125" y="250" text-anchor="middle" fill="#2980b9">Task_A()</text>
+  <!-- calls to single function -->
+  <path d="M215,100 C 280,100 300,150 336,158" fill="none" stroke="#2980b9" stroke-width="2" marker-end="url(#m9-function-concept-fc)"/>
+  <path d="M215,172 H336" fill="none" stroke="#2980b9" stroke-width="2" marker-end="url(#m9-function-concept-fc)"/>
+  <path d="M215,244 C 280,244 300,190 336,182" fill="none" stroke="#2980b9" stroke-width="2" marker-end="url(#m9-function-concept-fc)"/>
+  <text x="300" y="130" text-anchor="middle" fill="#2980b9" font-size="12">call</text>
+  <!-- single function box -->
+  <rect x="340" y="130" width="185" height="80" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2.5"/>
+  <text x="432" y="158" text-anchor="middle" fill="#27ae60" font-weight="bold">def Task_A():</text>
+  <text class="th" x="432" y="182" text-anchor="middle" fill="#7f8c8d" font-size="12"># โค้ด Task-A</text>
+  <text class="th" x="432" y="200" text-anchor="middle" fill="#7f8c8d" font-size="12">(นิยามครั้งเดียว)</text>
+</svg>

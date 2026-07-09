@@ -1,0 +1,21 @@
+<svg width="330" height="210" viewBox="0 0 330 210" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <g fill="#eaf2f8" stroke="#2980b9" stroke-width="2">
+    <rect x="20" y="30" width="38" height="34" rx="4"/><rect x="58" y="30" width="38" height="34" rx="4"/>
+    <rect x="20" y="64" width="38" height="34" rx="4"/><rect x="58" y="64" width="38" height="34" rx="4"/>
+    <rect x="20" y="98" width="38" height="34" rx="4"/><rect x="58" y="98" width="38" height="34" rx="4"/>
+  </g>
+  <g text-anchor="middle" font-size="13"><text x="39" y="52">1</text><text x="77" y="52">2</text><text x="39" y="86">3</text><text x="77" y="86">4</text><text x="39" y="120">5</text><text x="77" y="120">6</text></g>
+  <text x="58" y="152" text-anchor="middle" fill="#2980b9" font-weight="bold">(3, 2)</text>
+  <text x="135" y="88" text-anchor="middle" fill="#e74c3c" font-size="30" font-weight="bold">✗</text>
+  <g fill="#eafaf1" stroke="#27ae60" stroke-width="2">
+    <rect x="176" y="47" width="36" height="34" rx="4"/><rect x="212" y="47" width="36" height="34" rx="4"/><rect x="248" y="47" width="36" height="34" rx="4"/>
+    <rect x="176" y="81" width="36" height="34" rx="4"/><rect x="212" y="81" width="36" height="34" rx="4"/><rect x="248" y="81" width="36" height="34" rx="4"/>
+  </g>
+  <g text-anchor="middle" font-size="13"><text x="194" y="69">1</text><text x="230" y="69">2</text><text x="266" y="69">3</text><text x="194" y="103">4</text><text x="230" y="103">5</text><text x="266" y="103">6</text></g>
+  <text x="230" y="135" text-anchor="middle" fill="#27ae60" font-weight="bold">(2, 3)</text>
+  <text class="th" x="165" y="185" text-anchor="middle" fill="#e74c3c" font-size="13">มิติไม่สอดคล้อง → ValueError</text>
+</svg>

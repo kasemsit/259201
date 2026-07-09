@@ -1,0 +1,31 @@
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs>
+    <marker id="m9-arg-return-flow-pin" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2980b9"/></marker>
+    <marker id="m9-arg-return-flow-pret" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27ae60"/></marker>
+  </defs>
+  <!-- MAIN -->
+  <text x="127" y="42" text-anchor="middle" font-weight="bold">main program</text>
+  <rect x="18" y="52" width="218" height="200" rx="8" fill="#fbfcfc" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="32" y="82" fill="#95a5a6">...</text>
+  <rect x="30" y="92" width="196" height="32" rx="5" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="128" y="113" text-anchor="middle" fill="#2980b9">area = calc(5, 3)</text>
+  <text x="32" y="160">print(area)</text>
+  <rect x="30" y="172" width="196" height="32" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2" stroke-dasharray="4 3"/><text x="128" y="193" text-anchor="middle"><tspan fill="#27ae60">④</tspan> area → <tspan fill="#27ae60" font-weight="bold">15</tspan></text>
+  <!-- FUNCTION -->
+  <text class="th" x="473" y="42" text-anchor="middle" font-weight="bold" fill="#27ae60">ฟังก์ชัน calc(w, h)</text>
+  <rect x="364" y="52" width="218" height="200" rx="8" fill="#f7fcf9" stroke="#27ae60" stroke-width="2"/>
+  <text x="376" y="80" fill="#27ae60">def calc(w, h):</text>
+  <rect x="376" y="90" width="194" height="34" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2"/><text x="473" y="112" text-anchor="middle" fill="#e67e22" font-weight="bold">w = 5 ,  h = 3</text>
+  <text x="392" y="152"><tspan fill="#8e44ad">②</tspan> area = w * h</text>
+  <text x="392" y="172" fill="#7f8c8d" font-size="13">= 5 * 3 = 15</text>
+  <rect x="376" y="182" width="194" height="32" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="473" y="203" text-anchor="middle" fill="#27ae60" font-weight="bold">return 15</text>
+  <!-- ARROWS -->
+  <line x1="236" y1="108" x2="362" y2="106" stroke="#2980b9" stroke-width="2.5" marker-end="url(#m9-arg-return-flow-pin)"/>
+  <text class="th" x="300" y="86" text-anchor="middle" fill="#2980b9" font-size="13">① ส่ง argument</text>
+  <text x="300" y="100" text-anchor="middle" fill="#e67e22" font-size="12">5→w , 3→h</text>
+  <line x1="362" y1="198" x2="238" y2="188" stroke="#27ae60" stroke-width="2.5" marker-end="url(#m9-arg-return-flow-pret)"/>
+  <text class="th" x="300" y="230" text-anchor="middle" fill="#27ae60" font-size="13">③ return 15 กลับมา</text>
+</svg>

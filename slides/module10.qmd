@@ -325,25 +325,7 @@ myFunc2: [16, 25, 36, 64]
 
 ## กายวิภาคของ List Comprehension {#m10-listcomp-anatomy}
 
-```{=html}
-<svg viewBox="0 0 640 200" width="100%" style="max-width:840px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="15">
-  <defs><marker id="lc" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker></defs>
-  <text x="15" y="22" font-weight="bold">List Comprehension</text>
-  <rect x="10" y="32" width="330" height="48" rx="8" fill="#f6f8fa" stroke="#b9c2cc" stroke-width="2"/>
-  <text x="24" y="62">a = [ <tspan fill="#c0392b" font-weight="bold">2*x+1</tspan> <tspan fill="#2980b9" font-weight="bold">for x in range(5)</tspan> ]</text>
-  <line x1="175" y1="88" x2="175" y2="108" stroke="#7f8c8d" stroke-width="2" marker-end="url(#lc)"/>
-  <text x="15" y="132" font-size="13.5">🔴 <tspan fill="#c0392b" font-weight="bold">2*x+1</tspan> = การประมวลผล (สิ่งที่เก็บลง list)</text>
-  <text x="15" y="156" font-size="13.5">🔵 <tspan fill="#2980b9" font-weight="bold">for x in range(5)</tspan> = การทำซ้ำ</text>
-  <text x="15" y="180" font-size="13.5">→ เก็บผลแต่ละรอบต่อท้าย list อัตโนมัติ</text>
-  <text x="370" y="22" font-weight="bold" fill="#27ae60">≡ เขียนแบบ for-loop</text>
-  <rect x="365" y="32" width="270" height="150" rx="8" fill="#f6f8fa" stroke="#27ae60" stroke-width="2"/>
-  <text x="380" y="60">a = []</text>
-  <text x="380" y="86"><tspan fill="#2980b9" font-weight="bold">for x in range(5):</tspan></text>
-  <text x="380" y="112">    a.append(<tspan fill="#c0392b" font-weight="bold">2*x+1</tspan>)</text>
-  <text x="380" y="150" fill="#7f8c8d" font-size="13">ผลลัพธ์เหมือนกัน</text>
-  <text x="380" y="170" fill="#7f8c8d" font-size="13">แต่ list comp สั้นกว่า</text>
-</svg>
-```
+![](images/m10-listcomp-anatomy.svg){width="840px" fig-align="center"}
 
 <pre class="code-pattern" style="font-size:1.1em">a = [ <span style="color:#c0392b">2*x+1</span>  <span style="color:#2980b9">for x in range(5)</span> ]</pre>
 
@@ -512,44 +494,13 @@ print(myf4(20))
 
 รับข้อมูลจากคีย์บอร์ดด้วย `input().split()` จะได้ลิสต์ของ **string**
 
-```{=html}
-<svg viewBox="0 0 580 150" width="100%" style="max-width:760px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="15">
-  <defs><marker id="sp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2980b9"/></marker></defs>
-  <rect x="20" y="18" width="230" height="40" rx="6" fill="#eef2f3" stroke="#7f8c8d" stroke-width="2"/><text x="135" y="43" text-anchor="middle">"12 3 50 100 0"</text>
-  <line x1="255" y1="38" x2="315" y2="38" stroke="#2980b9" stroke-width="2.5" marker-end="url(#sp)"/>
-  <text x="285" y="26" text-anchor="middle" fill="#2980b9" font-size="13">.split()</text>
-  <g>
-    <rect x="325" y="18" width="46" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="348" y="43" text-anchor="middle" fill="#e74c3c">'12'</text>
-    <rect x="373" y="18" width="40" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="393" y="43" text-anchor="middle" fill="#e74c3c">'3'</text>
-    <rect x="415" y="18" width="46" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="438" y="43" text-anchor="middle" fill="#e74c3c">'50'</text>
-    <rect x="463" y="18" width="54" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="490" y="43" text-anchor="middle" fill="#e74c3c">'100'</text>
-    <rect x="519" y="18" width="40" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="539" y="43" text-anchor="middle" fill="#e74c3c">'0'</text>
-  </g>
-  <text x="135" y="90" text-anchor="middle" font-size="13" fill="#7f8c8d">string เดียวยาว ๆ</text>
-  <text x="442" y="90" text-anchor="middle" font-size="13" fill="#e74c3c">List ของ string (🔴 ยังไม่ใช่ตัวเลข!)</text>
-</svg>
-```
+![](images/m10-split-pipeline.svg){width="760px" fig-align="center"}
 
 . . .
 
 ใช้ List comprehension เรียก `int()` / `float()` กับทุก item เพื่อ**แปลงชนิดข้อมูล**
 
-```{=html}
-<svg viewBox="0 0 520 200" width="100%" style="max-width:700px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="15">
-  <defs><marker id="cv" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27ae60"/></marker></defs>
-  <text x="20" y="22" font-size="14" fill="#c0392b">List ของ string</text>
-  <rect x="40" y="30" width="70" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="75" y="55" text-anchor="middle" fill="#e74c3c">'12'</text>
-  <rect x="200" y="30" width="70" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="235" y="55" text-anchor="middle" fill="#e74c3c">'3'</text>
-  <rect x="360" y="30" width="70" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="395" y="55" text-anchor="middle" fill="#e74c3c">'50'</text>
-  <line x1="75" y1="72" x2="75" y2="120" stroke="#27ae60" stroke-width="2.5" marker-end="url(#cv)"/><text x="120" y="100" fill="#27ae60" font-size="13">float()</text>
-  <line x1="235" y1="72" x2="235" y2="120" stroke="#27ae60" stroke-width="2.5" marker-end="url(#cv)"/><text x="280" y="100" fill="#27ae60" font-size="13">float()</text>
-  <line x1="395" y1="72" x2="395" y2="120" stroke="#27ae60" stroke-width="2.5" marker-end="url(#cv)"/><text x="440" y="100" fill="#27ae60" font-size="13">float()</text>
-  <text x="20" y="140" font-size="14" fill="#2980b9">List ของ float</text>
-  <rect x="40" y="146" width="70" height="40" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="75" y="171" text-anchor="middle" fill="#2980b9">12.0</text>
-  <rect x="200" y="146" width="70" height="40" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="235" y="171" text-anchor="middle" fill="#2980b9">3.0</text>
-  <rect x="360" y="146" width="70" height="40" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="395" y="171" text-anchor="middle" fill="#2980b9">50.0</text>
-</svg>
-```
+![](images/m10-str-to-int.svg){width="700px" fig-align="center"}
 
 <pre class="code-pattern" style="font-size:1.05em">[ <span style="color:#27ae60;font-weight:bold">float(d)</span> <span style="color:#2980b9">for d in data</span> ]</pre>
 
@@ -627,28 +578,7 @@ len(a2d[2]): 3
 
 สร้าง List ขนาด **`n-row`** × **`m-column`** ที่ทุก item มีค่าเป็น `0`
 
-```{=html}
-<svg viewBox="0 0 470 250" width="100%" style="max-width:560px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="15">
-  <g fill="#8e44ad" font-weight="bold" text-anchor="middle" font-size="13"><text x="127" y="38">col 0</text><text x="199" y="38">col 1</text><text x="271" y="38">col 2</text><text x="343" y="38">col 3</text></g>
-  <g fill="#2980b9" font-weight="bold" font-size="13"><text x="30" y="78">a[0]</text><text x="30" y="136">a[1]</text><text x="30" y="194">a[2]</text></g>
-  <!-- row 0 -->
-  <rect x="95" y="48" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="127" y="78" text-anchor="middle">0</text>
-  <rect x="167" y="48" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="199" y="78" text-anchor="middle">0</text>
-  <rect x="239" y="48" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="271" y="78" text-anchor="middle">0</text>
-  <rect x="311" y="48" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="343" y="78" text-anchor="middle">0</text>
-  <!-- row 1 (highlight a[1][2]) -->
-  <rect x="95" y="106" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="127" y="136" text-anchor="middle">0</text>
-  <rect x="167" y="106" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="199" y="136" text-anchor="middle">0</text>
-  <rect x="239" y="106" width="64" height="48" rx="5" fill="#f4ecf7" stroke="#8e44ad" stroke-width="3"/><text x="271" y="136" text-anchor="middle" fill="#8e44ad" font-weight="bold">0</text>
-  <rect x="311" y="106" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="343" y="136" text-anchor="middle">0</text>
-  <!-- row 2 -->
-  <rect x="95" y="164" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="127" y="194" text-anchor="middle">0</text>
-  <rect x="167" y="164" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="199" y="194" text-anchor="middle">0</text>
-  <rect x="239" y="164" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="271" y="194" text-anchor="middle">0</text>
-  <rect x="311" y="164" width="64" height="48" rx="5" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="343" y="194" text-anchor="middle">0</text>
-  <text x="235" y="238" text-anchor="middle" font-size="13"><tspan fill="#2980b9" font-weight="bold">n=3</tspan> แถว × <tspan fill="#8e44ad" font-weight="bold">m=4</tspan> คอลัมน์ · ช่องม่วง = <tspan fill="#8e44ad" font-weight="bold">a[1][2]</tspan></text>
-</svg>
-```
+![](images/m10-2d-build.svg){width="560px" fig-align="center"}
 
 ```python
 n = 3; m = 4

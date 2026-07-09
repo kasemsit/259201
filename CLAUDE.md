@@ -17,7 +17,11 @@ Original content lives in Jupyter notebooks (`ipynb/`), converted to interactive
 ├── slides/                   # Quarto slide decks (.qmd)
 │   ├── custom.scss           # Shared theme/styling
 │   ├── cross-references.md   # Slide-ID map for cross-module review links
-│   ├── images/               # Slide images (diagrams, CC/xkcd comics)
+│   ├── diagrams/             # Mermaid sources (*.mmd) → images/*.svg
+│   ├── figures/              # make-figures.py → images/m11-*.svg
+│   ├── mermaid-config.json   # Mermaid theme (fonts, colors, spacing)
+│   ├── render-diagrams.sh    # diagrams/*.mmd → SVG + post-process
+│   ├── images/               # Slide images (SVG diagrams, CC/xkcd comics)
 │   ├── module03a.qmd         # Variables, Operators, Math
 │   ├── module03b.qmd         # Input/Output, f-string
 │   ├── module04a.qmd         # Collections: List
@@ -42,7 +46,54 @@ Original content lives in Jupyter notebooks (`ipynb/`), converted to interactive
 QUARTO_PYTHON=.venv/bin/python quarto render slides/module03a.qmd
 
 # Output goes to _output/slides/moduleNN.html
+
+# One-time: install the pinned mermaid-cli (node_modules/ is gitignored)
+cd slides && PUPPETEER_SKIP_DOWNLOAD=1 npm install
+
+# Regenerate Mermaid diagrams after editing diagrams/*.mmd (all, or named ones)
+slides/render-diagrams.sh
+slides/render-diagrams.sh diagrams/m5-if.mmd
+
+# Regenerate the Module 11 matplotlib charts (all, or one by stem)
+cd slides && ../.venv/bin/python figures/make-figures.py
+cd slides && ../.venv/bin/python figures/make-figures.py m11-bar
 ```
+
+## Images: three SVG pipelines
+
+**Never add a raster diagram.** Photos and comics stay raster; everything we draw is SVG.
+
+1. **Mermaid flowcharts** — `diagrams/*.mmd` → `images/*.svg` via `render-diagrams.sh`.
+   Pre-rendered because Reveal.js measures hidden slides at zero width. The script also runs a
+   Python post-processor that adds `rx="8"` to node rects and thickens edges — don't skip it.
+   `mermaid-cli` is pinned in `slides/package.json`; the script falls back to a slow `npx` if
+   `node_modules/` is missing.
+   Shared `classDef` palette, keyed to `custom.scss`:
+
+   | Role | fill | stroke | text |
+   |---|---|---|---|
+   | `term` (entry/exit) | `#ecf0f1` | `#7f8c8d` | `#2c3e50` |
+   | `cond` (decision) | `#eaf2fb` | `#2980b9` | `#1a5276` |
+   | `stmt` (true branch) | `#eafaf1` | `#27ae60` | `#145a32` |
+   | `alt` (false branch) | `#fdedec` | `#c0392b` | `#922b21` |
+   | `io` | `#fef5e7` | `#e67e22` | `#7e5109` |
+   | `neut` | `#f4f6f7` | `#7f8c8d` | `#2c3e50` |
+
+   When a flowchart sits beside a code skeleton, colour each branch to match its line of code
+   (see `m5-if-elif-else`).
+
+2. **Hand-drawn concept SVGs** — `images/mNN-<slug>.svg`, written directly in SVG. Conventions:
+   - Root carries `font-family` = mono stack; each file has a `<style>` block
+   - **`<text>` containing Thai gets `class="th"` (sans stack); code tokens stay mono.**
+     Inside a `th` text, wrap code fragments in `<tspan class="c">`
+   - Rounded boxes `rx="8"`, arrow markers `fill="#5d6d7e"`, `stroke-width` 1.5–2.5
+   - Same palette as the Mermaid table above
+
+3. **Matplotlib charts (Module 11)** — `figures/make-figures.py` → `images/m11-*.svg`.
+   Each figure reproduces the code shown on its slide **verbatim** — students must see exactly what
+   running that snippet produces. Stock matplotlib defaults; do not restyle.
+
+Never inline `<svg>` into a `.qmd` — it makes the deck unreadable and the styling unshareable.
 
 ## Slide Conventions
 
@@ -60,8 +111,8 @@ QUARTO_PYTHON=.venv/bin/python quarto render slides/module03a.qmd
 - **Reveal one column at a time**: add `.fragment` to each `::: {.column ...}`
 - **Foldable answer** (no Live Code): use `<details><summary>…</summary> … </details>` (never wrap `{pyodide}` in it)
 - **Bigger/smaller text on part of a slide**: use inline `[text]{style="font-size:1.5em"}` or a `::: {style="..."}` div — `.smaller` only works on a whole slide (`## Title {.smaller}`), not on a div
-- **Colored syntax skeleton**: reuse the `.code-pattern` box (see `custom.scss`) with `<span>` colors for parts like `start:stop:step`
-- **Images**: store in `slides/images/`, reference with `![](...){...}` (not `<img>`); credit CC/xkcd sources with license + link
+- **Colored syntax skeleton**: reuse the `.code-pattern` box (see `custom.scss`) with `<span>` colors for parts like `start:stop:step` — never render a syntax skeleton as an image
+- **Images**: store in `slides/images/`, reference with `![](...){...}` (not `<img>`); credit CC/xkcd sources with license + link. See **Images: three SVG pipelines** above
 
 ## Splitting a long module (e.g. `moduleNN` → `moduleNNa` / `moduleNNb`)
 
@@ -75,3 +126,6 @@ QUARTO_PYTHON=.venv/bin/python quarto render slides/module03a.qmd
 - Skip any content from the source ipynb
 - Use `monokai` highlight style (too dark for live editor)
 - Put `{pyodide}` blocks inside `<details>` tags (breaks rendering)
+- Inline `<svg>` into a `.qmd`, or add a new raster diagram — draw SVG to `images/` instead
+- Hand-edit a generated SVG. `images/x.svg` is generated if `diagrams/x.mmd` exists, or if the
+  stem is `m11-*`. Change the `.mmd` / `make-figures.py` source and re-run instead

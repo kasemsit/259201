@@ -1,0 +1,19 @@
+<svg width="600" height="160" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="22">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <text x="40" y="60">( m ×</text>
+  <text x="140" y="60" fill="#e74c3c" font-weight="bold">n</text>
+  <text x="160" y="60">)</text>
+  <text x="195" y="60">@</text>
+  <text x="230" y="60">(</text>
+  <text x="252" y="60" fill="#e74c3c" font-weight="bold">n</text>
+  <text x="272" y="60">× p )</text>
+  <text x="370" y="60">=</text>
+  <text x="405" y="60" fill="#27ae60" font-weight="bold">( m × p )</text>
+  <path d="M148,72 Q200,110 260,72" fill="none" stroke="#e74c3c" stroke-width="2"/>
+  <text class="th" x="204" y="128" text-anchor="middle" fill="#e74c3c" font-size="14">inner ต้องเท่ากัน ✓</text>
+  <text class="th" x="405" y="92" text-anchor="middle" fill="#27ae60" font-size="13">shape ผลลัพธ์</text>
+  <text class="th" x="40" y="150" font-size="14" fill="#7f8c8d">เช่น (2×2) @ (2×2) = (2×2) · C[i][j] = แถว i ของ A · คอลัมน์ j ของ B</text>
+</svg>

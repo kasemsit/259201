@@ -1,0 +1,16 @@
+<svg width="440" height="240" viewBox="0 0 440 240" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="16">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <g fill="#eaf2f8" stroke="#2980b9" stroke-width="2">
+    <rect x="100" y="26" width="56" height="44" rx="4"/><rect x="156" y="26" width="56" height="44" rx="4"/><rect x="212" y="26" width="56" height="44" rx="4"/><rect x="268" y="26" width="56" height="44" rx="4"/>
+    <rect x="100" y="70" width="56" height="44" rx="4"/><rect x="156" y="70" width="56" height="44" rx="4"/><rect x="212" y="70" width="56" height="44" rx="4"/><rect x="268" y="70" width="56" height="44" rx="4"/>
+  </g>
+  <g text-anchor="middle"><text x="128" y="54">1</text><text x="184" y="54">5</text><text x="240" y="54">3</text><text x="296" y="54">1</text><text x="128" y="98">0</text><text x="184" y="98">1</text><text x="240" y="98">2</text><text x="296" y="98">9</text></g>
+  <polygon points="100,118 324,118 262,156 178,156" fill="#eef3f8" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text class="th" x="212" y="142" text-anchor="middle" font-size="13" fill="#7f8c8d">รวมทุก 8 ช่อง</text>
+  <rect x="176" y="160" width="88" height="46" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2.5"/>
+  <text x="220" y="190" text-anchor="middle" fill="#27ae60" font-weight="bold" font-size="20">22</text>
+  <text class="th" x="360" y="188" fill="#27ae60" font-size="14" font-weight="bold">ค่าเดียว</text>
+</svg>

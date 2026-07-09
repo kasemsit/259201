@@ -1,0 +1,26 @@
+<svg width="600" height="220" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="20">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <!-- index labels -->
+  <g fill="#7f8c8d" font-size="12" text-anchor="middle"><text x="46" y="35">0</text><text x="106" y="35">1</text><text x="166" y="35">2</text><text x="226" y="35">3</text><text x="286" y="35">4</text><text x="346" y="35">5</text><text x="406" y="35">6</text><text x="466" y="35">7</text><text x="526" y="35">8</text></g>
+  <!-- char boxes (grouped colors) -->
+  <rect x="20" y="42" width="52" height="50" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="46" y="76" text-anchor="middle">6</text>
+  <rect x="80" y="42" width="52" height="50" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="106" y="76" text-anchor="middle">3</text>
+  <rect x="140" y="42" width="52" height="50" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="166" y="76" text-anchor="middle">0</text>
+  <rect x="200" y="42" width="52" height="50" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="226" y="76" text-anchor="middle">6</text>
+  <rect x="260" y="42" width="52" height="50" rx="6" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="286" y="76" text-anchor="middle">1</text>
+  <rect x="320" y="42" width="52" height="50" rx="6" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="346" y="76" text-anchor="middle">0</text>
+  <rect x="380" y="42" width="52" height="50" rx="6" fill="#f4f6f7" stroke="#95a5a6" stroke-width="2"/><text x="406" y="76" text-anchor="middle">1</text>
+  <rect x="440" y="42" width="52" height="50" rx="6" fill="#f4f6f7" stroke="#95a5a6" stroke-width="2"/><text x="466" y="76" text-anchor="middle">2</text>
+  <rect x="500" y="42" width="52" height="50" rx="6" fill="#f4f6f7" stroke="#95a5a6" stroke-width="2"/><text x="526" y="76" text-anchor="middle">3</text>
+  <!-- group brackets + labels -->
+  <line x1="20" y1="102" x2="132" y2="102" stroke="#2980b9" stroke-width="3"/><text x="76" y="124" text-anchor="middle" fill="#2980b9" font-size="14" font-weight="bold">id[0:2]='63'</text><text class="th" x="76" y="142" text-anchor="middle" fill="#2980b9" font-size="12">ปีที่เข้า</text>
+  <line x1="140" y1="102" x2="252" y2="102" stroke="#27ae60" stroke-width="3"/><text x="196" y="124" text-anchor="middle" fill="#27ae60" font-size="14" font-weight="bold">id[2:4]='06'</text><text class="th" x="196" y="142" text-anchor="middle" fill="#27ae60" font-size="12">คณะ</text>
+  <line x1="260" y1="102" x2="372" y2="102" stroke="#8e44ad" stroke-width="3"/><text x="316" y="124" text-anchor="middle" fill="#8e44ad" font-size="14" font-weight="bold">id[4:6]='10'</text><text class="th" x="316" y="142" text-anchor="middle" fill="#8e44ad" font-size="12">หลักสูตร</text>
+  <line x1="380" y1="102" x2="552" y2="102" stroke="#95a5a6" stroke-width="3"/><text x="466" y="124" text-anchor="middle" fill="#7f8c8d" font-size="14" font-weight="bold">id[6:9]='123'</text><text class="th" x="466" y="142" text-anchor="middle" fill="#7f8c8d" font-size="12">เลขลำดับ</text>
+  <!-- decode notes -->
+  <text class="th" x="20" y="182" font-size="14">🟢 คณะ <tspan font-weight="bold">06</tspan> = วิศวกรรมศาสตร์ · 🟣 หลักสูตร <tspan font-weight="bold">10</tspan> = ปกติ, <tspan font-weight="bold">15</tspan> = อินเตอร์</text>
+  <text class="th" x="20" y="206" font-size="14">🔵 ปี = 69 − int(id[0:2]) = 69 − 63 = <tspan font-weight="bold">6</tspan></text>
+</svg>

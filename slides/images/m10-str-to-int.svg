@@ -1,0 +1,18 @@
+<svg width="520" height="200" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="15">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs><marker id="m10-str-to-int-cv" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27ae60"/></marker></defs>
+  <text class="th" x="20" y="22" font-size="14" fill="#c0392b">List ของ string</text>
+  <rect x="40" y="30" width="70" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="75" y="55" text-anchor="middle" fill="#e74c3c">'12'</text>
+  <rect x="200" y="30" width="70" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="235" y="55" text-anchor="middle" fill="#e74c3c">'3'</text>
+  <rect x="360" y="30" width="70" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="395" y="55" text-anchor="middle" fill="#e74c3c">'50'</text>
+  <line x1="75" y1="72" x2="75" y2="120" stroke="#27ae60" stroke-width="2.5" marker-end="url(#m10-str-to-int-cv)"/><text x="120" y="100" fill="#27ae60" font-size="13">float()</text>
+  <line x1="235" y1="72" x2="235" y2="120" stroke="#27ae60" stroke-width="2.5" marker-end="url(#m10-str-to-int-cv)"/><text x="280" y="100" fill="#27ae60" font-size="13">float()</text>
+  <line x1="395" y1="72" x2="395" y2="120" stroke="#27ae60" stroke-width="2.5" marker-end="url(#m10-str-to-int-cv)"/><text x="440" y="100" fill="#27ae60" font-size="13">float()</text>
+  <text class="th" x="20" y="140" font-size="14" fill="#2980b9">List ของ float</text>
+  <rect x="40" y="146" width="70" height="40" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="75" y="171" text-anchor="middle" fill="#2980b9">12.0</text>
+  <rect x="200" y="146" width="70" height="40" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="235" y="171" text-anchor="middle" fill="#2980b9">3.0</text>
+  <rect x="360" y="146" width="70" height="40" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="395" y="171" text-anchor="middle" fill="#2980b9">50.0</text>
+</svg>

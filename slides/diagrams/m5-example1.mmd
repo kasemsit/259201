@@ -1,0 +1,16 @@
+flowchart TD
+  A(["START"]) --> B[/"Get car's Age"/]
+  B --> C[/"Get car's Mileage"/]
+  C --> D{"Age > 2 OR<br/>Mileage > 200,000"}
+  D -- "YES" --> E["Perform car service"]
+  D -- "NO" --> F(["STOP"])
+  E --> F
+
+  classDef term fill:#ecf0f1,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  classDef io fill:#fef5e7,stroke:#e67e22,color:#7e5109,stroke-width:1.5px;
+  classDef cond fill:#eaf2fb,stroke:#2980b9,color:#1a5276,stroke-width:2px;
+  classDef stmt fill:#eafaf1,stroke:#27ae60,color:#145a32,stroke-width:1.5px;
+  class A,F term;
+  class B,C io;
+  class D cond;
+  class E stmt;

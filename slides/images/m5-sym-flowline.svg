@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 110" width="60" height="110" role="img" aria-label="Flow line symbol">
+  <defs>
+    <marker id="fl-head" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#5d6d7e"/>
+    </marker>
+  </defs>
+  <line x1="30" y1="6" x2="30" y2="96" stroke="#5d6d7e" stroke-width="2.5" marker-end="url(#fl-head)"/>
+</svg>

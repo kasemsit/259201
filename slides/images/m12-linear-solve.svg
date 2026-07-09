@@ -1,0 +1,31 @@
+<svg width="620" height="170" viewBox="0 0 620 170" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="18">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs><marker id="m12-linear-solve-leq" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker></defs>
+  <text x="20" y="62">1·x₁ + 2·x₂ = 5</text>
+  <text x="20" y="98">3·x₁ + 4·x₂ = 6</text>
+  <line x1="210" y1="78" x2="250" y2="78" stroke="#7f8c8d" stroke-width="2.5" marker-end="url(#m12-linear-solve-leq)"/>
+  <!-- A -->
+  <g fill="#eaf2f8" stroke="#2980b9" stroke-width="2">
+    <rect x="262" y="42" width="40" height="34" rx="3"/><rect x="302" y="42" width="40" height="34" rx="3"/>
+    <rect x="262" y="76" width="40" height="34" rx="3"/><rect x="302" y="76" width="40" height="34" rx="3"/>
+  </g>
+  <g text-anchor="middle" font-size="16"><text x="282" y="64">1</text><text x="322" y="64">2</text><text x="282" y="98">3</text><text x="322" y="98">4</text></g>
+  <!-- x -->
+  <g fill="#fdf2e9" stroke="#e67e22" stroke-width="2">
+    <rect x="350" y="42" width="46" height="34" rx="3"/><rect x="350" y="76" width="46" height="34" rx="3"/>
+  </g>
+  <g text-anchor="middle" font-size="16" fill="#e67e22"><text x="373" y="64">x₁</text><text x="373" y="98">x₂</text></g>
+  <text x="408" y="84">=</text>
+  <!-- b -->
+  <g fill="#eafaf1" stroke="#27ae60" stroke-width="2">
+    <rect x="432" y="42" width="40" height="34" rx="3"/><rect x="432" y="76" width="40" height="34" rx="3"/>
+  </g>
+  <g text-anchor="middle" font-size="16"><text x="452" y="64">5</text><text x="452" y="98">6</text></g>
+  <text x="302" y="140" text-anchor="middle" fill="#2980b9" font-weight="bold">A</text>
+  <text x="373" y="140" text-anchor="middle" fill="#e67e22" font-weight="bold">x</text>
+  <text x="452" y="140" text-anchor="middle" fill="#27ae60" font-weight="bold">b</text>
+  <text x="510" y="84" font-size="15" fill="#7f8c8d">A x = b</text>
+</svg>

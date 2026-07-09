@@ -1,0 +1,26 @@
+<svg width="290" height="235" viewBox="0 0 290 235" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <g fill="#7f8c8d" font-size="11" text-anchor="middle"><text x="62" y="34">0</text><text x="106" y="34">1</text><text x="150" y="34">2</text><text x="194" y="34">3</text></g>
+  <g fill="#7f8c8d" font-size="11"><text x="22" y="66">0</text><text x="22" y="102">1</text><text x="22" y="138">2</text></g>
+  <!-- row 0 -->
+  <rect x="40" y="42" width="44" height="36" rx="3" fill="#f8f9f9" stroke="#bdc3c7" stroke-width="2"/><text x="62" y="65" text-anchor="middle">5</text>
+  <rect x="84" y="42" width="44" height="36" rx="3" fill="#f8f9f9" stroke="#bdc3c7" stroke-width="2"/><text x="106" y="65" text-anchor="middle">6</text>
+  <rect x="128" y="42" width="44" height="36" rx="3" fill="#eaf2f8" stroke="#2980b9" stroke-width="2.5"/><text x="150" y="65" text-anchor="middle">7</text>
+  <rect x="172" y="42" width="44" height="36" rx="3" fill="#eaf2f8" stroke="#2980b9" stroke-width="2.5"/><text x="194" y="65" text-anchor="middle">8</text>
+  <!-- row 1 -->
+  <rect x="40" y="78" width="44" height="36" rx="3" fill="#f8f9f9" stroke="#bdc3c7" stroke-width="2"/><text x="62" y="101" text-anchor="middle">9</text>
+  <rect x="84" y="78" width="44" height="36" rx="3" fill="#f8f9f9" stroke="#bdc3c7" stroke-width="2"/><text x="106" y="101" text-anchor="middle">10</text>
+  <rect x="128" y="78" width="44" height="36" rx="3" fill="#eaf2f8" stroke="#2980b9" stroke-width="2.5"/><text x="150" y="101" text-anchor="middle">11</text>
+  <rect x="172" y="78" width="44" height="36" rx="3" fill="#eaf2f8" stroke="#2980b9" stroke-width="2.5"/><text x="194" y="101" text-anchor="middle">12</text>
+  <!-- row 2 -->
+  <rect x="40" y="114" width="44" height="36" rx="3" fill="#eafaf1" stroke="#27ae60" stroke-width="2.5"/><text x="62" y="137" text-anchor="middle">13</text>
+  <rect x="84" y="114" width="44" height="36" rx="3" fill="#eafaf1" stroke="#27ae60" stroke-width="2.5"/><text x="106" y="137" text-anchor="middle">14</text>
+  <rect x="128" y="114" width="44" height="36" rx="3" fill="#f4ecf7" stroke="#8e44ad" stroke-width="3"/><text x="150" y="137" text-anchor="middle" font-weight="bold">15</text>
+  <rect x="172" y="114" width="44" height="36" rx="3" fill="#f4ecf7" stroke="#8e44ad" stroke-width="3"/><text x="194" y="137" text-anchor="middle" font-weight="bold">16</text>
+  <text class="th" x="20" y="178" font-size="12.5"><tspan fill="#2980b9" font-weight="bold">■</tspan> x[:, 2:] (คอลัมน์ 2+)</text>
+  <text class="th" x="20" y="198" font-size="12.5"><tspan fill="#27ae60" font-weight="bold">■</tspan> x[2:, :] (แถว 2+)</text>
+  <text class="th" x="20" y="218" font-size="12.5"><tspan fill="#8e44ad" font-weight="bold">■</tspan> อยู่ในทั้งสอง slice</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg width="640" height="200" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="15">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+  <defs><marker id="m10-listcomp-anatomy-lc" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker></defs>
+  <text x="15" y="22" font-weight="bold">List Comprehension</text>
+  <rect x="10" y="32" width="330" height="48" rx="8" fill="#f6f8fa" stroke="#b9c2cc" stroke-width="2"/>
+  <text x="24" y="62">a = [ <tspan fill="#c0392b" font-weight="bold">2*x+1</tspan> <tspan fill="#2980b9" font-weight="bold">for x in range(5)</tspan> ]</text>
+  <line x1="175" y1="88" x2="175" y2="108" stroke="#7f8c8d" stroke-width="2" marker-end="url(#m10-listcomp-anatomy-lc)"/>
+  <text class="th" x="15" y="132" font-size="13.5">🔴 <tspan class="c" fill="#c0392b" font-weight="bold">2*x+1</tspan> = การประมวลผล (สิ่งที่เก็บลง list)</text>
+  <text class="th" x="15" y="156" font-size="13.5">🔵 <tspan class="c" fill="#2980b9" font-weight="bold">for x in range(5)</tspan> = การทำซ้ำ</text>
+  <text class="th" x="15" y="180" font-size="13.5">→ เก็บผลแต่ละรอบต่อท้าย list อัตโนมัติ</text>
+  <text class="th" x="370" y="22" font-weight="bold" fill="#27ae60">≡ เขียนแบบ for-loop</text>
+  <rect x="365" y="32" width="270" height="150" rx="8" fill="#f6f8fa" stroke="#27ae60" stroke-width="2"/>
+  <text x="380" y="60">a = []</text>
+  <text x="380" y="86"><tspan fill="#2980b9" font-weight="bold">for x in range(5):</tspan></text>
+  <text x="380" y="112">    a.append(<tspan fill="#c0392b" font-weight="bold">2*x+1</tspan>)</text>
+  <text class="th" x="380" y="150" fill="#7f8c8d" font-size="13">ผลลัพธ์เหมือนกัน</text>
+  <text class="th" x="380" y="170" fill="#7f8c8d" font-size="13">แต่ list comp สั้นกว่า</text>
+</svg>

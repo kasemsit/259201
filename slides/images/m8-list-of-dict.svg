@@ -1,0 +1,22 @@
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs><marker id="m8-list-of-dict-na1" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2980b9"/></marker><marker id="m8-list-of-dict-na2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8e44ad"/></marker></defs>
+  <text x="20" y="18" font-weight="bold">students — List of Dict</text>
+  <rect x="25" y="28" width="170" height="40" rx="6" fill="#f8f9f9" stroke="#7f8c8d" stroke-width="2"/><text x="110" y="53" text-anchor="middle" font-size="13">[0] {John…}</text>
+  <rect x="215" y="28" width="170" height="40" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="3"/><text x="300" y="53" text-anchor="middle" font-size="13">[1] {Jane…}</text>
+  <rect x="405" y="28" width="170" height="40" rx="6" fill="#f8f9f9" stroke="#7f8c8d" stroke-width="2"/><text x="490" y="53" text-anchor="middle" font-size="13">[2] {Steve…}</text>
+  <line x1="300" y1="68" x2="300" y2="100" stroke="#2980b9" stroke-width="2.5" marker-end="url(#m8-list-of-dict-na1)"/>
+  <text class="th" x="370" y="90" fill="#2980b9" font-size="13">students[<tspan font-weight="bold">1</tspan>] → dict ของ Jane</text>
+  <rect x="150" y="102" width="300" height="118" rx="8" fill="#ffffff" stroke="#2980b9" stroke-width="2"/>
+  <rect x="165" y="114" width="270" height="28" rx="4" fill="#f8f9f9" stroke="#bdc3c7" stroke-width="1"/><text x="175" y="133">'name': 'Jane'</text>
+  <rect x="165" y="146" width="270" height="28" rx="4" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/><text x="175" y="165">'height': 176</text>
+  <rect x="165" y="178" width="270" height="28" rx="4" fill="#f8f9f9" stroke="#bdc3c7" stroke-width="1"/><text x="175" y="197">'weight': 60.5</text>
+  <line x1="435" y1="160" x2="470" y2="160" stroke="#8e44ad" stroke-width="2.5" marker-end="url(#m8-list-of-dict-na2)"/>
+  <text x="476" y="157" fill="#8e44ad" font-size="13">[<tspan font-weight="bold">'height'</tspan>]</text>
+  <text x="476" y="174" fill="#8e44ad" font-size="13">→ 176</text>
+  <text x="20" y="255" font-size="16">students[<tspan fill="#2980b9" font-weight="bold">1</tspan>][<tspan fill="#8e44ad" font-weight="bold">'height'</tspan>]  →  <tspan font-weight="bold">176</tspan></text>
+  <text class="th" x="20" y="282" fill="#7f8c8d" font-size="12">🔵 index เลือก dict · 🟣 key เลือก value — Dict of List ก็สลับกัน: d[key][index]</text>
+</svg>

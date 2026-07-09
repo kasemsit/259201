@@ -1,0 +1,24 @@
+flowchart TD
+  E(("Entry")) --> C1{"con.1"}
+  C1 -- "True" --> S1["statement1"]
+  C1 -- "False" --> C2{"con.2"}
+  C2 -- "True" --> S2["statement2"]
+  C2 -- "False" --> C3{"con.3"}
+  C3 -- "True" --> S3["statement3"]
+  C3 -- "False" --> D["default"]
+  S1 --> X(("Exit"))
+  S2 --> X
+  S3 --> X
+  D --> X
+
+  %% colours pair each branch with the matching line of the code skeleton
+  classDef term fill:#ecf0f1,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  classDef c1 fill:#eaf2fb,stroke:#2980b9,color:#1a5276,stroke-width:2px;
+  classDef c2 fill:#fdedec,stroke:#c0392b,color:#922b21,stroke-width:2px;
+  classDef c3 fill:#f4ecf7,stroke:#6c3483,color:#4a235a,stroke-width:2px;
+  classDef dflt fill:#eafaf1,stroke:#27ae60,color:#145a32,stroke-width:1.5px;
+  class E,X term;
+  class C1,S1 c1;
+  class C2,S2 c2;
+  class C3,S3 c3;
+  class D dflt;

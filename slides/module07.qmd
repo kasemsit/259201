@@ -128,27 +128,7 @@ range(START, STOP, STEP)
 
 `range(1, 9, 2)` — เริ่มที่ **START** ก้าวทีละ **STEP** จนก่อนถึง **STOP** (ไม่รวม STOP)
 
-```{=html}
-<svg viewBox="0 0 640 160" width="100%" style="max-width:820px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="17">
-  <defs>
-    <marker id="rgd" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/></marker>
-    <marker id="rgr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e74c3c"/></marker>
-  </defs>
-  <text x="46" y="42" text-anchor="middle" fill="#27ae60" font-size="13" font-weight="bold">START</text>
-  <rect x="20" y="52" width="52" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="46" y="84" text-anchor="middle" font-weight="bold">1</text>
-  <line x1="74" y1="77" x2="146" y2="77" stroke="#2c3e50" stroke-width="2" marker-end="url(#rgd)"/><text x="110" y="68" text-anchor="middle" fill="#2980b9" font-size="13">+2</text>
-  <rect x="150" y="52" width="52" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="176" y="84" text-anchor="middle" font-weight="bold">3</text>
-  <line x1="204" y1="77" x2="276" y2="77" stroke="#2c3e50" stroke-width="2" marker-end="url(#rgd)"/><text x="240" y="68" text-anchor="middle" fill="#2980b9" font-size="13">+2</text>
-  <rect x="280" y="52" width="52" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="306" y="84" text-anchor="middle" font-weight="bold">5</text>
-  <line x1="334" y1="77" x2="406" y2="77" stroke="#2c3e50" stroke-width="2" marker-end="url(#rgd)"/><text x="370" y="68" text-anchor="middle" fill="#2980b9" font-size="13">+2</text>
-  <rect x="410" y="52" width="52" height="50" rx="8" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="436" y="84" text-anchor="middle" font-weight="bold">7</text>
-  <line x1="464" y1="77" x2="536" y2="77" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#rgr)"/><text x="500" y="68" text-anchor="middle" fill="#2980b9" font-size="13">+2</text>
-  <rect x="540" y="52" width="52" height="50" rx="8" fill="#fdedec" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5 3"/><text x="566" y="84" text-anchor="middle" fill="#e74c3c" font-weight="bold">9</text>
-  <line x1="548" y1="60" x2="584" y2="94" stroke="#e74c3c" stroke-width="2"/><line x1="584" y1="60" x2="548" y2="94" stroke="#e74c3c" stroke-width="2"/>
-  <text x="566" y="122" text-anchor="middle" fill="#e74c3c" font-size="13" font-weight="bold">STOP</text>
-  <text x="566" y="138" text-anchor="middle" fill="#e74c3c" font-size="12">(ไม่รวม)</text>
-</svg>
-```
+![](images/m7-range-steps.svg){width="820px" fig-align="center"}
 
 ได้ลำดับ `1, 3, 5, 7` — ค่า `9` (STOP) **ถูกตัดทิ้ง** ไม่รวมในลำดับ
 
@@ -391,30 +371,7 @@ next-statement
 
 `for i in [10, 20, 30]:` — ตัวแปร `i` **รับค่าจาก iterable รอบละ 1 ค่า** ตามลำดับ
 
-```{=html}
-<svg viewBox="0 0 580 200" width="100%" style="max-width:820px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="16">
-  <defs><marker id="fw" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2980b9"/></marker></defs>
-  <text x="20" y="28" font-weight="bold">iterable = [10, 20, 30]</text>
-  <text x="105" y="62" text-anchor="middle" fill="#7f8c8d" font-size="13">รอบ 1</text>
-  <rect x="55" y="70" width="100" height="48" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/>
-  <text x="105" y="100" text-anchor="middle" font-weight="bold">i = 10</text>
-  <text x="188" y="88" text-anchor="middle" fill="#2980b9" font-size="12">ถัดไป</text>
-  <line x1="158" y1="94" x2="208" y2="94" stroke="#2980b9" stroke-width="2" marker-end="url(#fw)"/>
-  <text x="262" y="62" text-anchor="middle" fill="#7f8c8d" font-size="13">รอบ 2</text>
-  <rect x="212" y="70" width="100" height="48" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/>
-  <text x="262" y="100" text-anchor="middle" font-weight="bold">i = 20</text>
-  <text x="345" y="88" text-anchor="middle" fill="#2980b9" font-size="12">ถัดไป</text>
-  <line x1="315" y1="94" x2="365" y2="94" stroke="#2980b9" stroke-width="2" marker-end="url(#fw)"/>
-  <text x="419" y="62" text-anchor="middle" fill="#7f8c8d" font-size="13">รอบ 3</text>
-  <rect x="369" y="70" width="100" height="48" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/>
-  <text x="419" y="100" text-anchor="middle" font-weight="bold">i = 30</text>
-  <line x1="472" y1="94" x2="518" y2="94" stroke="#27ae60" stroke-width="2" marker-end="url(#fw)"/>
-  <text x="548" y="99" text-anchor="middle" fill="#27ae60" font-weight="bold">จบ</text>
-  <text x="105" y="150" text-anchor="middle" font-size="12" fill="#7f8c8d">ทำ statement</text>
-  <text x="262" y="150" text-anchor="middle" font-size="12" fill="#7f8c8d">ทำ statement</text>
-  <text x="419" y="150" text-anchor="middle" font-size="12" fill="#7f8c8d">ทำ statement</text>
-</svg>
-```
+![](images/m7-for-iterable.svg){width="820px" fig-align="center"}
 
 ครบทุกค่าใน iterable แล้ว → ออกจากลูป (ไม่ต้องเขียน `i += 1` เอง!)
 
@@ -771,34 +728,7 @@ next_statement2
 
 `for i in range(1,4):` (นอก) · `for j in range(1,4):` (ใน) → **ลูปในวิ่งครบ ก่อนลูปนอกขยับ 1 ขั้น**
 
-```{=html}
-<svg viewBox="0 0 430 330" width="100%" style="max-width:520px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="15">
-  <text x="140" y="40" text-anchor="middle" fill="#8e44ad" font-weight="bold">j=1</text>
-  <text x="236" y="40" text-anchor="middle" fill="#8e44ad" font-weight="bold">j=2</text>
-  <text x="332" y="40" text-anchor="middle" fill="#8e44ad" font-weight="bold">j=3</text>
-  <text x="45" y="112" fill="#2980b9" font-weight="bold">i=1</text>
-  <text x="45" y="197" fill="#2980b9" font-weight="bold">i=2</text>
-  <text x="45" y="282" fill="#2980b9" font-weight="bold">i=3</text>
-  <!-- row i=1 -->
-  <g>
-    <rect x="95" y="72" width="90" height="70" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="140" y="114" text-anchor="middle">(1,1)</text><circle cx="108" cy="85" r="10" fill="#e74c3c"/><text x="108" y="89" text-anchor="middle" fill="#fff" font-size="11">1</text>
-    <rect x="191" y="72" width="90" height="70" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="236" y="114" text-anchor="middle">(1,2)</text><circle cx="204" cy="85" r="10" fill="#e74c3c"/><text x="204" y="89" text-anchor="middle" fill="#fff" font-size="11">2</text>
-    <rect x="287" y="72" width="90" height="70" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="332" y="114" text-anchor="middle">(1,3)</text><circle cx="300" cy="85" r="10" fill="#e74c3c"/><text x="300" y="89" text-anchor="middle" fill="#fff" font-size="11">3</text>
-  </g>
-  <!-- row i=2 -->
-  <g>
-    <rect x="95" y="157" width="90" height="70" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="140" y="199" text-anchor="middle">(2,1)</text><circle cx="108" cy="170" r="10" fill="#e74c3c"/><text x="108" y="174" text-anchor="middle" fill="#fff" font-size="11">4</text>
-    <rect x="191" y="157" width="90" height="70" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="236" y="199" text-anchor="middle">(2,2)</text><circle cx="204" cy="170" r="10" fill="#e74c3c"/><text x="204" y="174" text-anchor="middle" fill="#fff" font-size="11">5</text>
-    <rect x="287" y="157" width="90" height="70" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="332" y="199" text-anchor="middle">(2,3)</text><circle cx="300" cy="170" r="10" fill="#e74c3c"/><text x="300" y="174" text-anchor="middle" fill="#fff" font-size="11">6</text>
-  </g>
-  <!-- row i=3 -->
-  <g>
-    <rect x="95" y="242" width="90" height="70" rx="6" fill="#fef9e7" stroke="#f39c12" stroke-width="2"/><text x="140" y="284" text-anchor="middle">(3,1)</text><circle cx="108" cy="255" r="10" fill="#e74c3c"/><text x="108" y="259" text-anchor="middle" fill="#fff" font-size="11">7</text>
-    <rect x="191" y="242" width="90" height="70" rx="6" fill="#fef9e7" stroke="#f39c12" stroke-width="2"/><text x="236" y="284" text-anchor="middle">(3,2)</text><circle cx="204" cy="255" r="10" fill="#e74c3c"/><text x="204" y="259" text-anchor="middle" fill="#fff" font-size="11">8</text>
-    <rect x="287" y="242" width="90" height="70" rx="6" fill="#fef9e7" stroke="#f39c12" stroke-width="2"/><text x="332" y="284" text-anchor="middle">(3,3)</text><circle cx="300" cy="255" r="10" fill="#e74c3c"/><text x="300" y="259" text-anchor="middle" fill="#fff" font-size="11">9</text>
-  </g>
-</svg>
-```
+![](images/m7-nested-loop.svg){width="520px" fig-align="center"}
 
 🔴 เลขในวงกลม = **ลำดับการทำงาน** (1→9) · แต่ละแถว (สี) = ลูปใน `j` วิ่งครบก่อน ลูปนอก `i` จึงเปลี่ยนแถว
 
@@ -1028,35 +958,7 @@ for r in range(nrow):
 :::: {.columns}
 ::: {.column width="62%"}
 
-```{=html}
-<svg viewBox="0 0 420 320" width="100%" style="max-width:470px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="15">
-  <defs><marker id="nbk" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2980b9"/></marker></defs>
-  <g fill="#8e44ad" font-weight="bold" text-anchor="middle" font-size="14"><text x="132" y="58">c=0</text><text x="207" y="58">c=1</text><text x="282" y="58">c=2</text><text x="357" y="58">c=3</text></g>
-  <g fill="#2980b9" font-weight="bold" font-size="14"><text x="58" y="108">r=0</text><text x="58" y="166">r=1</text><text x="58" y="224">r=2</text><text x="58" y="282">r=3</text></g>
-  <!-- r=0 -->
-  <rect x="98" y="73" width="69" height="52" rx="5" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="132" y="100" text-anchor="middle" fill="#e74c3c" font-weight="bold">*</text><text x="132" y="116" text-anchor="middle" fill="#e74c3c" font-size="10">break</text>
-  <rect x="173" y="73" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="207" y="105" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
-  <rect x="248" y="73" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="282" y="105" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
-  <rect x="323" y="73" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="357" y="105" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
-  <!-- r=1 -->
-  <rect x="98" y="131" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="163" text-anchor="middle">0</text>
-  <rect x="173" y="131" width="69" height="52" rx="5" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="207" y="158" text-anchor="middle" fill="#e74c3c" font-weight="bold">*</text><text x="207" y="174" text-anchor="middle" fill="#e74c3c" font-size="10">break</text>
-  <rect x="248" y="131" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="282" y="163" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
-  <rect x="323" y="131" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="357" y="163" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
-  <!-- r=2 -->
-  <rect x="98" y="189" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="221" text-anchor="middle">0</text>
-  <rect x="173" y="189" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="207" y="221" text-anchor="middle">1</text>
-  <rect x="248" y="189" width="69" height="52" rx="5" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="282" y="216" text-anchor="middle" fill="#e74c3c" font-weight="bold">*</text><text x="282" y="232" text-anchor="middle" fill="#e74c3c" font-size="10">break</text>
-  <rect x="323" y="189" width="69" height="52" rx="5" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/><text x="357" y="221" text-anchor="middle" fill="#c0c4c7" font-size="11">ข้าม</text>
-  <!-- r=3 -->
-  <rect x="98" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="279" text-anchor="middle">0</text>
-  <rect x="173" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="207" y="279" text-anchor="middle">1</text>
-  <rect x="248" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="282" y="279" text-anchor="middle">2</text>
-  <rect x="323" y="247" width="69" height="52" rx="5" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="357" y="274" text-anchor="middle" fill="#e74c3c" font-weight="bold">*</text><text x="357" y="290" text-anchor="middle" fill="#e74c3c" font-size="10">break</text>
-  <!-- outer continue arrow -->
-  <line x1="20" y1="80" x2="20" y2="292" stroke="#2980b9" stroke-width="2.5" marker-end="url(#nbk)"/>
-</svg>
-```
+![](images/m7-nested-break.svg){width="470px" fig-align="center"}
 
 :::
 ::: {.column width="38%"}
@@ -1143,32 +1045,7 @@ for r in range(nrow):
 :::: {.columns}
 ::: {.column width="62%"}
 
-```{=html}
-<svg viewBox="0 0 420 320" width="100%" style="max-width:470px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="15">
-  <g fill="#8e44ad" font-weight="bold" text-anchor="middle" font-size="14"><text x="132" y="58">c=0</text><text x="207" y="58">c=1</text><text x="282" y="58">c=2</text><text x="357" y="58">c=3</text></g>
-  <g fill="#2980b9" font-weight="bold" font-size="14"><text x="58" y="108">r=0</text><text x="58" y="166">r=1</text><text x="58" y="224">r=2</text><text x="58" y="282">r=3</text></g>
-  <!-- r=0 : skip c0, print 1,2,3 -->
-  <rect x="98" y="73" width="69" height="52" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="4 3"/><text x="132" y="99" text-anchor="middle" fill="#e67e22" font-size="11">ข้าม</text><text x="132" y="114" text-anchor="middle" fill="#e67e22" font-size="9">continue</text>
-  <rect x="173" y="73" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="207" y="105" text-anchor="middle">1</text>
-  <rect x="248" y="73" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="282" y="105" text-anchor="middle">2</text>
-  <rect x="323" y="73" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="357" y="105" text-anchor="middle">3</text>
-  <!-- r=1 -->
-  <rect x="98" y="131" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="163" text-anchor="middle">0</text>
-  <rect x="173" y="131" width="69" height="52" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="4 3"/><text x="207" y="157" text-anchor="middle" fill="#e67e22" font-size="11">ข้าม</text><text x="207" y="172" text-anchor="middle" fill="#e67e22" font-size="9">continue</text>
-  <rect x="248" y="131" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="282" y="163" text-anchor="middle">2</text>
-  <rect x="323" y="131" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="357" y="163" text-anchor="middle">3</text>
-  <!-- r=2 -->
-  <rect x="98" y="189" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="221" text-anchor="middle">0</text>
-  <rect x="173" y="189" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="207" y="221" text-anchor="middle">1</text>
-  <rect x="248" y="189" width="69" height="52" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="4 3"/><text x="282" y="215" text-anchor="middle" fill="#e67e22" font-size="11">ข้าม</text><text x="282" y="230" text-anchor="middle" fill="#e67e22" font-size="9">continue</text>
-  <rect x="323" y="189" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="357" y="221" text-anchor="middle">3</text>
-  <!-- r=3 -->
-  <rect x="98" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="132" y="279" text-anchor="middle">0</text>
-  <rect x="173" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="207" y="279" text-anchor="middle">1</text>
-  <rect x="248" y="247" width="69" height="52" rx="5" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/><text x="282" y="279" text-anchor="middle">2</text>
-  <rect x="323" y="247" width="69" height="52" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="4 3"/><text x="357" y="273" text-anchor="middle" fill="#e67e22" font-size="11">ข้าม</text><text x="357" y="288" text-anchor="middle" fill="#e67e22" font-size="9">continue</text>
-</svg>
-```
+![](images/m7-nested-continue.svg){width="470px" fig-align="center"}
 
 :::
 ::: {.column width="38%"}
@@ -1251,23 +1128,7 @@ for r in range(nrow):
 
 `continue` ที่ **ลูปนอก** → ข้าม**ทั้งแถว** (แถวคี่) · `break` ที่ **ลูปใน** → ตัด**ท้ายแถว** (แถวคู่)
 
-```{=html}
-<svg viewBox="0 0 500 330" width="100%" style="max-width:640px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="14">
-  <g fill="#2980b9" font-weight="bold" font-size="13">
-    <text x="20" y="42">r=0</text><text x="20" y="79">r=1</text><text x="20" y="116">r=2</text><text x="20" y="153">r=3</text><text x="20" y="190">r=4</text><text x="20" y="227">r=5</text><text x="20" y="264">r=6</text><text x="20" y="301">r=7</text>
-  </g>
-  <!-- even rows: green (break cuts tail) -->
-  <rect x="60" y="24" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="43">*</text><text x="120" y="43" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
-  <rect x="60" y="98" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="117">0 1 *</text><text x="150" y="117" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
-  <rect x="60" y="172" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="191">0 1 2 3 *</text><text x="190" y="191" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
-  <rect x="60" y="246" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="265">0 1 2 3 4 5 *</text><text x="250" y="265" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
-  <!-- odd rows: orange dashed (outer continue skips whole row) -->
-  <rect x="60" y="61" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text x="72" y="80" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
-  <rect x="60" y="135" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text x="72" y="154" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
-  <rect x="60" y="209" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text x="72" y="228" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
-  <rect x="60" y="283" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text x="72" y="302" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
-</svg>
-```
+![](images/m7-break-continue-levels.svg){width="640px" fig-align="center"}
 
 🟠 `continue` (ลูปนอก) จัดการ **ระดับแถว** · 🔴 `break` (ลูปใน) จัดการ **ระดับคอลัมน์** — แต่ละคำสั่งมีผลเฉพาะลูปของตัวเอง
 

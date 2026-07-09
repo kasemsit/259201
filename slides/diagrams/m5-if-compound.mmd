@@ -1,0 +1,16 @@
+flowchart TD
+  E(("Entry")) --> C{"cond."}
+  C -- "True" --> S1["statement1"]
+  S1 --> S2["statement2"]
+  C -- "False" --> N["next-statement"]
+  S2 -. "⋮" .-> N
+  N --> X(("Exit"))
+
+  classDef term fill:#ecf0f1,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  classDef cond fill:#eaf2fb,stroke:#2980b9,color:#1a5276,stroke-width:2px;
+  classDef stmt fill:#eafaf1,stroke:#27ae60,color:#145a32,stroke-width:1.5px;
+  classDef neut fill:#f4f6f7,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  class E,X term;
+  class C cond;
+  class S1,S2 stmt;
+  class N neut;

@@ -1,0 +1,57 @@
+<svg width="660" height="440" viewBox="0 0 660 440" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="16">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  text.th tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+  <!-- 1D -->
+  <text class="th" x="20" y="24" font-weight="bold" fill="#2980b9">array 1 มิติ (1D)</text>
+  <rect x="20" y="38" width="44" height="46" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="42" y="68" text-anchor="middle">1</text>
+  <rect x="64" y="38" width="44" height="46" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="86" y="68" text-anchor="middle">2</text>
+  <rect x="108" y="38" width="44" height="46" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="130" y="68" text-anchor="middle">3</text>
+  <rect x="152" y="38" width="44" height="46" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="174" y="68" text-anchor="middle">4</text>
+  <rect x="196" y="38" width="44" height="46" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="218" y="68" text-anchor="middle">5</text>
+  <rect x="240" y="38" width="44" height="46" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/><text x="262" y="68" text-anchor="middle">6</text>
+  <text class="th" x="20" y="118" font-size="14"><tspan class="c" fill="#2980b9" font-weight="bold">shape = (6,)</tspan> → 6 สมาชิก เรียงแถวเดียว</text>
+  <!-- 2D -->
+  <text class="th" x="360" y="24" font-weight="bold" fill="#27ae60">array 2 มิติ (2D)</text>
+  <text class="th" x="441" y="52" text-anchor="middle" fill="#8e44ad" font-size="12">← 3 คอลัมน์ →</text>
+  <g font-size="15">
+    <rect x="360" y="58" width="54" height="42" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="387" y="85" text-anchor="middle">1</text>
+    <rect x="414" y="58" width="54" height="42" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="441" y="85" text-anchor="middle">2</text>
+    <rect x="468" y="58" width="54" height="42" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="495" y="85" text-anchor="middle">3</text>
+    <rect x="360" y="102" width="54" height="42" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="387" y="129" text-anchor="middle">11</text>
+    <rect x="414" y="102" width="54" height="42" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="441" y="129" text-anchor="middle">22</text>
+    <rect x="468" y="102" width="54" height="42" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="495" y="129" text-anchor="middle">33</text>
+    <rect x="360" y="146" width="54" height="42" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="387" y="173" text-anchor="middle">10</text>
+    <rect x="414" y="146" width="54" height="42" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="441" y="173" text-anchor="middle">20</text>
+    <rect x="468" y="146" width="54" height="42" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="495" y="173" text-anchor="middle">30</text>
+  </g>
+  <text class="th" x="336" y="127" text-anchor="middle" fill="#2980b9" font-size="12" transform="rotate(-90 336,127)">↑ 3 แถว ↓</text>
+  <text class="th" x="360" y="212" font-size="14"><tspan class="c" fill="#27ae60" font-weight="bold">shape = (3, 3)</tspan> → 3 แถว × 3 คอลัมน์</text>
+  <!-- 3D -->
+  <line x1="20" y1="242" x2="640" y2="242" stroke="#e5e8e8" stroke-width="1"/>
+  <text class="th" x="20" y="268" font-weight="bold" fill="#8e44ad">array 3 มิติ (3D) — เอา 2D มาวางซ้อนกันหลายชั้น</text>
+  <g fill="#f4ecf7" stroke="#c39bd3" stroke-width="1.5">
+    <rect x="134" y="286" width="46" height="36" rx="3"/><rect x="180" y="286" width="46" height="36" rx="3"/><rect x="226" y="286" width="46" height="36" rx="3"/>
+    <rect x="134" y="322" width="46" height="36" rx="3"/><rect x="180" y="322" width="46" height="36" rx="3"/><rect x="226" y="322" width="46" height="36" rx="3"/>
+    <rect x="134" y="358" width="46" height="36" rx="3"/><rect x="180" y="358" width="46" height="36" rx="3"/><rect x="226" y="358" width="46" height="36" rx="3"/>
+  </g>
+  <g stroke="#c39bd3" stroke-width="1.5">
+    <line x1="100" y1="314" x2="134" y2="286"/><line x1="238" y1="314" x2="272" y2="286"/><line x1="100" y1="422" x2="134" y2="394"/><line x1="238" y1="422" x2="272" y2="394"/>
+  </g>
+  <g fill="#eafaf1" stroke="#27ae60" stroke-width="2">
+    <rect x="100" y="314" width="46" height="36" rx="3"/><rect x="146" y="314" width="46" height="36" rx="3"/><rect x="192" y="314" width="46" height="36" rx="3"/>
+    <rect x="100" y="350" width="46" height="36" rx="3"/><rect x="146" y="350" width="46" height="36" rx="3"/><rect x="192" y="350" width="46" height="36" rx="3"/>
+    <rect x="100" y="386" width="46" height="36" rx="3"/><rect x="146" y="386" width="46" height="36" rx="3"/><rect x="192" y="386" width="46" height="36" rx="3"/>
+  </g>
+  <g text-anchor="middle" font-size="14">
+    <text x="123" y="338">1</text><text x="169" y="338">2</text><text x="215" y="338">3</text>
+    <text x="123" y="374">4</text><text x="169" y="374">5</text><text x="215" y="374">6</text>
+    <text x="123" y="410">7</text><text x="169" y="410">8</text><text x="215" y="410">9</text>
+  </g>
+  <text class="th" x="278" y="280" fill="#8e44ad" font-size="12">ชั้น 1</text>
+  <text class="th" x="94" y="412" fill="#27ae60" font-size="12" text-anchor="end">ชั้น 0</text>
+  <text x="330" y="360" font-size="14"><tspan fill="#8e44ad" font-weight="bold">shape = (2, 3, 3)</tspan></text>
+  <text class="th" x="330" y="384" font-size="13">→ 2 ชั้น (depth) × 3 แถว × 3 คอลัมน์</text>
+</svg>

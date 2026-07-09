@@ -1,0 +1,28 @@
+<svg width="250" height="330" viewBox="0 0 250 330" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12.5">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs>
+    <marker id="m6-break-flow-brkg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker>
+    <marker id="m6-break-flow-brkd" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/></marker>
+    <marker id="m6-break-flow-brkr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e74c3c"/></marker>
+  </defs>
+  <rect x="45" y="12" width="150" height="30" rx="6" fill="#d6eaf8" stroke="#7f8c8d" stroke-width="2"/>
+  <text class="th" x="120" y="31" text-anchor="middle">while เงื่อนไข :</text>
+  <line x1="120" y1="42" x2="120" y2="65" stroke="#2c3e50" stroke-width="2" marker-end="url(#m6-break-flow-brkd)"/>
+  <rect x="58" y="67" width="124" height="30" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
+  <text class="th" x="120" y="86" text-anchor="middle">งานก่อน if</text>
+  <line x1="120" y1="97" x2="120" y2="115" stroke="#2c3e50" stroke-width="2" marker-end="url(#m6-break-flow-brkd)"/>
+  <polygon points="120,117 182,145 120,173 58,145" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
+  <text class="th" x="120" y="149" text-anchor="middle">if เจอ ?</text>
+  <text class="th" x="124" y="193" fill="#27ae60">ไม่เจอ</text>
+  <line x1="120" y1="173" x2="120" y2="199" stroke="#2c3e50" stroke-width="2" marker-end="url(#m6-break-flow-brkd)"/>
+  <rect x="58" y="201" width="124" height="30" rx="6" fill="#eafaf1" stroke="#7f8c8d" stroke-width="2"/>
+  <text class="th" x="120" y="220" text-anchor="middle">งานหลัง if</text>
+  <path d="M58,216 H26 V27 H43" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#m6-break-flow-brkg)"/>
+  <rect x="58" y="286" width="150" height="34" rx="6" fill="#f2f4f4" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="133" y="307" text-anchor="middle">next-statement</text>
+  <path d="M182,145 H223 V303 H212" fill="none" stroke="#e74c3c" stroke-width="3" marker-end="url(#m6-break-flow-brkr)"/>
+  <text x="150" y="138" fill="#e74c3c" font-weight="bold">break</text>
+</svg>

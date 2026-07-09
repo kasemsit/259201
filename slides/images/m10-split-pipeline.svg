@@ -1,0 +1,19 @@
+<svg width="580" height="150" viewBox="0 0 580 150" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="15">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs><marker id="m10-split-pipeline-sp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2980b9"/></marker></defs>
+  <rect x="20" y="18" width="230" height="40" rx="6" fill="#eef2f3" stroke="#7f8c8d" stroke-width="2"/><text x="135" y="43" text-anchor="middle">"12 3 50 100 0"</text>
+  <line x1="255" y1="38" x2="315" y2="38" stroke="#2980b9" stroke-width="2.5" marker-end="url(#m10-split-pipeline-sp)"/>
+  <text x="285" y="26" text-anchor="middle" fill="#2980b9" font-size="13">.split()</text>
+  <g>
+    <rect x="325" y="18" width="46" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="348" y="43" text-anchor="middle" fill="#e74c3c">'12'</text>
+    <rect x="373" y="18" width="40" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="393" y="43" text-anchor="middle" fill="#e74c3c">'3'</text>
+    <rect x="415" y="18" width="46" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="438" y="43" text-anchor="middle" fill="#e74c3c">'50'</text>
+    <rect x="463" y="18" width="54" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="490" y="43" text-anchor="middle" fill="#e74c3c">'100'</text>
+    <rect x="519" y="18" width="40" height="40" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/><text x="539" y="43" text-anchor="middle" fill="#e74c3c">'0'</text>
+  </g>
+  <text class="th" x="135" y="90" text-anchor="middle" font-size="13" fill="#7f8c8d">string เดียวยาว ๆ</text>
+  <text class="th" x="442" y="90" text-anchor="middle" font-size="13" fill="#e74c3c">List ของ string (🔴 ยังไม่ใช่ตัวเลข!)</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="500" height="330" viewBox="0 0 500 330" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <g fill="#2980b9" font-weight="bold" font-size="13">
+    <text x="20" y="42">r=0</text><text x="20" y="79">r=1</text><text x="20" y="116">r=2</text><text x="20" y="153">r=3</text><text x="20" y="190">r=4</text><text x="20" y="227">r=5</text><text x="20" y="264">r=6</text><text x="20" y="301">r=7</text>
+  </g>
+  <!-- even rows: green (break cuts tail) -->
+  <rect x="60" y="24" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="43">*</text><text class="th" x="120" y="43" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
+  <rect x="60" y="98" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="117">0 1 *</text><text class="th" x="150" y="117" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
+  <rect x="60" y="172" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="191">0 1 2 3 *</text><text class="th" x="190" y="191" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
+  <rect x="60" y="246" width="420" height="28" rx="5" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="72" y="265">0 1 2 3 4 5 *</text><text class="th" x="250" y="265" fill="#e74c3c" font-size="12">← break ตัดท้ายแถว</text>
+  <!-- odd rows: orange dashed (outer continue skips whole row) -->
+  <rect x="60" y="61" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text class="th" x="72" y="80" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
+  <rect x="60" y="135" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text class="th" x="72" y="154" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
+  <rect x="60" y="209" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text class="th" x="72" y="228" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
+  <rect x="60" y="283" width="420" height="28" rx="5" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" stroke-dasharray="5 3"/><text class="th" x="72" y="302" fill="#e67e22">ข้ามทั้งแถว — r คี่ → continue (ลูปนอก)</text>
+</svg>

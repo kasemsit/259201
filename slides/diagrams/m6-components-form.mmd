@@ -1,0 +1,17 @@
+flowchart TD
+  E(("Entry")) --> I["<b>init</b>"]
+  I --> C{"cond"}
+  C -- "True" --> S1["Statement 1"]
+  S1 --> S2["Statement 2"]
+  S2 -. "⋮" .-> U["<b>update</b>"]
+  U --> C
+  C -- "False" --> X(("Exit"))
+
+  classDef term fill:#ecf0f1,stroke:#7f8c8d,color:#2c3e50,stroke-width:1.5px;
+  classDef cond fill:#eaf2fb,stroke:#2980b9,color:#1a5276,stroke-width:2px;
+  classDef stmt fill:#eafaf1,stroke:#27ae60,color:#145a32,stroke-width:1.5px;
+  classDef key fill:#fdedec,stroke:#c0392b,color:#922b21,stroke-width:2px;
+  class E,X term;
+  class C cond;
+  class S1,S2 stmt;
+  class I,U key;

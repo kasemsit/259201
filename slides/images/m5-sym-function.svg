@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80" role="img" aria-label="Function symbol">
+  <rect x="3" y="3" width="194" height="74" rx="8" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="2.5"/>
+  <line x1="30" y1="3" x2="30" y2="77" stroke="#7f8c8d" stroke-width="2.5"/>
+  <line x1="170" y1="3" x2="170" y2="77" stroke="#7f8c8d" stroke-width="2.5"/>
+</svg>

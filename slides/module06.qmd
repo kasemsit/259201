@@ -156,58 +156,14 @@ while i <= 3:
 
 **`if` — ไหลลงทางเดียว** ⬇️
 
-```{=html}
-<svg viewBox="0 0 250 320" width="220" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="13">
-  <defs>
-    <marker id="ah6" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/>
-    </marker>
-  </defs>
-  <polygon points="120,12 190,45 120,78 50,45" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="49" text-anchor="middle">i &lt;= 3 ?</text>
-  <line x1="120" y1="78" x2="120" y2="107" stroke="#2c3e50" stroke-width="2" marker-end="url(#ah6)"/>
-  <text x="128" y="97" fill="#27ae60">True</text>
-  <rect x="55" y="110" width="130" height="52" rx="6" fill="#d5f5e3" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="131" text-anchor="middle">print(i)</text>
-  <text x="120" y="150" text-anchor="middle">i += 1</text>
-  <line x1="120" y1="162" x2="120" y2="255" stroke="#2c3e50" stroke-width="2" marker-end="url(#ah6)"/>
-  <rect x="55" y="258" width="130" height="44" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="285" text-anchor="middle">next-statement</text>
-  <path d="M190,45 H222 V280 H188" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#ah6)"/>
-  <text x="196" y="40" fill="#e74c3c">False</text>
-</svg>
-```
+![](images/m6-if-once.svg){width="250px" fig-align="center"}
 
 :::
 ::: {.column width="50%"}
 
 **`while` — มีลูกศร "วนกลับ"** 🔁
 
-```{=html}
-<svg viewBox="0 0 250 320" width="220" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="13">
-  <defs>
-    <marker id="ah6b" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/>
-    </marker>
-    <marker id="ah6r" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#e74c3c"/>
-    </marker>
-  </defs>
-  <polygon points="120,12 190,45 120,78 50,45" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="49" text-anchor="middle">i &lt;= 3 ?</text>
-  <line x1="120" y1="78" x2="120" y2="107" stroke="#2c3e50" stroke-width="2" marker-end="url(#ah6b)"/>
-  <text x="128" y="97" fill="#27ae60">True</text>
-  <rect x="55" y="110" width="130" height="52" rx="6" fill="#d5f5e3" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="131" text-anchor="middle">print(i)</text>
-  <text x="120" y="150" text-anchor="middle">i += 1</text>
-  <path d="M55,136 H20 V45 H47" fill="none" stroke="#e74c3c" stroke-width="3" marker-end="url(#ah6r)"/>
-  <text x="24" y="100" fill="#e74c3c" font-weight="bold">วนกลับ</text>
-  <rect x="55" y="258" width="130" height="44" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="285" text-anchor="middle">next-statement</text>
-  <path d="M190,45 H222 V280 H188" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#ah6b)"/>
-  <text x="196" y="40" fill="#e74c3c">False</text>
-</svg>
-```
+![](images/m6-while-repeat.svg){width="250px" fig-align="center"}
 
 :::
 ::::
@@ -219,7 +175,7 @@ while i <= 3:
 :::: {.columns}
 ::: {.column width="55%" .fragment}
 
-![](images/m6-while-flow.png){height="500px" fig-align="center"}
+![](images/m6-while-flow.svg){height="500px" fig-align="center"}
 
 :::
 ::: {.column width="45%" .fragment}
@@ -294,7 +250,7 @@ next-statement
 :::
 ::: {.column width="50%"}
 
-![](images/m6-components-form.png){width="400px" fig-align="center"}
+![](images/m6-components-form.svg){width="400px" fig-align="center"}
 
 :::
 ::::
@@ -460,28 +416,7 @@ Multiplication Table
 
 ลูปเดียว (`i = 1..12`) พิมพ์ต่อกันเป็นแถว — ทุกครั้งที่ `i % 5 == 0` → `print()` **ขึ้นบรรทัดใหม่**
 
-```{=html}
-<svg viewBox="0 0 620 150" width="100%" style="max-width:900px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="16">
-  <!-- group 1: i=1..5 -->
-  <rect x="18" y="48" width="45" height="46" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="40" y="40" text-anchor="middle" fill="#8e44ad" font-size="11">i=1</text><text x="40" y="78" text-anchor="middle">4</text>
-  <rect x="67" y="48" width="45" height="46" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="89" y="40" text-anchor="middle" fill="#8e44ad" font-size="11">i=2</text><text x="89" y="78" text-anchor="middle">8</text>
-  <rect x="116" y="48" width="45" height="46" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="138" y="40" text-anchor="middle" fill="#8e44ad" font-size="11">i=3</text><text x="138" y="78" text-anchor="middle">12</text>
-  <rect x="165" y="48" width="45" height="46" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/><text x="187" y="40" text-anchor="middle" fill="#8e44ad" font-size="11">i=4</text><text x="187" y="78" text-anchor="middle">16</text>
-  <rect x="214" y="48" width="45" height="46" rx="6" fill="#eaf2f8" stroke="#e74c3c" stroke-width="3"/><text x="236" y="40" text-anchor="middle" fill="#8e44ad" font-size="11">i=5</text><text x="236" y="78" text-anchor="middle">20</text>
-  <!-- group 2: i=6..10 -->
-  <rect x="263" y="48" width="45" height="46" rx="6" fill="#eafaf1" stroke="#7f8c8d" stroke-width="2"/><text x="285" y="40" text-anchor="middle" fill="#8e44ad" font-size="11">i=6</text><text x="285" y="78" text-anchor="middle">24</text>
-  <rect x="312" y="48" width="45" height="46" rx="6" fill="#eafaf1" stroke="#7f8c8d" stroke-width="2"/><text x="334" y="40" text-anchor="middle" fill="#8e44ad" font-size="11">i=7</text><text x="334" y="78" text-anchor="middle">28</text>
-  <rect x="361" y="48" width="45" height="46" rx="6" fill="#eafaf1" stroke="#7f8c8d" stroke-width="2"/><text x="383" y="40" text-anchor="middle" fill="#8e44ad" font-size="11">i=8</text><text x="383" y="78" text-anchor="middle">32</text>
-  <rect x="410" y="48" width="45" height="46" rx="6" fill="#eafaf1" stroke="#7f8c8d" stroke-width="2"/><text x="432" y="40" text-anchor="middle" fill="#8e44ad" font-size="11">i=9</text><text x="432" y="78" text-anchor="middle">36</text>
-  <rect x="459" y="48" width="45" height="46" rx="6" fill="#eafaf1" stroke="#e74c3c" stroke-width="3"/><text x="481" y="40" text-anchor="middle" fill="#8e44ad" font-size="10">i=10</text><text x="481" y="78" text-anchor="middle">40</text>
-  <!-- group 3: i=11..12 -->
-  <rect x="508" y="48" width="45" height="46" rx="6" fill="#fef9e7" stroke="#7f8c8d" stroke-width="2"/><text x="530" y="40" text-anchor="middle" fill="#8e44ad" font-size="10">i=11</text><text x="530" y="78" text-anchor="middle">44</text>
-  <rect x="557" y="48" width="45" height="46" rx="6" fill="#fef9e7" stroke="#7f8c8d" stroke-width="2"/><text x="579" y="40" text-anchor="middle" fill="#8e44ad" font-size="10">i=12</text><text x="579" y="78" text-anchor="middle">48</text>
-  <!-- newline markers -->
-  <text x="236" y="112" text-anchor="middle" fill="#e74c3c" font-weight="bold">↵</text><text x="236" y="128" text-anchor="middle" fill="#e74c3c" font-size="11">i%5==0</text>
-  <text x="481" y="112" text-anchor="middle" fill="#e74c3c" font-weight="bold">↵</text><text x="481" y="128" text-anchor="middle" fill="#e74c3c" font-size="11">i%5==0</text>
-</svg>
-```
+![](images/m6-modulo-table.svg){width="900px" fig-align="center"}
 
 🔵 แถว 1 (i=1-5) · 🟢 แถว 2 (i=6-10) · 🟡 แถว 3 (i=11-12) — ลูป **มิติเดียว** ถูก `i % 5 == 0` ตัดเป็น **ตาราง 3 แถว**
 
@@ -772,22 +707,7 @@ print('exit-loop')
 
 **กับดัก 1 — `False` ตั้งแต่แรก → ไม่เข้าลูป** (โจทย์ #5)
 
-```{=html}
-<svg viewBox="0 0 240 215" width="100%" style="max-width:300px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="13">
-  <defs><marker id="tk1" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e74c3c"/></marker></defs>
-  <polygon points="110,12 175,42 110,72 45,42" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="110" y="46" text-anchor="middle">x &gt; 10 ?</text>
-  <text x="110" y="92" text-anchor="middle" fill="#e74c3c" font-weight="bold">x = 5 → False</text>
-  <line x1="110" y1="72" x2="110" y2="104" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/>
-  <rect x="45" y="106" width="130" height="42" rx="6" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/>
-  <text x="110" y="126" text-anchor="middle" fill="#95a5a6">งานในลูป</text>
-  <text x="110" y="141" text-anchor="middle" fill="#95a5a6" font-size="11">(ไม่ถูกเรียก)</text>
-  <rect x="45" y="170" width="130" height="36" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="110" y="192" text-anchor="middle">next-statement</text>
-  <path d="M175,42 H212 V188 H178" fill="none" stroke="#e74c3c" stroke-width="2.5" marker-end="url(#tk1)"/>
-  <text x="182" y="36" fill="#e74c3c" font-weight="bold">ข้าม</text>
-</svg>
-```
+![](images/m6-trap-never-enter.svg){width="300px" fig-align="center"}
 
 เงื่อนไขเป็นเท็จทันที → **ข้ามงานในลูปทั้งหมด**
 
@@ -796,26 +716,7 @@ print('exit-loop')
 
 **กับดัก 2 — `True` เสมอ → วนไม่จบ** (โจทย์ #6)
 
-```{=html}
-<svg viewBox="0 0 300 180" width="100%" style="max-width:400px" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="13">
-  <defs><marker id="tk2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e74c3c"/></marker></defs>
-  <line x1="25" y1="88" x2="290" y2="88" stroke="#2c3e50" stroke-width="2"/>
-  <g fill="#2c3e50" font-size="12" text-anchor="middle">
-    <text x="55" y="108">-2</text><text x="95" y="108">-1</text><text x="135" y="108">0</text><text x="175" y="108">1</text><text x="215" y="108">…</text>
-  </g>
-  <circle cx="55" cy="88" r="4" fill="#2980b9"/><circle cx="95" cy="88" r="4" fill="#2980b9"/><circle cx="135" cy="88" r="4" fill="#2980b9"/><circle cx="175" cy="88" r="5" fill="#27ae60"/>
-  <text x="175" y="48" text-anchor="middle" fill="#27ae60" font-weight="bold">เริ่ม x=1</text>
-  <line x1="175" y1="58" x2="175" y2="80" stroke="#27ae60" stroke-width="2"/>
-  <line x1="170" y1="72" x2="140" y2="72" stroke="#e74c3c" stroke-width="2" marker-end="url(#tk2)"/>
-  <line x1="130" y1="72" x2="100" y2="72" stroke="#e74c3c" stroke-width="2" marker-end="url(#tk2)"/>
-  <line x1="90" y1="72" x2="60" y2="72" stroke="#e74c3c" stroke-width="2" marker-end="url(#tk2)"/>
-  <text x="112" y="62" text-anchor="middle" fill="#e74c3c" font-size="12">x -= 1</text>
-  <line x1="262" y1="55" x2="262" y2="118" stroke="#e74c3c" stroke-width="3"/>
-  <text x="262" y="135" text-anchor="middle" fill="#e74c3c" font-size="11">ต้อง x≥10</text>
-  <text x="262" y="150" text-anchor="middle" fill="#e74c3c" font-size="11">ถึงจะหยุด</text>
-  <text x="120" y="170" text-anchor="middle" fill="#e74c3c" font-weight="bold">วิ่งออกห่าง → ไม่มีวันถึง!</text>
-</svg>
-```
+![](images/m6-trap-infinite.svg){width="400px" fig-align="center"}
 
 `x -= 1` ทำให้ `x` วิ่ง**ห่าง**จากเงื่อนไข → ลูปไม่จบ
 
@@ -865,32 +766,7 @@ print('exit-loop')
 :::
 ::: {.column width="48%"}
 
-```{=html}
-<svg viewBox="0 0 250 330" width="400" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="12.5">
-  <defs>
-    <marker id="brkg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker>
-    <marker id="brkd" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/></marker>
-    <marker id="brkr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e74c3c"/></marker>
-  </defs>
-  <rect x="45" y="12" width="150" height="30" rx="6" fill="#d6eaf8" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="31" text-anchor="middle">while เงื่อนไข :</text>
-  <line x1="120" y1="42" x2="120" y2="65" stroke="#2c3e50" stroke-width="2" marker-end="url(#brkd)"/>
-  <rect x="58" y="67" width="124" height="30" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="86" text-anchor="middle">งานก่อน if</text>
-  <line x1="120" y1="97" x2="120" y2="115" stroke="#2c3e50" stroke-width="2" marker-end="url(#brkd)"/>
-  <polygon points="120,117 182,145 120,173 58,145" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="149" text-anchor="middle">if เจอ ?</text>
-  <text x="124" y="193" fill="#27ae60">ไม่เจอ</text>
-  <line x1="120" y1="173" x2="120" y2="199" stroke="#2c3e50" stroke-width="2" marker-end="url(#brkd)"/>
-  <rect x="58" y="201" width="124" height="30" rx="6" fill="#eafaf1" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="220" text-anchor="middle">งานหลัง if</text>
-  <path d="M58,216 H26 V27 H43" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#brkg)"/>
-  <rect x="58" y="286" width="150" height="34" rx="6" fill="#f2f4f4" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="133" y="307" text-anchor="middle">next-statement</text>
-  <path d="M182,145 H223 V303 H212" fill="none" stroke="#e74c3c" stroke-width="3" marker-end="url(#brkr)"/>
-  <text x="150" y="138" fill="#e74c3c" font-weight="bold">break</text>
-</svg>
-```
+![](images/m6-break-flow.svg){width="250px" fig-align="center"}
 
 :::
 ::::
@@ -1023,30 +899,7 @@ print(k)
 :::
 ::: {.column width="48%"}
 
-```{=html}
-<svg viewBox="0 0 250 290" width="400" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="12.5">
-  <defs>
-    <marker id="cong" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker>
-    <marker id="cond" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2c3e50"/></marker>
-    <marker id="cono" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e67e22"/></marker>
-  </defs>
-  <rect x="45" y="14" width="150" height="30" rx="6" fill="#d6eaf8" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="33" text-anchor="middle">while เงื่อนไข :</text>
-  <line x1="120" y1="44" x2="120" y2="67" stroke="#2c3e50" stroke-width="2" marker-end="url(#cond)"/>
-  <rect x="58" y="69" width="124" height="30" rx="6" fill="#eaf2f8" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="88" text-anchor="middle">งานก่อน if</text>
-  <line x1="120" y1="99" x2="120" y2="117" stroke="#2c3e50" stroke-width="2" marker-end="url(#cond)"/>
-  <polygon points="120,119 182,147 120,175 58,147" fill="#fdebd0" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="120" y="151" text-anchor="middle">if เจอ ?</text>
-  <text x="124" y="195" fill="#27ae60">ไม่เจอ</text>
-  <line x1="120" y1="175" x2="120" y2="201" stroke="#2c3e50" stroke-width="2" marker-end="url(#cond)"/>
-  <rect x="58" y="203" width="124" height="30" rx="6" fill="#eafaf1" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="4 3"/>
-  <text x="120" y="222" text-anchor="middle" fill="#95a5a6">งานหลัง if</text>
-  <path d="M58,218 H26 V29 H43" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#cong)"/>
-  <path d="M182,147 H222 V29 H198" fill="none" stroke="#e67e22" stroke-width="3" marker-end="url(#cono)"/>
-  <text x="150" y="140" fill="#e67e22" font-weight="bold">continue</text>
-</svg>
-```
+![](images/m6-continue-flow.svg){width="250px" fig-align="center"}
 
 :::
 ::::

@@ -1,0 +1,47 @@
+<svg width="470" height="460" viewBox="0 0 470 460" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+</style>
+  <defs>
+    <marker id="m9-multiple-return-mrg" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker>
+    <marker id="m9-multiple-return-mrr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27ae60"/></marker>
+  </defs>
+  <g>
+    <!-- row template: cond box + return chip -->
+    <rect x="18" y="20" width="215" height="42" rx="6" fill="#fdebd0" stroke="#e67e22" stroke-width="2"/><text x="125" y="45" text-anchor="middle">score&lt;0 or &gt;100 ?</text>
+    <rect x="18" y="90" width="215" height="42" rx="6" fill="#fdebd0" stroke="#e67e22" stroke-width="2"/><text x="125" y="115" text-anchor="middle">score &gt;= 80 ?</text>
+    <rect x="18" y="160" width="215" height="42" rx="6" fill="#fdebd0" stroke="#e67e22" stroke-width="2"/><text x="125" y="185" text-anchor="middle">score &gt;= 70 ?</text>
+    <rect x="18" y="230" width="215" height="42" rx="6" fill="#fdebd0" stroke="#e67e22" stroke-width="2"/><text x="125" y="255" text-anchor="middle">score &gt;= 60 ?</text>
+    <rect x="18" y="300" width="215" height="42" rx="6" fill="#fdebd0" stroke="#e67e22" stroke-width="2"/><text x="125" y="325" text-anchor="middle">score &gt;= 50 ?</text>
+    <rect x="18" y="370" width="215" height="42" rx="6" fill="#eef2f3" stroke="#7f8c8d" stroke-width="2"/><text class="th" x="125" y="395" text-anchor="middle">else (นอกนั้น)</text>
+  </g>
+  <!-- return chips -->
+  <g>
+    <rect x="285" y="20" width="150" height="42" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="360" y="45" text-anchor="middle" fill="#27ae60" font-weight="bold">return 'X'</text>
+    <rect x="285" y="90" width="150" height="42" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="360" y="115" text-anchor="middle" fill="#27ae60" font-weight="bold">return 'A'</text>
+    <rect x="285" y="160" width="150" height="42" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="360" y="185" text-anchor="middle" fill="#27ae60" font-weight="bold">return 'B'</text>
+    <rect x="285" y="230" width="150" height="42" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="360" y="255" text-anchor="middle" fill="#27ae60" font-weight="bold">return 'C'</text>
+    <rect x="285" y="300" width="150" height="42" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="360" y="325" text-anchor="middle" fill="#27ae60" font-weight="bold">return 'D'</text>
+    <rect x="285" y="370" width="150" height="42" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/><text x="360" y="395" text-anchor="middle" fill="#27ae60" font-weight="bold">return 'F'</text>
+  </g>
+  <!-- true arrows to return -->
+  <g>
+    <line x1="233" y1="41" x2="283" y2="41" stroke="#27ae60" stroke-width="2" marker-end="url(#m9-multiple-return-mrr)"/>
+    <line x1="233" y1="111" x2="283" y2="111" stroke="#27ae60" stroke-width="2" marker-end="url(#m9-multiple-return-mrr)"/>
+    <line x1="233" y1="181" x2="283" y2="181" stroke="#27ae60" stroke-width="2" marker-end="url(#m9-multiple-return-mrr)"/>
+    <line x1="233" y1="251" x2="283" y2="251" stroke="#27ae60" stroke-width="2" marker-end="url(#m9-multiple-return-mrr)"/>
+    <line x1="233" y1="321" x2="283" y2="321" stroke="#27ae60" stroke-width="2" marker-end="url(#m9-multiple-return-mrr)"/>
+    <line x1="233" y1="391" x2="283" y2="391" stroke="#27ae60" stroke-width="2" marker-end="url(#m9-multiple-return-mrr)"/>
+  </g>
+  <!-- fall-through arrows -->
+  <g>
+    <line x1="125" y1="62" x2="125" y2="88" stroke="#7f8c8d" stroke-width="2" marker-end="url(#m9-multiple-return-mrg)"/>
+    <line x1="125" y1="132" x2="125" y2="158" stroke="#7f8c8d" stroke-width="2" marker-end="url(#m9-multiple-return-mrg)"/>
+    <line x1="125" y1="202" x2="125" y2="228" stroke="#7f8c8d" stroke-width="2" marker-end="url(#m9-multiple-return-mrg)"/>
+    <line x1="125" y1="272" x2="125" y2="298" stroke="#7f8c8d" stroke-width="2" marker-end="url(#m9-multiple-return-mrg)"/>
+    <line x1="125" y1="342" x2="125" y2="368" stroke="#7f8c8d" stroke-width="2" marker-end="url(#m9-multiple-return-mrg)"/>
+  </g>
+  <text class="th" x="150" y="79" fill="#7f8c8d" font-size="11">ไม่ใช่ ↓</text>
+  <text class="th" x="452" y="230" text-anchor="middle" fill="#27ae60" font-size="12" transform="rotate(90 452,230)">เจอ return → ฟังก์ชันจบทันที</text>
+</svg>
