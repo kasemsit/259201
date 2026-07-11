@@ -48,7 +48,9 @@ execute:
 
 Tuple สร้างด้วยเครื่องหมายใด?
 
-A. `[ ]` &nbsp;&nbsp; B. `( )` &nbsp;&nbsp; C. `{ }`
+A. `[ ]`<br>
+B. `( )`<br>
+C. `{ }`
 
 . . .
 
@@ -60,7 +62,9 @@ A. `[ ]` &nbsp;&nbsp; B. `( )` &nbsp;&nbsp; C. `{ }`
 
 `tup = (1, 2, 3)` แล้ว `tup[0] = 99` จะเกิดอะไร?
 
-A. `(99, 2, 3)` &nbsp;&nbsp; B. `TypeError` &nbsp;&nbsp; C. `[99, 2, 3]`
+A. `(99, 2, 3)`<br>
+B. `TypeError`<br>
+C. `[99, 2, 3]`
 
 . . .
 
@@ -72,7 +76,9 @@ A. `(99, 2, 3)` &nbsp;&nbsp; B. `TypeError` &nbsp;&nbsp; C. `[99, 2, 3]`
 
 `{1, 2, 2, 3, 3}` มีสมาชิกกี่ตัว?
 
-A. `5` &nbsp;&nbsp; B. `3` &nbsp;&nbsp; C. `2`
+A. `5`<br>
+B. `3`<br>
+C. `2`
 
 . . .
 
@@ -84,7 +90,9 @@ A. `5` &nbsp;&nbsp; B. `3` &nbsp;&nbsp; C. `2`
 
 ข้อใดสร้าง **set ว่าง** ได้ถูกต้อง?
 
-A. `{}` &nbsp;&nbsp; B. `set()` &nbsp;&nbsp; C. `[]`
+A. `{}`<br>
+B. `set()`<br>
+C. `[]`
 
 . . .
 
@@ -96,7 +104,9 @@ A. `{}` &nbsp;&nbsp; B. `set()` &nbsp;&nbsp; C. `[]`
 
 `s = {1, 2, 3}` — `s[0]` ให้ผลใด?
 
-A. `1` &nbsp;&nbsp; B. `TypeError` &nbsp;&nbsp; C. `None`
+A. `1`<br>
+B. `TypeError`<br>
+C. `None`
 
 . . .
 
@@ -108,7 +118,9 @@ A. `1` &nbsp;&nbsp; B. `TypeError` &nbsp;&nbsp; C. `None`
 
 `{1, 2, 3} | {3, 4, 5}` (union) ให้ผลใด?
 
-A. `{3}` &nbsp;&nbsp; B. `{1, 2, 3, 4, 5}` &nbsp;&nbsp; C. `{1, 2, 4, 5}`
+A. `{3}`<br>
+B. `{1, 2, 3, 4, 5}`<br>
+C. `{1, 2, 4, 5}`
 
 . . .
 
@@ -120,7 +132,9 @@ A. `{3}` &nbsp;&nbsp; B. `{1, 2, 3, 4, 5}` &nbsp;&nbsp; C. `{1, 2, 4, 5}`
 
 `{1, 2, 3} & {3, 4, 5}` (intersection) ให้ผลใด?
 
-A. `{3}` &nbsp;&nbsp; B. `{1, 2, 3, 4, 5}` &nbsp;&nbsp; C. `{ }`
+A. `{3}`<br>
+B. `{1, 2, 3, 4, 5}`<br>
+C. `{ }`
 
 . . .
 
@@ -132,7 +146,9 @@ A. `{3}` &nbsp;&nbsp; B. `{1, 2, 3, 4, 5}` &nbsp;&nbsp; C. `{ }`
 
 Dictionary เข้าถึงข้อมูลด้วยอะไร?
 
-A. index ตัวเลข &nbsp;&nbsp; B. **key** &nbsp;&nbsp; C. ทั้งสองอย่าง
+A. index ตัวเลข<br>
+B. **key**<br>
+C. ทั้งสองอย่าง
 
 . . .
 
@@ -144,7 +160,9 @@ A. index ตัวเลข &nbsp;&nbsp; B. **key** &nbsp;&nbsp; C. ทั้ง
 
 ดึงค่าจาก dict ด้วย **key ที่ไม่มีอยู่** จะเกิดอะไร?
 
-A. คืน `None` &nbsp;&nbsp; B. `KeyError` &nbsp;&nbsp; C. คืน `''`
+A. คืน `None`<br>
+B. `KeyError`<br>
+C. คืน `''`
 
 . . .
 
@@ -156,7 +174,9 @@ A. คืน `None` &nbsp;&nbsp; B. `KeyError` &nbsp;&nbsp; C. คืน `''`
 
 ข้อใด **ใช้เป็น key ของ dict ไม่ได้**?
 
-A. `"name"` (str) &nbsp;&nbsp; B. `1` (int) &nbsp;&nbsp; C. `[1, 2]` (list)
+A. `"name"` (str)<br>
+B. `1` (int)<br>
+C. `[1, 2]` (list)
 
 . . .
 
@@ -168,7 +188,9 @@ A. `"name"` (str) &nbsp;&nbsp; B. `1` (int) &nbsp;&nbsp; C. `[1, 2]` (list)
 
 `.items()` ของ dict คืนค่าในรูปแบบใด?
 
-A. list ของ key &nbsp;&nbsp; B. list ของ `(key, value)` &nbsp;&nbsp; C. list ของ value
+A. list ของ key<br>
+B. list ของ `(key, value)`<br>
+C. list ของ value
 
 . . .
 
@@ -180,7 +202,9 @@ A. list ของ key &nbsp;&nbsp; B. list ของ `(key, value)` &nbsp;&nbsp;
 
 `items = [["John", 180], ["Jane", 176]]` — `items[1][1]` คือค่าใด?
 
-A. `"Jane"` &nbsp;&nbsp; B. `176` &nbsp;&nbsp; C. `180`
+A. `"Jane"`<br>
+B. `176`<br>
+C. `180`
 
 . . .
 

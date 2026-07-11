@@ -49,7 +49,9 @@ execute:
 
 **ภาษาระดับสูง** (เช่น Python) ต้องทำอะไรก่อนคอมพิวเตอร์จึงจะทำงานได้?
 
-A. รันได้เลยทันที &nbsp;&nbsp; B. ต้อง**แปล** (compile/interpret) เป็นภาษาเครื่องก่อน &nbsp;&nbsp; C. ต้องต่ออินเทอร์เน็ต
+A. รันได้เลยทันที<br>
+B. ต้อง**แปล** (compile/interpret) เป็นภาษาเครื่องก่อน<br>
+C. ต้องต่ออินเทอร์เน็ต
 
 . . .
 
@@ -61,7 +63,10 @@ A. รันได้เลยทันที &nbsp;&nbsp; B. ต้อง**แ�
 
 ข้อใดเป็น **ภาษาระดับล่าง (Low Level)**?
 
-A. Python &nbsp;&nbsp; B. Java &nbsp;&nbsp; C. Assembly &nbsp;&nbsp; D. JavaScript
+A. Python<br>
+B. Java<br>
+C. Assembly<br>
+D. JavaScript
 
 . . .
 
@@ -73,7 +78,10 @@ A. Python &nbsp;&nbsp; B. Java &nbsp;&nbsp; C. Assembly &nbsp;&nbsp; D. JavaScri
 
 เครื่องมือที่รวม **Editor + Compiler/Interpreter + Debugger** ไว้ในโปรแกรมเดียวเรียกว่าอะไร?
 
-A. REPL &nbsp;&nbsp; B. IDE &nbsp;&nbsp; C. CPU &nbsp;&nbsp; D. Block coding
+A. REPL<br>
+B. IDE<br>
+C. CPU<br>
+D. Block coding
 
 . . .
 
@@ -85,7 +93,9 @@ A. REPL &nbsp;&nbsp; B. IDE &nbsp;&nbsp; C. CPU &nbsp;&nbsp; D. Block coding
 
 เครื่องมือใดใช้สำหรับ **รันทีละคำสั่งเพื่อหาบั๊ก**?
 
-A. Text Editor &nbsp;&nbsp; B. Compiler &nbsp;&nbsp; C. Debugger
+A. Text Editor<br>
+B. Compiler<br>
+C. Debugger
 
 . . .
 
@@ -97,7 +107,10 @@ A. Text Editor &nbsp;&nbsp; B. Compiler &nbsp;&nbsp; C. Debugger
 
 ค่าที่ได้จาก **`input()`** เป็นชนิดข้อมูลใดเสมอ?
 
-A. `int` &nbsp;&nbsp; B. `float` &nbsp;&nbsp; C. `str` (ข้อความ) &nbsp;&nbsp; D. ขึ้นกับสิ่งที่พิมพ์
+A. `int`<br>
+B. `float`<br>
+C. `str` (ข้อความ)<br>
+D. ขึ้นกับสิ่งที่พิมพ์
 
 . . .
 
@@ -109,7 +122,9 @@ A. `int` &nbsp;&nbsp; B. `float` &nbsp;&nbsp; C. `str` (ข้อความ) &
 
 ไฟล์ **`.ipynb`** (Notebook) ต่างจาก **`.py`** อย่างไร?
 
-A. เขียนคนละภาษา &nbsp;&nbsp; B. `.ipynb` แบ่งเป็น **เซลล์** รันทีละเซลล์และแสดงผลใต้เซลล์ได้ &nbsp;&nbsp; C. `.py` รันบนเว็บไม่ได้
+A. เขียนคนละภาษา<br>
+B. `.ipynb` แบ่งเป็น **เซลล์** รันทีละเซลล์และแสดงผลใต้เซลล์ได้<br>
+C. `.py` รันบนเว็บไม่ได้
 
 . . .
 
@@ -121,7 +136,9 @@ A. เขียนคนละภาษา &nbsp;&nbsp; B. `.ipynb` แบ่ง
 
 **Scratch** เป็นตัวอย่างของการเขียนโปรแกรมแบบใด?
 
-A. Text-based coding &nbsp;&nbsp; B. Block coding (ต่อบล็อกเหมือนจิ๊กซอว์) &nbsp;&nbsp; C. Machine code
+A. Text-based coding<br>
+B. Block coding (ต่อบล็อกเหมือนจิ๊กซอว์)<br>
+C. Machine code
 
 . . .
 
@@ -133,7 +150,9 @@ A. Text-based coding &nbsp;&nbsp; B. Block coding (ต่อบล็อกเ�
 
 `.split()` ใน `input().split()` ทำหน้าที่อะไร?
 
-A. แปลงเป็นตัวเลข &nbsp;&nbsp; B. ตัดข้อความตาม**ช่องว่าง**ออกเป็นหลายชิ้น &nbsp;&nbsp; C. รวมข้อความ
+A. แปลงเป็นตัวเลข<br>
+B. ตัดข้อความตาม**ช่องว่าง**ออกเป็นหลายชิ้น<br>
+C. รวมข้อความ
 
 . . .
 

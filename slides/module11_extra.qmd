@@ -48,7 +48,9 @@ execute:
 
 รูปแบบ import ที่นิยมสำหรับ `pyplot` คือข้อใด?
 
-A. `import matplotlib.pyplot as plt` &nbsp;&nbsp; B. `import plt` &nbsp;&nbsp; C. `from plt import *`
+A. `import matplotlib.pyplot as plt`<br>
+B. `import plt`<br>
+C. `from plt import *`
 
 . . .
 
@@ -60,7 +62,9 @@ A. `import matplotlib.pyplot as plt` &nbsp;&nbsp; B. `import plt` &nbsp;&nbsp; C
 
 ฟังก์ชันใดใช้**แสดงกราฟ**ออกมาให้เห็น?
 
-A. `.plot()` &nbsp;&nbsp; B. `.show()` &nbsp;&nbsp; C. `.draw()`
+A. `.plot()`<br>
+B. `.show()`<br>
+C. `.draw()`
 
 . . .
 
@@ -72,7 +76,9 @@ A. `.plot()` &nbsp;&nbsp; B. `.show()` &nbsp;&nbsp; C. `.draw()`
 
 ถ้าส่ง List **รายการเดียว** ให้ `.plot()` — แกน x แสดงอะไร?
 
-A. ค่าของข้อมูล &nbsp;&nbsp; B. **ลำดับ (index)** ของข้อมูล เริ่มจาก 0 &nbsp;&nbsp; C. ค่าติดลบ
+A. ค่าของข้อมูล<br>
+B. **ลำดับ (index)** ของข้อมูล เริ่มจาก 0<br>
+C. ค่าติดลบ
 
 . . .
 
@@ -84,7 +90,9 @@ A. ค่าของข้อมูล &nbsp;&nbsp; B. **ลำดับ (index
 
 กราฟชนิดใดเหมาะกับข้อมูล **Categorical** เช่น ยอดขายแต่ละเดือน?
 
-A. `.plot()` (line) &nbsp;&nbsp; B. `.bar()` &nbsp;&nbsp; C. `.imshow()`
+A. `.plot()` (line)<br>
+B. `.bar()`<br>
+C. `.imshow()`
 
 . . .
 
@@ -96,7 +104,9 @@ A. `.plot()` (line) &nbsp;&nbsp; B. `.bar()` &nbsp;&nbsp; C. `.imshow()`
 
 `.hist()` ใช้แสดงอะไร?
 
-A. สัดส่วน &nbsp;&nbsp; B. **การกระจายตัว**ของข้อมูลในแต่ละช่วง (bin) &nbsp;&nbsp; C. ความสัมพันธ์ x-y
+A. สัดส่วน<br>
+B. **การกระจายตัว**ของข้อมูลในแต่ละช่วง (bin)<br>
+C. ความสัมพันธ์ x-y
 
 . . .
 
@@ -108,7 +118,9 @@ A. สัดส่วน &nbsp;&nbsp; B. **การกระจายตัว*
 
 `.xlabel()`, `.ylabel()`, `.title()` ต้องเรียกตอนไหน?
 
-A. **ก่อน** `.show()` &nbsp;&nbsp; B. หลัง `.show()` &nbsp;&nbsp; C. ตอนไหนก็ได้
+A. **ก่อน** `.show()`<br>
+B. หลัง `.show()`<br>
+C. ตอนไหนก็ได้
 
 . . .
 
@@ -120,7 +132,9 @@ A. **ก่อน** `.show()` &nbsp;&nbsp; B. หลัง `.show()` &nbsp;&nbsp
 
 `.pie()` เหมาะกับการแสดงข้อมูลแบบใด?
 
-A. **สัดส่วน** ของแต่ละส่วนเทียบกับทั้งหมด &nbsp;&nbsp; B. การเปลี่ยนแปลงตามเวลา &nbsp;&nbsp; C. ข้อมูล 2 มิติ
+A. **สัดส่วน** ของแต่ละส่วนเทียบกับทั้งหมด<br>
+B. การเปลี่ยนแปลงตามเวลา<br>
+C. ข้อมูล 2 มิติ
 
 . . .
 
@@ -132,7 +146,9 @@ A. **สัดส่วน** ของแต่ละส่วนเทียบ
 
 `plt.subplot(2, 3, 1)` หมายความว่าอย่างไร?
 
-A. กราฟ 2×3 = 6 ช่อง กำลังวาดที่ช่อง**ที่ 1** &nbsp;&nbsp; B. กราฟขนาด 2×3 นิ้ว &nbsp;&nbsp; C. วาด 1 กราฟ 2 ครั้ง
+A. กราฟ 2×3 = 6 ช่อง กำลังวาดที่ช่อง**ที่ 1**<br>
+B. กราฟขนาด 2×3 นิ้ว<br>
+C. วาด 1 กราฟ 2 ครั้ง
 
 . . .
 
@@ -164,7 +180,9 @@ $s = ut + \tfrac12 a t^2$ เมื่อ `t` = 0,1,2,3,4 (เช่น t=2 → 
 
 format string `'r-s'` ใน `plt.plot(x, y, 'r-s')` หมายถึงอะไร?
 
-A. สีแดง + เส้นทึบ + จุดสี่เหลี่ยม &nbsp;&nbsp; B. หมุน + ปรับ + บันทึก &nbsp;&nbsp; C. red-small
+A. สีแดง + เส้นทึบ + จุดสี่เหลี่ยม<br>
+B. หมุน + ปรับ + บันทึก<br>
+C. red-small
 
 . . .
 

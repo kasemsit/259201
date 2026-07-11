@@ -48,7 +48,10 @@ execute:
 
 ข้อใด **ตั้งชื่อตัวแปรไม่ได้** ใน Python?
 
-A. `var_1` &nbsp;&nbsp; B. `_temp` &nbsp;&nbsp; C. `1value` &nbsp;&nbsp; D. `printThis`
+A. `var_1`<br>
+B. `_temp`<br>
+C. `1value`<br>
+D. `printThis`
 
 . . .
 
@@ -60,7 +63,10 @@ A. `var_1` &nbsp;&nbsp; B. `_temp` &nbsp;&nbsp; C. `1value` &nbsp;&nbsp; D. `pri
 
 ตั้งชื่อตัวแปรว่า `my-score` ได้หรือไม่?
 
-A. ใช้ได้ปกติ &nbsp;&nbsp; B. ใช้ไม่ได้ &nbsp;&nbsp; C. ใช้ได้ถ้าค่าเป็นบวก &nbsp;&nbsp; D. ใช้ได้ใน f-string เท่านั้น
+A. ใช้ได้ปกติ<br>
+B. ใช้ไม่ได้<br>
+C. ใช้ได้ถ้าค่าเป็นบวก<br>
+D. ใช้ได้ใน f-string เท่านั้น
 
 . . .
 
@@ -72,7 +78,10 @@ A. ใช้ได้ปกติ &nbsp;&nbsp; B. ใช้ไม่ได้ &n
 
 `type(10 / 2)` ให้ผลเป็นชนิดใด?
 
-A. `int` &nbsp;&nbsp; B. `float` &nbsp;&nbsp; C. `str` &nbsp;&nbsp; D. `error`
+A. `int`<br>
+B. `float`<br>
+C. `str`<br>
+D. `error`
 
 . . .
 
@@ -84,7 +93,10 @@ A. `int` &nbsp;&nbsp; B. `float` &nbsp;&nbsp; C. `str` &nbsp;&nbsp; D. `error`
 
 `17 // 5` มีค่าเท่าใด?
 
-A. `3.4` &nbsp;&nbsp; B. `3` &nbsp;&nbsp; C. `2` &nbsp;&nbsp; D. `3.0`
+A. `3.4`<br>
+B. `3`<br>
+C. `2`<br>
+D. `3.0`
 
 . . .
 
@@ -96,7 +108,10 @@ A. `3.4` &nbsp;&nbsp; B. `3` &nbsp;&nbsp; C. `2` &nbsp;&nbsp; D. `3.0`
 
 `17 % 5` มีค่าเท่าใด?
 
-A. `2` &nbsp;&nbsp; B. `3` &nbsp;&nbsp; C. `3.4` &nbsp;&nbsp; D. `0`
+A. `2`<br>
+B. `3`<br>
+C. `3.4`<br>
+D. `0`
 
 . . .
 
@@ -108,7 +123,10 @@ A. `2` &nbsp;&nbsp; B. `3` &nbsp;&nbsp; C. `3.4` &nbsp;&nbsp; D. `0`
 
 `2 ** 3 ** 2` มีค่าเท่าใด?
 
-A. `64` &nbsp;&nbsp; B. `512` &nbsp;&nbsp; C. `256` &nbsp;&nbsp; D. `18`
+A. `64`<br>
+B. `512`<br>
+C. `256`<br>
+D. `18`
 
 . . .
 
@@ -120,7 +138,10 @@ A. `64` &nbsp;&nbsp; B. `512` &nbsp;&nbsp; C. `256` &nbsp;&nbsp; D. `18`
 
 `int('1234.5')` ให้ผลลัพธ์ใด?
 
-A. `1234` &nbsp;&nbsp; B. `1234.5` &nbsp;&nbsp; C. `ValueError` &nbsp;&nbsp; D. `1235`
+A. `1234`<br>
+B. `1234.5`<br>
+C. `ValueError`<br>
+D. `1235`
 
 . . .
 
@@ -132,7 +153,8 @@ A. `1234` &nbsp;&nbsp; B. `1234.5` &nbsp;&nbsp; C. `ValueError` &nbsp;&nbsp; D. 
 
 `True and False or True` ให้ผลใด?
 
-A. `True` &nbsp;&nbsp; B. `False`
+A. `True`<br>
+B. `False`
 
 . . .
 
@@ -144,7 +166,10 @@ A. `True` &nbsp;&nbsp; B. `False`
 
 `math.sqrt(144)` ให้ผลใด?
 
-A. `12` &nbsp;&nbsp; B. `12.0` &nbsp;&nbsp; C. `72` &nbsp;&nbsp; D. `error`
+A. `12`<br>
+B. `12.0`<br>
+C. `72`<br>
+D. `error`
 
 . . .
 
@@ -156,7 +181,10 @@ A. `12` &nbsp;&nbsp; B. `12.0` &nbsp;&nbsp; C. `72` &nbsp;&nbsp; D. `error`
 
 ข้อใด **ใช้เป็นชื่อตัวแปรไม่ได้** เพราะเป็น **keyword** ของ Python?
 
-A. `sum` &nbsp;&nbsp; B. `for` &nbsp;&nbsp; C. `data` &nbsp;&nbsp; D. `total`
+A. `sum`<br>
+B. `for`<br>
+C. `data`<br>
+D. `total`
 
 . . .
 
@@ -168,7 +196,9 @@ A. `sum` &nbsp;&nbsp; B. `for` &nbsp;&nbsp; C. `data` &nbsp;&nbsp; D. `total`
 
 ต้องการพิมพ์ข้อความ `it's ok` ควรใช้ quote แบบใด?
 
-A. `'it's ok'` &nbsp;&nbsp; B. `"it's ok"` &nbsp;&nbsp; C. ทั้ง A และ B
+A. `'it's ok'`<br>
+B. `"it's ok"`<br>
+C. ทั้ง A และ B
 
 . . .
 
@@ -180,7 +210,10 @@ A. `'it's ok'` &nbsp;&nbsp; B. `"it's ok"` &nbsp;&nbsp; C. ทั้ง A แล
 
 `print('A\nB')` แสดงผลอย่างไร?
 
-A. `A\nB` &nbsp;&nbsp; B. `AB` &nbsp;&nbsp; C. `A` แล้วขึ้นบรรทัดใหม่เป็น `B` &nbsp;&nbsp; D. error
+A. `A\nB`<br>
+B. `AB`<br>
+C. `A` แล้วขึ้นบรรทัดใหม่เป็น `B`<br>
+D. error
 
 . . .
 
@@ -192,7 +225,8 @@ A. `A\nB` &nbsp;&nbsp; B. `AB` &nbsp;&nbsp; C. `A` แล้วขึ้นบ�
 
 `x = 42` แล้วเขียนบรรทัดต่อมา `x = "hello"` — ทำได้หรือไม่?
 
-A. ได้ &nbsp;&nbsp; B. ไม่ได้ ต้องเป็นชนิดเดิม
+A. ได้<br>
+B. ไม่ได้ ต้องเป็นชนิดเดิม
 
 . . .
 
@@ -204,7 +238,10 @@ A. ได้ &nbsp;&nbsp; B. ไม่ได้ ต้องเป็นชน�
 
 `'5' + 5` ให้ผลใด?
 
-A. `10` &nbsp;&nbsp; B. `'55'` &nbsp;&nbsp; C. `TypeError` &nbsp;&nbsp; D. `55`
+A. `10`<br>
+B. `'55'`<br>
+C. `TypeError`<br>
+D. `55`
 
 . . .
 
@@ -216,7 +253,10 @@ A. `10` &nbsp;&nbsp; B. `'55'` &nbsp;&nbsp; C. `TypeError` &nbsp;&nbsp; D. `55`
 
 `int(9.99)` ได้ค่าใด?
 
-A. `10` &nbsp;&nbsp; B. `9` &nbsp;&nbsp; C. `9.99` &nbsp;&nbsp; D. error
+A. `10`<br>
+B. `9`<br>
+C. `9.99`<br>
+D. error
 
 . . .
 
@@ -228,7 +268,10 @@ A. `10` &nbsp;&nbsp; B. `9` &nbsp;&nbsp; C. `9.99` &nbsp;&nbsp; D. error
 
 `type(1.23e9)` คือชนิดใด?
 
-A. `int` &nbsp;&nbsp; B. `float` &nbsp;&nbsp; C. `str` &nbsp;&nbsp; D. error
+A. `int`<br>
+B. `float`<br>
+C. `str`<br>
+D. error
 
 . . .
 

@@ -48,7 +48,9 @@ execute:
 
 `5 > 3` ให้ผลเป็นชนิดใด?
 
-A. `int` &nbsp;&nbsp; B. `bool` &nbsp;&nbsp; C. `str`
+A. `int`<br>
+B. `bool`<br>
+C. `str`
 
 . . .
 
@@ -60,7 +62,8 @@ A. `int` &nbsp;&nbsp; B. `bool` &nbsp;&nbsp; C. `str`
 
 `==` กับ `=` ต่างกันอย่างไร?
 
-A. เหมือนกัน &nbsp;&nbsp; B. `==` เปรียบเทียบ, `=` กำหนดค่า
+A. เหมือนกัน<br>
+B. `==` เปรียบเทียบ, `=` กำหนดค่า
 
 . . .
 
@@ -72,7 +75,9 @@ A. เหมือนกัน &nbsp;&nbsp; B. `==` เปรียบเที�
 
 `'a' in 'cat'` ให้ผลใด?
 
-A. `True` &nbsp;&nbsp; B. `False` &nbsp;&nbsp; C. `error`
+A. `True`<br>
+B. `False`<br>
+C. `error`
 
 . . .
 
@@ -84,7 +89,8 @@ A. `True` &nbsp;&nbsp; B. `False` &nbsp;&nbsp; C. `error`
 
 `True and False` ให้ผลใด?
 
-A. `True` &nbsp;&nbsp; B. `False`
+A. `True`<br>
+B. `False`
 
 . . .
 
@@ -96,7 +102,8 @@ A. `True` &nbsp;&nbsp; B. `False`
 
 `not (5 > 3)` ให้ผลใด?
 
-A. `True` &nbsp;&nbsp; B. `False`
+A. `True`<br>
+B. `False`
 
 . . .
 
@@ -108,7 +115,9 @@ A. `True` &nbsp;&nbsp; B. `False`
 
 `x = 7` — `0 < x < 10` ให้ผลใด?
 
-A. `True` &nbsp;&nbsp; B. `False` &nbsp;&nbsp; C. `error`
+A. `True`<br>
+B. `False`<br>
+C. `error`
 
 . . .
 
@@ -120,7 +129,9 @@ A. `True` &nbsp;&nbsp; B. `False` &nbsp;&nbsp; C. `error`
 
 โครงสร้าง `if` ที่ถูกต้องต้องมีอะไร?
 
-A. `:` ท้ายเงื่อนไข + **ย่อหน้า** ในบรรทัดถัดไป &nbsp;&nbsp; B. `;` ท้ายบรรทัด &nbsp;&nbsp; C. `{ }` ครอบ
+A. `:` ท้ายเงื่อนไข + **ย่อหน้า** ในบรรทัดถัดไป<br>
+B. `;` ท้ายบรรทัด<br>
+C. `{ }` ครอบ
 
 . . .
 
@@ -141,7 +152,10 @@ else:
 ```
 พิมพ์อะไร?
 
-A. `A` &nbsp;&nbsp; B. `B` &nbsp;&nbsp; C. `C` &nbsp;&nbsp; D. ทั้งหมด
+A. `A`<br>
+B. `B`<br>
+C. `C`<br>
+D. ทั้งหมด
 
 . . .
 
@@ -153,7 +167,9 @@ A. `A` &nbsp;&nbsp; B. `B` &nbsp;&nbsp; C. `C` &nbsp;&nbsp; D. ทั้งห�
 
 `x = 4` — `x % 2 == 0` ใช้ตรวจสอบอะไร?
 
-A. `x` เป็นเลขคู่ &nbsp;&nbsp; B. `x` หารด้วย 2 ลงตัวกี่ครั้ง &nbsp;&nbsp; C. `x` มากกว่า 2
+A. `x` เป็นเลขคู่<br>
+B. `x` หารด้วย 2 ลงตัวกี่ครั้ง<br>
+C. `x` มากกว่า 2
 
 . . .
 
@@ -165,7 +181,8 @@ A. `x` เป็นเลขคู่ &nbsp;&nbsp; B. `x` หารด้วย 
 
 `age = 20` — `age >= 18 and age < 60` ให้ผลใด?
 
-A. `True` &nbsp;&nbsp; B. `False`
+A. `True`<br>
+B. `False`
 
 . . .
 

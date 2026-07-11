@@ -48,7 +48,9 @@ execute:
 
 รูปแบบ import ที่นิยมสำหรับ NumPy คือข้อใด?
 
-A. `import numpy as np` &nbsp;&nbsp; B. `import np` &nbsp;&nbsp; C. `from numpy import all`
+A. `import numpy as np`<br>
+B. `import np`<br>
+C. `from numpy import all`
 
 . . .
 
@@ -60,7 +62,9 @@ A. `import numpy as np` &nbsp;&nbsp; B. `import np` &nbsp;&nbsp; C. `from numpy 
 
 ทุก item ใน NumPy array เดียวกันต้องเป็นอย่างไร?
 
-A. ต่างชนิดกันได้ &nbsp;&nbsp; B. **ชนิดเดียวกันทั้งหมด** &nbsp;&nbsp; C. เป็นตัวเลขเท่านั้น
+A. ต่างชนิดกันได้<br>
+B. **ชนิดเดียวกันทั้งหมด**<br>
+C. เป็นตัวเลขเท่านั้น
 
 . . .
 
@@ -72,7 +76,9 @@ A. ต่างชนิดกันได้ &nbsp;&nbsp; B. **ชนิดเ�
 
 `.shape` เขียนโดย**ไม่มี** `()` ต่อท้าย เพราะอะไร?
 
-A. เป็น **property** (บอกสถานะ) ไม่ใช่ function &nbsp;&nbsp; B. เป็น keyword &nbsp;&nbsp; C. เขียนผิด
+A. เป็น **property** (บอกสถานะ) ไม่ใช่ function<br>
+B. เป็น keyword<br>
+C. เขียนผิด
 
 . . .
 
@@ -84,7 +90,9 @@ A. เป็น **property** (บอกสถานะ) ไม่ใช่ funct
 
 `np.array([1,2,3]) + np.array([10,20,30])` ให้ผลใด?
 
-A. `[11, 22, 33]` &nbsp;&nbsp; B. `[1,2,3,10,20,30]` &nbsp;&nbsp; C. error
+A. `[11, 22, 33]`<br>
+B. `[1,2,3,10,20,30]`<br>
+C. error
 
 . . .
 
@@ -96,7 +104,9 @@ A. `[11, 22, 33]` &nbsp;&nbsp; B. `[1,2,3,10,20,30]` &nbsp;&nbsp; C. error
 
 เมื่อ array มี **shape ไม่เท่ากัน** NumPy ใช้กลไกใดกระจายการคำนวณ?
 
-A. Broadcasting &nbsp;&nbsp; B. Slicing &nbsp;&nbsp; C. Casting
+A. Broadcasting<br>
+B. Slicing<br>
+C. Casting
 
 . . .
 
@@ -108,7 +118,9 @@ A. Broadcasting &nbsp;&nbsp; B. Slicing &nbsp;&nbsp; C. Casting
 
 ทำไมต้องใช้ `np.arange(1, 11, 0.5)` แทน `range(1, 11, 0.5)`?
 
-A. `np.arange` สั้นกว่า &nbsp;&nbsp; B. `range()` รับ step เป็น **float ไม่ได้** (error) &nbsp;&nbsp; C. เหมือนกันทุกอย่าง
+A. `np.arange` สั้นกว่า<br>
+B. `range()` รับ step เป็น **float ไม่ได้** (error)<br>
+C. เหมือนกันทุกอย่าง
 
 . . .
 
@@ -120,7 +132,9 @@ A. `np.arange` สั้นกว่า &nbsp;&nbsp; B. `range()` รับ step
 
 `np.sum(x)` โดย**ไม่กำหนด** `axis` ให้ผลเป็นอะไร?
 
-A. ผลรวมแต่ละ column &nbsp;&nbsp; B. ผลรวมแต่ละ row &nbsp;&nbsp; C. **ค่าเดียว** (ยุบทั้ง array)
+A. ผลรวมแต่ละ column<br>
+B. ผลรวมแต่ละ row<br>
+C. **ค่าเดียว** (ยุบทั้ง array)
 
 . . .
 

@@ -48,7 +48,9 @@ execute:
 
 `x[start:stop:step]` เรียกว่าอะไร?
 
-A. index &nbsp;&nbsp; B. **slice** &nbsp;&nbsp; C. selector
+A. index<br>
+B. **slice**<br>
+C. selector
 
 . . .
 
@@ -60,7 +62,9 @@ A. index &nbsp;&nbsp; B. **slice** &nbsp;&nbsp; C. selector
 
 array 2 มิติ เข้าถึง item แถว 1 คอลัมน์ 2 ได้อย่างไร?
 
-A. `x[1,2]` หรือ `x[1][2]` &nbsp;&nbsp; B. `x(1,2)` &nbsp;&nbsp; C. `x{1,2}`
+A. `x[1,2]` หรือ `x[1][2]`<br>
+B. `x(1,2)`<br>
+C. `x{1,2}`
 
 . . .
 
@@ -72,7 +76,9 @@ A. `x[1,2]` หรือ `x[1][2]` &nbsp;&nbsp; B. `x(1,2)` &nbsp;&nbsp; C. `x{1
 
 `x > 10` กับ NumPy array ให้ผลเป็นอะไร?
 
-A. ตัวเลขเดียว &nbsp;&nbsp; B. **selector array** ของ `True`/`False` แต่ละ item &nbsp;&nbsp; C. error
+A. ตัวเลขเดียว<br>
+B. **selector array** ของ `True`/`False` แต่ละ item<br>
+C. error
 
 . . .
 
@@ -84,7 +90,9 @@ A. ตัวเลขเดียว &nbsp;&nbsp; B. **selector array** ขอ�
 
 การ **slice** array สร้างอะไร?
 
-A. **View** — แก้แล้วกระทบต้นทาง &nbsp;&nbsp; B. Copy — แยกจากต้นทาง &nbsp;&nbsp; C. array ว่าง
+A. **View** — แก้แล้วกระทบต้นทาง<br>
+B. Copy — แยกจากต้นทาง<br>
+C. array ว่าง
 
 . . .
 
@@ -96,7 +104,9 @@ A. **View** — แก้แล้วกระทบต้นทาง &nbsp;&nb
 
 `x * y` กับ `x @ y` (array 2 มิติ) ต่างกันอย่างไร?
 
-A. เหมือนกัน &nbsp;&nbsp; B. `*` = element-wise, `@` = **matrix multiplication** &nbsp;&nbsp; C. `@` ผิด syntax
+A. เหมือนกัน<br>
+B. `*` = element-wise, `@` = **matrix multiplication**<br>
+C. `@` ผิด syntax
 
 . . .
 
@@ -108,7 +118,9 @@ A. เหมือนกัน &nbsp;&nbsp; B. `*` = element-wise, `@` = **matri
 
 property ใดใช้ทำ **transpose** ของ array?
 
-A. `.T` &nbsp;&nbsp; B. `.trans()` &nbsp;&nbsp; C. `.flip`
+A. `.T`<br>
+B. `.trans()`<br>
+C. `.flip`
 
 . . .
 

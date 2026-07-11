@@ -48,7 +48,10 @@ execute:
 
 `input()` คืนค่าเป็นชนิดใด **เสมอ**?
 
-A. `int` &nbsp;&nbsp; B. `str` &nbsp;&nbsp; C. `float` &nbsp;&nbsp; D. ขึ้นกับสิ่งที่พิมพ์
+A. `int`<br>
+B. `str`<br>
+C. `float`<br>
+D. ขึ้นกับสิ่งที่พิมพ์
 
 . . .
 
@@ -60,7 +63,10 @@ A. `int` &nbsp;&nbsp; B. `str` &nbsp;&nbsp; C. `float` &nbsp;&nbsp; D. ขึ้
 
 ต้องการรับ **จำนวนเต็ม** จาก user ควรเขียนอย่างไร?
 
-A. `input()` &nbsp;&nbsp; B. `int(input())` &nbsp;&nbsp; C. `str(input())` &nbsp;&nbsp; D. `input(int)`
+A. `input()`<br>
+B. `int(input())`<br>
+C. `str(input())`<br>
+D. `input(int)`
 
 . . .
 
@@ -72,7 +78,10 @@ A. `input()` &nbsp;&nbsp; B. `int(input())` &nbsp;&nbsp; C. `str(input())` &nbsp
 
 `data = input().split()` ได้ผลลัพธ์เป็นชนิดใด?
 
-A. `str` &nbsp;&nbsp; B. `list` &nbsp;&nbsp; C. `tuple` &nbsp;&nbsp; D. `int`
+A. `str`<br>
+B. `list`<br>
+C. `tuple`<br>
+D. `int`
 
 . . .
 
@@ -84,7 +93,10 @@ A. `str` &nbsp;&nbsp; B. `list` &nbsp;&nbsp; C. `tuple` &nbsp;&nbsp; D. `int`
 
 ป้อน `10 20 30` แล้วเรียก `input().split()` ได้ผลใด?
 
-A. `'102030'` &nbsp;&nbsp; B. `['10','20','30']` &nbsp;&nbsp; C. `[10,20,30]` &nbsp;&nbsp; D. `error`
+A. `'102030'`<br>
+B. `['10','20','30']`<br>
+C. `[10,20,30]`<br>
+D. `error`
 
 . . .
 
@@ -96,7 +108,10 @@ A. `'102030'` &nbsp;&nbsp; B. `['10','20','30']` &nbsp;&nbsp; C. `[10,20,30]` &n
 
 จะแทรกค่าตัวแปร `x` ลงใน string ด้วย f-string เขียนอย่างไร?
 
-A. `'{x}'` &nbsp;&nbsp; B. `f'{x}'` &nbsp;&nbsp; C. `f'(x)'` &nbsp;&nbsp; D. `'f{x}'`
+A. `'{x}'`<br>
+B. `f'{x}'`<br>
+C. `f'(x)'`<br>
+D. `'f{x}'`
 
 . . .
 
@@ -108,7 +123,9 @@ A. `'{x}'` &nbsp;&nbsp; B. `f'{x}'` &nbsp;&nbsp; C. `f'(x)'` &nbsp;&nbsp; D. `'f
 
 ถ้า **ลืมใส่ `f`** นำหน้า เช่น `'{x}'` (x = 5) จะได้อะไร?
 
-A. `5` &nbsp;&nbsp; B. ข้อความ `{x}` ตรง ๆ &nbsp;&nbsp; C. `error`
+A. `5`<br>
+B. ข้อความ `{x}` ตรง ๆ<br>
+C. `error`
 
 . . .
 
@@ -120,7 +137,10 @@ A. `5` &nbsp;&nbsp; B. ข้อความ `{x}` ตรง ๆ &nbsp;&nbsp; C.
 
 `pi = 3.14159` — `f'{pi:.2f}'` ให้ผลใด?
 
-A. `'3.14'` &nbsp;&nbsp; B. `'3.1'` &nbsp;&nbsp; C. `'3.14159'` &nbsp;&nbsp; D. `'3'`
+A. `'3.14'`<br>
+B. `'3.1'`<br>
+C. `'3.14159'`<br>
+D. `'3'`
 
 . . .
 
@@ -132,7 +152,8 @@ A. `'3.14'` &nbsp;&nbsp; B. `'3.1'` &nbsp;&nbsp; C. `'3.14159'` &nbsp;&nbsp; D. 
 
 `a = 3` (ตัวเลข) — `f'{a:5}'` จัดข้อความชิดด้านใด?
 
-A. ชิดซ้าย &nbsp;&nbsp; B. ชิดขวา
+A. ชิดซ้าย<br>
+B. ชิดขวา
 
 . . .
 
@@ -144,7 +165,9 @@ A. ชิดซ้าย &nbsp;&nbsp; B. ชิดขวา
 
 `a, b = input().split()` แต่ผู้ใช้พิมพ์ **3 คำ** จะเกิดอะไร?
 
-A. เก็บ 2 คำแรก &nbsp;&nbsp; B. `ValueError` &nbsp;&nbsp; C. เก็บเป็น list
+A. เก็บ 2 คำแรก<br>
+B. `ValueError`<br>
+C. เก็บเป็น list
 
 . . .
 

@@ -48,7 +48,8 @@ execute:
 
 `for x in [10, 20, 30]:` ตัวแปร `x` ได้ค่าใดในแต่ละรอบ?
 
-A. index (0,1,2) &nbsp;&nbsp; B. **ค่าสมาชิก (10,20,30)**
+A. index (0,1,2)<br>
+B. **ค่าสมาชิก (10,20,30)**
 
 . . .
 
@@ -60,7 +61,9 @@ A. index (0,1,2) &nbsp;&nbsp; B. **ค่าสมาชิก (10,20,30)**
 
 `enumerate(['a', 'b'])` ให้ข้อมูลในรูปแบบใด?
 
-A. `(0, 'a'), (1, 'b')` &nbsp;&nbsp; B. `'a', 'b'` &nbsp;&nbsp; C. `0, 1`
+A. `(0, 'a'), (1, 'b')`<br>
+B. `'a', 'b'`<br>
+C. `0, 1`
 
 . . .
 
@@ -77,7 +80,9 @@ for k in d:
 ```
 พิมพ์อะไร?
 
-A. `1` แล้ว `2` &nbsp;&nbsp; B. `a` แล้ว `b` &nbsp;&nbsp; C. `('a',1)` ...
+A. `1` แล้ว `2`<br>
+B. `a` แล้ว `b`<br>
+C. `('a',1)` ...
 
 . . .
 
@@ -89,7 +94,9 @@ A. `1` แล้ว `2` &nbsp;&nbsp; B. `a` แล้ว `b` &nbsp;&nbsp; C. `('
 
 ต้องการวนเอา **ทั้ง key และ value** จาก dict ใช้คำสั่งใด?
 
-A. `d.keys()` &nbsp;&nbsp; B. `d.values()` &nbsp;&nbsp; C. `d.items()`
+A. `d.keys()`<br>
+B. `d.values()`<br>
+C. `d.items()`
 
 . . .
 
@@ -101,7 +108,9 @@ A. `d.keys()` &nbsp;&nbsp; B. `d.values()` &nbsp;&nbsp; C. `d.items()`
 
 `for i in range(len(data)):` ใช้เพื่ออะไร?
 
-A. วนตาม **index** ของ `data` &nbsp;&nbsp; B. วนตามค่าใน `data` &nbsp;&nbsp; C. นับจำนวน
+A. วนตาม **index** ของ `data`<br>
+B. วนตามค่าใน `data`<br>
+C. นับจำนวน
 
 . . .
 
@@ -113,7 +122,9 @@ A. วนตาม **index** ของ `data` &nbsp;&nbsp; B. วนตามค
 
 `students = [{"name":"A","score":80}, {"name":"B","score":90}]` — `students[1]["score"]` คือค่าใด?
 
-A. `80` &nbsp;&nbsp; B. `90` &nbsp;&nbsp; C. `"B"`
+A. `80`<br>
+B. `90`<br>
+C. `"B"`
 
 . . .
 
@@ -125,7 +136,9 @@ A. `80` &nbsp;&nbsp; B. `90` &nbsp;&nbsp; C. `"B"`
 
 `for i, x in enumerate(["p", "q"]):` ในรอบแรก `i` และ `x` เป็นอะไร?
 
-A. `i=0, x="p"` &nbsp;&nbsp; B. `i=1, x="p"` &nbsp;&nbsp; C. `i="p", x=0`
+A. `i=0, x="p"`<br>
+B. `i=1, x="p"`<br>
+C. `i="p", x=0`
 
 . . .
 
@@ -137,7 +150,8 @@ A. `i=0, x="p"` &nbsp;&nbsp; B. `i=1, x="p"` &nbsp;&nbsp; C. `i="p", x=0`
 
 วนลูปบน **Set** ได้หรือไม่ และได้อะไร?
 
-A. ไม่ได้ &nbsp;&nbsp; B. ได้ — ได้สมาชิกทีละตัว (ไม่รับประกันลำดับ)
+A. ไม่ได้<br>
+B. ได้ — ได้สมาชิกทีละตัว (ไม่รับประกันลำดับ)
 
 . . .
 

@@ -48,7 +48,9 @@ execute:
 
 ลูป `while` จะทำงานวนซ้ำตราบเท่าที่เงื่อนไขเป็นค่าใด?
 
-A. `True` &nbsp;&nbsp; B. `False` &nbsp;&nbsp; C. `0`
+A. `True`<br>
+B. `False`<br>
+C. `0`
 
 . . .
 
@@ -60,7 +62,9 @@ A. `True` &nbsp;&nbsp; B. `False` &nbsp;&nbsp; C. `0`
 
 ส่วนประกอบ 3 ส่วนของการวนลูปคือข้อใด?
 
-A. start, stop, step &nbsp;&nbsp; B. **init, condition, update** &nbsp;&nbsp; C. if, elif, else
+A. start, stop, step<br>
+B. **init, condition, update**<br>
+C. if, elif, else
 
 . . .
 
@@ -72,7 +76,9 @@ A. start, stop, step &nbsp;&nbsp; B. **init, condition, update** &nbsp;&nbsp; C.
 
 ถ้า **ลืม update** ตัวแปรเงื่อนไขในลูป `while` จะเกิดอะไร?
 
-A. ลูปไม่ทำงาน &nbsp;&nbsp; B. **ลูปวนไม่รู้จบ (infinite loop)** &nbsp;&nbsp; C. error ทันที
+A. ลูปไม่ทำงาน<br>
+B. **ลูปวนไม่รู้จบ (infinite loop)**<br>
+C. error ทันที
 
 . . .
 
@@ -90,7 +96,9 @@ while i < 5:
 ```
 พิมพ์อะไร?
 
-A. `10` &nbsp;&nbsp; B. ไม่พิมพ์อะไรเลย &nbsp;&nbsp; C. วนไม่จบ
+A. `10`<br>
+B. ไม่พิมพ์อะไรเลย<br>
+C. วนไม่จบ
 
 . . .
 
@@ -102,7 +110,9 @@ A. `10` &nbsp;&nbsp; B. ไม่พิมพ์อะไรเลย &nbsp;&nbs
 
 คำสั่ง `break` ทำอะไร?
 
-A. ข้ามไปรอบถัดไป &nbsp;&nbsp; B. **ออกจากลูปทันที** &nbsp;&nbsp; C. เริ่มลูปใหม่
+A. ข้ามไปรอบถัดไป<br>
+B. **ออกจากลูปทันที**<br>
+C. เริ่มลูปใหม่
 
 . . .
 
@@ -114,7 +124,9 @@ A. ข้ามไปรอบถัดไป &nbsp;&nbsp; B. **ออกจา�
 
 คำสั่ง `continue` ทำอะไร?
 
-A. **ข้ามคำสั่งที่เหลือ ไปเริ่มรอบถัดไป** &nbsp;&nbsp; B. ออกจากลูป &nbsp;&nbsp; C. หยุดโปรแกรม
+A. **ข้ามคำสั่งที่เหลือ ไปเริ่มรอบถัดไป**<br>
+B. ออกจากลูป<br>
+C. หยุดโปรแกรม
 
 . . .
 
@@ -132,7 +144,9 @@ while i <= 3:
 ```
 พิมพ์อะไร?
 
-A. `1 2 3` &nbsp;&nbsp; B. `1 2 3 4` &nbsp;&nbsp; C. `0 1 2`
+A. `1 2 3`<br>
+B. `1 2 3 4`<br>
+C. `0 1 2`
 
 . . .
 
@@ -144,7 +158,8 @@ A. `1 2 3` &nbsp;&nbsp; B. `1 2 3 4` &nbsp;&nbsp; C. `0 1 2`
 
 `while True:` จะหยุดได้อย่างไร?
 
-A. หยุดเองอัตโนมัติ &nbsp;&nbsp; B. ต้องมี `break` ภายในลูป
+A. หยุดเองอัตโนมัติ<br>
+B. ต้องมี `break` ภายในลูป
 
 . . .
 
