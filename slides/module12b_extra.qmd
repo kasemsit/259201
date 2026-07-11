@@ -49,7 +49,7 @@ execute:
 `x[start:stop:step]` เรียกว่าอะไร?
 
 A. index<br>
-B. **slice**<br>
+B. slice<br>
 C. selector
 
 . . .
@@ -77,7 +77,7 @@ C. `x{1,2}`
 `x > 10` กับ NumPy array ให้ผลเป็นอะไร?
 
 A. ตัวเลขเดียว<br>
-B. **selector array** ของ `True`/`False` แต่ละ item<br>
+B. selector array ของ `True`/`False` แต่ละ item<br>
 C. error
 
 . . .
@@ -90,7 +90,7 @@ C. error
 
 การ **slice** array สร้างอะไร?
 
-A. **View** — แก้แล้วกระทบต้นทาง<br>
+A. View — แก้แล้วกระทบต้นทาง<br>
 B. Copy — แยกจากต้นทาง<br>
 C. array ว่าง
 
@@ -105,7 +105,7 @@ C. array ว่าง
 `x * y` กับ `x @ y` (array 2 มิติ) ต่างกันอย่างไร?
 
 A. เหมือนกัน<br>
-B. `*` = element-wise, `@` = **matrix multiplication**<br>
+B. `*` = element-wise, `@` = matrix multiplication<br>
 C. `@` ผิด syntax
 
 . . .

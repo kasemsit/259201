@@ -77,7 +77,7 @@ C. `[0, 1, 2, 3, 4]`
 ต้องการเก็บ**เฉพาะ**ค่าที่ตรงเงื่อนไข — ต้องวาง `if` ไว้ตรงไหน?
 
 A. ก่อน `for`<br>
-B. **ท้าย** `for-loop` เช่น `[x for x in data if x>5]`<br>
+B. ท้าย `for-loop` เช่น `[x for x in data if x>5]`<br>
 C. ไว้นอกวงเล็บ
 
 . . .
@@ -91,7 +91,7 @@ C. ไว้นอกวงเล็บ
 การสร้าง list ด้วย loop เริ่มจากอะไร?
 
 A. list ที่มีข้อมูลครบ<br>
-B. **empty list** `[]` แล้ว `.append()` ในลูป<br>
+B. empty list `[]` แล้ว `.append()` ในลูป<br>
 C. ตัวแปรตัวเลข
 
 . . .
@@ -105,7 +105,7 @@ C. ตัวแปรตัวเลข
 **2D list** คืออะไร?
 
 A. list ที่มีตัวเลข 2 ตัว<br>
-B. list ที่มี item เป็น **list อีกชั้น** (list of lists)<br>
+B. list ที่มี item เป็น list อีกชั้น (list of lists)<br>
 C. list 2 ตัวแปร
 
 . . .
