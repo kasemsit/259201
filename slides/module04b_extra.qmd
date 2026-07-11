@@ -216,7 +216,7 @@ C. `180`
 
 เติมโค้ดในช่อง `____` แล้วกด Run
 
-## เติมคำ #13 {.exercise}
+## เติมคำ #13 {.smaller .exercise}
 
 สร้าง tuple แล้วเข้าถึงสมาชิก **ตัวสุดท้าย**
 
@@ -243,7 +243,7 @@ print(tup[-1])
 
 :::
 
-## เติมคำ #14 {.exercise}
+## เติมคำ #14 {.smaller .exercise}
 
 แปลง tuple เป็น **list** เพื่อแก้ไข แล้วแปลง **กลับเป็น tuple**
 
@@ -276,7 +276,7 @@ print(z)
 
 :::
 
-## เติมคำ #15 {.exercise}
+## เติมคำ #15 {.smaller .exercise}
 
 หา **union** และ **intersection** ของ 2 set
 
@@ -308,7 +308,7 @@ print(a & b)   # intersection
 
 :::
 
-## เติมคำ #16 {.exercise}
+## เติมคำ #16 {.smaller .exercise}
 
 เพิ่มสมาชิกด้วย `.add()` และลบแบบ **ไม่ error** ด้วย `.discard()`
 
@@ -339,7 +339,7 @@ print(s)
 
 :::
 
-## เติมคำ #17 {.exercise}
+## เติมคำ #17 {.smaller .exercise}
 
 สร้าง dict แล้ว **เข้าถึงค่า** ด้วย key
 
@@ -366,7 +366,7 @@ Ann
 
 :::
 
-## เติมคำ #18 {.exercise}
+## เติมคำ #18 {.smaller .exercise}
 
 **เพิ่ม** key ใหม่ `"gpa"` ให้กับ dict
 
@@ -395,7 +395,7 @@ print(person)
 
 :::
 
-## เติมคำ #19 {.exercise}
+## เติมคำ #19 {.smaller .exercise}
 
 ดึงรายการ **key ทั้งหมด** ออกมาเป็น list
 
@@ -422,7 +422,7 @@ print(list(person.keys()))
 
 :::
 
-## เติมคำ #20: ชวนคิด {.exercise-think}
+## เติมคำ #20: ชวนคิด {.smaller .exercise-think}
 
 เข้าถึงข้อมูลใน **List of Dict** แล้วคำนวณค่าเฉลี่ยส่วนสูง
 

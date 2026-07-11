@@ -271,7 +271,7 @@ B. `[3, 1, 2]` (ไม่เปลี่ยน)
 
 เติมโค้ดในช่อง `____` แล้วกด Run
 
-## เติมคำ #17 {.exercise}
+## เติมคำ #17 {.smaller .exercise}
 
 สร้าง list `lst` เก็บ `1, 2, 3, 40, 50, 60` แล้ว **แสดงจำนวนสมาชิก**
 
@@ -301,7 +301,7 @@ print(len(lst))
 
 :::
 
-## เติมคำ #18 {.exercise}
+## เติมคำ #18 {.smaller .exercise}
 
 เพิ่ม `11` เข้า list แล้ว **เรียงลำดับ** จากน้อยไปมาก
 
@@ -332,7 +332,7 @@ print(data)
 
 :::
 
-## เติมคำ #19 {.exercise}
+## เติมคำ #19 {.smaller .exercise}
 
 ใช้ **slice** ดึงข้อมูล **ทุกตำแหน่งเว้น 1** (index 0, 2, 4, ...)
 
@@ -359,7 +359,7 @@ print(a[::2])
 
 :::
 
-## เติมคำ #20 {.exercise}
+## เติมคำ #20 {.smaller .exercise}
 
 คำนวณ **ค่าเฉลี่ย** ของคะแนนใน list
 
@@ -388,7 +388,7 @@ print(average)
 
 :::
 
-## เติมคำ #21 {.exercise}
+## เติมคำ #21 {.smaller .exercise}
 
 หา **ค่ามากสุด** และ **ค่าน้อยสุด** ใน list
 
@@ -418,7 +418,7 @@ print(min(data))
 
 :::
 
-## เติมคำ #22: ชวนคิด {.exercise-think}
+## เติมคำ #22: ชวนคิด {.smaller .exercise-think}
 
 รับข้อมูลหลายค่าเป็น **List** ด้วย `.split()`
 
@@ -453,7 +453,7 @@ print(len(data))
 
 :::
 
-## เติมคำ #23 {.exercise}
+## เติมคำ #23 {.smaller .exercise}
 
 ใช้ `.insert()` แทรกค่า `99` ที่ **ตำแหน่ง index 1**
 
@@ -482,7 +482,7 @@ print(data)
 
 :::
 
-## เติมคำ #24 {.exercise}
+## เติมคำ #24 {.smaller .exercise}
 
 ลบค่า `20` **ด้วยค่า** แล้วลบตัวที่ index `0` **ด้วย index**
 
@@ -513,7 +513,7 @@ print(data)
 
 :::
 
-## เติมคำ #25 {.exercise}
+## เติมคำ #25 {.smaller .exercise}
 
 เรียงลำดับ **จากมากไปน้อย** โดยใช้ `sorted()`
 
@@ -540,7 +540,7 @@ print(sorted(nums, reverse=True))
 
 :::
 
-## เติมคำ #26: ชวนคิด {.exercise-think}
+## เติมคำ #26: ชวนคิด {.smaller .exercise-think}
 
 นับว่าเลข `2` ปรากฏใน list กี่ครั้ง ด้วย `.count()`
 
@@ -659,7 +659,7 @@ print(nums)
 
 จัดการข้อมูลการวัดด้วย List
 
-## Engineering #31 {.exercise}
+## Engineering #31 {.smaller .exercise}
 
 หา**ค่าเฉลี่ย**อุณหภูมิรายวัน (°C)
 
@@ -701,7 +701,7 @@ print(max(readings), min(readings))
 **ผลลัพธ์: `6.0 2.8`** — `max`/`min` หาค่ามาก/น้อยสุดของชุดข้อมูลการวัด
 :::
 
-## Engineering #33: หน้าต่างข้อมูลล่าสุด {.exercise}
+## Engineering #33: หน้าต่างข้อมูลล่าสุด {.smaller .exercise}
 
 เติม slice ให้ดึง **3 ค่าล่าสุด** ของข้อมูลเซนเซอร์
 

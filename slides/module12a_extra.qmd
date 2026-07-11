@@ -232,7 +232,7 @@ print(x1 - x2)
 
 เติมโค้ดในช่อง `____` แล้วกด Run (มี NumPy จริง)
 
-## เติมคำ #13 {.exercise}
+## เติมคำ #13 {.smaller .exercise}
 
 เติมโค้ดสร้าง array 2 มิติ แล้วดู `.shape`
 
@@ -268,7 +268,7 @@ print(x.shape)
 
 :::
 
-## เติมคำ #14 {.exercise}
+## เติมคำ #14 {.smaller .exercise}
 
 เติมโค้ดสร้าง `x` ตั้งแต่ `1` ถึง `10.5` เพิ่มทีละ `0.5` แล้วหา `y = x^2 + 2x + 1`
 
@@ -301,7 +301,7 @@ print(y)
 
 :::
 
-## เติมคำ #15: ชวนคิด {.exercise-think}
+## เติมคำ #15: ชวนคิด {.smaller .exercise-think}
 
 เติม `axis` ให้ถูกต้อง — ผลรวมแต่ละ **column** และแต่ละ **row**
 
@@ -437,7 +437,7 @@ print(calibrated)
 **ผลลัพธ์: `[110. 220. 330.]`** — คูณ factor 1.1 กระจายเข้าไปทุก item (element-wise)
 :::
 
-## Engineering #21 {.exercise}
+## Engineering #21 {.smaller .exercise}
 
 เติม `axis` ให้หา**ค่าเฉลี่ยแต่ละ column** ของตารางการวัด
 
@@ -489,7 +489,7 @@ print(mass * acc)               # F = m*a
 
 broadcasting หลายขั้นในบรรทัดเดียว
 
-## ท้าทาย #23: Normalize ต่อ column {.exercise}
+## ท้าทาย #23: Normalize ต่อ column {.smaller .exercise}
 
 ทำให้แต่ละ column มี mean 0, std 1: $(x - \text{mean}) / \text{std}$ — เติม `axis`
 

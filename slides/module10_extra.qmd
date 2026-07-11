@@ -247,7 +247,7 @@ print(r)
 
 เติมโค้ดในช่อง `____` แล้วกด Run
 
-## เติมคำ #13 {.exercise}
+## เติมคำ #13 {.smaller .exercise}
 
 เติมโค้ดสร้าง `[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]` ด้วย **list comprehension**
 
@@ -274,7 +274,7 @@ print(a)
 
 :::
 
-## เติมคำ #14 {.exercise}
+## เติมคำ #14 {.smaller .exercise}
 
 จาก `xs` เก็บ $x^2$ **เฉพาะเมื่อ** `x > 5` (list comprehension)
 
@@ -303,7 +303,7 @@ print(fx)
 
 :::
 
-## เติมคำ #15: ชวนคิด {.exercise-think}
+## เติมคำ #15: ชวนคิด {.smaller .exercise-think}
 
 เติมโค้ดสร้าง 2D-list ขนาด **3 row × 4 column** สมาชิกเป็น `0` ทั้งหมด
 
@@ -360,7 +360,7 @@ print(b)
 `a` = กำลังสองของ 1,2,3 · `b` = เก็บเฉพาะเลขคี่ใน 0–5
 :::
 
-## เติมคำ #17: ชวนคิด {.exercise-think}
+## เติมคำ #17: ชวนคิด {.smaller .exercise-think}
 
 **แปลง for-loop ให้เป็น list comprehension**
 
@@ -423,7 +423,7 @@ print(f)
 **ผลลัพธ์: `[32.0, 77.0, 212.0]`** — แปลง °C → °F ทุก item ด้วยสูตร $F = \tfrac95 C + 32$
 :::
 
-## Engineering #20 {.exercise}
+## Engineering #20 {.smaller .exercise}
 
 เติมโค้ด**ขยายสัญญาณ** ทุกค่าเป็น 2 เท่า (list comprehension)
 
@@ -487,7 +487,7 @@ print(grid)
 **แก้:** ใช้ comprehension `[[0]*3 for i in range(2)]` (สร้าง list ใหม่ทุกแถว)
 :::
 
-## ท้าทาย #23: อินทิเกรตด้วยสี่เหลี่ยมคางหมู {.exercise}
+## ท้าทาย #23: อินทิเกรตด้วยสี่เหลี่ยมคางหมู {.smaller .exercise}
 
 หาพื้นที่ใต้กราฟ $y=x^2$ ช่วง `[0, 2]` — เติมสูตรพื้นที่คางหมู $\tfrac{y_i + y_{i+1}}{2} \times \Delta x$
 

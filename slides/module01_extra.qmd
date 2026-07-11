@@ -252,7 +252,7 @@ print(result)
 
 เติมโค้ดในช่อง `____` แล้วกด Run
 
-## เติมคำ #14 {.exercise}
+## เติมคำ #14 {.smaller .exercise}
 
 เติมโค้ดให้พิมพ์ข้อความ `Python สนุกมาก!`
 
@@ -277,7 +277,7 @@ Python สนุกมาก!
 
 :::
 
-## เติมคำ #15 {.exercise}
+## เติมคำ #15 {.smaller .exercise}
 
 `n` มาจาก `input()` (เป็น str) — เติมโค้ดแปลงเป็น **จำนวนเต็ม** แล้วคูณ 2
 
@@ -306,7 +306,7 @@ print(result)
 
 :::
 
-## เติมคำ #16: ชวนคิด {.exercise-think}
+## เติมคำ #16: ชวนคิด {.smaller .exercise-think}
 
 เติมโค้ดให้แยกข้อความ `"3 4"` เป็น 2 ค่า แล้วหา**ผลคูณ**
 
@@ -355,7 +355,7 @@ print('Power =', V * I, 'W')
 **ผลลัพธ์: `Power = 36 W`** — กำลังไฟฟ้า $P = V \times I = 12 \times 3 = 36$ W
 :::
 
-## Engineering #18 {.exercise}
+## Engineering #18 {.smaller .exercise}
 
 ค่าจาก `input()` เป็น str — เติมโค้ดแปลงเป็นเลขก่อนคำนวณ**พลังงาน** $E = P \times t$
 

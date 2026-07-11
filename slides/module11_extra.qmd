@@ -233,7 +233,7 @@ title ไม่ขึ้นบนกราฟ — ผิดตรงไหน?
 
 เติมโค้ดในช่อง `____` แล้วกด Run (มี matplotlib จริง)
 
-## เติมคำ #13 {.exercise}
+## เติมคำ #13 {.smaller .exercise}
 
 เติมโค้ด import แบบตั้ง alias เป็น `plt` แล้วพล็อตกราฟ
 
@@ -262,7 +262,7 @@ plt.show()
 
 :::
 
-## เติมคำ #14 {.exercise}
+## เติมคำ #14 {.smaller .exercise}
 
 เติมป้ายชื่อแกนและ title ให้ครบ (แกน x: `Time(s)`, y: `Distance(m)`, title: `Movement`)
 
@@ -295,7 +295,7 @@ plt.show()
 
 :::
 
-## เติมคำ #15: ชวนคิด {.exercise-think}
+## เติมคำ #15: ชวนคิด {.smaller .exercise-think}
 
 เติมฟังก์ชันให้วาด **bar plot** ของยอดขายรายเดือน
 
@@ -330,7 +330,7 @@ plt.show()
 
 พล็อตข้อมูลการทดลอง/วัดจริง (มี matplotlib จริง)
 
-## Engineering #16: อุณหภูมิรายชั่วโมง {.exercise}
+## Engineering #16: อุณหภูมิรายชั่วโมง {.smaller .exercise}
 
 เติมป้ายแกนให้กราฟอุณหภูมิเทียบเวลา
 
@@ -361,7 +361,7 @@ plt.show()
 
 :::
 
-## Engineering #17: เปรียบเทียบกำลังวัสดุ {.exercise}
+## Engineering #17: เปรียบเทียบกำลังวัสดุ {.smaller .exercise}
 
 เติมฟังก์ชันวาด **bar chart** กำลังของวัสดุ (MPa)
 
@@ -388,7 +388,7 @@ plt.show()
 
 :::
 
-## Engineering #18: กราฟ Stress–Strain {.exercise}
+## Engineering #18: กราฟ Stress–Strain {.smaller .exercise}
 
 เติม title ให้กราฟความสัมพันธ์ความเค้น–ความเครียด
 
@@ -421,7 +421,7 @@ plt.show()
 
 สร้างข้อมูลเอง + วาดหลายเส้น + คำอธิบาย
 
-## ท้าทาย #19: เทียบ $x^2$ กับ $2x$ {.exercise}
+## ท้าทาย #19: เทียบ $x^2$ กับ $2x$ {.smaller .exercise}
 
 สร้าง 2 เส้นด้วย list comprehension แล้วเติมฟังก์ชันแสดง **คำอธิบาย (legend)**
 

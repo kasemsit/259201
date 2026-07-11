@@ -298,7 +298,7 @@ print(result)      # อยากพิมพ์ 16
 
 เติมโค้ดในช่อง `____` แล้วกด Run
 
-## เติมคำ #15 {.exercise}
+## เติมคำ #15 {.smaller .exercise}
 
 เติมโค้ดนิยามฟังก์ชัน `area_circle` ที่รับ `r` แล้ว**คืนค่า** พื้นที่ ($3.14 r^2$)
 
@@ -329,7 +329,7 @@ print(area_circle(7))
 
 :::
 
-## เติมคำ #16 {.exercise}
+## เติมคำ #16 {.smaller .exercise}
 
 เติมโค้ดให้ฟังก์ชัน**คืน 2 ค่า** (ผลรวมและค่าเฉลี่ย) แล้วรับพร้อมกัน
 
@@ -366,7 +366,7 @@ sum:60.00, avg:20.00
 
 :::
 
-## เติมคำ #17: ชวนคิด {.exercise-think}
+## เติมคำ #17: ชวนคิด {.smaller .exercise-think}
 
 เติมโค้ดให้ `myGrade` คืนเกรดตามเงื่อนไข (`>=80`→A, `>=50`→B, นอกนั้น→F)
 
@@ -484,7 +484,7 @@ print(g())
 
 ห่อสูตรวิศวกรรมเป็นฟังก์ชันเรียกใช้ซ้ำ
 
-## Engineering #21 {.exercise}
+## Engineering #21 {.smaller .exercise}
 
 เติมฟังก์ชัน**พลังงานจลน์** $E_k = \tfrac12 m v^2$
 
@@ -530,7 +530,7 @@ print(moment(50, 2) + moment(30, 4))
 **ผลลัพธ์: `220`** — โมเมนต์ $M = F \times d$ · เรียกฟังก์ชันเดิมซ้ำ 2 จุด (แรง 50 ที่ 2 m + แรง 30 ที่ 4 m)
 :::
 
-## Engineering #23: พื้นที่หน้าตัดท่อ {.exercise}
+## Engineering #23: พื้นที่หน้าตัดท่อ {.smaller .exercise}
 
 เติมโค้ดฟังก์ชันหา**พื้นที่วงกลม** $A = \pi r^2$ (ใช้ $\pi \approx 3.14$)
 
@@ -565,7 +565,7 @@ print(circle_area(2))
 
 เขียนฟังก์ชันที่มี algorithm อยู่ข้างใน
 
-## ท้าทาย #24: หา √ ด้วย Newton's method {.exercise}
+## ท้าทาย #24: หา √ ด้วย Newton's method {.smaller .exercise}
 
 เติมสูตรวนซ้ำ $x \leftarrow \dfrac{x + a/x}{2}$ (ลู่เข้าหา $\sqrt{a}$)
 

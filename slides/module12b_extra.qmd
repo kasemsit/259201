@@ -233,7 +233,7 @@ print(A @ B)
 
 เติมโค้ดในช่อง `____` แล้วกด Run (มี NumPy จริง)
 
-## เติมคำ #12 {.exercise}
+## เติมคำ #12 {.smaller .exercise}
 
 เติม slice ให้เลือก **ทุก row, column 2 เป็นต้นไป**
 
@@ -264,7 +264,7 @@ print(x[:, 2:])
 
 :::
 
-## เติมคำ #13 {.exercise}
+## เติมคำ #13 {.smaller .exercise}
 
 เติม **selector array** ให้เลือกเฉพาะ item ที่ `> 10`
 
@@ -295,7 +295,7 @@ print(x[y])
 
 :::
 
-## เติมคำ #14: ชวนคิด {.exercise-think}
+## เติมคำ #14: ชวนคิด {.smaller .exercise-think}
 
 เติม operator ให้ทำ **matrix multiplication** และ **transpose**
 
@@ -459,7 +459,7 @@ print(data.T)
 
 เลือก row ตามเงื่อนไข แล้วสรุปผล — หลายขั้นในบรรทัดเดียว
 
-## ท้าทาย #21: รวมเฉพาะ row ที่ตรงเงื่อนไข {.exercise}
+## ท้าทาย #21: รวมเฉพาะ row ที่ตรงเงื่อนไข {.smaller .exercise}
 
 หาผลรวม column ที่ 2 **เฉพาะ row ที่ column แรก `== 1`** — เติม operator
 

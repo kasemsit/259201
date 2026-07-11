@@ -183,7 +183,7 @@ C. เก็บเป็น list
 ⚠️ `input()` ไม่ทำงานบนสไลด์ — **จำลองค่าด้วย string** แทน (เช่น `name = 'Ploy'`)
 :::
 
-## เติมคำ #10 {.exercise}
+## เติมคำ #10 {.smaller .exercise}
 
 เติมโค้ดให้แสดงผล `Hello, Ploy. Nice to meet you!` ด้วย **f-string**
 
@@ -211,7 +211,7 @@ Hello, Ploy. Nice to meet you!
 
 :::
 
-## เติมคำ #11 {.exercise}
+## เติมคำ #11 {.smaller .exercise}
 
 `gpa = 3.5` — แสดงผลด้วย f-string เป็นทศนิยม **2 ตำแหน่ง**
 
@@ -238,7 +238,7 @@ Your GPA is 3.50
 
 :::
 
-## เติมคำ #12 {.exercise}
+## เติมคำ #12 {.smaller .exercise}
 
 เติมโค้ดแปลงค่าจาก `input()` (string) ให้เป็น `int` แล้วยกกำลังสอง
 
@@ -268,7 +268,7 @@ print(x ** 2, type(x ** 2))
 
 :::
 
-## เติมคำ #13 {.exercise}
+## เติมคำ #13 {.smaller .exercise}
 
 แยก **ชื่อ** และ **นามสกุล** จากข้อความเดียว ด้วย `.split()`
 
@@ -301,7 +301,7 @@ Jaidee
 
 :::
 
-## เติมคำ #14: ชวนคิด {.exercise-think}
+## เติมคำ #14: ชวนคิด {.smaller .exercise-think}
 
 `a = 7` — จัดให้แสดงในความกว้าง **5 ช่อง** ด้วย f-string
 
@@ -417,7 +417,7 @@ print('Hello, {name}!')
 
 จัดรูปแบบผลลัพธ์การวัด/คำนวณด้วย f-string
 
-## Engineering #19 {.exercise}
+## Engineering #19 {.smaller .exercise}
 
 เติมโค้ดแสดงค่าอุณหภูมิเป็นทศนิยม **2 ตำแหน่ง** พร้อมหน่วย
 
@@ -477,7 +477,7 @@ print(f'Efficiency: {eff:.1f}%')
 
 รวมหลายขั้น: แยกข้อมูล → แปลงชนิด → คำนวณ → จัดรูป
 
-## ท้าทาย #22: เฉลี่ยคะแนนจาก input {.exercise}
+## ท้าทาย #22: เฉลี่ยคะแนนจาก input {.smaller .exercise}
 
 รับ `"80 90 70"` แล้วหา**ค่าเฉลี่ย** แสดงทศนิยม 2 ตำแหน่ง
 

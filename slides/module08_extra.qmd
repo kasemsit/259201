@@ -163,7 +163,7 @@ B. ได้ — ได้สมาชิกทีละตัว (ไม่ร�
 
 เติมโค้ดในช่อง `____` แล้วกด Run
 
-## เติมคำ #9 {.exercise}
+## เติมคำ #9 {.smaller .exercise}
 
 วนบน list **โดยตรง** เพื่อพิมพ์สมาชิกทีละตัว
 
@@ -194,7 +194,7 @@ cherry
 
 :::
 
-## เติมคำ #10 {.exercise}
+## เติมคำ #10 {.smaller .exercise}
 
 ใช้ `enumerate()` พิมพ์ **ลำดับ + ค่า**
 
@@ -225,7 +225,7 @@ for i, name in enumerate(names):
 
 :::
 
-## เติมคำ #11 {.exercise}
+## เติมคำ #11 {.smaller .exercise}
 
 วนเอา **key และ value** จาก dict ด้วย `.items()`
 
@@ -255,7 +255,7 @@ eng: 75
 
 :::
 
-## เติมคำ #12 {.exercise}
+## เติมคำ #12 {.smaller .exercise}
 
 หา **ผลรวมคะแนน** โดยวนบน list
 
@@ -288,7 +288,7 @@ print(total)
 
 :::
 
-## เติมคำ #13: ชวนคิด {.exercise-think}
+## เติมคำ #13: ชวนคิด {.smaller .exercise-think}
 
 คำนวณ **ค่าเฉลี่ยคะแนน** จาก **List of Dict**
 
@@ -327,7 +327,7 @@ print(total / len(students))
 
 :::
 
-## เติมคำ #14: ชวนคิด {.exercise-think}
+## เติมคำ #14: ชวนคิด {.smaller .exercise-think}
 
 นับจำนวนคนที่ **สอบผ่าน** (score ≥ 50) ด้วย `for` + `if`
 
@@ -518,7 +518,7 @@ for d in data:
 วน list ของ dict — เข้าถึงแต่ละ record ด้วย key
 :::
 
-## Engineering #22 {.exercise}
+## Engineering #22 {.smaller .exercise}
 
 เติมเงื่อนไขนับจำนวนค่าที่ **เกินพิกัด** (> 50)
 
@@ -553,7 +553,7 @@ print(count)
 
 :::
 
-## Engineering #23: กำลังไฟรวมของอุปกรณ์ {.exercise}
+## Engineering #23: กำลังไฟรวมของอุปกรณ์ {.smaller .exercise}
 
 เติม key ให้รวม**กำลังไฟ (W)** ของทุกอุปกรณ์
 
@@ -592,7 +592,7 @@ print(total, "W")
 
 รวม loop + dict + เงื่อนไข เป็นอัลกอริทึมจริง
 
-## ท้าทาย #24: นับความถี่ {.exercise}
+## ท้าทาย #24: นับความถี่ {.smaller .exercise}
 
 นับว่าแต่ละตัวปรากฏกี่ครั้ง เก็บใน dict — เติมโค้ด
 
@@ -654,7 +654,7 @@ print(best)
 
 ไม่มี `____` ให้เติม · เลือกเองว่าจะวนแบบไหน และเก็บผลลง collection อะไร
 
-## เขียนเอง #26: จัดกลุ่มนักศึกษาตามเกรด {.exercise-think}
+## เขียนเอง #26: จัดกลุ่มนักศึกษาตามเกรด {.smaller .exercise-think}
 
 มี `list` ของ `dict` (ชื่อ + คะแนน) จงสร้าง **dict of list** ที่ *key* เป็นเกรด และ *value* เป็นรายชื่อคนในเกรดนั้น
 เกณฑ์: `≥80`→A · `≥70`→B · `≥60`→C · `≥50`→D · ต่ำกว่านั้น→F
@@ -700,7 +700,7 @@ print(groups)
 
 :::
 
-## เขียนเอง #27: วิชาที่คะแนนเฉลี่ยสูงสุด {.exercise-think}
+## เขียนเอง #27: วิชาที่คะแนนเฉลี่ยสูงสุด {.smaller .exercise-think}
 
 มี **dict of list**: *key* เป็นชื่อวิชา, *value* เป็น `list` ของคะแนน จงหา**วิชาที่ค่าเฉลี่ยสูงสุด** พร้อมค่าเฉลี่ย
 
