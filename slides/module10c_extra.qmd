@@ -250,6 +250,8 @@ print(area(3, 4))
 **บั๊ก:** ฟังก์ชันคำนวณ `a` แต่**ไม่มี `return`** → คืน `None` · ต้อง `return a` (หรือ `return w*h`)
 :::
 
+## หา Bug + เขียนต่อ #6 (ต่อ) {.smaller .exercise-think}
+
 ::: {.panel-tabset}
 
 ### Live Code
@@ -299,6 +301,8 @@ print(result)
 **บั๊ก:** `x % 2 == 0` = เลข**คู่** · ต้องการเลข**คี่** → ใช้ `x % 2 == 1`
 :::
 
+## หา Bug + เขียนต่อ #7 (ต่อ) {.smaller .exercise-think}
+
 ::: {.panel-tabset}
 
 ### Live Code
@@ -346,6 +350,8 @@ print(total)
 ::: {.callout-important}
 **บั๊ก:** ลูปในใช้ `range(len(grid))` = จำนวน**แถว** (2) แต่ต้องวนตาม**คอลัมน์** → `range(len(grid[i]))` · ไม่งั้นตกคอลัมน์ที่ 3
 :::
+
+## หา Bug + เขียนต่อ #8 (ต่อ) {.smaller .exercise-think}
 
 ::: {.panel-tabset}
 

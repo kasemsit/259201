@@ -211,6 +211,8 @@ print(col_mean)
 **บั๊ก:** `axis=1` = ยุบ**คอลัมน์** → ได้เฉลี่ยราย**แถว** · ต้องการรายคอลัมน์ ใช้ `axis=0` (ยุบแถว)
 :::
 
+## หา Bug + เขียนต่อ #5 (ต่อ) {.smaller .exercise-think}
+
 ::: {.panel-tabset}
 
 ### Live Code
@@ -260,6 +262,8 @@ print(a)
 **บั๊ก:** การ slice array ได้ **view** (ชี้ข้อมูลก้อนเดียวกัน) → แก้ `b` กระทบ `a` · ต้องใช้ `a[1:3].copy()`
 :::
 
+## หา Bug + เขียนต่อ #6 (ต่อ) {.smaller .exercise-think}
+
 ::: {.panel-tabset}
 
 ### Live Code
@@ -308,6 +312,8 @@ plt.plot(x, y)
 ::: {.callout-important}
 **บั๊ก:** ไม่มี `plt.show()` → กราฟไม่ถูกแสดง · ต้องปิดท้ายด้วย `plt.show()` เสมอ
 :::
+
+## หา Bug + เขียนต่อ #7 (ต่อ) {.smaller .exercise-think}
 
 ::: {.panel-tabset}
 
@@ -365,12 +371,12 @@ print("original:", original)
 . . .
 
 ::: {.callout-important}
-**สาเหตุ:** Python ส่ง NumPy array ให้ฟังก์ชันแบบ **pass-by-object-reference** — `data` และ `original` ชี้ไปยัง array **ก้อนเดียวกัน** · `data -= data.min()` เป็น in-place operation จึงแก้ต้นฉบับตรง ๆ
+**สาเหตุ:** Python ส่ง NumPy array แบบ **pass-by-object-reference** — `data` และ `original` ชี้ array **ก้อนเดียวกัน** · `data -= data.min()` เป็น in-place จึงแก้ต้นฉบับตรง ๆ (เหมือน **view** ใน M12b)
 
-เปรียบได้กับ **view** ใน Module 12b: ชี้ไปก้อนเดียวกัน แก้ที่นี่ก็กระทบโน้น
-
-**แก้:** ทำสำเนาก่อนด้วย `data = data.copy()` บรรทัดแรกในฟังก์ชัน (หรือเปลี่ยน `data -= ...` เป็น `data = data - ...` ซึ่งสร้าง array ใหม่)
+**แก้:** `data = data.copy()` บรรทัดแรกในฟังก์ชัน หรือเปลี่ยนเป็น `data = data - data.min()`
 :::
+
+## หา Bug + เขียนต่อ #8 (ต่อ) {.smaller .exercise-think}
 
 ::: {.panel-tabset}
 
