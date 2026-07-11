@@ -1,0 +1,386 @@
+---
+title: "ทบทวนรวมพื้นฐาน Python (ถึง Module 10)"
+subtitle: "เขียนเอง · หา Bug แล้วเขียนต่อ"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — ทบทวนรวมพื้นฐาน Python | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวนรวมพื้นฐาน Python 🧩
+
+::: {.incremental}
+- **เขียนเอง** — เขียนโปรแกรมจากศูนย์ ไม่มี `____` และเลือกเองว่าใช้ฟังก์ชัน/loop/comprehension ตัวไหน
+- **หา Bug แล้วเขียนต่อ** — แก้บั๊กในโค้ดที่ยังไม่เสร็จ แล้วเขียนส่วนที่เหลือ
+:::
+
+. . .
+
+::: {.callout-note}
+รวมทักษะพื้นฐานภาษา Python จนถึง **Module 10**: ตัวแปร/คณิต · เงื่อนไข · loop · list/dict · **ฟังก์ชัน (M9)** · **list comprehension & 2D list (M10)**
+ทบทวนรายโมดูลได้ที่ [M9](module09.html) · [M10](module10.html)
+:::
+
+::: {.callout-important}
+เนื้อหานี้เป็น **เนื้อหาเสริม** เท่านั้น — เนื้อหาที่เป็นทางการดูได้จาก [exam.cmu.ac.th](https://exam.cmu.ac.th)
+:::
+
+# เขียนเอง: ประกอบทักษะเอง 🛠️ {background-color="#2c3e50" .white-text}
+
+ไม่มี `____` · ไม่บอกว่าใช้ฟังก์ชัน / loop / comprehension ตัวไหน — ออกแบบเอง
+
+## เขียนเอง #1: นับจำนวนเฉพาะใน 2–30 {.exercise-think}
+
+เขียนฟังก์ชัน `is_prime(n)` ที่คืน `True/False` แล้วใช้ฟังก์ชันนั้นนับว่ามีจำนวนเฉพาะกี่ตัวในช่วง `2..30`
+
+**คิดก่อน:** แยกงานเป็น 2 ส่วน — (1) ฟังก์ชันตัดสิน 1 ตัว (มี loop + `return` ข้างใน) · (2) main วน `for` เรียกฟังก์ชันแล้วนับ
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# เขียน def is_prime(n): ... แล้วนับจำนวนเฉพาะใน 2..30
+
+```
+
+### Solution
+
+```python
+def is_prime(n):
+    if n < 2:
+        return False
+    for d in range(2, n):
+        if n % d == 0:
+            return False
+    return True
+
+count = 0
+for k in range(2, 31):
+    if is_prime(k):
+        count += 1
+print(count)
+```
+
+```
+10
+```
+
+:::
+
+## เขียนเอง #2: สถิติพื้นฐานของ list {.exercise-think}
+
+เขียนฟังก์ชัน `stats(nums)` ที่รับ list แล้วคืน **ค่าน้อยสุด · มากสุด · ค่าเฉลี่ย** (3 ค่าพร้อมกัน) แล้วเรียกใช้กับ `[4, 8, 15, 16, 23, 42]`
+
+**คิดก่อน:** `return` คืนได้หลายค่าคั่นด้วย `,` (เป็น tuple) · ฝั่งเรียกรับด้วย `lo, hi, avg = ...`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+nums = [4, 8, 15, 16, 23, 42]
+# เขียน def stats(nums): ... แล้วพิมพ์ น้อยสุด มากสุด เฉลี่ย(2 ตำแหน่ง)
+
+```
+
+### Solution
+
+```python
+def stats(nums):
+    return min(nums), max(nums), sum(nums) / len(nums)
+
+lo, hi, avg = stats([4, 8, 15, 16, 23, 42])
+print(lo, hi, round(avg, 2))
+```
+
+```
+4 42 18.0
+```
+
+:::
+
+## เขียนเอง #3: กำลังสองเฉพาะเลขคู่ 1–10 {.exercise-think}
+
+ใช้ **list comprehension บรรทัดเดียว** สร้าง list ของ**กำลังสองของเฉพาะเลขคู่** ในช่วง `1..10`
+
+**คิดก่อน:** โครงคือ `[` ประมวลผล `for` ตัวแปร `in` ช่วง `if` เงื่อนไข `]` — ประมวลผล = `x**2`, เงื่อนไข = คู่
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# เขียน list comprehension บรรทัดเดียว แล้วพิมพ์ผล
+
+```
+
+### Solution
+
+```python
+result = [x**2 for x in range(1, 11) if x % 2 == 0]
+print(result)
+```
+
+```
+[4, 16, 36, 64, 100]
+```
+
+:::
+
+## เขียนเอง #4: ผลรวมแนวทแยงของตารางสูตรคูณ {.exercise-think}
+
+สร้าง **2D list** ขนาด `n × n` ที่ช่องแถว `i` คอลัมน์ `j` มีค่า `(i+1)*(j+1)` (ตารางสูตรคูณ) แล้วหา**ผลรวมแนวทแยง** (ช่องที่ `i == j`)
+
+**คิดก่อน:** สร้างตารางด้วย nested comprehension `[[... for j ...] for i ...]` · แนวทแยงคือ `table[i][i]`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+n = 4
+# สร้างตาราง n×n แล้วพิมพ์ผลรวมแนวทแยง
+
+```
+
+### Solution
+
+```python
+n = 4
+table = [[(i+1)*(j+1) for j in range(n)] for i in range(n)]
+diag = 0
+for i in range(n):
+    diag += table[i][i]
+print(diag)
+```
+
+```
+30
+```
+
+:::
+
+## เขียนเอง #5: คะแนนเฉลี่ยและผลผ่าน/ตก {.exercise-think}
+
+เขียน 2 ฟังก์ชันที่ **ทำงานร่วมกัน**: `average(nums)` คืนค่าเฉลี่ย · `is_passed(nums)` คืน `True/False` โดย**เรียกใช้** `average()` (เกณฑ์ผ่าน = เฉลี่ย ≥ 50) แล้ววนพิมพ์ผลของนักศึกษาแต่ละคน
+
+**คิดก่อน:** `is_passed` ไม่ต้องคำนวณเฉลี่ยเอง — ให้**เรียก `average()`** มาใช้ซ้ำ (นี่คือประโยชน์ของการแยกฟังก์ชัน)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+names = ["Ann", "Bee", "Cat"]
+scores = [[60, 70, 80], [40, 55, 30], [90, 85, 95]]
+# เขียน average() และ is_passed() (ที่เรียก average) แล้ววนพิมพ์ผ่าน/ตก
+
+```
+
+### Solution
+
+```python
+def average(nums):
+    return sum(nums) / len(nums)
+
+def is_passed(nums):
+    return average(nums) >= 50    # เรียกใช้ average()
+
+names = ["Ann", "Bee", "Cat"]
+scores = [[60, 70, 80], [40, 55, 30], [90, 85, 95]]
+for i in range(len(names)):
+    if is_passed(scores[i]):
+        print(names[i], "ผ่าน")
+    else:
+        print(names[i], "ตก")
+```
+
+```
+Ann ผ่าน
+Bee ตก
+Cat ผ่าน
+```
+
+:::
+
+# หา Bug แล้วเขียนต่อ 🐞➕ {background-color="#2c3e50" .white-text}
+
+โค้ดเริ่มต้นมี **บั๊ก 1 จุด** และยัง**ทำไม่ครบ** — แก้บั๊กก่อน แล้วเขียนส่วนที่เหลือ
+
+## หา Bug + เขียนต่อ #6: ฟังก์ชันหาพื้นที่สี่เหลี่ยม {.exercise-think}
+
+ฟังก์ชันนี้ควรคืนพื้นที่สี่เหลี่ยม แต่พิมพ์ออกมาเป็น `None`
+
+```python
+def area(w, h):
+    a = w * h
+
+print(area(3, 4))
+```
+
+**งาน:** (1) แก้บั๊ก · (2) เขียนต่อให้หา**พื้นที่รวม**ของสี่เหลี่ยมหลายรูปใน list `[(3,4), (5,2), (6,1)]`
+
+. . .
+
+::: {.callout-important}
+**บั๊ก:** ฟังก์ชันคำนวณ `a` แต่**ไม่มี `return`** → คืน `None` · ต้อง `return a` (หรือ `return w*h`)
+:::
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+def area(w, h):
+    a = w * h
+# แก้บั๊ก + เขียนต่อ → พิมพ์พื้นที่รวมของ [(3,4),(5,2),(6,1)]
+
+```
+
+### Solution
+
+```python
+def area(w, h):
+    return w * h
+
+rects = [(3, 4), (5, 2), (6, 1)]
+total = 0
+for w, h in rects:
+    total += area(w, h)
+print(total)
+```
+
+```
+28
+```
+
+:::
+
+## หา Bug + เขียนต่อ #7: สร้าง list จากเงื่อนไข {.exercise-think}
+
+โค้ดนี้ควรได้**กำลังสองของเลขคี่** แต่กลับได้เลขคู่
+
+```python
+nums = [1, 2, 3, 4, 5, 6]
+result = [x**2 for x in nums if x % 2 == 0]
+print(result)
+```
+
+**งาน:** (1) แก้เงื่อนไขให้ถูก · (2) เขียนต่อให้พิมพ์**ผลรวม**ของค่าใน `result`
+
+. . .
+
+::: {.callout-important}
+**บั๊ก:** `x % 2 == 0` = เลข**คู่** · ต้องการเลข**คี่** → ใช้ `x % 2 == 1`
+:::
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+nums = [1, 2, 3, 4, 5, 6]
+# แก้เงื่อนไข + เขียนต่อ → พิมพ์ result และผลรวม
+
+```
+
+### Solution
+
+```python
+nums = [1, 2, 3, 4, 5, 6]
+result = [x**2 for x in nums if x % 2 == 1]
+print(result)
+print(sum(result))
+```
+
+```
+[1, 9, 25]
+35
+```
+
+:::
+
+## หา Bug + เขียนต่อ #8: รวมค่าในตาราง 2 มิติ {.exercise-think}
+
+โค้ดนี้ควรรวมทุกค่าในตาราง 2 มิติ แต่ได้ผลไม่ครบ
+
+```python
+grid = [[1, 2, 3], [4, 5, 6]]
+total = 0
+for i in range(len(grid)):
+    for j in range(len(grid)):
+        total += grid[i][j]
+print(total)
+```
+
+**งาน:** (1) แก้ขอบเขตลูปในให้ถูก · (2) เขียนต่อให้พิมพ์**ผลรวมของแต่ละแถว**ด้วย
+
+. . .
+
+::: {.callout-important}
+**บั๊ก:** ลูปในใช้ `range(len(grid))` = จำนวน**แถว** (2) แต่ต้องวนตาม**คอลัมน์** → `range(len(grid[i]))` · ไม่งั้นตกคอลัมน์ที่ 3
+:::
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+grid = [[1, 2, 3], [4, 5, 6]]
+# แก้ขอบเขต + เขียนต่อ → พิมพ์ผลรวมแต่ละแถว และผลรวมทั้งหมด
+
+```
+
+### Solution
+
+```python
+grid = [[1, 2, 3], [4, 5, 6]]
+total = 0
+for i in range(len(grid)):
+    row_sum = 0
+    for j in range(len(grid[i])):
+        row_sum += grid[i][j]
+    print("ผลรวมแถว", i, "=", row_sum)
+    total += row_sum
+print("รวมทั้งหมด:", total)
+```
+
+```
+ผลรวมแถว 0 = 6
+ผลรวมแถว 1 = 15
+รวมทั้งหมด: 21
+```
+
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+แน่นพื้นฐาน Python แล้ว! ทบทวนรายโมดูลได้ที่
+[M9 Functions](module09.html) · [M10 Comprehension & 2D](module10.html)

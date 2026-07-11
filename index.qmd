@@ -11,6 +11,13 @@ Introduction to computers for engineers. Principles of computer hardware and sof
 
 ## Lecture Slides
 
+::: {.callout-important}
+## เนื้อหาเสริมเท่านั้น
+
+สไลด์และเนื้อหา **Extras** เหล่านี้เป็น **เนื้อหาเสริม** สำหรับประกอบการเรียนเท่านั้น
+เนื้อหาที่เป็นทางการของกระบวนวิชาดูได้จาก [exam.cmu.ac.th](https://exam.cmu.ac.th){target="_blank"}
+:::
+
 | Module | Topic | Slides |
 |:------:|:------|:------:|
 | 1 | Course Orientation / Introduction to Programming | [Slides](slides/module01.html){target="_blank"}, [Extras](slides/module01_extra.html){target="_blank"} |
@@ -28,6 +35,16 @@ Introduction to computers for engineers. Principles of computer hardware and sof
 | 11 | Basic Data Visualization with Matplotlib | [Slides](slides/module11.html){target="_blank"} (?), [Extras](slides/module11_extra.html){target="_blank"} |
 | 12 | N-Dimensional Arrays with Numpy (I) | [Slides](slides/module12a.html){target="_blank"} (?), [Extras](slides/module12a_extra.html){target="_blank"} |
 |     | N-Dimensional Arrays with Numpy (II) | [Slides](slides/module12b.html){target="_blank"} (?), [Extras](slides/module12b_extra.html){target="_blank"} |
+
+## ทบทวนรวมข้ามโมดูล (Cumulative Review)
+
+โจทย์แบบ **เขียนเอง** (เลือก construct เอง) และ **หา Bug แล้วเขียนต่อ** ที่ผสมทักษะหลายโมดูล
+
+| ช่วง | เนื้อหา | Extras |
+|:------:|:------|:------:|
+| 5–8 | Control Flow (เงื่อนไข · loop · loop ซ้อน) | [Extras](slides/module08c_extra.html){target="_blank"} |
+| ≤ 10 | พื้นฐาน Python (รวมฟังก์ชัน · comprehension · 2D) | [Extras](slides/module10c_extra.html){target="_blank"} |
+| 11–12 | NumPy & Matplotlib | [Extras](slides/module12c_extra.html){target="_blank"} |
 
 ---
 

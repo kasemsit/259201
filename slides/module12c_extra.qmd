@@ -1,0 +1,348 @@
+---
+title: "ทบทวนรวม NumPy & Matplotlib (Module 11–12)"
+subtitle: "เขียนเอง · หา Bug แล้วเขียนต่อ"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — ทบทวนรวม NumPy & Matplotlib | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: [numpy, matplotlib]
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวนรวม NumPy & Matplotlib 🧩
+
+::: {.incremental}
+- **เขียนเอง** — เขียนโปรแกรมจากศูนย์ ไม่มี `____` และเลือก vectorized / การวาดกราฟเอง
+- **หา Bug แล้วเขียนต่อ** — แก้บั๊ก axis / view-copy / กราฟไม่ขึ้น แล้วเขียนส่วนที่เหลือ
+:::
+
+. . .
+
+::: {.callout-note}
+รวมทักษะจาก **Module 11–12**: NumPy array · broadcasting · boolean mask · `axis` · view/copy · Matplotlib line/bar + label/legend
+ทบทวนรายโมดูลได้ที่ [M11](module11.html) · [M12a](module12a.html) · [M12b](module12b.html)
+:::
+
+::: {.callout-important}
+เนื้อหานี้เป็น **เนื้อหาเสริม** เท่านั้น — เนื้อหาที่เป็นทางการดูได้จาก [exam.cmu.ac.th](https://exam.cmu.ac.th)
+:::
+
+# เขียนเอง: vectorize / วาดกราฟเอง 🛠️ {background-color="#2c3e50" .white-text}
+
+ไม่มี `____` · เลือกเองว่าจะใช้ `axis`, boolean mask, broadcasting หรือกราฟชนิดใด
+
+## เขียนเอง #1: ค่าเฉลี่ยรายคนและค่าสูงสุด{.exercise-think}
+
+มี array 2 มิติ (แถว = นักศึกษา, คอลัมน์ = วิชา) จงหา**ค่าเฉลี่ยของแต่ละคน** และค่าเฉลี่ยที่**สูงสุด**
+
+**คิดก่อน:** เฉลี่ยราย**แถว** ใช้ `.mean(axis=1)` (axis=1 = ยุบคอลัมน์) · แล้วหา `.max()`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+scores = np.array([[80, 90, 70], [60, 65, 55], [95, 88, 92]])
+# หาค่าเฉลี่ยรายคน (ปัด 2 ตำแหน่ง) และค่าเฉลี่ยสูงสุด
+
+```
+
+### Solution
+
+```python
+import numpy as np
+scores = np.array([[80, 90, 70], [60, 65, 55], [95, 88, 92]])
+avg = scores.mean(axis=1)
+print(np.round(avg, 2))
+print(round(avg.max(), 2))
+```
+
+```
+[80.   60.   91.67]
+91.67
+```
+
+:::
+
+## เขียนเอง #2: กรองข้อมูลอุณหภูมิสูง{.exercise-think}
+
+มี array อุณหภูมิ จงดึงเฉพาะค่าที่ `>= 35` ออกมา แล้วบอกว่ามีกี่ค่า
+
+**คิดก่อน:** สร้าง mask ด้วย `temps >= 35` แล้วใช้ `temps[mask]` — ไม่ต้องเขียน loop เลย
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+temps = np.array([28, 35, 40, 22, 38, 31])
+# ดึงค่าที่ >= 35 และนับจำนวน
+
+```
+
+### Solution
+
+```python
+import numpy as np
+temps = np.array([28, 35, 40, 22, 38, 31])
+hot = temps[temps >= 35]
+print(hot)
+print(len(hot))
+```
+
+```
+[35 40 38]
+3
+```
+
+:::
+
+## เขียนเอง #3: คิดราคาสุทธิหลังลดและบวกค่าส่ง{.exercise-think}
+
+มี array ราคาสินค้า จงคิด**ราคาสุทธิ** = ลด 10% แล้วบวกค่าส่ง 20 บาททุกชิ้น (ทำทั้ง array ทีเดียว)
+
+**คิดก่อน:** ใช้ตัวเลขคูณ/บวกกับ array ได้ตรง ๆ (broadcasting) — `prices * 0.9 + 20` ไม่ต้อง loop
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+prices = np.array([100, 250, 80, 300])
+# คิดราคาสุทธิทั้ง array
+
+```
+
+### Solution
+
+```python
+import numpy as np
+prices = np.array([100, 250, 80, 300])
+final = prices * 0.9 + 20
+print(final)
+```
+
+```
+[110. 245.  92. 290.]
+```
+
+:::
+
+## เขียนเอง #4: กราฟยอดขายรายเดือน{.exercise-think}
+
+วาด **bar chart** ยอดขาย 4 เดือน (Jan–Apr) พร้อม **title, xlabel, ylabel** และชื่อเดือนบนแกน x
+
+**คิดก่อน:** `plt.bar(ชื่อเดือน, ยอดขาย)` แล้วเติม `.title() .xlabel() .ylabel()` และปิดท้ายด้วย `plt.show()`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import matplotlib.pyplot as plt
+months = ["Jan", "Feb", "Mar", "Apr"]
+sales = [120, 90, 150, 130]
+# วาด bar chart พร้อม title / xlabel / ylabel
+
+```
+
+### Solution
+
+```python
+import matplotlib.pyplot as plt
+months = ["Jan", "Feb", "Mar", "Apr"]
+sales = [120, 90, 150, 130]
+plt.bar(months, sales)
+plt.title("Monthly Sales")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
+```
+
+::: {.callout-tip}
+**ควรได้:** กราฟแท่ง 4 แท่ง (Feb เตี้ยสุด, Mar สูงสุด) มีชื่อเดือนใต้แกน x และมีหัวข้อ/ชื่อแกนครบ
+:::
+
+:::
+
+# หา Bug แล้วเขียนต่อ 🐞➕ {background-color="#2c3e50" .white-text}
+
+โค้ดเริ่มต้นมี **บั๊ก 1 จุด** และยัง**ทำไม่ครบ** — แก้บั๊กก่อน แล้วเขียนส่วนที่เหลือ
+
+## หา Bug + เขียนต่อ #5: ค่าเฉลี่ยรายคอลัมน์{.exercise-think}
+
+โค้ดนี้ควรหา**ค่าเฉลี่ยของแต่ละคอลัมน์** แต่กลับได้ค่าเฉลี่ยของแต่ละแถว
+
+```python
+import numpy as np
+data = np.array([[1, 2, 3], [4, 5, 6]])
+col_mean = data.mean(axis=1)
+print(col_mean)
+```
+
+**งาน:** (1) แก้ `axis` ให้ถูก · (2) เขียนต่อให้พิมพ์**ค่าเฉลี่ยรวมทั้ง array**
+
+. . .
+
+::: {.callout-important}
+**บั๊ก:** `axis=1` = ยุบ**คอลัมน์** → ได้เฉลี่ยราย**แถว** · ต้องการรายคอลัมน์ ใช้ `axis=0` (ยุบแถว)
+:::
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+data = np.array([[1, 2, 3], [4, 5, 6]])
+# แก้ axis + เขียนต่อ → เฉลี่ยรายคอลัมน์ และเฉลี่ยรวม
+
+```
+
+### Solution
+
+```python
+import numpy as np
+data = np.array([[1, 2, 3], [4, 5, 6]])
+col_mean = data.mean(axis=0)
+print(col_mean)
+print(data.mean())
+```
+
+```
+[2.5 3.5 4.5]
+3.5
+```
+
+:::
+
+## หา Bug + เขียนต่อ #6: แก้ข้อมูลส่วนหนึ่งโดยไม่กระทบต้นฉบับ{.exercise-think}
+
+โค้ดนี้ตั้งใจแก้เฉพาะ `b` แต่ `a` กลับเปลี่ยนตามไปด้วย
+
+```python
+import numpy as np
+a = np.array([10, 20, 30, 40])
+b = a[1:3]
+b[0] = 999
+print(a)
+```
+
+**งาน:** (1) แก้ให้ `a` ไม่เปลี่ยน · (2) เขียนต่อให้พิมพ์ทั้ง `a` และ `b`
+
+. . .
+
+::: {.callout-important}
+**บั๊ก:** การ slice array ได้ **view** (ชี้ข้อมูลก้อนเดียวกัน) → แก้ `b` กระทบ `a` · ต้องใช้ `a[1:3].copy()`
+:::
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+a = np.array([10, 20, 30, 40])
+# แก้ให้เป็น copy + เขียนต่อ → พิมพ์ a และ b
+
+```
+
+### Solution
+
+```python
+import numpy as np
+a = np.array([10, 20, 30, 40])
+b = a[1:3].copy()
+b[0] = 999
+print(a)
+print(b)
+```
+
+```
+[10 20 30 40]
+[999  30]
+```
+
+:::
+
+## หา Bug + เขียนต่อ #7: กราฟเลขกำลังสอง {.exercise-think}
+
+โค้ดนี้ควรวาดกราฟเส้นของเลขกำลังสอง แต่รันแล้ว**ไม่เห็นกราฟ**
+
+```python
+import matplotlib.pyplot as plt
+x = [1, 2, 3, 4, 5]
+y = [1, 4, 9, 16, 25]
+plt.plot(x, y)
+```
+
+**งาน:** (1) แก้ให้กราฟแสดง · (2) เขียนต่อให้ใส่ **title, xlabel, ylabel** และ **legend**
+
+. . .
+
+::: {.callout-important}
+**บั๊ก:** ไม่มี `plt.show()` → กราฟไม่ถูกแสดง · ต้องปิดท้ายด้วย `plt.show()` เสมอ
+:::
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import matplotlib.pyplot as plt
+x = [1, 2, 3, 4, 5]
+y = [1, 4, 9, 16, 25]
+# แก้ให้กราฟขึ้น + เขียนต่อ → ใส่ title/xlabel/ylabel/legend
+
+```
+
+### Solution
+
+```python
+import matplotlib.pyplot as plt
+x = [1, 2, 3, 4, 5]
+y = [1, 4, 9, 16, 25]
+plt.plot(x, y, label="y = x²")
+plt.title("Square numbers")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.legend()
+plt.show()
+```
+
+::: {.callout-tip}
+**ควรได้:** กราฟเส้นโค้งขึ้น มีหัวข้อ "Square numbers" ชื่อแกน x/y และกล่อง legend "y = x²"
+:::
+
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+พร้อมใช้ NumPy & Matplotlib กับงานจริงแล้ว! ทบทวนรายโมดูลได้ที่
+[M11 Matplotlib](module11.html) · [M12a NumPy](module12a.html) · [M12b NumPy](module12b.html)

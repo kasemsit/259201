@@ -93,9 +93,10 @@ D. Block coding
 
 เครื่องมือใดใช้สำหรับ **รันทีละคำสั่งเพื่อหาบั๊ก**?
 
-A. Text Editor<br>
+A. Bugger<br>
 B. Compiler<br>
-C. Debugger
+C. Debugger<br>
+D. Decompiler
 
 . . .
 
@@ -137,8 +138,9 @@ C. `.py` รันบนเว็บไม่ได้
 **Scratch** เป็นตัวอย่างของการเขียนโปรแกรมแบบใด?
 
 A. Text-based coding<br>
-B. Block coding (ต่อบล็อกเหมือนจิ๊กซอว์)<br>
-C. Machine code
+B. Block coding<br>
+C. Machine code<br>
+D. Python coding
 
 . . .
 
@@ -150,9 +152,10 @@ C. Machine code
 
 `.split()` ใน `input().split()` ทำหน้าที่อะไร?
 
-A. แปลงเป็นตัวเลข<br>
-B. ตัดข้อความตาม**ช่องว่าง**ออกเป็นหลายชิ้น<br>
-C. รวมข้อความ
+A. ทำให้ข้อความอินพุตเป็นตัวเลข ไม่อย่างนั้นจะนำมาคำนวณไม่ได้<br>
+B. ตัดข้อความตามช่องว่างออกเป็นหลายชิ้น<br>
+C. รวมข้อความอินพุต<br>
+D. รับข้อความอินพุต
 
 . . .
 

@@ -1,0 +1,382 @@
+---
+title: "ทบทวนรวม Control Flow (Modules 5–8)"
+subtitle: "หา Bug แล้วเขียนต่อ · โจทย์รวมข้ามโมดูล"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — ทบทวนรวม Control Flow | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวนรวม Control Flow 🧩
+
+::: {.incremental}
+- **หา Bug แล้วเขียนต่อ** — แก้บั๊กในโค้ดที่ยังไม่เสร็จ แล้วเขียนส่วนที่เหลือเอง
+- **โจทย์รวมข้ามโมดูล** — ผสม `if` · loop · collection ในโจทย์เดียว โดย**ไม่บอก**ว่าใช้อะไร
+:::
+
+. . .
+
+::: {.callout-note}
+รวมทักษะจาก **Module 5–8**: เงื่อนไข · while · for · range · break/continue · loop ซ้อน · list/dict
+ทบทวนรายโมดูลได้ที่ [M5](module05.html) · [M6](module06.html) · [M7](module07.html) · [M8](module08.html)
+:::
+
+::: {.callout-important}
+เนื้อหานี้เป็น **เนื้อหาเสริม** เท่านั้น — เนื้อหาที่เป็นทางการดูได้จาก [exam.cmu.ac.th](https://exam.cmu.ac.th)
+:::
+
+# หา Bug แล้วเขียนต่อ 🐞➕ {background-color="#2c3e50" .white-text}
+
+โค้ดเริ่มต้นมี **บั๊ก 1 จุด** และยัง**ทำไม่ครบ** — แก้บั๊กก่อน แล้วเขียนส่วนที่เหลือให้เสร็จ
+
+## หา Bug + เขียนต่อ #1 {.exercise-think}
+
+โค้ดนี้ควรนับจำนวนที่หารด้วย 3 ลงตัวในช่วง `1..n` แต่ผลออกมาผิด
+
+```python
+n = 15
+for i in range(1, n+1):
+    count = 0
+    if i % 3 == 0:
+        count += 1
+print(count)
+```
+
+**งาน:** (1) หาและแก้บั๊ก · (2) เขียนต่อให้พิมพ์ **ผลรวม** ของจำนวนเหล่านั้นด้วย
+
+. . .
+
+::: {.callout-important}
+**บั๊ก:** `count = 0` อยู่**ในลูป** → ถูกรีเซ็ตทุกรอบ ต้องย้ายออกไปก่อนลูป
+:::
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+n = 15
+# แก้บั๊ก + เขียนต่อ → พิมพ์ทั้ง "จำนวน" และ "ผลรวม"
+
+```
+
+### Solution
+
+```python
+n = 15
+count = 0
+total = 0
+for i in range(1, n+1):
+    if i % 3 == 0:
+        count += 1
+        total += i
+print(count, total)
+```
+
+```
+5 45
+```
+
+:::
+
+## หา Bug + เขียนต่อ #2 {.exercise-think}
+
+โค้ดนี้ควรหา**ค่ามากที่สุด**ในตาราง 2 มิติ แต่จะพังถ้าค่าทั้งหมดติดลบ
+
+```python
+grid = [[3, 8, 1], [9, 2, 7], [4, 6, 5]]
+biggest = 0
+for row in grid:
+    for x in row:
+        if x > biggest:
+            biggest = x
+print(biggest)
+```
+
+**งาน:** (1) แก้ค่าเริ่มต้นของ `biggest` ให้ถูก · (2) เขียนต่อให้บอก **ตำแหน่ง (แถว, คอลัมน์)** ของค่ามากสุดด้วย
+
+. . .
+
+::: {.callout-important}
+**บั๊ก:** ตั้ง `biggest = 0` → ถ้าทุกค่าติดลบจะได้ `0` ผิด · ควรเริ่มที่ `grid[0][0]` (สมาชิกจริงตัวแรก)
+:::
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+grid = [[3, 8, 1], [9, 2, 7], [4, 6, 5]]
+# แก้บั๊ก + เขียนต่อ → พิมพ์ค่ามากสุดและตำแหน่ง (แถว, คอลัมน์)
+
+```
+
+### Solution
+
+```python
+grid = [[3, 8, 1], [9, 2, 7], [4, 6, 5]]
+biggest = grid[0][0]
+pos = (0, 0)
+for i, row in enumerate(grid):
+    for j, x in enumerate(row):
+        if x > biggest:
+            biggest = x
+            pos = (i, j)
+print(biggest, pos)
+```
+
+```
+9 (1, 0)
+```
+
+:::
+
+## หา Bug + เขียนต่อ #3 {.exercise-think}
+
+โค้ดนี้ควรนับความถี่ของคำลง `dict` แต่รันแล้ว **error**
+
+```python
+words = ["apple", "banana", "apple", "cherry", "banana", "apple"]
+freq = {}
+for w in words:
+    freq[w] += 1
+print(freq)
+```
+
+**งาน:** (1) แก้บั๊กที่ทำให้ error · (2) เขียนต่อให้หา **คำที่พบบ่อยที่สุด**
+
+. . .
+
+::: {.callout-important}
+**บั๊ก:** `freq[w] += 1` ใช้ key ที่**ยังไม่มี**ใน dict → `KeyError` · ต้องสร้าง `freq[w] = 0` ก่อนถ้ายังไม่มี
+:::
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+words = ["apple", "banana", "apple", "cherry", "banana", "apple"]
+# แก้บั๊ก + เขียนต่อ → พิมพ์ dict ความถี่ และคำที่พบบ่อยที่สุด
+
+```
+
+### Solution
+
+```python
+words = ["apple", "banana", "apple", "cherry", "banana", "apple"]
+freq = {}
+for w in words:
+    if w not in freq:
+        freq[w] = 0
+    freq[w] += 1
+
+top = None
+top_count = 0
+for w in freq:
+    if freq[w] > top_count:
+        top_count = freq[w]
+        top = w
+print(freq)
+print(top, top_count)
+```
+
+```
+{'apple': 3, 'banana': 2, 'cherry': 1}
+apple 3
+```
+
+:::
+
+# โจทย์รวมข้ามโมดูล 🧩 {background-color="#2c3e50" .white-text}
+
+ผสมทุกทักษะในโจทย์เดียว · **ไม่มี `____`** และ**ไม่บอก**ว่าต้องใช้ `if`/loop/collection ตัวไหน — ตัดสินใจเอง
+
+## โจทย์รวม #4: รายงานผลสอบ {.exercise-think}
+
+มี `list` ของ `dict` ที่แต่ละคนมี **list ของคะแนน** จงพิมพ์ชื่อ + คะแนนเฉลี่ย (ทศนิยม 2 ตำแหน่ง) + สถานะ **ผ่าน** (เฉลี่ย ≥ 50) หรือ **ตก** แล้วสรุปว่ามีกี่คนที่ผ่าน
+
+**คิดก่อน:** วนแต่ละคน → เฉลี่ยด้วย `sum()/len()` → `if` ตัดสินผ่าน/ตก → นับสะสม
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+students = [{"name": "Ann", "scores": [60, 70, 80]},
+            {"name": "Bee", "scores": [40, 55, 30]},
+            {"name": "Cat", "scores": [90, 85, 95]}]
+# เขียนโค้ดของคุณที่นี่
+
+```
+
+### Solution
+
+```python
+students = [{"name": "Ann", "scores": [60, 70, 80]},
+            {"name": "Bee", "scores": [40, 55, 30]},
+            {"name": "Cat", "scores": [90, 85, 95]}]
+passed = 0
+for s in students:
+    avg = sum(s["scores"]) / len(s["scores"])
+    if avg >= 50:
+        status = "ผ่าน"
+        passed += 1
+    else:
+        status = "ตก"
+    print(f"{s['name']}: {avg:.2f} {status}")
+print("จำนวนที่ผ่าน:", passed)
+```
+
+```
+Ann: 70.00 ผ่าน
+Bee: 41.67 ตก
+Cat: 90.00 ผ่าน
+จำนวนที่ผ่าน: 2
+```
+
+:::
+
+## โจทย์รวม #5: เตือนเติมสต็อก {.exercise-think}
+
+มี `dict` ของสินค้า → จำนวนคงเหลือ จงพิมพ์รายการที่ต้อง**เติมสต็อก** (เหลือ ≤ 5) พร้อมจำนวนที่เหลือ แล้วสรุปว่าต้องเติมกี่รายการ
+
+**คิดก่อน:** วนทุก key ใน dict → `if` เช็กเกณฑ์ → เก็บชื่อที่เข้าเกณฑ์ไว้ใน `list` เพื่อนับตอนท้าย
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+stock = {"ปากกา": 3, "ดินสอ": 20, "ยางลบ": 5, "ไม้บรรทัด": 0}
+# เขียนโค้ดของคุณที่นี่
+
+```
+
+### Solution
+
+```python
+stock = {"ปากกา": 3, "ดินสอ": 20, "ยางลบ": 5, "ไม้บรรทัด": 0}
+low = []
+for item in stock:
+    if stock[item] <= 5:
+        low.append(item)
+        print(f"เติมสต็อก: {item} (เหลือ {stock[item]})")
+print("รวมต้องเติม:", len(low), "รายการ")
+```
+
+```
+เติมสต็อก: ปากกา (เหลือ 3)
+เติมสต็อก: ยางลบ (เหลือ 5)
+เติมสต็อก: ไม้บรรทัด (เหลือ 0)
+รวมต้องเติม: 3 รายการ
+```
+
+:::
+
+## โจทย์รวม #6: ทีมที่คะแนนรวมสูงสุด {.exercise-think}
+
+มี `list` 2 มิติ — แต่ละแถวคือคะแนนของ 1 ทีม จงหา**หมายเลขทีม** (index) ที่มี**คะแนนรวมสูงสุด** พร้อมคะแนนรวมนั้น
+
+**คิดก่อน:** ลูปซ้อน — ลูปนอกไล่แต่ละทีม, ลูปในบวกคะแนนของทีมนั้น · เก็บทีมที่ดีที่สุดไว้ (running max)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+teams = [[3, 1, 4], [2, 8, 1], [5, 2, 2]]
+# เขียนโค้ดของคุณที่นี่
+
+```
+
+### Solution
+
+```python
+teams = [[3, 1, 4], [2, 8, 1], [5, 2, 2]]
+best_team = -1
+best_sum = -1
+for i in range(len(teams)):
+    s = 0
+    for x in teams[i]:
+        s += x
+    if s > best_sum:
+        best_sum = s
+        best_team = i
+print("ทีมชนะ:", best_team, "คะแนนรวม:", best_sum)
+```
+
+```
+ทีมชนะ: 1 คะแนนรวม: 11
+```
+
+:::
+
+## โจทย์รวม #7: สรุป FizzBuzz ลง dict {.exercise-think}
+
+สำหรับเลข `1..n` จงนับว่ามีกี่ตัวที่ **หารด้วย 3 อย่างเดียว** (fizz) · **หารด้วย 5 อย่างเดียว** (buzz) · **หารด้วยทั้ง 3 และ 5** (fizzbuzz) · **ไม่เข้าเงื่อนไขใด** (other) แล้วเก็บผลลง `dict`
+
+**คิดก่อน:** วน `for` · `if-elif` โดยเช็ก **หารด้วย 15 ก่อน** (ไม่งั้นไม่มีวันเจอ fizzbuzz) · บวกค่าเข้า key ใน dict
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+n = 20
+# เขียนโค้ดของคุณที่นี่
+
+```
+
+### Solution
+
+```python
+n = 20
+report = {"fizz": 0, "buzz": 0, "fizzbuzz": 0, "other": 0}
+for i in range(1, n+1):
+    if i % 15 == 0:
+        report["fizzbuzz"] += 1
+    elif i % 3 == 0:
+        report["fizz"] += 1
+    elif i % 5 == 0:
+        report["buzz"] += 1
+    else:
+        report["other"] += 1
+print(report)
+```
+
+```
+{'fizz': 5, 'buzz': 3, 'fizzbuzz': 1, 'other': 11}
+```
+
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+เก่ง control flow ขึ้นแล้ว! กลับไปทบทวนรายโมดูลได้ที่
+[M5](module05.html) · [M6](module06.html) · [M7](module07.html) · [M8](module08.html)

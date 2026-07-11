@@ -650,6 +650,93 @@ print(best)
 **ผลลัพธ์: `B`** — ไล่ทุกคู่ เก็บ key ที่ค่าสูงสุดไว้ใน `best` (95 ของ B ชนะ)
 :::
 
+# เขียนเอง: ลูป + collection ซ้อน 🛠️ {background-color="#2c3e50" .white-text}
+
+ไม่มี `____` ให้เติม · เลือกเองว่าจะวนแบบไหน และเก็บผลลง collection อะไร
+
+## เขียนเอง #26: จัดกลุ่มนักศึกษาตามเกรด {.exercise-think}
+
+มี `list` ของ `dict` (ชื่อ + คะแนน) จงสร้าง **dict of list** ที่ *key* เป็นเกรด และ *value* เป็นรายชื่อคนในเกรดนั้น
+เกณฑ์: `≥80`→A · `≥70`→B · `≥60`→C · `≥50`→D · ต่ำกว่านั้น→F
+
+**คิดก่อน:** วนแต่ละคน → หาเกรดด้วย `if-elif` → ถ้า key ยัง**ไม่มี**ใน dict ต้องสร้าง `[]` ว่างก่อน แล้วค่อย `append`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+students = [{"name": "Ann", "score": 82}, {"name": "Bee", "score": 55},
+            {"name": "Cat", "score": 90}, {"name": "Dan", "score": 48},
+            {"name": "Eve", "score": 73}, {"name": "Fay", "score": 66}]
+# เขียนโค้ดของคุณที่นี่ → พิมพ์ dict ที่จัดกลุ่มตามเกรด
+
+```
+
+### Solution
+
+```python
+students = [{"name": "Ann", "score": 82}, {"name": "Bee", "score": 55},
+            {"name": "Cat", "score": 90}, {"name": "Dan", "score": 48},
+            {"name": "Eve", "score": 73}, {"name": "Fay", "score": 66}]
+groups = {}
+for s in students:
+    sc = s["score"]
+    if sc >= 80:   g = "A"
+    elif sc >= 70: g = "B"
+    elif sc >= 60: g = "C"
+    elif sc >= 50: g = "D"
+    else:          g = "F"
+    if g not in groups:
+        groups[g] = []
+    groups[g].append(s["name"])
+print(groups)
+```
+
+```
+{'A': ['Ann', 'Cat'], 'D': ['Bee'], 'F': ['Dan'], 'B': ['Eve'], 'C': ['Fay']}
+```
+
+:::
+
+## เขียนเอง #27: วิชาที่คะแนนเฉลี่ยสูงสุด {.exercise-think}
+
+มี **dict of list**: *key* เป็นชื่อวิชา, *value* เป็น `list` ของคะแนน จงหา**วิชาที่ค่าเฉลี่ยสูงสุด** พร้อมค่าเฉลี่ย
+
+**คิดก่อน:** วนทุก key คำนวณ `sum(...) / len(...)` แล้วเก็บตัวที่มากสุดไว้ (เทคนิค running max — จำ "ตัวที่ดีที่สุดจนถึงตอนนี้")
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+scores = {"Math": [80, 90, 70], "Physics": [60, 65, 55], "Coding": [95, 88, 92]}
+# เขียนโค้ดของคุณที่นี่ → พิมพ์ชื่อวิชาและค่าเฉลี่ยสูงสุด
+
+```
+
+### Solution
+
+```python
+scores = {"Math": [80, 90, 70], "Physics": [60, 65, 55], "Coding": [95, 88, 92]}
+best = None
+best_avg = -1
+for subj in scores:
+    avg = sum(scores[subj]) / len(scores[subj])
+    if avg > best_avg:
+        best_avg = avg
+        best = subj
+print(best, round(best_avg, 2))
+```
+
+```
+Coding 91.67
+```
+
+:::
+
 # จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
 
 ทบทวนเนื้อหาเต็มได้ที่ [Module 8](module08.html)
