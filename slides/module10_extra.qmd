@@ -1,0 +1,519 @@
+---
+title: "Module 10 — ทบทวน (Review)"
+subtitle: "List Comprehension — แบบฝึกทบทวน"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 10 ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวน Module 10 📝
+
+::: {.incremental}
+- **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
+- **ทำนายผล** · **ไล่ค่าตัวแปร** · **หา Bug**
+- **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+:::
+
+. . .
+
+::: {.callout-note}
+ครอบคลุม: สร้าง list ด้วย loop · list comprehension · เงื่อนไข `if` · ร่วมกับฟังก์ชัน · 2D list
+ทบทวนเนื้อหาเต็มได้ที่ [Module 10](module10.html) 👈
+:::
+
+# Multiple Choice 🔘 {background-color="#2c3e50" .white-text}
+
+เลือกคำตอบที่ถูกต้อง — เฉลยจะปรากฏเมื่อกดถัดไป
+
+## คำถาม #1 {.exercise}
+
+List comprehension ประกอบด้วยส่วนใดบ้าง?
+
+A. ทำซ้ำ + ประมวลผล + เงื่อนไข(optional) &nbsp;&nbsp; B. import + run + print &nbsp;&nbsp; C. def + return
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — `[ `<span style="color:#c0392b">expr</span>` `<span style="color:#2980b9">for x in data</span>` `<span style="color:#27ae60">if cond</span>` ]` = **ประมวลผล + ทำซ้ำ + เงื่อนไข**
+:::
+
+## คำถาม #2 {.exercise}
+
+`[2*i for i in range(5)]` ให้ผลลัพธ์ใด?
+
+A. `[0, 2, 4, 6, 8]` &nbsp;&nbsp; B. `[2, 4, 6, 8, 10]` &nbsp;&nbsp; C. `[0, 1, 2, 3, 4]`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — `i` = 0,1,2,3,4 → `2*i` = `[0, 2, 4, 6, 8]`
+:::
+
+## คำถาม #3: ชวนคิด {.exercise-think}
+
+ต้องการเก็บ**เฉพาะ**ค่าที่ตรงเงื่อนไข — ต้องวาง `if` ไว้ตรงไหน?
+
+A. ก่อน `for` &nbsp;&nbsp; B. **ท้าย** `for-loop` เช่น `[x for x in data if x>5]` &nbsp;&nbsp; C. ไว้นอกวงเล็บ
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — เพิ่ม `if condition` ไว้**ด้านท้าย** → เก็บผลลัพธ์เฉพาะรอบที่เงื่อนไขเป็นจริง
+:::
+
+## คำถาม #4 {.exercise}
+
+การสร้าง list ด้วย loop เริ่มจากอะไร?
+
+A. list ที่มีข้อมูลครบ &nbsp;&nbsp; B. **empty list** `[]` แล้ว `.append()` ในลูป &nbsp;&nbsp; C. ตัวแปรตัวเลข
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `a = []` แล้ววน `a.append(...)` เพิ่ม item ทีละตัว
+:::
+
+## คำถาม #5 {.exercise}
+
+**2D list** คืออะไร?
+
+A. list ที่มีตัวเลข 2 ตัว &nbsp;&nbsp; B. list ที่มี item เป็น **list อีกชั้น** (list of lists) &nbsp;&nbsp; C. list 2 ตัวแปร
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — เช่น `[[0,1,2],[3,4,5]]` · อ้างอิงด้วย `a[row][col]`
+:::
+
+## คำถาม #6: ชวนคิด {.exercise-think}
+
+`a = [[0,1,2],[3,4,5],[6,7,8]]` — `a[1][2]` มีค่าเท่าใด?
+
+A. `2` &nbsp;&nbsp; B. `5` &nbsp;&nbsp; C. `7`
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — `a[1]` = `[3,4,5]` (row 1) แล้ว `[2]` = `5` (column 2)
+:::
+
+# ทำนายผล 🔮 {background-color="#2c3e50" .white-text}
+
+โค้ดจะพิมพ์อะไร? — ทายก่อน แล้วกดถัดไปดูเฉลย
+
+## ทำนายผล #7 {.exercise}
+
+```python
+a = [i*i for i in range(5)]
+print(a)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[0, 1, 4, 9, 16]`** — `i` = 0..4 → กำลังสองของแต่ละตัว
+:::
+
+## ทำนายผล #8: ชวนคิด {.exercise-think}
+
+```python
+xs = [3, 8, 1, 10, 5]
+r = [x for x in xs if x > 5]
+print(r)
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `[8, 10]`** — เก็บ**เฉพาะ**ค่าที่ `> 5` (3, 1, 5 ถูกกรองทิ้ง)
+:::
+
+## ทำนายผล #9: ชวนคิด {.exercise-think}
+
+```python
+b = [[0]*3 for i in range(2)]
+print(b)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[[0, 0, 0], [0, 0, 0]]`** — 2 row (`range(2)`) แต่ละ row คือ `[0]*3` = 3 ช่อง
+:::
+
+# ไล่ค่าตัวแปร 🔍 {background-color="#2c3e50" .white-text}
+
+ไล่ค่า list ทีละรอบของลูป
+
+## ไล่ค่าตัวแปร #10: ชวนคิด {.exercise-think}
+
+```python
+a = []
+for i in range(4):
+    a.append(2*i)
+```
+
+ค่าของ `a` หลังแต่ละรอบเป็นอย่างไร?
+
+| รอบ (`i`) | `a.append(?)` | `a` |
+|:--:|:--:|:--|
+| 0 | 0 | `?` |
+| 1 | 2 | `?` |
+| 2 | 4 | `?` |
+| 3 | 6 | `?` |
+
+. . .
+
+::: {.callout-tip}
+| รอบ (`i`) | `a` |
+|:--:|:--|
+| 0 | `[0]` |
+| 1 | `[0, 2]` |
+| 2 | `[0, 2, 4]` |
+| 3 | `[0, 2, 4, 6]` |
+
+เทียบเท่ากับ `[2*i for i in range(4)]`
+:::
+
+# หา Bug 🐞 {background-color="#2c3e50" .white-text}
+
+โค้ดผิดตรงไหน — ทำไม
+
+## หา Bug #11 {.exercise}
+
+```python
+a = [2*i for i in range(5)
+print(a)
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** ลืมปิด **`]`** ของ list comprehension → SyntaxError
+**แก้:** `a = [2*i for i in range(5)]`
+:::
+
+## หา Bug #12: ชวนคิด {.exercise-think}
+
+```python
+# อยากได้เฉพาะเลขคู่ใน [0..9]
+r = [x if x % 2 == 0 for x in range(10)]
+print(r)
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** วาง `if` **ผิดที่** — เมื่อใช้กรอง ต้องไว้**ท้าย** `for`
+**แก้:** `r = [x for x in range(10) if x % 2 == 0]` → `[0, 2, 4, 6, 8]`
+:::
+
+# เติมคำในช่องว่าง ✏️ {background-color="#2c3e50" .white-text}
+
+เติมโค้ดในช่อง `____` แล้วกด Run
+
+## เติมคำ #13 {.exercise}
+
+เติมโค้ดสร้าง `[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]` ด้วย **list comprehension**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+a = [ ____ for i in range(____) ]
+print(a)
+```
+
+### เฉลย
+
+```python
+a = [ 2*i for i in range(10) ]
+print(a)
+```
+
+```{.python .code-output}
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+:::
+
+## เติมคำ #14 {.exercise}
+
+จาก `xs` เก็บ $x^2$ **เฉพาะเมื่อ** `x > 5` (list comprehension)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+xs = [3, 8, 1, 10, 5, 7]
+fx = [ x**2 for x in xs ____ x > 5 ]
+print(fx)
+```
+
+### เฉลย
+
+```python
+xs = [3, 8, 1, 10, 5, 7]
+fx = [ x**2 for x in xs if x > 5 ]
+print(fx)
+```
+
+```{.python .code-output}
+[64, 100, 49]
+```
+
+:::
+
+## เติมคำ #15: ชวนคิด {.exercise-think}
+
+เติมโค้ดสร้าง 2D-list ขนาด **3 row × 4 column** สมาชิกเป็น `0` ทั้งหมด
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+n = 3; m = 4
+b = [ ____ for i in range(n) ]
+print(b)
+```
+
+### เฉลย
+
+```python
+n = 3; m = 4
+b = [ [0]*m for i in range(n) ]
+print(b)
+```
+
+```{.python .code-output}
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+```
+
+:::
+
+::: {.callout-note}
+ทบทวน: [สร้าง 2D list ด้วย list comprehension (Module 10)](module10.html#m10-2d-comp)
+:::
+
+# เจาะจุดยาก: แปลง Loop ↔ Comprehension 🎯 {background-color="#2c3e50" .white-text}
+
+ฝึกเพิ่ม — อ่านและเขียน comprehension ให้คล่อง
+
+## ทำนายผล #16: ชวนคิด {.exercise-think}
+
+```python
+a = [x*x for x in range(1, 4)]
+b = [x for x in range(6) if x % 2 == 1]
+print(a)
+print(b)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์:**
+```
+[1, 4, 9]
+[1, 3, 5]
+```
+`a` = กำลังสองของ 1,2,3 · `b` = เก็บเฉพาะเลขคี่ใน 0–5
+:::
+
+## เติมคำ #17: ชวนคิด {.exercise-think}
+
+**แปลง for-loop ให้เป็น list comprehension**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+# loop เดิม:
+# r = []
+# for x in range(5):
+#     r.append(x * 10)
+
+r = [ ____ for x in range(5) ]
+print(r)
+```
+
+### เฉลย
+
+```python
+r = [ x * 10 for x in range(5) ]
+print(r)
+```
+
+```{.python .code-output}
+[0, 10, 20, 30, 40]
+```
+
+:::
+
+## ทำนายผล #18: ชวนคิด {.exercise-think}
+
+```python
+b = [[j for j in range(3)] for i in range(2)]
+print(b)
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `[[0, 1, 2], [0, 1, 2]]`** — comp ซ้อน 2 ชั้น: ชั้นนอกสร้าง 2 row (`i`) · ชั้นในสร้าง `[0,1,2]` (`j`)
+:::
+
+# Engineering Application 🔧 {background-color="#2c3e50" .white-text}
+
+แปลง/ประมวลผลข้อมูลการวัดด้วย list comprehension
+
+## Engineering #19: แปลงหน่วยอุณหภูมิ {.exercise}
+
+```python
+c = [0, 25, 100]
+f = [t * 9/5 + 32 for t in c]
+print(f)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[32.0, 77.0, 212.0]`** — แปลง °C → °F ทุก item ด้วยสูตร $F = \tfrac95 C + 32$
+:::
+
+## Engineering #20 {.exercise}
+
+เติมโค้ด**ขยายสัญญาณ** ทุกค่าเป็น 2 เท่า (list comprehension)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+signal = [1, 2, 3, 4]
+amplified = [ ____ for s in signal ]
+print(amplified)
+```
+
+### เฉลย
+
+```python
+signal = [1, 2, 3, 4]
+amplified = [ s * 2 for s in signal ]
+print(amplified)
+```
+
+```{.python .code-output}
+[2, 4, 6, 8]
+```
+
+:::
+
+## Engineering #21: คัดค่าที่เกินเกณฑ์ {.exercise}
+
+```python
+readings = [12, 55, 48, 70, 33]
+over = [r for r in readings if r > 50]
+print(over)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[55, 70]`** — list comprehension + เงื่อนไข เก็บเฉพาะค่าที่เกินเกณฑ์ 50
+:::
+
+# ท้าทาย 🔥 {background-color="#2c3e50" .white-text}
+
+trap ของ 2D list + numerical method
+
+## ท้าทาย #22: `[[0]*3]*2` ทำไมพัง {.exercise-think}
+
+```python
+grid = [[0] * 3] * 2
+grid[0][0] = 5
+print(grid)
+```
+
+`grid` เป็นอะไร? (ระวัง!)
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `[[5, 0, 0], [5, 0, 0]]`** — `*2` คัดลอก **reference เดียวกัน** ทั้ง 2 แถวชี้ list เดียว → แก้แถวเดียวเปลี่ยนทั้งคู่
+**แก้:** ใช้ comprehension `[[0]*3 for i in range(2)]` (สร้าง list ใหม่ทุกแถว)
+:::
+
+## ท้าทาย #23: อินทิเกรตด้วยสี่เหลี่ยมคางหมู {.exercise}
+
+หาพื้นที่ใต้กราฟ $y=x^2$ ช่วง `[0, 2]` — เติมสูตรพื้นที่คางหมู $\tfrac{y_i + y_{i+1}}{2} \times \Delta x$
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+xs = [i * 0.5 for i in range(5)]     # 0, 0.5, 1, 1.5, 2
+ys = [x**2 for x in xs]
+area = 0
+for i in range(len(xs) - 1):
+    area += ____ * (xs[i+1] - xs[i])
+print(area)
+```
+
+### เฉลย
+
+```python
+xs = [i * 0.5 for i in range(5)]
+ys = [x**2 for x in xs]
+area = 0
+for i in range(len(xs) - 1):
+    area += (ys[i] + ys[i+1]) / 2 * (xs[i+1] - xs[i])
+print(area)
+```
+
+```{.python .code-output}
+2.75
+```
+
+:::
+
+::: {.callout-note}
+ค่าจริง $\int_0^2 x^2\,dx = 2.667$ — คางหมูให้ค่าประมาณ `2.75` (ยิ่งแบ่งถี่ยิ่งแม่น)
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+ทบทวนเนื้อหาเต็มได้ที่ [Module 10](module10.html) · ไปต่อ [Module 11](module11.html)

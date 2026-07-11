@@ -30,6 +30,7 @@ execute:
 ::: {.incremental}
 - **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
 - **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+- **ทำนายผล · ไล่ค่าตัวแปร · หา Bug** — ฝึกอ่านโค้ดให้เข้าใจจริง
 :::
 
 . . .
@@ -303,6 +304,184 @@ print(f'[{a:5}]')
 ```
 
 ตัวเลขชิดขวาในความกว้าง 5 → มีช่องว่างนำหน้า 4 ช่อง
+
+:::
+
+# ทำนายผล 🔮 {background-color="#2c3e50" .white-text}
+
+โค้ดจะพิมพ์อะไร? — ทายก่อน แล้วกดถัดไปดูเฉลย
+
+## ทำนายผล #15 {.exercise}
+
+```python
+price = 100
+qty = 3
+print(f'Total: {price * qty} baht')
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `Total: 300 baht`** — f-string คำนวณนิพจน์ใน `{ }` ได้ → `100 * 3 = 300`
+:::
+
+## ทำนายผล #16: ชวนคิด {.exercise-think}
+
+```python
+pi = 3.14159
+print(f'{pi:.2f}  {pi:.0f}')
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `3.14  3`** — `:.2f` = ทศนิยม 2 ตำแหน่ง · `:.0f` = ปัดเป็นจำนวนเต็ม (0 ตำแหน่ง)
+:::
+
+# ไล่ค่าตัวแปร 🔍 {background-color="#2c3e50" .white-text}
+
+ไล่ค่า **และชนิด** ของตัวแปรทีละบรรทัด
+
+## ไล่ค่าตัวแปร #17: ชวนคิด {.exercise-think}
+
+```python
+x = '6'
+x = int(x)
+x = x + 4
+```
+
+เติม**ค่า**และ**ชนิด**ของ `x` หลังแต่ละบรรทัด
+
+| บรรทัด | `x` | ชนิด |
+|:--:|:--:|:--:|
+| 1 | `'6'` | `str` |
+| 2 | ? | ? |
+| 3 | ? | ? |
+
+. . .
+
+::: {.callout-tip}
+| บรรทัด | `x` | ชนิด |
+|:--:|:--:|:--:|
+| 1 | `'6'` | `str` |
+| 2 | `6` | `int` |
+| 3 | `10` | `int` |
+
+ต้อง `int()` ก่อน `x` ถึงจะบวกเลขได้ (ถ้ายังเป็น str `+ 4` จะ error)
+:::
+
+# หา Bug 🐞 {background-color="#2c3e50" .white-text}
+
+โค้ดผิดตรงไหน — ทำไม
+
+## หา Bug #18 {.exercise}
+
+```python
+name = 'Ploy'
+print('Hello, {name}!')
+```
+
+อยากได้ `Hello, Ploy!` แต่ได้ `Hello, {name}!` — ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** ลืมใส่ **`f`** นำหน้า string → `{name}` ไม่ถูกแทนค่า
+**แก้:** `print(f'Hello, {name}!')`
+:::
+
+# Engineering Application 🔧 {background-color="#2c3e50" .white-text}
+
+จัดรูปแบบผลลัพธ์การวัด/คำนวณด้วย f-string
+
+## Engineering #19 {.exercise}
+
+เติมโค้ดแสดงค่าอุณหภูมิเป็นทศนิยม **2 ตำแหน่ง** พร้อมหน่วย
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+temp = 36.6789      # ค่าจากเซนเซอร์
+print(f'Temperature: {____} C')
+```
+
+### เฉลย
+
+```python
+temp = 36.6789
+print(f'Temperature: {temp:.2f} C')
+```
+
+```{.python .code-output}
+Temperature: 36.68 C
+```
+
+:::
+
+## Engineering #20: แรงดันไฟฟ้า {.exercise}
+
+```python
+I = 0.5       # กระแส (A)
+R = 330       # ความต้านทาน (Ω)
+print(f'V = {I * R:.1f} V')
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `V = 165.0 V`** — f-string คำนวณ `I*R` แล้วจัดเป็นทศนิยม 1 ตำแหน่ง
+:::
+
+## Engineering #21: ประสิทธิภาพ (%) {.exercise}
+
+```python
+output = 180      # กำลังออก (W)
+input_p = 200     # กำลังเข้า (W)
+eff = output / input_p * 100
+print(f'Efficiency: {eff:.1f}%')
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `Efficiency: 90.0%`** — คำนวณ `output/input×100` แล้วจัดทศนิยม 1 ตำแหน่งใน f-string
+:::
+
+# ท้าทาย 🔥 {background-color="#2c3e50" .white-text}
+
+รวมหลายขั้น: แยกข้อมูล → แปลงชนิด → คำนวณ → จัดรูป
+
+## ท้าทาย #22: เฉลี่ยคะแนนจาก input {.exercise}
+
+รับ `"80 90 70"` แล้วหา**ค่าเฉลี่ย** แสดงทศนิยม 2 ตำแหน่ง
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+data = "80 90 70"          # จำลอง input()
+a, b, c = data.____()
+avg = (int(a) + int(b) + int(c)) / 3
+print(f'Average: {____}')
+```
+
+### เฉลย
+
+```python
+data = "80 90 70"
+a, b, c = data.split()
+avg = (int(a) + int(b) + int(c)) / 3
+print(f'Average: {avg:.2f}')
+```
+
+```{.python .code-output}
+Average: 80.00
+```
 
 :::
 

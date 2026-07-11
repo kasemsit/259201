@@ -1,0 +1,440 @@
+---
+title: "Module 11 — ทบทวน (Review)"
+subtitle: "Basic Data Visualization with Matplotlib — แบบฝึกทบทวน"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 11 ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: [matplotlib]
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวน Module 11 📝
+
+::: {.incremental}
+- **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
+- **ทำนายผล** · **หา Bug**
+- **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน (มี matplotlib จริง)
+:::
+
+. . .
+
+::: {.callout-note}
+ครอบคลุม: `pyplot` & alias · line plot · ตกแต่งกราฟ · bar/hist/pie · heatmap · subplot
+ทบทวนเนื้อหาเต็มได้ที่ [Module 11](module11.html) 👈
+:::
+
+# Multiple Choice 🔘 {background-color="#2c3e50" .white-text}
+
+เลือกคำตอบที่ถูกต้อง — เฉลยจะปรากฏเมื่อกดถัดไป
+
+## คำถาม #1 {.exercise}
+
+รูปแบบ import ที่นิยมสำหรับ `pyplot` คือข้อใด?
+
+A. `import matplotlib.pyplot as plt` &nbsp;&nbsp; B. `import plt` &nbsp;&nbsp; C. `from plt import *`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — ตั้ง **alias** `plt` แล้วเรียก `plt.plot()`, `plt.show()` ได้กระชับ
+:::
+
+## คำถาม #2 {.exercise}
+
+ฟังก์ชันใดใช้**แสดงกราฟ**ออกมาให้เห็น?
+
+A. `.plot()` &nbsp;&nbsp; B. `.show()` &nbsp;&nbsp; C. `.draw()`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `.plot()` สร้างกราฟ แล้ว `.show()` แสดงออกมา (เรียกท้ายสุด)
+:::
+
+## คำถาม #3: ชวนคิด {.exercise-think}
+
+ถ้าส่ง List **รายการเดียว** ให้ `.plot()` — แกน x แสดงอะไร?
+
+A. ค่าของข้อมูล &nbsp;&nbsp; B. **ลำดับ (index)** ของข้อมูล เริ่มจาก 0 &nbsp;&nbsp; C. ค่าติดลบ
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — แกน x = ลำดับ 0,1,2,… · แกน y = ค่าของข้อมูล
+:::
+
+## คำถาม #4 {.exercise}
+
+กราฟชนิดใดเหมาะกับข้อมูล **Categorical** เช่น ยอดขายแต่ละเดือน?
+
+A. `.plot()` (line) &nbsp;&nbsp; B. `.bar()` &nbsp;&nbsp; C. `.imshow()`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — **Bar plot** ส่ง labels (แกนนอน) + ค่า (ความสูงแท่ง)
+:::
+
+## คำถาม #5 {.exercise}
+
+`.hist()` ใช้แสดงอะไร?
+
+A. สัดส่วน &nbsp;&nbsp; B. **การกระจายตัว**ของข้อมูลในแต่ละช่วง (bin) &nbsp;&nbsp; C. ความสัมพันธ์ x-y
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — Histogram แสดงความถี่ในแต่ละช่วง กำหนดจำนวน bin ได้ด้วยพารามิเตอร์ที่ 2
+:::
+
+## คำถาม #6: ชวนคิด {.exercise-think}
+
+`.xlabel()`, `.ylabel()`, `.title()` ต้องเรียกตอนไหน?
+
+A. **ก่อน** `.show()` &nbsp;&nbsp; B. หลัง `.show()` &nbsp;&nbsp; C. ตอนไหนก็ได้
+
+. . .
+
+::: {.callout-important}
+**ตอบ: A** — ต้องตั้งค่าคำอธิบาย**ก่อน** `.show()` ไม่งั้นจะไม่ปรากฏบนกราฟที่แสดงไปแล้ว
+:::
+
+## คำถาม #7 {.exercise}
+
+`.pie()` เหมาะกับการแสดงข้อมูลแบบใด?
+
+A. **สัดส่วน** ของแต่ละส่วนเทียบกับทั้งหมด &nbsp;&nbsp; B. การเปลี่ยนแปลงตามเวลา &nbsp;&nbsp; C. ข้อมูล 2 มิติ
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — Pie chart แสดงสัดส่วน · เพิ่ม `labels`, `autopct='%.2f%%'`, `explode` ได้
+:::
+
+## คำถาม #8: ชวนคิด {.exercise-think}
+
+`plt.subplot(2, 3, 1)` หมายความว่าอย่างไร?
+
+A. กราฟ 2×3 = 6 ช่อง กำลังวาดที่ช่อง**ที่ 1** &nbsp;&nbsp; B. กราฟขนาด 2×3 นิ้ว &nbsp;&nbsp; C. วาด 1 กราฟ 2 ครั้ง
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — `subplot(row, col, location)` — นับช่องจากซ้ายไปขวา บนลงล่าง
+:::
+
+# ทำนายผล 🔮 {background-color="#2c3e50" .white-text}
+
+โค้ดจะพิมพ์/วาดอะไร? — ทายก่อน แล้วกดถัดไปดูเฉลย
+
+## ทำนายผล #9 {.exercise}
+
+```python
+u = 3; a = 10
+times = range(0, 5)
+distances = [u*t + 0.5*a*t**2 for t in times]
+print(distances)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[0.0, 8.0, 26.0, 54.0, 92.0]`**
+$s = ut + \tfrac12 a t^2$ เมื่อ `t` = 0,1,2,3,4 (เช่น t=2 → `6 + 20 = 26.0`)
+:::
+
+## ทำนายผล #10: ชวนคิด {.exercise-think}
+
+format string `'r-s'` ใน `plt.plot(x, y, 'r-s')` หมายถึงอะไร?
+
+A. สีแดง + เส้นทึบ + จุดสี่เหลี่ยม &nbsp;&nbsp; B. หมุน + ปรับ + บันทึก &nbsp;&nbsp; C. red-small
+
+. . .
+
+::: {.callout-important}
+**ตอบ: A** — `'xyz'`: `r`=สี(red) · `-`=เส้นทึบ · `s`=จุดสี่เหลี่ยม (square)
+:::
+
+# หา Bug 🐞 {background-color="#2c3e50" .white-text}
+
+โค้ดผิดตรงไหน — ทำไม
+
+## หา Bug #11 {.exercise}
+
+```python
+import matplotlib.pyplot as plt
+data = [3, 1, 4, 1, 5]
+plt.plot(data)
+# ...ไม่เห็นกราฟเลย
+```
+
+ทำไมไม่เห็นกราฟ?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** ลืมเรียก **`plt.show()`** → กราฟไม่ถูกแสดง
+**แก้:** เพิ่ม `plt.show()` ต่อท้าย
+:::
+
+## หา Bug #12: ชวนคิด {.exercise-think}
+
+```python
+plt.plot(x, y)
+plt.show()
+plt.title('My Chart')     # ตั้ง title
+```
+
+title ไม่ขึ้นบนกราฟ — ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** เรียก `.title()` **หลัง** `.show()` แล้ว → กราฟถูกแสดงไปก่อนแล้ว
+**แก้:** ย้าย `plt.title('My Chart')` ขึ้นไป**ก่อน** `plt.show()`
+:::
+
+# เติมคำในช่องว่าง ✏️ {background-color="#2c3e50" .white-text}
+
+เติมโค้ดในช่อง `____` แล้วกด Run (มี matplotlib จริง)
+
+## เติมคำ #13 {.exercise}
+
+เติมโค้ด import แบบตั้ง alias เป็น `plt` แล้วพล็อตกราฟ
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import matplotlib.pyplot ____ plt
+
+data = [6, 0, 2, 1, -5, 4, 3, 8]
+plt.plot(data)
+plt.show()
+```
+
+### เฉลย
+
+```python
+import matplotlib.pyplot as plt
+
+data = [6, 0, 2, 1, -5, 4, 3, 8]
+plt.plot(data)
+plt.show()
+```
+
+:::
+
+## เติมคำ #14 {.exercise}
+
+เติมป้ายชื่อแกนและ title ให้ครบ (แกน x: `Time(s)`, y: `Distance(m)`, title: `Movement`)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import matplotlib.pyplot as plt
+
+t = range(0, 10)
+s = [3*ts + 0.5*10*ts**2 for ts in t]
+plt.plot(t, s)
+plt.____('Time(s)')
+plt.____('Distance(m)')
+plt.____('Movement')
+plt.show()
+```
+
+### เฉลย
+
+```python
+plt.plot(t, s)
+plt.xlabel('Time(s)')
+plt.ylabel('Distance(m)')
+plt.title('Movement')
+plt.show()
+```
+
+:::
+
+## เติมคำ #15: ชวนคิด {.exercise-think}
+
+เติมฟังก์ชันให้วาด **bar plot** ของยอดขายรายเดือน
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import matplotlib.pyplot as plt
+
+labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+data = [10, 20, 25, 12, 17]
+plt.____(labels, data)
+plt.show()
+```
+
+### เฉลย
+
+```python
+plt.bar(labels, data)
+plt.show()
+```
+
+:::
+
+::: {.callout-note}
+ทบทวน: [Bar plot (Module 11)](module11.html#m11-bar)
+:::
+
+# Engineering Application 🔧 {background-color="#2c3e50" .white-text}
+
+พล็อตข้อมูลการทดลอง/วัดจริง (มี matplotlib จริง)
+
+## Engineering #16: อุณหภูมิรายชั่วโมง {.exercise}
+
+เติมป้ายแกนให้กราฟอุณหภูมิเทียบเวลา
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import matplotlib.pyplot as plt
+
+hours = [0, 1, 2, 3, 4]
+temp = [22, 24, 27, 30, 28]
+plt.plot(hours, temp)
+plt.____('Hour')
+plt.____('Temp (C)')
+plt.show()
+```
+
+### เฉลย
+
+```python
+plt.plot(hours, temp)
+plt.xlabel('Hour')
+plt.ylabel('Temp (C)')
+plt.show()
+```
+
+:::
+
+## Engineering #17: เปรียบเทียบกำลังวัสดุ {.exercise}
+
+เติมฟังก์ชันวาด **bar chart** กำลังของวัสดุ (MPa)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import matplotlib.pyplot as plt
+
+mats = ['Steel', 'Al', 'Concrete']
+strength = [250, 90, 30]
+plt.____(mats, strength)
+plt.show()
+```
+
+### เฉลย
+
+```python
+plt.bar(mats, strength)
+plt.show()
+```
+
+:::
+
+## Engineering #18: กราฟ Stress–Strain {.exercise}
+
+เติม title ให้กราฟความสัมพันธ์ความเค้น–ความเครียด
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import matplotlib.pyplot as plt
+
+strain = [0, 0.1, 0.2, 0.3]
+stress = [0, 50, 100, 150]
+plt.plot(strain, stress)
+plt.____('Stress-Strain Curve')
+plt.show()
+```
+
+### เฉลย
+
+```python
+plt.plot(strain, stress)
+plt.title('Stress-Strain Curve')
+plt.show()
+```
+
+:::
+
+# ท้าทาย 🔥 {background-color="#2c3e50" .white-text}
+
+สร้างข้อมูลเอง + วาดหลายเส้น + คำอธิบาย
+
+## ท้าทาย #19: เทียบ $x^2$ กับ $2x$ {.exercise}
+
+สร้าง 2 เส้นด้วย list comprehension แล้วเติมฟังก์ชันแสดง **คำอธิบาย (legend)**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import matplotlib.pyplot as plt
+
+x = [i * 0.5 for i in range(11)]     # 0 .. 5
+y1 = [v**2 for v in x]
+y2 = [2*v for v in x]
+plt.plot(x, y1, label='x^2')
+plt.plot(x, y2, label='2x')
+plt.____()
+plt.show()
+```
+
+### เฉลย
+
+```python
+plt.plot(x, y1, label='x^2')
+plt.plot(x, y2, label='2x')
+plt.legend()
+plt.show()
+```
+
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+ทบทวนเนื้อหาเต็มได้ที่ [Module 11](module11.html) · ไปต่อ [Module 12a](module12a.html)

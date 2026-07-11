@@ -30,6 +30,7 @@ execute:
 ::: {.incremental}
 - **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
 - **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+- **ทำนายผล · ไล่ค่าตัวแปร · หา Bug** — ฝึกอ่านโค้ดให้เข้าใจจริง
 :::
 
 . . .
@@ -430,6 +431,171 @@ print(avg)
 178.0
 ```
 
+:::
+
+# ทำนายผล 🔮 {background-color="#2c3e50" .white-text}
+
+โค้ดจะพิมพ์อะไร? — ทายก่อน แล้วกดถัดไปดูเฉลย
+
+## ทำนายผล #21 {.exercise}
+
+```python
+s = {1, 2, 2, 3, 3, 3}
+print(len(s))
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `3`** — Set เก็บข้อมูล**ไม่ซ้ำ** → เหลือ `{1, 2, 3}` → 3 ตัว
+:::
+
+## ทำนายผล #22: ชวนคิด {.exercise-think}
+
+```python
+a = {1, 2, 3}
+b = {2, 3, 4}
+print(a & b, a | b)
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `{2, 3} {1, 2, 3, 4}`** — `&` = ร่วมกัน (intersection) · `|` = รวมทั้งหมด (union)
+:::
+
+# ไล่ค่าตัวแปร 🔍 {background-color="#2c3e50" .white-text}
+
+ไล่ค่า dict ทีละคำสั่ง
+
+## ไล่ค่าตัวแปร #23: ชวนคิด {.exercise-think}
+
+```python
+d = {}
+d['a'] = 1
+d['b'] = 2
+d['a'] = 5
+```
+
+เติมค่า `d` หลังแต่ละบรรทัด
+
+| บรรทัด | คำสั่ง | `d` |
+|:--:|:--|:--|
+| 1 | `d = {}` | ? |
+| 2 | `d['a'] = 1` | ? |
+| 3 | `d['b'] = 2` | ? |
+| 4 | `d['a'] = 5` | ? |
+
+. . .
+
+::: {.callout-tip}
+| บรรทัด | `d` |
+|:--:|:--|
+| 1 | `{}` |
+| 2 | `{'a': 1}` |
+| 3 | `{'a': 1, 'b': 2}` |
+| 4 | `{'a': 5, 'b': 2}` |
+
+บรรทัด 4 ใช้ key `'a'` เดิม → **เขียนทับ**ค่าเดิม (ไม่เพิ่ม key ใหม่)
+:::
+
+# หา Bug 🐞 {background-color="#2c3e50" .white-text}
+
+โค้ดผิดตรงไหน — ทำไม
+
+## หา Bug #24 {.exercise}
+
+```python
+tup = (1, 2, 3)
+tup[0] = 99      # อยากเปลี่ยนตัวแรก
+print(tup)
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** Tuple เป็น **immutable** แก้ไขค่าภายในไม่ได้ → `TypeError`
+**แก้:** ถ้าต้องแก้ ใช้ **list** `[1, 2, 3]` หรือแปลง `list(tup)` ก่อน
+:::
+
+## หา Bug #25: ชวนคิด {.exercise-think}
+
+```python
+empty = {}          # อยากได้ set ว่าง
+empty.add(5)
+print(empty)
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** `{}` คือ **dict ว่าง** ไม่ใช่ set → `.add()` ใช้ไม่ได้ (`AttributeError`)
+**แก้:** set ว่างต้องใช้ `empty = set()`
+:::
+
+# Engineering Application 🔧 {background-color="#2c3e50" .white-text}
+
+Dict เก็บคุณสมบัติวัสดุ · Set หาค่าที่ไม่ซ้ำ
+
+## Engineering #26: สมบัติวัสดุ {.exercise}
+
+```python
+density = {"steel": 7850, "aluminum": 2700}
+print(density["steel"], "kg/m^3")
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `7850 kg/m^3`** — Dict เก็บคู่ `วัสดุ → ความหนาแน่น` เข้าถึงด้วย key
+:::
+
+## Engineering #27: สถานีวัดที่ไม่ซ้ำ {.exercise}
+
+```python
+station_ids = [101, 102, 101, 103, 102]
+print(len(set(station_ids)))
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `3`** — `set()` ตัดค่าซ้ำ → เหลือสถานีจริง `{101, 102, 103}` = 3 สถานี
+:::
+
+## Engineering #28: ระยะระหว่างจุด {.exercise}
+
+```python
+point = (3, 4)          # พิกัด (x, y)
+x, y = point            # unpack tuple
+print((x**2 + y**2) ** 0.5)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `5.0`** — แตก tuple พิกัดแล้วหาระยะจากจุดกำเนิด $\sqrt{x^2+y^2} = \sqrt{9+16} = 5$
+:::
+
+# ท้าทาย 🔥 {background-color="#2c3e50" .white-text}
+
+เข้าถึงข้อมูลซ้อนหลายชั้น แล้วคำนวณต่อ
+
+## ท้าทาย #29: เฉลี่ยจาก Dict ของ List {.exercise-think}
+
+```python
+students = {"A": [80, 90], "B": [70, 60]}
+print(sum(students["A"]) / len(students["A"]))
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `85.0`** — `students["A"]` = `[80, 90]` → `sum=170`, `len=2` → `170/2 = 85.0` (เข้าถึง dict → list แล้วคำนวณต่อ)
 :::
 
 # จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}

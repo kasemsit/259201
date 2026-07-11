@@ -30,6 +30,7 @@ execute:
 ::: {.incremental}
 - **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
 - **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+- **ทำนายผล · ไล่ค่าตัวแปร · หา Bug** — ฝึกอ่านโค้ดให้เข้าใจจริง
 :::
 
 . . .
@@ -388,6 +389,301 @@ else:
 บวก-คู่
 ```
 
+:::
+
+# ทำนายผล 🔮 {background-color="#2c3e50" .white-text}
+
+โค้ดจะพิมพ์อะไร? — ทายก่อน แล้วกดถัดไปดูเฉลย
+
+## ทำนายผล #17 {.exercise}
+
+```python
+x = 5
+if x > 3:
+    x += 1
+print(x)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `6`** — `5 > 3` เป็นจริง → เข้าบล็อก `x += 1` → `x = 6`
+:::
+
+## ทำนายผล #18: ชวนคิด {.exercise-think}
+
+```python
+score = 72
+if score >= 80:
+    print("A")
+elif score >= 50:
+    print("B")
+else:
+    print("C")
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `B`** — `if-elif-else` ทำ**เพียงสาขาเดียว** — `72>=80` เท็จ, `72>=50` จริง → `B`
+:::
+
+# ไล่ค่าตัวแปร 🔍 {background-color="#2c3e50" .white-text}
+
+ไล่ดูว่าโค้ดเข้าเงื่อนไขไหน
+
+## ไล่ค่าตัวแปร #19: ชวนคิด {.exercise-think}
+
+```python
+n = 8
+if n > 0:
+    if n % 2 == 0:
+        result = "บวก-คู่"
+    else:
+        result = "บวก-คี่"
+else:
+    result = "ไม่บวก"
+```
+
+`result` เป็นอะไร? ไล่ทีละเงื่อนไข
+
+| เงื่อนไข | จริง/เท็จ |
+|:--|:--:|
+| `n > 0` | ? |
+| `n % 2 == 0` | ? |
+
+. . .
+
+::: {.callout-tip}
+| เงื่อนไข | จริง/เท็จ |
+|:--|:--:|
+| `n > 0` (`8 > 0`) | จริง → เข้า nested if |
+| `n % 2 == 0` (`0 == 0`) | จริง |
+
+→ `result = "บวก-คู่"`
+:::
+
+# หา Bug 🐞 {background-color="#2c3e50" .white-text}
+
+โค้ดผิดตรงไหน — ทำไม
+
+## หา Bug #20 {.exercise}
+
+```python
+score = 50
+if score = 50:
+    print("พอดี 50")
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** ใช้ `=` (กำหนดค่า) ในเงื่อนไข → SyntaxError · การเปรียบเทียบต้องใช้ `==`
+**แก้:** `if score == 50:`
+:::
+
+## หา Bug #21: ชวนคิด {.exercise-think}
+
+```python
+age = 20
+if age >= 18
+    print("ผู้ใหญ่")
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** ลืม **`:`** ท้ายเงื่อนไข `if` → SyntaxError
+**แก้:** `if age >= 18:` แล้ว**ย่อหน้า**บรรทัดถัดไป
+:::
+
+# เจาะจุดยาก: เส้นทางเงื่อนไข 🎯 {background-color="#2c3e50" .white-text}
+
+ฝึกเพิ่ม — if-elif ทำสาขาเดียว & nested if
+
+## ทำนายผล #22: ชวนคิด {.exercise-think}
+
+```python
+x = 100
+if x > 50:
+    print("A")
+elif x > 10:
+    print("B")
+print("done")
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์:**
+```
+A
+done
+```
+`if` เป็นจริงแล้ว → **ข้าม `elif` ทั้งหมด** · ส่วน `print("done")` อยู่นอก if จึงทำเสมอ
+:::
+
+## ไล่ค่าตัวแปร #23: ชวนคิด {.exercise-think}
+
+```python
+score = 45
+if score >= 50:
+    result = "ผ่าน"
+else:
+    if score >= 40:
+        result = "ซ่อม"
+    else:
+        result = "ตก"
+```
+
+`result` เป็นอะไร? ไล่ทีละเงื่อนไข
+
+| เงื่อนไข | จริง/เท็จ |
+|:--|:--:|
+| `score >= 50` | ? |
+| `score >= 40` | ? |
+
+. . .
+
+::: {.callout-tip}
+| เงื่อนไข | จริง/เท็จ |
+|:--|:--:|
+| `score >= 50` (`45>=50`) | เท็จ → เข้า else |
+| `score >= 40` (`45>=40`) | จริง |
+
+→ `result = "ซ่อม"`
+:::
+
+# Engineering Application 🔧 {background-color="#2c3e50" .white-text}
+
+เงื่อนไขกับเกณฑ์ความปลอดภัย/มาตรฐาน
+
+## Engineering #24: Safety Factor {.exercise}
+
+```python
+strength = 250    # กำลังวัสดุ (MPa)
+stress = 180      # ความเค้นใช้งาน (MPa)
+if strength / stress >= 1.5:
+    print("ปลอดภัย")
+else:
+    print("เสี่ยง")
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `เสี่ยง`** — safety factor = `250/180 ≈ 1.39` ซึ่ง **< 1.5** → ไม่ผ่านเกณฑ์
+:::
+
+## Engineering #25: มาตรฐานฝุ่น {.exercise}
+
+เติมเงื่อนไขตรวจว่า PM2.5 **เกินมาตรฐาน** (> 50)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+pm = 75
+if pm ____ 50:
+    print("เกินมาตรฐาน")
+else:
+    print("ปกติ")
+```
+
+### เฉลย
+
+```python
+pm = 75
+if pm > 50:
+    print("เกินมาตรฐาน")
+else:
+    print("ปกติ")
+```
+
+```{.python .code-output}
+เกินมาตรฐาน
+```
+
+:::
+
+## Engineering #26: ระดับอุณหภูมิมอเตอร์ {.exercise}
+
+```python
+temp = 85         # อุณหภูมิมอเตอร์ (°C)
+if temp >= 90:
+    print("อันตราย")
+elif temp >= 70:
+    print("เฝ้าระวัง")
+else:
+    print("ปกติ")
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `เฝ้าระวัง`** — `85>=90` เท็จ, `85>=70` จริง → หยุดที่สาขานี้ (if-elif ทำสาขาเดียว)
+:::
+
+# ท้าทาย 🔥 {background-color="#2c3e50" .white-text}
+
+เงื่อนไขซับซ้อน — รวม logical operator และหลายสาขา
+
+## ท้าทาย #27: ปีอธิกสุรทิน {.exercise}
+
+ปีอธิกสุรทิน = หารด้วย 4 ลงตัว **แต่ไม่**ลงตัวด้วย 100 **หรือ** ลงตัวด้วย 400 — เติมเงื่อนไข
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+year = 2000
+if (year % 4 == 0 ____ year % 100 != 0) ____ year % 400 == 0:
+    print("อธิกสุรทิน")
+else:
+    print("ปกติ")
+```
+
+### เฉลย
+
+```python
+year = 2000
+if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
+    print("อธิกสุรทิน")
+else:
+    print("ปกติ")
+```
+
+```{.python .code-output}
+อธิกสุรทิน
+```
+
+:::
+
+## ท้าทาย #28: จำนวนคำตอบสมการกำลังสอง {.exercise-think}
+
+```python
+a, b, c = 1, -5, 6
+d = b**2 - 4*a*c        # discriminant
+if d > 0:
+    print("2 คำตอบ")
+elif d == 0:
+    print("1 คำตอบ")
+else:
+    print("ไม่มีคำตอบจริง")
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `2 คำตอบ`** — $d = (-5)^2 - 4(1)(6) = 25 - 24 = 1 > 0$ → มี 2 คำตอบจริง
 :::
 
 # จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}

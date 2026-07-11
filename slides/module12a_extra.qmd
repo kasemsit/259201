@@ -1,0 +1,521 @@
+---
+title: "Module 12a — ทบทวน (Review)"
+subtitle: "N-dimensional Array using NumPy (I) — แบบฝึกทบทวน"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 12a ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: [numpy]
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวน Module 12a 📝
+
+::: {.incremental}
+- **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
+- **ทำนายผล** · **หา Bug**
+- **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน (มี NumPy จริง)
+:::
+
+. . .
+
+::: {.callout-note}
+ครอบคลุม: สร้าง array · `.shape`/`.dtype` · element-wise · broadcasting · `np.arange` · สถิติ + `axis`
+ทบทวนเนื้อหาเต็มได้ที่ [Module 12a](module12a.html) 👈
+:::
+
+# Multiple Choice 🔘 {background-color="#2c3e50" .white-text}
+
+เลือกคำตอบที่ถูกต้อง — เฉลยจะปรากฏเมื่อกดถัดไป
+
+## คำถาม #1 {.exercise}
+
+รูปแบบ import ที่นิยมสำหรับ NumPy คือข้อใด?
+
+A. `import numpy as np` &nbsp;&nbsp; B. `import np` &nbsp;&nbsp; C. `from numpy import all`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — ตั้ง alias `np` แล้วเรียก `np.array()`, `np.arange()` ได้กระชับ
+:::
+
+## คำถาม #2 {.exercise}
+
+ทุก item ใน NumPy array เดียวกันต้องเป็นอย่างไร?
+
+A. ต่างชนิดกันได้ &nbsp;&nbsp; B. **ชนิดเดียวกันทั้งหมด** &nbsp;&nbsp; C. เป็นตัวเลขเท่านั้น
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — array บังคับให้ทุก item ชนิดเดียวกัน (ต่างจาก List) — ถ้าต่างชนิด NumPy จะแปลงให้อัตโนมัติ
+:::
+
+## คำถาม #3: ชวนคิด {.exercise-think}
+
+`.shape` เขียนโดย**ไม่มี** `()` ต่อท้าย เพราะอะไร?
+
+A. เป็น **property** (บอกสถานะ) ไม่ใช่ function &nbsp;&nbsp; B. เป็น keyword &nbsp;&nbsp; C. เขียนผิด
+
+. . .
+
+::: {.callout-important}
+**ตอบ: A** — `.shape`, `.dtype` เป็น **property** (ไม่มี `()`) · ส่วน `.array()`, `.append()` เป็น **function** (มี `()`)
+:::
+
+## คำถาม #4 {.exercise}
+
+`np.array([1,2,3]) + np.array([10,20,30])` ให้ผลใด?
+
+A. `[11, 22, 33]` &nbsp;&nbsp; B. `[1,2,3,10,20,30]` &nbsp;&nbsp; C. error
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — operator ทำงานแบบ **element-wise** (item ตำแหน่งเดียวกัน) ต่างจาก List ที่ `+` = ต่อกัน
+:::
+
+## คำถาม #5 {.exercise}
+
+เมื่อ array มี **shape ไม่เท่ากัน** NumPy ใช้กลไกใดกระจายการคำนวณ?
+
+A. Broadcasting &nbsp;&nbsp; B. Slicing &nbsp;&nbsp; C. Casting
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — **Broadcasting** กระจายการคำนวณได้เมื่อ shape สอดคล้องตามกฎ (เช่น array ⊕ ตัวเลขเดี่ยว)
+:::
+
+## คำถาม #6: ชวนคิด {.exercise-think}
+
+ทำไมต้องใช้ `np.arange(1, 11, 0.5)` แทน `range(1, 11, 0.5)`?
+
+A. `np.arange` สั้นกว่า &nbsp;&nbsp; B. `range()` รับ step เป็น **float ไม่ได้** (error) &nbsp;&nbsp; C. เหมือนกันทุกอย่าง
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — `range()` สร้างได้เฉพาะจำนวนเต็ม · `np.arange()` สร้างเลข**ทศนิยม**ได้ (ผลเป็น NumPy array)
+:::
+
+## คำถาม #7 {.exercise}
+
+`np.sum(x)` โดย**ไม่กำหนด** `axis` ให้ผลเป็นอะไร?
+
+A. ผลรวมแต่ละ column &nbsp;&nbsp; B. ผลรวมแต่ละ row &nbsp;&nbsp; C. **ค่าเดียว** (ยุบทั้ง array)
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: C** — ไม่ระบุ `axis` → ยุบทั้ง array เหลือค่าเดียว · `axis=0` = แต่ละ column · `axis=1` = แต่ละ row
+:::
+
+# ทำนายผล 🔮 {background-color="#2c3e50" .white-text}
+
+โค้ดจะพิมพ์อะไร? — ทายก่อน แล้วกดถัดไปดูเฉลย
+
+## ทำนายผล #8 {.exercise}
+
+```python
+import numpy as np
+x = np.array([1, 2, 3, 4])
+print(x ** 2)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[ 1  4  9 16]`** — ยกกำลังสองแบบ element-wise (broadcasting กับตัวเลขเดี่ยว `2`)
+:::
+
+## ทำนายผล #9: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+x = np.array([[1, 5, 3, 1],
+              [0, 1, 2, 9]])
+print(np.sum(x, axis=0))
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `[1 6 5 10]`** — `axis=0` ยุบ**แถว**เหลือผลรวมแต่ละ **column**: `1+0, 5+1, 3+2, 1+9`
+:::
+
+## ทำนายผล #10: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+a = np.array([1, 2])
+b = np.array([1, 2.0])
+print(a.dtype, b.dtype)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `int64 float64`** — `b` มี `2.0` (float) → NumPy แปลงทุก item เป็น **float** ให้เป็นชนิดเดียวกัน
+:::
+
+# หา Bug 🐞 {background-color="#2c3e50" .white-text}
+
+โค้ดผิดตรงไหน — ทำไม
+
+## หา Bug #11 {.exercise}
+
+```python
+x = range(1, 11, 0.5)
+print(list(x))
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** `range()` รับ step เป็น float ไม่ได้ → `TypeError`
+**แก้:** ใช้ `np.arange(1, 11, 0.5)`
+:::
+
+## หา Bug #12: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+x1 = np.array([[1,2],[3,4],[5,6]])   # (3,2)
+x2 = np.array([[1,2,3],[4,5,6]])     # (2,3)
+print(x1 - x2)
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** shape `(3,2)` กับ `(2,3)` broadcast เข้ากันไม่ได้ → `ValueError`
+**แก้:** ให้ shape สอดคล้องกัน (เช่น transpose ตัวหนึ่ง หรือใช้ shape เท่ากัน)
+:::
+
+# เติมคำในช่องว่าง ✏️ {background-color="#2c3e50" .white-text}
+
+เติมโค้ดในช่อง `____` แล้วกด Run (มี NumPy จริง)
+
+## เติมคำ #13 {.exercise}
+
+เติมโค้ดสร้าง array 2 มิติ แล้วดู `.shape`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+
+x = np.____([[1,2,3],[11,22,33],[10,20,30]])
+print(x)
+print(x.____)          # ขนาดในแต่ละมิติ
+```
+
+### เฉลย
+
+```python
+import numpy as np
+
+x = np.array([[1,2,3],[11,22,33],[10,20,30]])
+print(x)
+print(x.shape)
+```
+
+```{.python .code-output}
+[[ 1  2  3]
+ [11 22 33]
+ [10 20 30]]
+(3, 3)
+```
+
+:::
+
+## เติมคำ #14 {.exercise}
+
+เติมโค้ดสร้าง `x` ตั้งแต่ `1` ถึง `10.5` เพิ่มทีละ `0.5` แล้วหา `y = x^2 + 2x + 1`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+
+x = np.____(1, 11, 0.5)
+y = x ____ 2 + 2*x + 1
+print(y)
+```
+
+### เฉลย
+
+```python
+import numpy as np
+
+x = np.arange(1, 11, 0.5)
+y = x**2 + 2*x + 1
+print(y)
+```
+
+```{.python .code-output}
+[  4.     6.25   9.   ... 121.   132.25]
+```
+
+:::
+
+## เติมคำ #15: ชวนคิด {.exercise-think}
+
+เติม `axis` ให้ถูกต้อง — ผลรวมแต่ละ **column** และแต่ละ **row**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+
+x = np.array([[1,5,3,1],[0,1,2,9]])
+print(f'Column Sum={np.sum(x, axis=____)}')
+print(f'Row Sum={np.sum(x, axis=____)}')
+```
+
+### เฉลย
+
+```python
+import numpy as np
+
+x = np.array([[1,5,3,1],[0,1,2,9]])
+print(f'Column Sum={np.sum(x, axis=0)}')
+print(f'Row Sum={np.sum(x, axis=1)}')
+```
+
+```{.python .code-output}
+Column Sum=[ 1  6  5 10]
+Row Sum=[10 12]
+```
+
+:::
+
+::: {.callout-note}
+ทบทวน: [ฟังก์ชันทางสถิติ + axis (Module 12a)](module12a.html#m12-stats)
+:::
+
+# เจาะจุดยาก: Broadcasting & axis 🎯 {background-color="#2c3e50" .white-text}
+
+ฝึกเพิ่ม — สองจุดที่งงบ่อยสุดของ NumPy
+
+## ทำนายผล #16: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+x = np.array([[1, 2, 3],
+              [4, 5, 6]])
+print(x + 10)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์:**
+```
+[[11 12 13]
+ [14 15 16]]
+```
+**broadcasting** — ตัวเลขเดี่ยว `10` ถูกกระจายบวกเข้าไปทุก item
+:::
+
+## ทำนายผล #17: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+x = np.array([[1, 2, 3],
+              [4, 5, 6]])
+y = np.array([10, 20, 30])
+print(x + y)
+```
+
+`x` shape `(2,3)` · `y` shape `(3,)` — ได้ผลอะไร?
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์:**
+```
+[[11 22 33]
+ [14 25 36]]
+```
+**broadcasting** — `y` (1 row) ถูกกระจายไปบวกทุก row ของ `x`
+:::
+
+## ทำนายผล #18: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+x = np.array([[1, 2],
+              [3, 4],
+              [5, 6]])
+print(np.sum(x, axis=0))
+print(np.sum(x, axis=1))
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[ 9 12]` แล้ว `[ 3  7 11]`**
+`axis=0` ยุบแถว → ผลแต่ละ **column** (`1+3+5`, `2+4+6`) · `axis=1` ยุบ column → ผลแต่ละ **row**
+:::
+
+# Engineering Application 🔧 {background-color="#2c3e50" .white-text}
+
+ประมวลผลข้อมูลการวัดด้วย NumPy
+
+## Engineering #19: ค่าเฉลี่ยการวัด {.exercise}
+
+```python
+import numpy as np
+m = np.array([10.1, 9.8, 10.0, 10.2, 9.9])
+print(np.mean(m))
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `10.0`** — วัดซ้ำ 5 ครั้ง แล้วหาค่าเฉลี่ยด้วย `np.mean()`
+:::
+
+## Engineering #20: ปรับเทียบ (calibration) {.exercise}
+
+```python
+import numpy as np
+raw = np.array([100, 200, 300])
+calibrated = raw * 1.1
+print(calibrated)
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `[110. 220. 330.]`** — คูณ factor 1.1 กระจายเข้าไปทุก item (element-wise)
+:::
+
+## Engineering #21 {.exercise}
+
+เติม `axis` ให้หา**ค่าเฉลี่ยแต่ละ column** ของตารางการวัด
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+data = np.array([[1.0, 2.0],
+                 [3.0, 4.0],
+                 [5.0, 6.0]])
+print(np.mean(data, axis=____))
+```
+
+### เฉลย
+
+```python
+import numpy as np
+data = np.array([[1.0, 2.0],
+                 [3.0, 4.0],
+                 [5.0, 6.0]])
+print(np.mean(data, axis=0))
+```
+
+```{.python .code-output}
+[3. 4.]
+```
+
+:::
+
+## Engineering #22: แรง = มวล × ความเร่ง {.exercise}
+
+```python
+import numpy as np
+mass = np.array([2, 4, 6])      # kg
+acc = np.array([10, 5, 2])      # m/s^2
+print(mass * acc)               # F = m*a
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[20 20 12]`** — element-wise: หาแรงของแต่ละวัตถุพร้อมกัน $F = ma$
+:::
+
+# ท้าทาย 🔥 {background-color="#2c3e50" .white-text}
+
+broadcasting หลายขั้นในบรรทัดเดียว
+
+## ท้าทาย #23: Normalize ต่อ column {.exercise}
+
+ทำให้แต่ละ column มี mean 0, std 1: $(x - \text{mean}) / \text{std}$ — เติม `axis`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+x = np.array([[1, 2],
+              [3, 4],
+              [5, 6]])
+xn = (x - x.mean(axis=0)) / x.std(axis=____)
+print(xn)
+```
+
+### เฉลย
+
+```python
+import numpy as np
+x = np.array([[1, 2],
+              [3, 4],
+              [5, 6]])
+xn = (x - x.mean(axis=0)) / x.std(axis=0)
+print(xn)
+```
+
+```{.python .code-output}
+[[-1.22474487 -1.22474487]
+ [ 0.          0.        ]
+ [ 1.22474487  1.22474487]]
+```
+
+:::
+
+::: {.callout-note}
+`x.mean(axis=0)` = `[3. 4.]`, `x.std(axis=0)` ≈ `[1.63 1.63]` → broadcasting ลบ/หารทีละ column พร้อมกัน
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+ทบทวนเนื้อหาเต็มได้ที่ [Module 12a](module12a.html) · ไปต่อ [Module 12b](module12b.html)

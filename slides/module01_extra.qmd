@@ -1,0 +1,383 @@
+---
+title: "Module 1 — ทบทวน (Review)"
+subtitle: "Course Orientation & Introduction to Programming — แบบฝึกทบทวน"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 1 ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวน Module 1 📝
+
+::: {.incremental}
+- **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
+- **ทำนายผล** — ทายผลลัพธ์ก่อนดูเฉลย
+- **หา Bug** — โค้ดผิดตรงไหน
+- **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+:::
+
+. . .
+
+::: {.callout-note}
+ครอบคลุม: ภาษาระดับสูง/ต่ำ · เครื่องมือ & IDE · `.py` vs `.ipynb` · `print` · `input` · `int` · `split`
+ทบทวนเนื้อหาเต็มได้ที่ [Module 1](module01.html) 👈
+:::
+
+# Multiple Choice 🔘 {background-color="#2c3e50" .white-text}
+
+เลือกคำตอบที่ถูกต้อง — เฉลยจะปรากฏเมื่อกดถัดไป
+
+## คำถาม #1 {.exercise}
+
+**ภาษาระดับสูง** (เช่น Python) ต้องทำอะไรก่อนคอมพิวเตอร์จึงจะทำงานได้?
+
+A. รันได้เลยทันที &nbsp;&nbsp; B. ต้อง**แปล** (compile/interpret) เป็นภาษาเครื่องก่อน &nbsp;&nbsp; C. ต้องต่ออินเทอร์เน็ต
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — ภาษาระดับสูงใกล้ภาษามนุษย์ ต้อง**แปล**เป็น Machine Code ที่ CPU เข้าใจก่อน
+:::
+
+## คำถาม #2 {.exercise}
+
+ข้อใดเป็น **ภาษาระดับล่าง (Low Level)**?
+
+A. Python &nbsp;&nbsp; B. Java &nbsp;&nbsp; C. Assembly &nbsp;&nbsp; D. JavaScript
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: C** — **Assembly** และ **Machine Code** เป็นภาษาระดับล่าง ผูกกับ CPU แต่ละชนิด
+:::
+
+## คำถาม #3 {.exercise}
+
+เครื่องมือที่รวม **Editor + Compiler/Interpreter + Debugger** ไว้ในโปรแกรมเดียวเรียกว่าอะไร?
+
+A. REPL &nbsp;&nbsp; B. IDE &nbsp;&nbsp; C. CPU &nbsp;&nbsp; D. Block coding
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — **IDE** (Integrated Development Environment) เช่น VS Code, PyCharm, Spyder
+:::
+
+## คำถาม #4 {.exercise}
+
+เครื่องมือใดใช้สำหรับ **รันทีละคำสั่งเพื่อหาบั๊ก**?
+
+A. Text Editor &nbsp;&nbsp; B. Compiler &nbsp;&nbsp; C. Debugger
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: C** — **Debugger** รันทีละขั้น ดูค่าตัวแปรแต่ละจุด เพื่อหาข้อผิดพลาด
+:::
+
+## คำถาม #5: ชวนคิด {.exercise-think}
+
+ค่าที่ได้จาก **`input()`** เป็นชนิดข้อมูลใดเสมอ?
+
+A. `int` &nbsp;&nbsp; B. `float` &nbsp;&nbsp; C. `str` (ข้อความ) &nbsp;&nbsp; D. ขึ้นกับสิ่งที่พิมพ์
+
+. . .
+
+::: {.callout-important}
+**ตอบ: C** — `input()` คืนค่าเป็น **ข้อความ (str) เสมอ** แม้ผู้ใช้จะพิมพ์ตัวเลข → ต้อง `int()`/`float()` ก่อนคำนวณ
+:::
+
+## คำถาม #6 {.exercise}
+
+ไฟล์ **`.ipynb`** (Notebook) ต่างจาก **`.py`** อย่างไร?
+
+A. เขียนคนละภาษา &nbsp;&nbsp; B. `.ipynb` แบ่งเป็น **เซลล์** รันทีละเซลล์และแสดงผลใต้เซลล์ได้ &nbsp;&nbsp; C. `.py` รันบนเว็บไม่ได้
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — โค้ด Python **เหมือนกัน** ต่างที่ `.ipynb` แบ่งเป็นเซลล์ ผสมโค้ด+ข้อความ+ผลลัพธ์ เหมาะกับการทดลอง
+:::
+
+## คำถาม #7 {.exercise}
+
+**Scratch** เป็นตัวอย่างของการเขียนโปรแกรมแบบใด?
+
+A. Text-based coding &nbsp;&nbsp; B. Block coding (ต่อบล็อกเหมือนจิ๊กซอว์) &nbsp;&nbsp; C. Machine code
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — **Block coding** ลากวางบล็อก ไม่ต้องพิมพ์ syntax แต่วิชานี้ใช้ **text-based** ด้วย Python
+:::
+
+## คำถาม #8: ชวนคิด {.exercise-think}
+
+`.split()` ใน `input().split()` ทำหน้าที่อะไร?
+
+A. แปลงเป็นตัวเลข &nbsp;&nbsp; B. ตัดข้อความตาม**ช่องว่าง**ออกเป็นหลายชิ้น &nbsp;&nbsp; C. รวมข้อความ
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `.split()` ตัดข้อความตามช่องว่างเป็นหลายค่า เช่น `"3 4".split()` → `['3', '4']`
+:::
+
+# ทำนายผล 🔮 {background-color="#2c3e50" .white-text}
+
+โค้ดจะพิมพ์อะไร? — ทายก่อน แล้วกดถัดไปดูเฉลย
+
+## ทำนายผล #9 {.exercise}
+
+```python
+n = input()      # ผู้ใช้พิมพ์:  5
+print(n * 2)
+```
+
+พิมพ์อะไร?
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `55`** — `n` เป็น **str** (`'5'`) → `'5' * 2` คือการ**ทำซ้ำข้อความ** ได้ `'55'` ไม่ใช่ `10`
+:::
+
+## ทำนายผล #10 {.exercise}
+
+```python
+n = input()          # ผู้ใช้พิมพ์:  5
+print(int(n) * 2)
+```
+
+พิมพ์อะไร?
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `10`** — `int(n)` แปลง `'5'` → `5` ก่อน แล้วจึงคูณ 2
+:::
+
+## ทำนายผล #11: ชวนคิด {.exercise-think}
+
+```python
+a, b = input().split()   # ผู้ใช้พิมพ์:  3 4
+print(int(a) + int(b))
+```
+
+พิมพ์อะไร?
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `7`** — `split()` ได้ `a='3'`, `b='4'` → แปลงเป็น int แล้วบวก = `7` (ถ้าลืม `int()` จะได้ `'34'`)
+:::
+
+# หา Bug 🐞 {background-color="#2c3e50" .white-text}
+
+โค้ดผิดตรงไหน — ทำไม
+
+## หา Bug #12 {.exercise}
+
+```python
+print(Hello World)
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** ข้อความไม่ได้อยู่ในเครื่องหมายคำพูด → Python ไม่รู้ว่าเป็นข้อความ (error)
+**แก้เป็น:** `print('Hello World')`
+:::
+
+## หา Bug #13: ชวนคิด {.exercise-think}
+
+```python
+n = input()
+result = n * 2      # อยากได้ผลคูณของตัวเลข
+print(result)
+```
+
+ผู้ใช้พิมพ์ `5` แต่ได้ `55` — ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** `n` เป็น **str** ยังไม่ได้แปลงชนิด → `*` กลายเป็นการทำซ้ำข้อความ
+**แก้เป็น:** `result = int(n) * 2` → ได้ `10`
+:::
+
+# เติมคำในช่องว่าง ✏️ {background-color="#2c3e50" .white-text}
+
+เติมโค้ดในช่อง `____` แล้วกด Run
+
+## เติมคำ #14 {.exercise}
+
+เติมโค้ดให้พิมพ์ข้อความ `Python สนุกมาก!`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+____('Python สนุกมาก!')
+```
+
+### เฉลย
+
+```python
+print('Python สนุกมาก!')
+```
+
+```{.python .code-output}
+Python สนุกมาก!
+```
+
+:::
+
+## เติมคำ #15 {.exercise}
+
+`n` มาจาก `input()` (เป็น str) — เติมโค้ดแปลงเป็น **จำนวนเต็ม** แล้วคูณ 2
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+n = '5'                # สมมติค่าจาก input()
+result = ____(n) * 2
+print(result)
+```
+
+### เฉลย
+
+```python
+n = '5'
+result = int(n) * 2
+print(result)
+```
+
+```{.python .code-output}
+10
+```
+
+:::
+
+## เติมคำ #16: ชวนคิด {.exercise-think}
+
+เติมโค้ดให้แยกข้อความ `"3 4"` เป็น 2 ค่า แล้วหา**ผลคูณ**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+data = "3 4"
+a, b = data.____()     # แยกตามช่องว่าง
+print(int(a) * int(b))
+```
+
+### เฉลย
+
+```python
+data = "3 4"
+a, b = data.split()
+print(int(a) * int(b))
+```
+
+```{.python .code-output}
+12
+```
+
+:::
+
+# Engineering Application 🔧 {background-color="#2c3e50" .white-text}
+
+ใช้ Python คำนวณโจทย์วิศวกรรม — ด้วยเครื่องมือพื้นฐานที่เพิ่งเรียน
+
+## Engineering #17: กำลังไฟฟ้า {.exercise}
+
+```python
+V = 12        # แรงดัน (V) — สมมติจาก input()
+I = 3         # กระแส (A)
+print('Power =', V * I, 'W')
+```
+
+พิมพ์อะไร?
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `Power = 36 W`** — กำลังไฟฟ้า $P = V \times I = 12 \times 3 = 36$ W
+:::
+
+## Engineering #18 {.exercise}
+
+ค่าจาก `input()` เป็น str — เติมโค้ดแปลงเป็นเลขก่อนคำนวณ**พลังงาน** $E = P \times t$
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+P = '60'      # กำลัง (W) จาก input()
+t = '5'       # เวลา (s) จาก input()
+E = ____(P) * ____(t)
+print('Energy =', E, 'J')
+```
+
+### เฉลย
+
+```python
+P = '60'
+t = '5'
+E = int(P) * int(t)
+print('Energy =', E, 'J')
+```
+
+```{.python .code-output}
+Energy = 300 J
+```
+
+:::
+
+## Engineering #19: ค่าเฉลี่ยเซนเซอร์ {.exercise}
+
+```python
+r1 = 20       # เซนเซอร์ตัวที่ 1
+r2 = 30       # เซนเซอร์ตัวที่ 2
+print('Avg =', (r1 + r2) / 2)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `Avg = 25.0`** — ค่าเฉลี่ยของ 2 เซนเซอร์ · `/` ให้ผลเป็น float เสมอ
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+ทบทวนเนื้อหาเต็มได้ที่ [Module 1](module01.html) · ไปต่อ [Module 2](module02.html)

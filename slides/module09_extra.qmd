@@ -1,0 +1,611 @@
+---
+title: "Module 9 — ทบทวน (Review)"
+subtitle: "Functions — แบบฝึกทบทวน"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 9 ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: []
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวน Module 9 📝
+
+::: {.incremental}
+- **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
+- **ทำนายผล** · **ไล่ค่าตัวแปร** · **หา Bug**
+- **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+:::
+
+. . .
+
+::: {.callout-note}
+ครอบคลุม: `def` · parameter/return · นิยามก่อนเรียก · คืนหลายค่า · `return` หลายแห่ง · Scope (local/global)
+ทบทวนเนื้อหาเต็มได้ที่ [Module 9](module09.html) 👈
+:::
+
+# Multiple Choice 🔘 {background-color="#2c3e50" .white-text}
+
+เลือกคำตอบที่ถูกต้อง — เฉลยจะปรากฏเมื่อกดถัดไป
+
+## คำถาม #1 {.exercise}
+
+คีย์เวิร์ดใดใช้**นิยามฟังก์ชัน** ใน Python?
+
+A. `func` &nbsp;&nbsp; B. `def` &nbsp;&nbsp; C. `function` &nbsp;&nbsp; D. `define`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `def function_name(parameters):` แล้วย่อหน้าเขียนโค้ดของฟังก์ชัน
+:::
+
+## คำถาม #2 {.exercise}
+
+คำสั่ง **`return`** ทำหน้าที่อะไร?
+
+A. พิมพ์ค่าออกจอ &nbsp;&nbsp; B. **ส่งค่าผลลัพธ์คืน**ให้โค้ดที่เรียกใช้ &nbsp;&nbsp; C. รับค่าจากผู้ใช้
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `return` = **เอาต์พุต** ของฟังก์ชัน ส่งค่ากลับไปยังจุดที่เรียก (ต่างจาก `print` ที่แค่แสดงผล)
+:::
+
+## คำถาม #3: ชวนคิด {.exercise-think}
+
+ใน `def f(x, y):` — `x` และ `y` คืออะไร?
+
+A. ผลลัพธ์ &nbsp;&nbsp; B. **พารามิเตอร์ (อินพุต)** ของฟังก์ชัน &nbsp;&nbsp; C. ตัวแปร global
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `parameter_list` คือ**ข้อมูลที่ต้องส่งให้ฟังก์ชัน** (อินพุต) และเป็นตัวแปร **local**
+:::
+
+## คำถาม #4 {.exercise}
+
+ในไฟล์โปรแกรม การ**นิยามฟังก์ชัน**ต้องอยู่ตรงไหนเทียบกับการ**เรียกใช้**?
+
+A. ที่ไหนก็ได้ &nbsp;&nbsp; B. **ก่อน**บรรทัดที่เรียกใช้เสมอ &nbsp;&nbsp; C. หลังบรรทัดที่เรียกใช้
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — ต้อง**นิยามก่อน**บรรทัดที่เรียก (หลักการเดียวกับประกาศตัวแปรก่อนใช้)
+:::
+
+## คำถาม #5 {.exercise}
+
+ฟังก์ชันคืนค่า 2 ค่าได้อย่างไร? `return sm, avg`
+
+A. คืนได้ค่าเดียวเท่านั้น &nbsp;&nbsp; B. `return sm, avg` แล้วรับด้วย `s, a = f(...)` &nbsp;&nbsp; C. ต้องเขียน 2 ฟังก์ชัน
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — `return sm, avg` คืนได้หลายค่า รับพร้อมกันด้วย `s, a = mySumAvg(...)`
+:::
+
+## คำถาม #6: ชวนคิด {.exercise-think}
+
+**ตัวแปร local** (ประกาศในฟังก์ชัน) เรียกใช้ได้ที่ไหน?
+
+A. ทุกที่ในโปรแกรม &nbsp;&nbsp; B. **เฉพาะภายในฟังก์ชัน**ที่สร้างมัน &nbsp;&nbsp; C. เฉพาะหลังฟังก์ชัน
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — local ใช้ได้เฉพาะในขอบเขตที่สร้าง และถูก**ทำลาย**เมื่อฟังก์ชันจบ — เรียกใช้นอกฟังก์ชัน → `NameError`
+:::
+
+## คำถาม #7 {.exercise}
+
+ฟังก์ชันที่มี **`return` หลายแห่ง** จะจบการทำงานเมื่อใด?
+
+A. รันครบทุก `return` &nbsp;&nbsp; B. **จบทันที**ที่พบ `return` ตัวแรกที่ทำงานถึง &nbsp;&nbsp; C. จบที่บรรทัดสุดท้ายเสมอ
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — พบ `return` เมื่อไร ฟังก์ชัน**จบและส่งค่าคืนทันที** บรรทัดที่เหลือไม่ถูกรัน
+:::
+
+# ทำนายผล 🔮 {background-color="#2c3e50" .white-text}
+
+โค้ดจะพิมพ์อะไร? — ทายก่อน แล้วกดถัดไปดูเฉลย
+
+## ทำนายผล #8 {.exercise}
+
+```python
+def add_tax(price):
+    return price * 1.07
+
+total = add_tax(100)
+print(total)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `107.0`** — `100 * 1.07 = 107.0` (ค่าที่ `return` ถูกเก็บใน `total` แล้ว `print`)
+:::
+
+## ทำนายผล #9: ชวนคิด {.exercise-think}
+
+```python
+def area(w, h):
+    return w * h
+
+def total(a, b):
+    return a + b
+
+print(total(area(2, 3), area(4, 5)))
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `26`** — `area(2,3)=6`, `area(4,5)=20` → ค่าที่ `return` ถูกส่งเข้า `total(6, 20)` = `26` (ฟังก์ชันเรียกใช้ฟังก์ชันอื่นได้)
+:::
+
+## ทำนายผล #10: ชวนคิด {.exercise-think}
+
+```python
+def myGrade(score):
+    if score >= 80: return 'A'
+    elif score >= 50: return 'B'
+    else: return 'F'
+
+print(myGrade(95), myGrade(50), myGrade(20))
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `A B F`** — แต่ละครั้งฟังก์ชัน**จบทันที**ที่พบ `return` ที่เงื่อนไขเป็นจริงเป็นครั้งแรก
+:::
+
+# ไล่ค่าตัวแปร (Scope) 🔍 {background-color="#2c3e50" .white-text}
+
+global กับ local — ตัวไหนเปลี่ยน ตัวไหนไม่เปลี่ยน
+
+## ไล่ค่าตัวแปร #11: ชวนคิด {.exercise-think}
+
+```python
+x = 10
+def f():
+    x = 3          # local x
+    print("in f:", x)
+
+print(x)
+f()
+print(x)
+```
+
+พิมพ์อะไร 3 บรรทัด?
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์:**
+```
+10
+in f: 3
+10
+```
+`x` ในฟังก์ชันเป็น **local** (คนละตัวกับ global `x`) → global `x` ยังเป็น `10` เหมือนเดิม
+:::
+
+## ไล่ค่าตัวแปร #12: ชวนคิด {.exercise-think}
+
+```python
+x = 10
+def f(x):
+    x = x + 3
+    return x * 2
+
+print(x)
+x = f(x)           # อัปเดต global x
+print(x)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์:**
+```
+10
+26
+```
+ในฟังก์ชัน `x = 10+3 = 13` → คืน `26` · global `x` เปลี่ยนตอน `x = f(x)` **นอก**ฟังก์ชัน → `26`
+:::
+
+# หา Bug 🐞 {background-color="#2c3e50" .white-text}
+
+โค้ดผิดตรงไหน — ทำไม
+
+## หา Bug #13 {.exercise}
+
+```python
+print(area(5))
+
+def area(r):
+    return 3.14 * r * r
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** เรียกใช้ `area()` **ก่อน**นิยาม → `NameError` (ยังไม่รู้จักฟังก์ชัน)
+**แก้:** ย้าย `def area(r): ...` ขึ้นไป**ก่อน**บรรทัดที่เรียกใช้
+:::
+
+## หา Bug #14: ชวนคิด {.exercise-think}
+
+```python
+def square(n):
+    result = n * n
+
+square(4)
+print(result)      # อยากพิมพ์ 16
+```
+
+ได้ error — ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** `result` เป็นตัวแปร **local** ของ `square` → เรียกใช้**นอก**ฟังก์ชันไม่ได้ (`NameError`)
+**แก้:** ให้ฟังก์ชัน `return result` แล้วรับค่าไว้ใช้ เช่น `x = square(4)`
+:::
+
+# เติมคำในช่องว่าง ✏️ {background-color="#2c3e50" .white-text}
+
+เติมโค้ดในช่อง `____` แล้วกด Run
+
+## เติมคำ #15 {.exercise}
+
+เติมโค้ดนิยามฟังก์ชัน `area_circle` ที่รับ `r` แล้ว**คืนค่า** พื้นที่ ($3.14 r^2$)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+____ area_circle(r):
+    ____ 3.14 * r * r
+
+print(area_circle(7))
+```
+
+### เฉลย
+
+```python
+def area_circle(r):
+    return 3.14 * r * r
+
+print(area_circle(7))
+```
+
+```{.python .code-output}
+153.86
+```
+
+:::
+
+## เติมคำ #16 {.exercise}
+
+เติมโค้ดให้ฟังก์ชัน**คืน 2 ค่า** (ผลรวมและค่าเฉลี่ย) แล้วรับพร้อมกัน
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+def sum_avg(x, y, z):
+    sm = x + y + z
+    avg = sm / 3
+    return ____, ____
+
+s, a = sum_avg(10, 20, 30)
+print(f'sum:{s:.2f}, avg:{a:.2f}')
+```
+
+### เฉลย
+
+```python
+def sum_avg(x, y, z):
+    sm = x + y + z
+    avg = sm / 3
+    return sm, avg
+
+s, a = sum_avg(10, 20, 30)
+print(f'sum:{s:.2f}, avg:{a:.2f}')
+```
+
+```{.python .code-output}
+sum:60.00, avg:20.00
+```
+
+:::
+
+## เติมคำ #17: ชวนคิด {.exercise-think}
+
+เติมโค้ดให้ `myGrade` คืนเกรดตามเงื่อนไข (`>=80`→A, `>=50`→B, นอกนั้น→F)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+def myGrade(score):
+    if score >= 80: ____ 'A'
+    ____ score >= 50: return 'B'
+    ____: return 'F'
+
+for s in [95, 60, 30]:
+    print(s, myGrade(s))
+```
+
+### เฉลย
+
+```python
+def myGrade(score):
+    if score >= 80: return 'A'
+    elif score >= 50: return 'B'
+    else: return 'F'
+
+for s in [95, 60, 30]:
+    print(s, myGrade(s))
+```
+
+```{.python .code-output}
+95 A
+60 B
+30 F
+```
+
+:::
+
+::: {.callout-note}
+ทบทวน: [if-elif-else (Module 5)](module05.html#m5-if-else)
+:::
+
+# เจาะจุดยาก: Scope 🎯 {background-color="#2c3e50" .white-text}
+
+ฝึกเพิ่ม — local vs global คือจุดที่พลาดบ่อยสุด
+
+## ไล่ค่าตัวแปร #18: ชวนคิด {.exercise-think}
+
+```python
+def add_one(n):
+    n = n + 1
+    return n
+
+num = 5
+add_one(num)          # ไม่ได้เก็บค่าที่คืน
+print(num)
+```
+
+`num` เป็นเท่าไร?
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `5`** — `n` เป็น **local** ของฟังก์ชัน การเพิ่มค่าเกิดกับ `n` ไม่ใช่ `num` · แถมไม่ได้เก็บค่าที่ `return` → `num` คงเดิม
+(ถ้าอยากเปลี่ยนต้อง `num = add_one(num)`)
+:::
+
+## ไล่ค่าตัวแปร #19: ชวนคิด {.exercise-think}
+
+```python
+count = 0
+def tick():
+    count = 10        # local (ชื่อซ้ำ global)
+    print("in:", count)
+
+tick()
+print("out:", count)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์:**
+```
+in: 10
+out: 0
+```
+`count` ในฟังก์ชันเป็น **local คนละตัว** กับ global `count` → global ยังเป็น `0`
+:::
+
+## หา Bug #20: ชวนคิด {.exercise-think}
+
+```python
+def f():
+    a = 5
+    return a * 2
+
+def g():
+    return a          # อยากใช้ a จาก f()
+
+print(f())
+print(g())
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** `a` เป็น **local ของ `f`** → ใน `g` ไม่รู้จัก → `NameError`
+**แก้:** ส่งค่าเข้าไปเป็น parameter เช่น `def g(a): return a`
+:::
+
+# Engineering Application 🔧 {background-color="#2c3e50" .white-text}
+
+ห่อสูตรวิศวกรรมเป็นฟังก์ชันเรียกใช้ซ้ำ
+
+## Engineering #21 {.exercise}
+
+เติมฟังก์ชัน**พลังงานจลน์** $E_k = \tfrac12 m v^2$
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+def kinetic_energy(m, v):
+    return 0.5 * m * v ____ 2
+
+print(kinetic_energy(2, 3))
+```
+
+### เฉลย
+
+```python
+def kinetic_energy(m, v):
+    return 0.5 * m * v ** 2
+
+print(kinetic_energy(2, 3))
+```
+
+```{.python .code-output}
+9.0
+```
+
+:::
+
+## Engineering #22: โมเมนต์ {.exercise}
+
+```python
+def moment(force, dist):
+    return force * dist
+
+print(moment(50, 2) + moment(30, 4))
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `220`** — โมเมนต์ $M = F \times d$ · เรียกฟังก์ชันเดิมซ้ำ 2 จุด (แรง 50 ที่ 2 m + แรง 30 ที่ 4 m)
+:::
+
+## Engineering #23: พื้นที่หน้าตัดท่อ {.exercise}
+
+เติมโค้ดฟังก์ชันหา**พื้นที่วงกลม** $A = \pi r^2$ (ใช้ $\pi \approx 3.14$)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+def circle_area(r):
+    return 3.14 * r ____ 2
+
+print(circle_area(2))
+```
+
+### เฉลย
+
+```python
+def circle_area(r):
+    return 3.14 * r ** 2
+
+print(circle_area(2))
+```
+
+```{.python .code-output}
+12.56
+```
+
+:::
+
+# ท้าทาย 🔥 {background-color="#2c3e50" .white-text}
+
+เขียนฟังก์ชันที่มี algorithm อยู่ข้างใน
+
+## ท้าทาย #24: หา √ ด้วย Newton's method {.exercise}
+
+เติมสูตรวนซ้ำ $x \leftarrow \dfrac{x + a/x}{2}$ (ลู่เข้าหา $\sqrt{a}$)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+def my_sqrt(a):
+    x = a
+    for i in range(20):
+        x = ____
+    return x
+
+print(f'{my_sqrt(2):.6f}')
+```
+
+### เฉลย
+
+```python
+def my_sqrt(a):
+    x = a
+    for i in range(20):
+        x = (x + a/x) / 2
+    return x
+
+print(f'{my_sqrt(2):.6f}')
+```
+
+```{.python .code-output}
+1.414214
+```
+
+:::
+
+## ท้าทาย #25: หา min และ max เอง {.exercise-think}
+
+```python
+def minmax(data):
+    lo = hi = data[0]
+    for x in data:
+        if x < lo: lo = x
+        if x > hi: hi = x
+    return lo, hi
+
+print(minmax([3, 9, 1, 7]))
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `(1, 9)`** — ไล่ทุกค่า อัปเดต `lo`/`hi` เอง (ไม่ใช้ `min`/`max`) แล้ว **คืน 2 ค่า**
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+ทบทวนเนื้อหาเต็มได้ที่ [Module 9](module09.html) · ไปต่อ [Module 10](module10.html)

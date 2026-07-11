@@ -1,0 +1,491 @@
+---
+title: "Module 12b — ทบทวน (Review)"
+subtitle: "N-dimensional Array using NumPy (II) — แบบฝึกทบทวน"
+format:
+  live-revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    transition-speed: fast
+    width: 1280
+    height: 720
+    margin: 0.08
+    logo: ""
+    footer: "[🏠 259201](../index.html) — Module 12b ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
+    code-block-height: 480px
+pyodide:
+  packages: [numpy]
+execute:
+  echo: true
+  eval: false
+---
+
+## {#topics-slide .center}
+
+### ทบทวน Module 12b 📝
+
+::: {.incremental}
+- **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
+- **ทำนายผล** · **หา Bug**
+- **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน (มี NumPy จริง)
+:::
+
+. . .
+
+::: {.callout-note}
+ครอบคลุม: index/slice · selector array · View vs Copy · matrix (`@`, `.T`, `np.linalg`)
+ทบทวนเนื้อหาเต็มได้ที่ [Module 12b](module12b.html) 👈
+:::
+
+# Multiple Choice 🔘 {background-color="#2c3e50" .white-text}
+
+เลือกคำตอบที่ถูกต้อง — เฉลยจะปรากฏเมื่อกดถัดไป
+
+## คำถาม #1 {.exercise}
+
+`x[start:stop:step]` เรียกว่าอะไร?
+
+A. index &nbsp;&nbsp; B. **slice** &nbsp;&nbsp; C. selector
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: B** — **slice** เลือกข้อมูลเป็นช่วง (เหมือน List) เช่น `x[1:5:2]`, `x[::-1]` (reverse)
+:::
+
+## คำถาม #2 {.exercise}
+
+array 2 มิติ เข้าถึง item แถว 1 คอลัมน์ 2 ได้อย่างไร?
+
+A. `x[1,2]` หรือ `x[1][2]` &nbsp;&nbsp; B. `x(1,2)` &nbsp;&nbsp; C. `x{1,2}`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — array หลายมิติใช้ `x[i, j]` หรือ `x[i][j]` ก็ได้
+:::
+
+## คำถาม #3: ชวนคิด {.exercise-think}
+
+`x > 10` กับ NumPy array ให้ผลเป็นอะไร?
+
+A. ตัวเลขเดียว &nbsp;&nbsp; B. **selector array** ของ `True`/`False` แต่ละ item &nbsp;&nbsp; C. error
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — ได้ array ของ boolean นำไปใช้เป็น index `x[x>10]` เพื่อเลือก/แก้เฉพาะ item ที่ตรงเงื่อนไข
+:::
+
+## คำถาม #4 {.exercise}
+
+การ **slice** array สร้างอะไร?
+
+A. **View** — แก้แล้วกระทบต้นทาง &nbsp;&nbsp; B. Copy — แยกจากต้นทาง &nbsp;&nbsp; C. array ว่าง
+
+. . .
+
+::: {.callout-important}
+**ตอบ: A** — slice = **View** · ต้องการสำเนาที่แยกเด็ดขาดใช้ `.copy()`
+:::
+
+## คำถาม #5: ชวนคิด {.exercise-think}
+
+`x * y` กับ `x @ y` (array 2 มิติ) ต่างกันอย่างไร?
+
+A. เหมือนกัน &nbsp;&nbsp; B. `*` = element-wise, `@` = **matrix multiplication** &nbsp;&nbsp; C. `@` ผิด syntax
+
+. . .
+
+::: {.callout-important}
+**ตอบ: B** — `*` คูณ item ตำแหน่งเดียวกัน · `@` (หรือ `.dot()`) คือการคูณเมตริกซ์จริง
+:::
+
+## คำถาม #6 {.exercise}
+
+property ใดใช้ทำ **transpose** ของ array?
+
+A. `.T` &nbsp;&nbsp; B. `.trans()` &nbsp;&nbsp; C. `.flip`
+
+. . .
+
+::: {.callout-tip}
+**ตอบ: A** — `x.T` สลับ row↔column (ผลเป็น **View**) · transpose ของ 1D array ได้ 1D เหมือนเดิม
+:::
+
+# ทำนายผล 🔮 {background-color="#2c3e50" .white-text}
+
+โค้ดจะพิมพ์อะไร? — ทายก่อน แล้วกดถัดไปดูเฉลย
+
+## ทำนายผล #7 {.exercise}
+
+```python
+import numpy as np
+x = np.array([5, 6, 7, 8, 9, 10])
+print(x[::-1])
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[10  9  8  7  6  5]`** — `[::-1]` กลับลำดับ (reverse)
+:::
+
+## ทำนายผล #8: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+x = np.array([[ 5, 6, 7, 8],
+              [ 9,10,11,12],
+              [13,14,15,16]])
+print(x[::2, 2:])
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์:**
+```
+[[ 7  8]
+ [15 16]]
+```
+`::2` = row 0 และ 2 · `2:` = column 2 เป็นต้นไป
+:::
+
+## ทำนายผล #9: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+x = np.ones((3,3))
+y = x[:2, :2]        # slice = view
+x[0,0] = 0
+print(y)
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์:**
+```
+[[0. 1.]
+ [1. 1.]]
+```
+`y` เป็น **View** ของ `x` → แก้ `x[0,0]` แล้ว `y` เปลี่ยนตาม (ถ้าใช้ `.copy()` จะไม่เปลี่ยน)
+:::
+
+# หา Bug 🐞 {background-color="#2c3e50" .white-text}
+
+โค้ดผิดตรงไหน — ทำไม
+
+## หา Bug #10: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+x = np.ones((3,3))
+y = x[:2, :2]        # อยากได้สำเนาแยกต่างหาก
+y[0,0] = 99
+print(x[0,0])        # คาดว่ายังเป็น 1.0
+```
+
+ทำไม `x[0,0]` กลายเป็น `99`?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** slice สร้าง **View** ไม่ใช่สำเนา → แก้ `y` กระทบ `x`
+**แก้:** `y = x[:2, :2].copy()` เพื่อแยกออกจากต้นทางเด็ดขาด
+:::
+
+## หา Bug #11: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+A = np.array([[1,2,3],[4,5,6]])   # (2,3)
+B = np.array([[1,2,3],[4,5,6]])   # (2,3)
+print(A @ B)
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** matrix multiplication ต้องการ shape สอดคล้อง — `(2,3)@(2,3)` ไม่ได้ (column ของตัวแรก ≠ row ของตัวหลัง)
+**แก้:** transpose ตัวหลัง เช่น `A @ B.T` → `(2,3)@(3,2)` = `(2,2)`
+:::
+
+# เติมคำในช่องว่าง ✏️ {background-color="#2c3e50" .white-text}
+
+เติมโค้ดในช่อง `____` แล้วกด Run (มี NumPy จริง)
+
+## เติมคำ #12 {.exercise}
+
+เติม slice ให้เลือก **ทุก row, column 2 เป็นต้นไป**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+x = np.array([[ 5, 6, 7, 8],
+              [ 9,10,11,12],
+              [13,14,15,16]])
+print(x[____, ____])      # ทุก row, column 2+
+```
+
+### เฉลย
+
+```python
+print(x[:, 2:])
+```
+
+```{.python .code-output}
+[[ 7  8]
+ [11 12]
+ [15 16]]
+```
+
+:::
+
+## เติมคำ #13 {.exercise}
+
+เติม **selector array** ให้เลือกเฉพาะ item ที่ `> 10`
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+x = np.array([[ 5, 6, 7, 8],
+              [ 9,10,11,12],
+              [13,14,15,16]])
+y = (x ____ 10)          # selector: True/False
+print(x[____])           # เลือกเฉพาะที่ตรงเงื่อนไข
+```
+
+### เฉลย
+
+```python
+y = (x > 10)
+print(x[y])
+```
+
+```{.python .code-output}
+[11 12 13 14 15 16]
+```
+
+:::
+
+## เติมคำ #14: ชวนคิด {.exercise-think}
+
+เติม operator ให้ทำ **matrix multiplication** และ **transpose**
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+x = np.array([[1,2],[3,4]])
+y = np.array([[1,1],[1,1]])
+
+print(x ____ y)          # matrix multiplication
+print(x.____)            # transpose
+```
+
+### เฉลย
+
+```python
+print(x @ y)
+print(x.T)
+```
+
+```{.python .code-output}
+[[3 3]
+ [7 7]]
+[[1 3]
+ [2 4]]
+```
+
+:::
+
+::: {.callout-note}
+ทบทวน: [Matrix multiplication & transpose (Module 12b)](module12b.html#m12-matmul)
+:::
+
+# เจาะจุดยาก: View / Copy / Selector 🎯 {background-color="#2c3e50" .white-text}
+
+ฝึกเพิ่ม — จุดที่ผลลัพธ์มัก "เกินคาด"
+
+## ทำนายผล #15: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+x = np.array([1, 2, 3, 4])
+y = x[1:3].copy()
+y[0] = 99
+print(x)
+print(y)
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์:**
+```
+[1 2 3 4]
+[99  3]
+```
+`.copy()` แยกจากต้นทาง → แก้ `y` ไม่กระทบ `x` (ถ้าเป็น slice เฉย ๆ = View จะกระทบ)
+:::
+
+## ทำนายผล #16: ชวนคิด {.exercise-think}
+
+```python
+import numpy as np
+x = np.array([[1, 2, 3],
+              [4, 5, 6]])
+x[:, 0] = 0
+print(x)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์:**
+```
+[[0 2 3]
+ [0 5 6]]
+```
+`x[:, 0]` = column แรกของทุก row → กำหนดเป็น `0` พร้อมกันได้
+:::
+
+## ทำนายผล #17 {.exercise}
+
+```python
+import numpy as np
+x = np.array([5, 12, 8, 20, 3])
+print(x[x > 10])
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[12 20]`** — `x > 10` สร้าง selector `[F T F T F]` → เลือกเฉพาะ item ที่ตรงเงื่อนไข
+:::
+
+# Engineering Application 🔧 {background-color="#2c3e50" .white-text}
+
+เลือกข้อมูล & แปลงเชิงเมทริกซ์
+
+## Engineering #18: คัดค่าที่เกินพิกัด {.exercise}
+
+```python
+import numpy as np
+temps = np.array([28, 35, 40, 22, 38])
+print(temps[temps > 35])
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์: `[40 38]`** — selector `temps > 35` เลือกเฉพาะค่าที่เกินพิกัด
+:::
+
+## Engineering #19: การแปลงเชิงเมทริกซ์ {.exercise}
+
+```python
+import numpy as np
+A = np.array([[2, 0],
+              [0, 3]])
+v = np.array([[4],
+              [5]])
+print(A @ v)
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์:**
+```
+[[ 8]
+ [15]]
+```
+เมทริกซ์ scaling: `@` คูณเมตริกซ์ → ขยายแกน x เป็น 2 เท่า, แกน y เป็น 3 เท่า
+:::
+
+## Engineering #20: จัดรูปตารางข้อมูล (Transpose) {.exercise}
+
+```python
+import numpy as np
+data = np.array([[1, 2, 3],
+                 [4, 5, 6]])
+print(data.T)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์:**
+```
+[[1 4]
+ [2 5]
+ [3 6]]
+```
+`.T` สลับ row↔column — เปลี่ยนจาก "2 ตัวอย่าง × 3 ค่า" เป็น "3 ค่า × 2 ตัวอย่าง"
+:::
+
+# ท้าทาย 🔥 {background-color="#2c3e50" .white-text}
+
+เลือก row ตามเงื่อนไข แล้วสรุปผล — หลายขั้นในบรรทัดเดียว
+
+## ท้าทาย #21: รวมเฉพาะ row ที่ตรงเงื่อนไข {.exercise}
+
+หาผลรวม column ที่ 2 **เฉพาะ row ที่ column แรก `== 1`** — เติม operator
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+import numpy as np
+x = np.array([[1, 10, 5],
+              [0, 20, 3],
+              [1, 30, 7]])
+mask = (x[:, 0] ____ 1)      # selector จาก column แรก
+print(np.sum(x[mask, 1]))    # รวม column ที่ 2 เฉพาะ row ที่เลือก
+```
+
+### เฉลย
+
+```python
+import numpy as np
+x = np.array([[1, 10, 5],
+              [0, 20, 3],
+              [1, 30, 7]])
+mask = (x[:, 0] == 1)
+print(np.sum(x[mask, 1]))
+```
+
+```{.python .code-output}
+40
+```
+
+:::
+
+::: {.callout-note}
+`mask` = `[True, False, True]` → เลือก row 0 และ 2 → column 1 = `10 + 30 = 40`
+:::
+
+# จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
+
+🎉 จบคอร์สแล้ว — ทบทวนเนื้อหาเต็มได้ที่ [Module 12b](module12b.html) · กลับหน้าสารบัญ [🏠 259201](../index.html)

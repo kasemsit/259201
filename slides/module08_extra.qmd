@@ -30,6 +30,7 @@ execute:
 ::: {.incremental}
 - **Multiple Choice** — เลือกคำตอบที่ถูก แล้วกดถัดไปเพื่อดูเฉลย
 - **เติมคำในช่องว่าง** — ลองพิมพ์ใน Live Code แล้วรัน
+- **ทำนายผล · ไล่ค่าตัวแปร · หา Bug** — ฝึกอ่านโค้ดให้เข้าใจจริง
 :::
 
 . . .
@@ -345,6 +346,294 @@ print(count)
 3
 ```
 
+:::
+
+# ทำนายผล 🔮 {background-color="#2c3e50" .white-text}
+
+โค้ดจะพิมพ์อะไร? — ทายก่อน แล้วกดถัดไปดูเฉลย
+
+## ทำนายผล #15 {.exercise}
+
+```python
+for i, x in enumerate(["p", "q", "r"]):
+    print(i, x)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์:**
+```
+0 p
+1 q
+2 r
+```
+`enumerate()` ให้คู่ `(index, value)` เริ่ม index ที่ `0`
+:::
+
+## ทำนายผล #16: ชวนคิด {.exercise-think}
+
+```python
+d = {"a": 1, "b": 2}
+for k in d:
+    print(k, end=" ")
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `a b`** — วน `for` บน dict โดยตรง จะได้ **key** (ไม่ใช่ value) · อยากได้ทั้งคู่ใช้ `.items()`
+:::
+
+# ไล่ค่าตัวแปร 🔍 {background-color="#2c3e50" .white-text}
+
+ไล่ค่าตัวแปรทีละรอบของลูป
+
+## ไล่ค่าตัวแปร #17: ชวนคิด {.exercise-think}
+
+```python
+scores = [45, 80, 30, 60]
+count = 0
+for s in scores:
+    if s >= 50:
+        count += 1
+```
+
+เติมค่า `count` หลังพิจารณาแต่ละ `s`
+
+| `s` | `s >= 50` | `count` |
+|:--:|:--:|:--:|
+| 45 | ? | ? |
+| 80 | ? | ? |
+| 30 | ? | ? |
+| 60 | ? | ? |
+
+. . .
+
+::: {.callout-tip}
+| `s` | `s >= 50` | `count` |
+|:--:|:--:|:--:|
+| 45 | เท็จ | `0` |
+| 80 | จริง | `1` |
+| 30 | เท็จ | `1` |
+| 60 | จริง | `2` |
+
+นับได้ **2 คน** ที่คะแนน ≥ 50
+:::
+
+# หา Bug 🐞 {background-color="#2c3e50" .white-text}
+
+โค้ดผิดตรงไหน — ทำไม
+
+## หา Bug #18: ชวนคิด {.exercise-think}
+
+```python
+d = {"a": 1, "b": 2}
+for k, v in d:          # อยากได้ทั้ง key และ value
+    print(k, v)
+```
+
+ผิดตรงไหน?
+
+. . .
+
+::: {.callout-important}
+**ผิด:** วน `for k, v in d` ตรง ๆ ไม่ได้ (dict ให้ทีละ key) → `ValueError`
+**แก้:** `for k, v in d.items():` เพื่อได้คู่ `(key, value)`
+:::
+
+# เจาะจุดยาก: เข้าถึงข้อมูลหลายชั้น 🎯 {background-color="#2c3e50" .white-text}
+
+ฝึกเพิ่ม — nested access & วน dict
+
+## ทำนายผล #19: ชวนคิด {.exercise-think}
+
+```python
+m = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+print(m[1][2], m[2][0])
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `6 7`** — `m[1]` = `[4,5,6]` แล้ว `[2]` = `6` · `m[2]` = `[7,8,9]` แล้ว `[0]` = `7`
+:::
+
+## ทำนายผล #20: ชวนคิด {.exercise-think}
+
+```python
+d = {"a": 1, "b": 2}
+for k, v in d.items():
+    print(k, v * 10)
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์:**
+```
+a 10
+b 20
+```
+`.items()` ให้คู่ `(key, value)` → คำนวณ `v*10` แต่ละรอบ
+:::
+
+# Engineering Application 🔧 {background-color="#2c3e50" .white-text}
+
+วนลูปประมวลผลข้อมูลการวัดหลายชุด
+
+## Engineering #21 {.exercise}
+
+```python
+data = [{"id": 1, "value": 3.5},
+        {"id": 2, "value": 4.1}]
+for d in data:
+    print(d["id"], d["value"])
+```
+
+. . .
+
+::: {.callout-tip}
+**ผลลัพธ์:**
+```
+1 3.5
+2 4.1
+```
+วน list ของ dict — เข้าถึงแต่ละ record ด้วย key
+:::
+
+## Engineering #22 {.exercise}
+
+เติมเงื่อนไขนับจำนวนค่าที่ **เกินพิกัด** (> 50)
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+readings = [12, 55, 48, 70, 33]
+count = 0
+for r in readings:
+    if r ____ 50:
+        count += 1
+print(count)
+```
+
+### เฉลย
+
+```python
+readings = [12, 55, 48, 70, 33]
+count = 0
+for r in readings:
+    if r > 50:
+        count += 1
+print(count)
+```
+
+```{.python .code-output}
+2
+```
+
+:::
+
+## Engineering #23: กำลังไฟรวมของอุปกรณ์ {.exercise}
+
+เติม key ให้รวม**กำลังไฟ (W)** ของทุกอุปกรณ์
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+devices = [{"name": "A", "watt": 60},
+           {"name": "B", "watt": 100}]
+total = 0
+for d in devices:
+    total += d[____]
+print(total, "W")
+```
+
+### เฉลย
+
+```python
+devices = [{"name": "A", "watt": 60},
+           {"name": "B", "watt": 100}]
+total = 0
+for d in devices:
+    total += d["watt"]
+print(total, "W")
+```
+
+```{.python .code-output}
+160 W
+```
+
+:::
+
+# ท้าทาย 🔥 {background-color="#2c3e50" .white-text}
+
+รวม loop + dict + เงื่อนไข เป็นอัลกอริทึมจริง
+
+## ท้าทาย #24: นับความถี่ {.exercise}
+
+นับว่าแต่ละตัวปรากฏกี่ครั้ง เก็บใน dict — เติมโค้ด
+
+::: {.panel-tabset}
+
+### Live Code
+
+```{pyodide}
+#| autorun: false
+items = ["a", "b", "a", "c", "a", "b"]
+count = {}
+for x in items:
+    if x in count:
+        count[x] ____ 1
+    else:
+        count[x] = 1
+print(count)
+```
+
+### เฉลย
+
+```python
+items = ["a", "b", "a", "c", "a", "b"]
+count = {}
+for x in items:
+    if x in count:
+        count[x] += 1
+    else:
+        count[x] = 1
+print(count)
+```
+
+```{.python .code-output}
+{'a': 3, 'b': 2, 'c': 1}
+```
+
+:::
+
+## ท้าทาย #25: หา key ที่ค่ามากสุด {.exercise-think}
+
+```python
+scores = {"A": 80, "B": 95, "C": 88}
+best = ""
+high = -1
+for k, v in scores.items():
+    if v > high:
+        high = v
+        best = k
+print(best)
+```
+
+. . .
+
+::: {.callout-important}
+**ผลลัพธ์: `B`** — ไล่ทุกคู่ เก็บ key ที่ค่าสูงสุดไว้ใน `best` (95 ของ B ชนะ)
 :::
 
 # จบการทบทวน 🎉 {background-color="#2c3e50" .white-text}
