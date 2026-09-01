@@ -129,7 +129,7 @@ Area of triangle: 12.0
 
 :::
 
-## โจทย์ #2 {.exercise .smaller}
+## โจทย์ #2 {.exercise}
 
 :::: {.columns}
 ::: {.column width="45%"}
@@ -345,13 +345,15 @@ def function_name( parameter_list ):
 
 **การนิยามฟังก์ชัน** ต้องทำไว้**ก่อน**บรรทัดที่จะเรียกใช้งานฟังก์ชันนั้นเสมอ (หลักการเดียวกับการประกาศตัวแปรก่อนใช้)
 
+:::: {.columns}
+::: {.column width="46%"}
 ```python
 1   # Function definition
 2   def functionA(x, y, z):
 3       statement_1
 4       ...
 5       result = ...
-6       return result
+6       return result   
 7   # end-of-function definition
 8
 9   # Main program
@@ -362,10 +364,12 @@ def function_name( parameter_list ):
 14  y = functionA(n, 10, [2.5, 2.0])
 15  print(f'Result: {y:.2f}')
 ```
+:::
+::: {.column width="53%"}
 
-## ลำดับการทำงาน {#m9-def-order}
+[**ลำดับการทำงาน**]{#m9-def-order}
 
-::: {.incremental}
+::: {.incremental style="font-size:0.7em"}
 - Python interpreter เริ่มอ่านโค้ดจากบรรทัดแรกของไฟล์
 - Python **ทำความรู้จัก**ฟังก์ชันที่ประกาศไว้ แต่ยัง**ไม่ประมวลผล** (ยังไม่รัน)
 - Python เริ่มประมวลผล(รัน)โค้ดใน**ส่วนโปรแกรมหลัก**เสมอ
@@ -373,6 +377,9 @@ def function_name( parameter_list ):
   - เริ่มรันโค้ดของฟังก์ชัน (`บรรทัดที่ 2-6`) โดย `x=n`, `y=10`, `z=[2.5, 2.0]`
   - เมื่อจบการทำงาน **ผลลัพธ์**ใน `result` จะถูกส่งไปให้ตัวแปร `y` ในโปรแกรมหลัก
 :::
+
+:::
+::::
 
 # ฟังก์ชันที่รับพารามิเตอร์ และคืนค่า 📥📤 {background-color="#2c3e50" .white-text}
 
@@ -755,11 +762,13 @@ Parameter passing & return value
 
 **call** ส่งพารามิเตอร์เข้าฟังก์ชัน → ฟังก์ชันทำงาน → **return** คืนค่ากลับมายังโปรแกรมหลัก
 
-## ตัวอย่าง: 2 ฟังก์ชันทำงานร่วมกัน {#m9-example-graphic}
+## ตัวอย่าง: 2 ฟังก์ชันในโปรแกรมเดียว {#m9-example-graphic}
 
 - **`myPrintString(cnt)`** — รับ `cnt`, รับข้อความจากผู้ใช้ แล้ววนพิมพ์ข้อความ `cnt` รอบ
 - **`myGraphic(ch, cnt)`** — รับ `ch`, `cnt`; for-loop ด้านนอกขึ้นบรรทัดใหม่, ด้านในพิมพ์ตามเงื่อนไข
 
+:::: {.columns}
+::: {.column width="48%"}
 ```python
 def myPrintString(cnt):
     i = 0
@@ -769,7 +778,10 @@ def myPrintString(cnt):
         i = i + 1
         print(f"\t{i}. {str}")
     print("---- End myPrintString ----")
-
+```
+:::
+::: {.column width="52%"}
+```python
 def myGraphic(ch, cnt):
     print("------ myGraphic ------")
     for i in range(cnt):
@@ -781,6 +793,8 @@ def myGraphic(ch, cnt):
         print()
     print("---- End myGraphic ----")
 ```
+:::
+::::
 
 ## ตัวอย่าง: การเรียกใช้และผลลัพธ์ {#m9-example-graphic-run}
 
@@ -817,13 +831,24 @@ myGraphic(ch, N)
 
 ## ฟังก์ชันที่มี `return` หลายแห่ง {#m9-multiple-return}
 
+:::: {.columns}
+::: {.column width="45%"}
+
 - **ฟังก์ชันจะจบการทำงาน และส่งค่าคืนทันที** เมื่อทำงานไปจนพบคำสั่ง `return`
 - ฟังก์ชันจะจบที่บรรทัดใด ขึ้นอยู่กับค่าตัวแปร `score`
 
-![](images/m9-multiple-return.svg){width="560px" fig-align="center"}
+:::
+::: {.column width="55%"}
 
-## `return` หลายแห่ง: ผลลัพธ์ {#m9-multiple-return-run}
+![](images/m9-multiple-return.svg){height="580px" fig-align="center"}
 
+:::
+::::
+
+## `return` หลายแห่ง: การเรียกใช้และผลลัพธ์ {#m9-multiple-return-run}
+
+:::: {.columns}
+::: {.column width="48%"}
 ```python
 def myGrade(score):
     if score < 0 or score > 100:
@@ -834,6 +859,19 @@ def myGrade(score):
     elif score >= 60: return 'C'
     elif score >= 50: return 'D'
     else: return 'F'
+
+# Main program
+scores = [78, 92, 48, 75, 155, 75]
+grades = []
+for s in scores:
+    grades.append(myGrade(s))   # เก็บค่าที่ return
+```
+:::
+::: {.column width="52%"}
+```python
+for i in range(len(scores)):
+    print(f"Student#{i+1} ({scores[i]}) "
+          f"gets {grades[i]}")
 ```
 
 ```{.python .code-output}
@@ -845,10 +883,154 @@ Student#4 (75) gets B
 Student#5 (155) gets X
 Student#6 (75) gets B
 ```
+:::
+::::
 
 ::: {.callout-note}
-ทบทวน: [if-elif-else (Module 5)](module05.html#m5-if-else)
+ทบทวน: [if-elif-else (Module 5)](module05.html#m5-if-else) · [list (Module 4a)](module04a.html#m4-list)
 :::
+
+## `return` vs พิมพ์ในฟังก์ชัน {#m9-return-vs-print}
+
+:::: {.columns}
+::: {.column width="50%"}
+**แบบ A — `return` ค่ากลับไป**
+
+```python
+def myGrade(score):
+    if score < 0 or score > 100:
+        return 'X'
+    elif score >= 80: return 'A'
+    elif score >= 70: return 'B'
+    elif score >= 60: return 'C'
+    elif score >= 50: return 'D'
+    else: return 'F'
+```
+
+ฟังก์ชัน**ส่งเกรดกลับ** — ไม่พิมพ์อะไรเลย
+:::
+::: {.column width="50%"}
+**แบบ B — assign แล้ว `print` ในฟังก์ชัน**
+
+```python
+def showGrade(score):
+    if score < 0 or score > 100:
+        grade = 'X'
+    elif score >= 80: grade = 'A'
+    elif score >= 70: grade = 'B'
+    elif score >= 60: grade = 'C'
+    elif score >= 50: grade = 'D'
+    else: grade = 'F'
+    print(grade)      # พิมพ์ทิ้งไปเลย
+```
+
+ฟังก์ชัน**พิมพ์เอง** — ไม่ส่งค่ากลับ
+:::
+::::
+
+## ต่างกันตอนเอาไปใช้ต่อ {#m9-return-vs-print-run}
+
+:::: {.columns}
+::: {.column width="50%"}
+```python
+g = myGrade(92)          # g = 'A'
+print(f"Grade: {g}")
+if g == 'A':
+    print("Excellent!")
+```
+
+```{.python .code-output}
+Grade: A
+Excellent!
+```
+
+✅ ค่าถูกเก็บใน `g` → **เอาไปคิดต่อได้**
+:::
+::: {.column width="50%"}
+```python
+g = showGrade(92)        # พิมพ์ A ทันที
+print(f"Grade: {g}")
+if g == 'A':
+    print("Excellent!")
+```
+
+```{.python .code-output}
+A
+Grade: None
+```
+
+❌ ฟังก์ชันไม่มี `return` → `g` เป็น `None`
+:::
+::::
+
+. . .
+
+::: {.callout-important}
+ฟังก์ชันที่ไม่มี `return` จะคืนค่า **`None`** เสมอ — เอาไปเก็บ ไปเทียบ หรือไปคำนวณต่อไม่ได้
+:::
+
+::: {.callout-tip}
+**หลักคิด:** ให้ฟังก์ชัน**คำนวณแล้ว `return`** ส่วนการ `print` ปล่อยให้โปรแกรมหลักตัดสินใจเอง — ฟังก์ชันแบบนี้นำกลับมาใช้ซ้ำได้มากกว่า
+:::
+
+## ระวัง: ลืมวงเล็บ `()` {#m9-call-no-paren}
+
+**เขียนแค่ชื่อฟังก์ชัน = ยังไม่ได้เรียกใช้** — ต้องมี `()` ต่อท้ายเสมอ
+
+:::: {.columns}
+::: {.column width="50%"}
+```python
+g = myGrade(92)     # มี ()
+print(g)
+```
+
+```{.python .code-output}
+A
+```
+
+✅ ฟังก์ชัน**ทำงาน** → `g` เก็บค่าที่ `return`
+:::
+::: {.column width="50%"}
+```python
+g = myGrade         # ลืม ()
+print(g)
+```
+
+```{.python .code-output}
+<function myGrade at 0x7330...>
+```
+
+❌ ฟังก์ชัน**ไม่ทำงาน** → `g` คือ**ตัวฟังก์ชันเอง**
+:::
+::::
+
+. . .
+
+::: {.callout-warning}
+เขียน `printLine` เฉย ๆ ก็**ไม่มีอะไรเกิดขึ้น** และ**ไม่ฟ้อง error** ด้วย — ต้องเขียน `printLine()` เท่านั้น
+:::
+
+## ระวัง: ลืมวงเล็บ `()` (ต่อ) {.exercise-think}
+
+**คิดก่อน:** โค้ดนี้พิมพ์อะไรออกมา?
+
+```python
+def myGrade(score):
+    if score >= 80: return 'A'
+    else: return 'F'
+
+g = myGrade
+if g == 'A':
+    print("Excellent!")
+else:
+    print("Not an A")
+```
+
+<details><summary>เฉลย</summary>
+
+พิมพ์ `Not an A` — เพราะ `g` เป็น**ตัวฟังก์ชัน** ไม่ใช่ `'A'` โปรแกรม**ไม่ error** แต่ผลลัพธ์**ผิด** → บั๊กแบบนี้หายาก ต้องระวังตอนเขียน
+
+</details>
 
 # ขอบเขตตัวแปร (Scope) 🔒 {background-color="#2c3e50" .white-text}
 
@@ -872,6 +1054,12 @@ Local vs Global variables
 - **คงอยู่**ตลอดการทำงานของโปรแกรม
 :::
 ::::
+
+## ภาพรวม: กล่องซ้อนกล่อง {#m9-scope-diagram}
+
+![](images/m9-scope.svg){width="820px" fig-align="center"}
+
+**ในมองออกได้ · นอกมองเข้าไม่ได้** — ฟังก์ชันอ่าน global ได้ แต่ตัวแปร local ออกนอกฟังก์ชันไม่ได้
 
 ## ตัวอย่าง I: global x, local y {#m9-scope-1}
 
@@ -958,6 +1146,12 @@ myFunction():x 3
 ```
 :::
 ::::
+
+## ทำไม `x` ถึงไม่เปลี่ยน? {#m9-scope-shadow}
+
+![](images/m9-scope-shadow.svg){width="820px" fig-align="center"}
+
+`x = 3` ในฟังก์ชัน **สร้างตัวแปรใหม่** ในขอบเขตของฟังก์ชัน — ไม่ได้ไปแก้ global `x`
 
 ## ตัวอย่าง IV: parameter ก็เป็น local {#m9-scope-4}
 

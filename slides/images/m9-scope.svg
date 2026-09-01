@@ -1,0 +1,54 @@
+<svg width="760" height="380" viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+  <defs>
+    <marker id="m9-scope-ok" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27ae60"/></marker>
+    <marker id="m9-scope-no" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c0392b"/></marker>
+  </defs>
+
+  <!-- GLOBAL SCOPE -->
+  <text class="th" x="40" y="44" font-weight="bold" fill="#7f8c8d">Global scope — ขอบเขตทั้งโปรแกรม</text>
+  <rect x="20" y="54" width="720" height="300" rx="8" fill="#fbfcfc" stroke="#7f8c8d" stroke-width="2"/>
+
+  <rect x="44" y="76" width="150" height="34" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/>
+  <text x="119" y="99" text-anchor="middle" fill="#2980b9" font-weight="bold">x = 10</text>
+  <text class="th" x="44" y="130" font-size="12" fill="#7f8c8d">ใช้ได้ทุกที่ในโปรแกรม</text>
+
+  <text x="44" y="184">print(x)</text>
+  <text x="124" y="184" fill="#27ae60" font-weight="bold">✓</text>
+  <text x="44" y="214">myFunction()</text>
+
+  <rect x="44" y="278" width="300" height="36" rx="6" fill="#fdedec" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="60" y="301">print(y)</text>
+  <text x="140" y="301" font-size="13" fill="#c0392b" font-weight="bold">✕ NameError</text>
+
+  <!-- LOCAL SCOPE -->
+  <rect x="390" y="76" width="330" height="250" rx="8" fill="#f7fcf9" stroke="#27ae60" stroke-width="2"/>
+  <text x="406" y="104" fill="#27ae60">def myFunction():</text>
+  <text class="th" x="704" y="104" text-anchor="end" font-size="12" fill="#27ae60">Local scope</text>
+
+  <text x="422" y="144">print(x)</text>
+  <text class="th" x="500" y="144" font-size="12" fill="#27ae60">✓ ใช้ <tspan class="c">global x</tspan> ได้</text>
+
+  <rect x="422" y="162" width="140" height="32" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+  <text x="492" y="184" text-anchor="middle" fill="#27ae60" font-weight="bold">y = 5</text>
+  <text class="th" x="574" y="184" font-size="12" fill="#27ae60">ตัวแปร local</text>
+
+  <text x="422" y="232">print(y)</text>
+  <text x="502" y="232" fill="#27ae60" font-weight="bold">✓</text>
+
+  <text class="th" x="406" y="302" font-size="12" fill="#c0392b">จบฟังก์ชัน → <tspan class="c">y</tspan> ถูกทำลาย</text>
+
+  <!-- ARROW: global readable inside function -->
+  <path d="M 198 95 C 280 95, 300 140, 384 144" fill="none" stroke="#27ae60" stroke-width="2.5" marker-end="url(#m9-scope-ok)"/>
+  <text class="th" x="288" y="132" text-anchor="middle" font-size="12" fill="#27ae60">ฟังก์ชันอ่าน global ได้</text>
+
+  <!-- ARROW: local cannot escape -->
+  <path d="M 424 196 C 400 234, 402 282, 352 296" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#m9-scope-no)"/>
+  <circle cx="391" cy="265" r="12" fill="#fdedec" stroke="#c0392b" stroke-width="2"/>
+  <text x="391" y="270" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="bold">✕</text>
+  <text class="th" x="250" y="252" text-anchor="middle" font-size="12" fill="#c0392b">local ออกไปนอกขอบเขตไม่ได้</text>
+</svg>

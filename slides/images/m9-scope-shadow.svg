@@ -1,0 +1,53 @@
+<svg width="760" height="380" viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="14">
+<style>
+  text { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+  text.th, text.th tspan { font-family: 'Noto Sans Thai', 'Sarabun', Inter, 'Segoe UI', system-ui, sans-serif; }
+  tspan.c { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+</style>
+  <defs>
+    <marker id="m9-scope-shadow-step" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7f8c8d"/></marker>
+  </defs>
+
+  <!-- GLOBAL SCOPE -->
+  <text class="th" x="40" y="44" font-weight="bold" fill="#7f8c8d">ชื่อเดียวกัน แต่คนละตัวแปร</text>
+  <rect x="20" y="54" width="720" height="310" rx="8" fill="#fbfcfc" stroke="#7f8c8d" stroke-width="2"/>
+
+  <rect x="44" y="76" width="150" height="34" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/>
+  <text x="119" y="99" text-anchor="middle" fill="#2980b9" font-weight="bold">x = 10</text>
+  <text class="th" x="44" y="130" font-size="12" fill="#2980b9">global <tspan class="c">x</tspan> — อยู่นอกฟังก์ชัน</text>
+
+  <!-- LOCAL SCOPE -->
+  <rect x="390" y="76" width="330" height="170" rx="8" fill="#f7fcf9" stroke="#27ae60" stroke-width="2"/>
+  <text x="406" y="104" fill="#27ae60">def myFunction():</text>
+  <rect x="422" y="122" width="140" height="34" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+  <text x="492" y="145" text-anchor="middle" fill="#27ae60" font-weight="bold">x = 3</text>
+  <text class="th" x="574" y="145" font-size="12" fill="#27ae60">local <tspan class="c">x</tspan></text>
+  <text x="422" y="200">print(x)</text>
+  <text x="502" y="200" fill="#27ae60" font-weight="bold">→ 3</text>
+
+  <!-- NOT THE SAME BOX -->
+  <line x1="198" y1="100" x2="384" y2="136" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="291" cy="118" r="12" fill="#fdedec" stroke="#c0392b" stroke-width="2"/>
+  <text x="291" y="123" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="bold">✕</text>
+  <text class="th" x="291" y="158" text-anchor="middle" font-size="12" fill="#c0392b">คนละกล่อง ไม่เกี่ยวกัน</text>
+
+  <!-- EXECUTION TRACE -->
+  <text class="th" x="44" y="258" font-size="12" fill="#7f8c8d">ลำดับการทำงาน — ค่าที่พิมพ์ออกมา</text>
+
+  <rect x="44" y="268" width="200" height="62" rx="6" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="144" y="292" text-anchor="middle"><tspan fill="#7f8c8d">①</tspan> print(x)</text>
+  <text x="144" y="316" text-anchor="middle" fill="#2980b9" font-weight="bold">10</text>
+
+  <line x1="250" y1="299" x2="258" y2="299" stroke="#7f8c8d" stroke-width="2" marker-end="url(#m9-scope-shadow-step)"/>
+
+  <rect x="264" y="268" width="200" height="62" rx="6" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="364" y="292" text-anchor="middle"><tspan fill="#7f8c8d">②</tspan> myFunction()</text>
+  <text x="364" y="316" text-anchor="middle" fill="#27ae60" font-weight="bold">3</text>
+
+  <line x1="470" y1="299" x2="478" y2="299" stroke="#7f8c8d" stroke-width="2" marker-end="url(#m9-scope-shadow-step)"/>
+
+  <rect x="484" y="268" width="200" height="62" rx="6" fill="#f4f6f7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="584" y="292" text-anchor="middle"><tspan fill="#7f8c8d">③</tspan> print(x)</text>
+  <text x="584" y="316" text-anchor="middle" fill="#2980b9" font-weight="bold">10</text>
+  <text class="th" x="584" y="350" text-anchor="middle" font-size="12" fill="#7f8c8d">global <tspan class="c">x</tspan> ไม่ถูกเปลี่ยน</text>
+</svg>
