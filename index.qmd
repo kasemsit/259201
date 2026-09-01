@@ -27,10 +27,10 @@ Introduction to computers for engineers. Principles of computer hardware and sof
 | 4  | Collections: List | [Slides](slides/module04a.html){target="_blank"}, [Extras](slides/module04a_extra.html){target="_blank"}   |
 |   | Collections: Tuple, Set and Dictionary | [Slides](slides/module04b.html){target="_blank"}, [Extras](slides/module04b_extra.html){target="_blank"} |
 | 5 | Conditions: Boolean, in, if-else, if-elif-else | [Slides](slides/module05.html){target="_blank"}, [Extras](slides/module05_extra.html){target="_blank"} |
-| 6 | Iterations (I): while-loop | [Slides](slides/module06.html){target="_blank"} (?), [Extras](slides/module06_extra.html){target="_blank"} |
-| 7 | Iterations (II): for-loop | [Slides](slides/module07.html){target="_blank"} (?), [Extras](slides/module07_extra.html){target="_blank"} |
-| 8 | Iterations and Collections | [Slides](slides/module08.html){target="_blank"} (?), [Extras](slides/module08_extra.html){target="_blank"} |
-| 9 | Functions | [Slides](slides/module09.html){target="_blank"} (?), [Extras](slides/module09_extra.html){target="_blank"} |
+| 6 | Iterations (I): while-loop | [Slides](slides/module06.html){target="_blank"}, [Extras](slides/module06_extra.html){target="_blank"} |
+| 7 | Iterations (II): for-loop | [Slides](slides/module07.html){target="_blank"}, [Extras](slides/module07_extra.html){target="_blank"} |
+| 8 | Iterations and Collections | [Slides](slides/module08.html){target="_blank"}, [Extras](slides/module08_extra.html){target="_blank"} |
+| 9 | Functions | [Slides](slides/module09.html){target="_blank"}, [Extras](slides/module09_extra.html){target="_blank"} |
 | 10 | List Comprehension and 2D Arrays | [Slides](slides/module10.html){target="_blank"} (?), [Extras](slides/module10_extra.html){target="_blank"} |
 | 11 | Basic Data Visualization with Matplotlib | [Slides](slides/module11.html){target="_blank"} (?), [Extras](slides/module11_extra.html){target="_blank"} |
 | 12 | N-Dimensional Arrays with Numpy (I) | [Slides](slides/module12a.html){target="_blank"} (?), [Extras](slides/module12a_extra.html){target="_blank"} |
