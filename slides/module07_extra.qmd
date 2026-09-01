@@ -16,6 +16,9 @@ format:
     logo: ""
     footer: "[🏠 259201](../index.html) — Module 7 ทบทวน | ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่"
     code-block-height: 480px
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
 pyodide:
   packages: []
 execute:

@@ -18,6 +18,9 @@ format:
     code-block-height: 480px
     mermaid:
       theme: neutral
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
 pyodide:
   packages: []
 execute:
